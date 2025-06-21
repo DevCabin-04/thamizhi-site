@@ -1,0 +1,332 @@
+{
+  "hero": {
+    "title": "Our Departments",
+    "title_tamil": "எங்கள் துறைகள்",
+    "description": "Discover the various departments and programs that make Thamizhi a comprehensive cultural organization dedicated to preserving and promoting Tamil heritage."
+  },
+  "departments": [
+    {
+      "id": "cultural",
+      "name": "Cultural Programs",
+      "name_tamil": "பண்பாட்டு திட்டங்கள்",
+      "description": "Preserving and promoting Tamil cultural traditions through various artistic and cultural activities",
+      "icon": "cultural",
+      "color": "from-orange-500 to-red-600",
+      "head": {
+        "name": "Dr. Kavitha Sundaram",
+        "name_tamil": "டாக்டர் கவிதா சுந்தரம்",
+        "position": "Cultural Director",
+        "position_tamil": "பண்பாட்டு இயக்குநர்"
+      },
+      "programs": [
+        {
+          "name": "Traditional Dance Classes",
+          "name_tamil": "பாரம்பரிய நடன வகுப்புகள்",
+          "description": "Bharatanatyam, Kuchipudi, and folk dance instruction"
+        },
+        {
+          "name": "Classical Music Training",
+          "name_tamil": "கர்நாடக சங்கீத பயிற்சி",
+          "description": "Vocal and instrumental Carnatic music lessons"
+        },
+        {
+          "name": "Festival Celebrations",
+          "name_tamil": "திருவிழா கொண்டாட்டங்கள்",
+          "description": "Annual Tamil festivals and cultural celebrations"
+        },
+        {
+          "name": "Cultural Workshops",
+          "name_tamil": "பண்பாட்டு பயிலரங்கங்கள்",
+          "description": "Traditional crafts, arts, and cultural practices"
+        }
+      ],
+      "achievements": [
+        "50+ cultural events organized annually",
+        "200+ students trained in traditional arts",
+        "15 major festival celebrations each year"
+      ],
+      "contact": {
+        "email": "cultural@thamizhi.org",
+        "phone": "+1 (555) 123-4567"
+      }
+    },
+    {
+      "id": "education",
+      "name": "Language Education",
+      "name_tamil": "மொழிக் கல்வி",
+      "description": "Comprehensive Tamil language education for all age groups and proficiency levels",
+      "icon": "education",
+      "color": "from-blue-500 to-indigo-600",
+      "head": {
+        "name": "Prof. Ramesh Kumar",
+        "name_tamil": "பேராசிரியர் ரமேஷ் குமார்",
+        "position": "Education Director",
+        "position_tamil": "கல்வி இயக்குநர்"
+      },
+      "programs": [
+        {
+          "name": "Beginner Tamil Classes",
+          "name_tamil": "தொடக்க தமிழ் வகுப்புகள்",
+          "description": "Basic Tamil script, pronunciation, and vocabulary"
+        },
+        {
+          "name": "Advanced Literature Studies",
+          "name_tamil": "உயர்நிலை இலக்கிய ஆய்வுகள்",
+          "description": "Classical and modern Tamil literature analysis"
+        },
+        {
+          "name": "Children's Tamil School",
+          "name_tamil": "குழந்தைகள் தமிழ்ப் பள்ளி",
+          "description": "Age-appropriate Tamil learning for kids"
+        },
+        {
+          "name": "Adult Literacy Program",
+          "name_tamil": "பெரியவர் எழுத்தறிவு திட்டம்",
+          "description": "Tamil reading and writing for adults"
+        }
+      ],
+      "achievements": [
+        "300+ students enrolled in language programs",
+        "95% pass rate in Tamil proficiency exams",
+        "25 certified Tamil teachers"
+      ],
+      "contact": {
+        "email": "education@thamizhi.org",
+        "phone": "+1 (555) 123-4568"
+      }
+    },
+    {
+      "id": "community",
+      "name": "Community Services",
+      "name_tamil": "சமுதாய சேவைகள்",
+      "description": "Supporting Tamil families and individuals through various community outreach and assistance programs",
+      "icon": "community",
+      "color": "from-green-500 to-teal-600",
+      "head": {
+        "name": "Mrs. Lakshmi Raman",
+        "name_tamil": "திருமதி லட்சுமி ராமன்",
+        "position": "Community Services Director",
+        "position_tamil": "சமுதாய சேவை இயக்குநர்"
+      },
+      "programs": [
+        {
+          "name": "Family Support Services",
+          "name_tamil": "குடும்ப ஆதரவு சேவைகள்",
+          "description": "Counseling and assistance for families in need"
+        },
+        {
+          "name": "Senior Citizens Care",
+          "name_tamil": "மூத்தோர் பராமரிப்பு",
+          "description": "Special programs and support for elderly members"
+        },
+        {
+          "name": "New Immigrant Assistance",
+          "name_tamil": "புதிய குடியேறியவர் உதவி",
+          "description": "Integration support for new Tamil immigrants"
+        },
+        {
+          "name": "Health and Wellness",
+          "name_tamil": "சுகாதாரம் மற்றும் நலம்",
+          "description": "Health awareness and wellness programs"
+        }
+      ],
+      "achievements": [
+        "500+ families assisted annually",
+        "12 health awareness programs conducted",
+        "200+ senior citizens supported"
+      ],
+      "contact": {
+        "email": "community@thamizhi.org",
+        "phone": "+1 (555) 123-4569"
+      }
+    },
+    {
+      "id": "youth",
+      "name": "Youth Programs",
+      "name_tamil": "இளைஞர் திட்டங்கள்",
+      "description": "Empowering Tamil youth through leadership development, cultural engagement, and educational opportunities",
+      "icon": "youth",
+      "color": "from-purple-500 to-pink-600",
+      "head": {
+        "name": "Mr. Arun Krishnan",
+        "name_tamil": "திரு. அருண் கிருஷ்ணன்",
+        "position": "Youth Programs Director",
+        "position_tamil": "இளைஞர் திட்ட இயக்குநர்"
+      },
+      "programs": [
+        {
+          "name": "Youth Leadership Council",
+          "name_tamil": "இளைஞர் தலைமைக் குழு",
+          "description": "Leadership development and community engagement"
+        },
+        {
+          "name": "Cultural Ambassador Program",
+          "name_tamil": "பண்பாட்டு தூதர் திட்டம்",
+          "description": "Training youth to represent Tamil culture"
+        },
+        {
+          "name": "Academic Excellence Support",
+          "name_tamil": "கல்வி சிறப்பு ஆதரவு",
+          "description": "Tutoring and scholarship programs"
+        },
+        {
+          "name": "Sports and Recreation",
+          "name_tamil": "விளையாட்டு மற்றும் பொழுதுபோக்கு",
+          "description": "Physical activities and recreational programs"
+        }
+      ],
+      "achievements": [
+        "150+ youth actively participating",
+        "25 leadership positions filled by youth",
+        "85% college enrollment rate among participants"
+      ],
+      "contact": {
+        "email": "youth@thamizhi.org",
+        "phone": "+1 (555) 123-4570"
+      }
+    },
+    {
+      "id": "media",
+      "name": "Media & Communications",
+      "name_tamil": "ஊடகம் மற்றும் தொடர்புகள்",
+      "description": "Managing publications, digital media, and community communications to promote Tamil culture and heritage",
+      "icon": "media",
+      "color": "from-yellow-500 to-orange-600",
+      "head": {
+        "name": "Ms. Divya Raghavan",
+        "name_tamil": "திருமதி திவ்யா ராகவன்",
+        "position": "Media Director",
+        "position_tamil": "ஊடக இயக்குநர்"
+      },
+      "programs": [
+        {
+          "name": "Tamil Publications",
+          "name_tamil": "தமிழ் வெளியீடுகள்",
+          "description": "Books, magazines, and educational materials"
+        },
+        {
+          "name": "Digital Media Platform",
+          "name_tamil": "டிஜிட்டல் ஊடக மேடை",
+          "description": "Website, social media, and online content"
+        },
+        {
+          "name": "Community Newsletter",
+          "name_tamil": "சமுதாய செய்திமடல்",
+          "description": "Monthly newsletter with community updates"
+        },
+        {
+          "name": "Documentary Projects",
+          "name_tamil": "ஆவணப்படத் திட்டங்கள்",
+          "description": "Preserving Tamil stories through video documentation"
+        }
+      ],
+      "achievements": [
+        "50+ publications released",
+        "10,000+ newsletter subscribers",
+        "5 award-winning documentaries produced"
+      ],
+      "contact": {
+        "email": "media@thamizhi.org",
+        "phone": "+1 (555) 123-4571"
+      }
+    },
+    {
+      "id": "outreach",
+      "name": "Outreach & Partnerships",
+      "name_tamil": "வெளிப்பக்க மற்றும் கூட்டாண்மை",
+      "description": "Building relationships with other organizations, government agencies, and educational institutions",
+      "icon": "outreach",
+      "color": "from-teal-500 to-blue-600",
+      "head": {
+        "name": "Dr. Sanjay Pillai",
+        "name_tamil": "டாக்டர் சஞ்சய் பிள்ளை",
+        "position": "Outreach Director",
+        "position_tamil": "வெளிப்பக்க இயக்குநர்"
+      },
+      "programs": [
+        {
+          "name": "Inter-cultural Dialogue",
+          "name_tamil": "பண்பாட்டுகளுக்கிடையே உரையாடல்",
+          "description": "Promoting understanding between different communities"
+        },
+        {
+          "name": "Educational Partnerships",
+          "name_tamil": "கல்வி கூட்டாண்மை",
+          "description": "Collaborations with schools and universities"
+        },
+        {
+          "name": "Government Relations",
+          "name_tamil": "அரசு தொடர்புகள்",
+          "description": "Advocacy and representation in government affairs"
+        },
+        {
+          "name": "Corporate Sponsorship",
+          "name_tamil": "நிறுவன ஆதரவு",
+          "description": "Building partnerships with businesses and corporations"
+        }
+      ],
+      "achievements": [
+        "20+ institutional partnerships established",
+        "15 corporate sponsors secured",
+        "Recognition from 3 government agencies"
+      ],
+      "contact": {
+        "email": "outreach@thamizhi.org",
+        "phone": "+1 (555) 123-4572"
+      }
+    }
+  ],
+  "volunteer_opportunities": {
+    "title": "Volunteer Opportunities",
+    "title_tamil": "தன்னார்வ வாய்ப்புகள்",
+    "description": "Join our dedicated team of volunteers and contribute to the preservation of Tamil culture",
+    "positions": [
+      {
+        "role": "Event Coordinator",
+        "role_tamil": "நிகழ்வு ஒருங்கிணைப்பாளர்",
+        "commitment": "5-10 hours/month",
+        "description": "Help organize and manage cultural events and programs"
+      },
+      {
+        "role": "Teaching Assistant",
+        "role_tamil": "கற்பித்தல் துணைவர்",
+        "commitment": "3-6 hours/week",
+        "description": "Support Tamil language and cultural education programs"
+      },
+      {
+        "role": "Media Volunteer",
+        "role_tamil": "ஊடக தன்னார்வலர்",
+        "commitment": "2-4 hours/week",
+        "description": "Help with photography, videography, and social media content"
+      },
+      {
+        "role": "Administrative Support",
+        "role_tamil": "நிர்வாக ஆதரவு",
+        "commitment": "4-8 hours/month",
+        "description": "Assist with office work, data entry, and administrative tasks"
+      }
+    ]
+  },
+  "contact_info": {
+    "title": "Department Contact Information",
+    "title_tamil": "துறை தொடர்பு தகவல்",
+    "general": {
+      "email": "info@thamizhi.org",
+      "phone": "+1 (555) 123-4500",
+      "address": [
+        "123 Tamil Heritage Street",
+        "Cultural District, City 12345",
+        "United States"
+      ]
+    },
+    "office_hours": {
+      "title": "Office Hours",
+      "title_tamil": "அலுவலக நேரங்கள்",
+      "schedule": [
+        "Monday - Friday: 9:00 AM - 6:00 PM",
+        "Saturday: 10:00 AM - 4:00 PM",
+        "Sunday: Closed (Events only)"
+      ]
+    }
+  }
+}
