@@ -1,0 +1,306 @@
+{
+  "hero": {
+    "title": "Publications",
+    "title_tamil": "வெளியீடுகள்",
+    "subtitle": "Tamil Literature & Resources",
+    "subtitle_tamil": "தமிழ் இலக்கியம் மற்றும் வளங்கள்",
+    "description": "Discover our collection of Tamil publications, research papers, and educational materials that preserve and promote Tamil culture and literature."
+  },
+  "categories": [
+    {
+      "id": "books",
+      "name": "Books",
+      "name_tamil": "புத்தகங்கள்",
+      "description": "Tamil literature, poetry, and educational books",
+      "description_tamil": "தமிழ் இலக்கியம், கவிதை மற்றும் கல்வி புத்தகங்கள்",
+      "count": 45,
+      "icon": "book"
+    },
+    {
+      "id": "magazines",
+      "name": "Magazines",
+      "name_tamil": "இதழ்கள்",
+      "description": "Monthly and quarterly Tamil magazines",
+      "description_tamil": "மாதாந்திர மற்றும் காலாண்டு தமிழ் இதழ்கள்",
+      "count": 12,
+      "icon": "magazine"
+    },
+    {
+      "id": "research",
+      "name": "Research Papers",
+      "name_tamil": "ஆராய்ச்சி கட்டுரைகள்",
+      "description": "Academic research on Tamil culture and history",
+      "description_tamil": "தமிழ் பண்பாடு மற்றும் வரலாறு குறித்த கல்வி ஆராய்ச்சி",
+      "count": 28,
+      "icon": "research"
+    },
+    {
+      "id": "educational",
+      "name": "Educational Materials",
+      "name_tamil": "கல்வி பொருட்கள்",
+      "description": "Learning resources for Tamil language",
+      "description_tamil": "தமிழ் மொழிக்கான கற்றல் வளங்கள்",
+      "count": 35,
+      "icon": "education"
+    }
+  ],
+  "featured_publications": [
+    {
+      "id": "heritage_chronicles",
+      "title": "Tamil Heritage Chronicles",
+      "title_tamil": "தமிழ் பாரம்பரிய வரலாறு",
+      "author": "Dr. Kumari Selvam",
+      "author_tamil": "டாக்டர் குமாரி செல்வம்",
+      "category": "History",
+      "category_tamil": "வரலாறு",
+      "year": "2024",
+      "pages": 328,
+      "isbn": "978-0-123456-78-9",
+      "description": "A comprehensive study of Tamil cultural heritage spanning over 2000 years, covering ancient traditions, art forms, and social customs.",
+      "description_tamil": "2000 ஆண்டுகளுக்கு மேலான தமிழ் பண்பாட்டு பாரம்பரியத்தின் விரிவான ஆய்வு, பண்டைய பாரம்பரியங்கள், கலை வடிவங்கள் மற்றும் சமூக பழக்கவழக்கங்களை உள்ளடக்கியது.",
+      "cover_color": "from-blue-500 to-blue-700",
+      "available": true,
+      "price": "$29.99",
+      "format": ["Hardcover", "Paperback", "E-book"]
+    },
+    {
+      "id": "modern_poetry",
+      "title": "Modern Tamil Poetry Collection",
+      "title_tamil": "நவீன தமிழ் கவிதை தொகுப்பு",
+      "author": "Various Authors",
+      "author_tamil": "பல்வேறு ஆசிரியர்கள்",
+      "category": "Literature",
+      "category_tamil": "இலக்கியம்",
+      "year": "2023",
+      "pages": 256,
+      "isbn": "978-0-123456-79-6",
+      "description": "A curated collection of contemporary Tamil poetry from emerging and established poets worldwide.",
+      "description_tamil": "உலகம் முழுவதும் உள்ள வளர்ந்து வரும் மற்றும் நிறுவப்பட்ட கவிஞர்களின் சமகால தமிழ் கவிதைகளின் தேர்ந்தெடுக்கப்பட்ட தொகுப்பு.",
+      "cover_color": "from-green-500 to-green-700",
+      "available": true,
+      "price": "$24.99",
+      "format": ["Paperback", "E-book"]
+    },
+    {
+      "id": "grammar_simplified",
+      "title": "Tamil Grammar Simplified",
+      "title_tamil": "தமிழ் இலக்கணம் எளிதாக",
+      "author": "Prof. Raman Krishnan",
+      "author_tamil": "பேராசிரியர் ராமன் கிருஷ்ணன்",
+      "category": "Education",
+      "category_tamil": "கல்வி",
+      "year": "2023",
+      "pages": 184,
+      "isbn": "978-0-123456-80-2",
+      "description": "An easy-to-understand guide to Tamil grammar for students and Tamil language learners.",
+      "description_tamil": "மாணவர்கள் மற்றும் தமிழ் மொழி கற்பவர்களுக்கு தமிழ் இலக்கணத்திற்கான எளிதில் புரியும் வழிகாட்டி.",
+      "cover_color": "from-orange-500 to-orange-700",
+      "available": true,
+      "price": "$19.99",
+      "format": ["Paperback", "E-book", "Audio"]
+    },
+    {
+      "id": "cultural_festivals",
+      "title": "Tamil Cultural Festivals",
+      "title_tamil": "தமிழ் பண்பாட்டு விழாக்கள்",
+      "author": "Dr. Meera Sundaram",
+      "author_tamil": "டாக்டர் மீரா சுந்தரம்",
+      "category": "Culture",
+      "category_tamil": "பண்பாடு",
+      "year": "2024",
+      "pages": 298,
+      "isbn": "978-0-123456-81-9",
+      "description": "Detailed documentation of traditional Tamil festivals, their origins, and modern celebrations.",
+      "description_tamil": "பாரம்பரிய தமிழ் திருவிழாக்கள், அவற்றின் தோற்றம் மற்றும் நவீன கொண்டாட்டங்களின் விரிவான ஆவணப்படுத்தல்.",
+      "cover_color": "from-purple-500 to-purple-700",
+      "available": false,
+      "price": "$32.99",
+      "format": ["Hardcover", "E-book"],
+      "release_date": "2024-06-15"
+    }
+  ],
+  "magazines": [
+    {
+      "id": "tamil_munnetram",
+      "name": "Tamil Munnetram",
+      "name_tamil": "தமிழ் முன்னேற்றம்",
+      "subtitle": "Progress in Tamil Culture",
+      "subtitle_tamil": "தமிழ் பண்பாட்டில் முன்னேற்றம்",
+      "frequency": "Monthly",
+      "frequency_tamil": "மாதாந்திரம்",
+      "description": "Contemporary Tamil culture, arts, and community news",
+      "description_tamil": "சமகால தமிழ் பண்பாடு, கலைகள் மற்றும் சமுதாய செய்திகள்",
+      "subscription_price": "$24/year",
+      "editor": "Ms. Saranya Rajesh",
+      "editor_tamil": "திருமதி சரண்யா ராஜேஷ்"
+    },
+    {
+      "id": "ilakkiya_valar",
+      "name": "Ilakkiya Valar",
+      "name_tamil": "இலக்கிய வளர்",
+      "subtitle": "Literary Growth",
+      "subtitle_tamil": "இலக்கிய வளர்ச்சி",
+      "frequency": "Quarterly",
+      "frequency_tamil": "காலாண்டு",
+      "description": "Literary magazine featuring Tamil poetry, short stories, and criticism",
+      "description_tamil": "தமிழ் கவிதை, சிறுகதைகள் மற்றும் விமர்சனங்களைக் கொண்ட இலக்கிய இதழ்",
+      "subscription_price": "$18/year",
+      "editor": "Dr. Karthik Venkatesh",
+      "editor_tamil": "டாக்டர் கார்த்திக் வெங்கடேஷ்"
+    },
+    {
+      "id": "tamil_kalai",
+      "name": "Tamil Kalai",
+      "name_tamil": "தமிழ் கலை",
+      "subtitle": "Tamil Arts",
+      "subtitle_tamil": "தமிழ் கலைகள்",
+      "frequency": "Bi-monthly",
+      "frequency_tamil": "இருமாதாந்திரம்",
+      "description": "Traditional and modern Tamil arts, music, and dance",
+      "description_tamil": "பாரம்பரிய மற்றும் நவீன தமிழ் கலைகள், இசை மற்றும் நடனம்",
+      "subscription_price": "$20/year",
+      "editor": "Mr. Bharath Kumar",
+      "editor_tamil": "திரு. பரத் குமார்"
+    }
+  ],
+  "digital_resources": {
+    "title": "Digital Resources",
+    "title_tamil": "டிஜிட்டல் வளங்கள்",
+    "description": "Online Tamil learning and reference materials",
+    "description_tamil": "ஆன்லைன் தமிழ் கற்றல் மற்றும் குறிப்பு பொருட்கள்",
+    "items": [
+      {
+        "name": "Online Tamil Dictionary",
+        "name_tamil": "ஆன்லைன் தமிழ் அகராதி",
+        "description": "Comprehensive Tamil-English dictionary with pronunciation guide",
+        "access": "Free"
+      },
+      {
+        "name": "Audio Book Collection",
+        "name_tamil": "ஆடியோ புத்தக தொகுப்பு",
+        "description": "Narrated Tamil classics and contemporary literature",
+        "access": "Members Only"
+      },
+      {
+        "name": "Tamil Typing Tutorials",
+        "name_tamil": "தமிழ் தட்டச்சு பயிற்சி",
+        "description": "Interactive lessons for Tamil keyboard typing",
+        "access": "Free"
+      },
+      {
+        "name": "Historical Document Archive",
+        "name_tamil": "வரலாற்று ஆவண காப்பகம்",
+        "description": "Digitized historical Tamil manuscripts and documents",
+        "access": "Members Only"
+      },
+      {
+        "name": "Children's Story Collection",
+        "name_tamil": "குழந்தைகள் கதை தொகுப்பு",
+        "description": "Interactive Tamil stories for children with audio",
+        "access": "Free"
+      },
+      {
+        "name": "Tamil Music Library",
+        "name_tamil": "தமிழ் இசை நூலகம்",
+        "description": "Classical and folk Tamil music recordings",
+        "access": "Members Only"
+      }
+    ]
+  },
+  "research_publications": {
+    "title": "Research Publications",
+    "title_tamil": "ஆராய்ச்சி வெளியீடுகள்",
+    "description": "Academic papers and studies on Tamil culture, history, and language",
+    "description_tamil": "தமிழ் பண்பாடு, வரலாறு மற்றும் மொழி குறித்த கல்வி கட்டுரைகள் மற்றும் ஆய்வுகள்",
+    "recent_papers": [
+      {
+        "title": "Tamil Language Evolution in Digital Age",
+        "title_tamil": "டிஜிட்டல் யுகத்தில் தமிழ் மொழி பரிணாமம்",
+        "author": "Dr. Anitha Ramachandran",
+        "journal": "Journal of Tamil Studies",
+        "year": "2024",
+        "pages": "45-62"
+      },
+      {
+        "title": "Ancient Tamil Trade Routes and Cultural Exchange",
+        "title_tamil": "பண்டைய தமிழ் வர்த்தக பாதைகள் மற்றும் பண்பாட்டு பரிமாற்றம்",
+        "author": "Prof. Vijay Sankaran",
+        "journal": "Historical Tamil Research",
+        "year": "2023",
+        "pages": "123-145"
+      },
+      {
+        "title": "Contemporary Tamil Cinema and Social Commentary",
+        "title_tamil": "சமகால தமிழ் சினிமா மற்றும் சமூக விமர்சனம்",
+        "author": "Dr. Lakshmi Narayanan",
+        "journal": "Tamil Media Studies",
+        "year": "2023",
+        "pages": "78-95"
+      }
+    ]
+  },
+  "submission_guidelines": {
+    "title": "Publication Submission Guidelines",
+    "title_tamil": "வெளியீடு சமர்ப்பிப்பு வழிகாட்டுதல்கள்",
+    "description": "Guidelines for submitting manuscripts and articles for publication",
+    "description_tamil": "வெளியீட்டிற்காக கையெழுத்துப் பிரதிகள் மற்றும் கட்டுரைகளை சமர்ப்பிப்பதற்கான வழிகாட்டுதல்கள்",
+    "requirements": [
+      {
+        "category": "General Requirements",
+        "category_tamil": "பொது தேவைகள்",
+        "items": [
+          "Original work in Tamil or about Tamil culture",
+          "Proper citation and bibliography",
+          "Author biography and contact information",
+          "Copyright permission for any quoted material"
+        ]
+      },
+      {
+        "category": "Format Requirements",
+        "category_tamil": "வடிவமைப்பு தேவைகள்",
+        "items": [
+          "Microsoft Word or PDF format",
+          "12-point Tamil Unicode font",
+          "Double-spaced text with 1-inch margins",
+          "Page numbers on all pages"
+        ]
+      },
+      {
+        "category": "Review Process",
+        "category_tamil": "மதிப்பாய்வு செயல்முறை",
+        "items": [
+          "Initial editorial review within 2 weeks",
+          "Peer review process for academic papers",
+          "Author revisions if required",
+          "Final publication decision within 8 weeks"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Publications Contact",
+    "title_tamil": "வெளியீடு தொடர்பு",
+    "description": "For inquiries about publications, submissions, or orders",
+    "description_tamil": "வெளியீடுகள், சமர்ப்பிப்புகள் அல்லது ஆர்டர்கள் குறித்த விசாரணைகளுக்கு",
+    "editorial_office": {
+      "title": "Editorial Office",
+      "title_tamil": "தலையங்க அலுவலகம்",
+      "email": "publications@thamizhi.org",
+      "phone": "+1 (555) 123-4580",
+      "editor_in_chief": "Dr. Radhika Krishnamurthy",
+      "editor_in_chief_tamil": "டாக்டர் ராதிகா கிருஷ்ணமூர்த்தி"
+    },
+    "distribution": {
+      "title": "Distribution & Sales",
+      "title_tamil": "விநியோகம் மற்றும் விற்பனை",
+      "email": "sales@thamizhi.org",
+      "phone": "+1 (555) 123-4581"
+    },
+    "submissions": {
+      "title": "Manuscript Submissions",
+      "title_tamil": "கையெழுத்துப் பிரதி சமர்ப்பிப்புகள்",
+      "email": "submissions@thamizhi.org",
+      "guidelines_url": "/submission-guidelines"
+    }
+  }
+}

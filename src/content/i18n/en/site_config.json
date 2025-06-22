@@ -1,0 +1,63 @@
+{
+  "organization": {
+    "name": "Thamizhi",
+    "name_local": "Thamizhi",
+    "tagline": "Preserving Tamil Heritage, Empowering Communities",
+    "description": "A non-profit organization dedicated to promoting Tamil culture, language, and heritage while fostering community engagement and cultural preservation.",
+    "mission": "To preserve, promote, and celebrate Tamil culture and language through education, community programs, and cultural events.",
+    "vision": "To be a leading organization in Tamil cultural preservation and community empowerment worldwide.",
+    "founded": "2010",
+    "registration_number": "NPO-2010-TN-001"
+  },
+  "contact": {
+    "email": "info@thamizhi.org",
+    "phone": "+1 (555) 123-4567",
+    "address": {
+      "street": "123 Tamil Heritage Center",
+      "city": "Chennai",
+      "state": "Tamil Nadu",
+      "postal_code": "600001",
+      "country": "India"
+    },
+    "social_media": {
+      "facebook": "https://facebook.com/thamizhi",
+      "twitter": "https://twitter.com/thamizhi",
+      "instagram": "https://instagram.com/thamizhi",
+      "youtube": "https://youtube.com/thamizhi"
+    }
+  },
+  "navigation": {
+    "primary": [
+      { "name": "Home", "href": "/" },
+      { "name": "About", "href": "/about" },
+      { "name": "Departments", "href": "/departments" },
+      { "name": "Membership", "href": "/membership" },
+      { "name": "Publications", "href": "/publications" },
+      { "name": "Gallery", "href": "/gallery" },
+      { "name": "Events", "href": "/events" }
+    ],
+    "footer": [
+      { "name": "Privacy Policy", "href": "/privacy" },
+      { "name": "Terms of Service", "href": "/terms" },
+      { "name": "Donate", "href": "/donate" },
+      { "name": "Volunteer", "href": "/volunteer" }
+    ]
+  },
+  "theme": {
+    "primary_color": "#d97706",
+    "secondary_color": "#dc2626",
+    "accent_color": "#059669",
+    "text_color": "#1f2937",
+    "background_color": "#fef3c7"
+  },
+  "meta": {
+    "title_suffix": "Thamizhi - Tamil Cultural Organization",
+    "description": "Preserving Tamil heritage through education, cultural programs, and community engagement.",
+    "keywords": "Tamil culture, Tamil language, Tamil heritage, cultural preservation, community organization",
+    "author": "Thamizhi Organization"
+  },
+  "footer": {
+    "copyright": "© 2024 Thamizhi. All rights reserved.",
+    "description": "Preserving Tamil heritage and empowering communities worldwide through cultural education and community programs."
+  }
+}

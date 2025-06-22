@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, loadContent,loadTina } from "../../utils/i18n.js";
+import HomePage from "../../components/Homepage.jsx";
+
+const lang = "ta";
+const tinaData = await loadTina(lang, "home");
+const siteConfig = await loadContent(lang, "site_config");
+const homeContent = tinaData.data
+
+---
+
+<Layout
+    title={`${siteConfig.organization?.name} - ${siteConfig.organization?.tagline}`}
+    description={homeContent.hero?.description || "Default description"}
+    lang={lang}
+>
+    <HomePage 
+        tinaProps={tinaData}
+        lang={lang}
+        client:load
+    />
+</Layout>

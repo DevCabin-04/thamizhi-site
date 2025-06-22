@@ -1,0 +1,260 @@
+---
+import Layout from "../layouts/Layout.astro";
+import membershipContent from "../content/i18n/en/membership.json";
+import siteConfig from "../content/site_config.json";
+---
+
+<Layout
+    title={`Membership - ${siteConfig.organization.name}`}
+    description={membershipContent.hero.description}
+>
+    <!-- Page Header -->
+    <section
+        class="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden"
+    >
+        <div class="absolute inset-0 opacity-10">
+            <div
+                class="absolute top-0 left-0 w-full h-full"
+                style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"
+            >
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+                    {membershipContent.hero.title}
+                </h1>
+                <h2
+                    class="text-2xl lg:text-3xl font-medium text-orange-100 mb-6"
+                >
+                    {membershipContent.hero.subtitle}
+                </h2>
+                <p class="text-xl text-orange-100">
+                    {membershipContent.hero.description}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Types -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    Membership Plans
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Choose the membership that best fits your needs
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {
+                    membershipContent.membership_types.map((membership) => (
+                        <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+                            <div class="text-center mb-6">
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                    {membership.name}
+                                </h3>
+                                <div class="text-3xl font-bold text-orange-600 mb-1">
+                                    {membership.price}
+                                </div>
+                                <div class="text-gray-500">
+                                    {membership.duration}
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3 mb-8">
+                                {membership.benefits.map((benefit) => (
+                                    <li class="flex items-start">
+                                        <svg
+                                            class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                clip-rule="evenodd"
+                                            />
+                                        </svg>
+                                        <span class="text-gray-700">
+                                            {benefit}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button class="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors">
+                                Apply Now
+                            </button>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    {membershipContent.general_benefits.title}
+                </h2>
+                <p class="text-lg text-gray-600">
+                    {membershipContent.general_benefits.description}
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    membershipContent.general_benefits.items.map((benefit) => (
+                        <div class="bg-orange-50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                                {benefit.title}
+                            </h3>
+                            <p class="text-gray-700">{benefit.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    {membershipContent.application_process.title}
+                </h2>
+                <p class="text-lg text-gray-600">
+                    {membershipContent.application_process.description}
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {
+                    membershipContent.application_process.steps.map((step) => (
+                        <div class="text-center">
+                            <div class="bg-orange-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                                {step.step}
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                                {step.title}
+                            </h3>
+                            <p class="text-gray-600">{step.description}</p>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="text-center mt-12">
+                <button
+                    class="bg-orange-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-orange-700 transition-colors"
+                >
+                    Start Application
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Member Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    {membershipContent.member_testimonials.title}
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {
+                    membershipContent.member_testimonials.testimonials.map(
+                        (testimonial) => (
+                            <div class="bg-gray-50 rounded-lg p-6">
+                                <div class="flex items-center mb-4">
+                                    {Array.from(
+                                        { length: testimonial.rating },
+                                        (_, i) => (
+                                            <svg
+                                                key={i}
+                                                class="w-5 h-5 text-yellow-400"
+                                                fill="currentColor"
+                                                viewBox="0 0 20 20"
+                                            >
+                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                        ),
+                                    )}
+                                </div>
+                                <p class="text-gray-700 mb-4 italic">
+                                    "{testimonial.quote}"
+                                </p>
+                                <div>
+                                    <p class="font-semibold text-gray-900">
+                                        {testimonial.name}
+                                    </p>
+                                    <p class="text-sm text-gray-600">
+                                        {testimonial.membership_type}
+                                    </p>
+                                </div>
+                            </div>
+                        ),
+                    )
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    {membershipContent.faqs.title}
+                </h2>
+            </div>
+
+            <div class="space-y-6">
+                {
+                    membershipContent.faqs.items.map((faq) => (
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                                {faq.question}
+                            </h3>
+                            <p class="text-gray-700">{faq.answer}</p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                {membershipContent.contact.title}
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">
+                {membershipContent.contact.description}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                    href={`mailto:${membershipContent.contact.email}`}
+                    class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors"
+                >
+                    Email Us
+                </a>
+                <a
+                    href={`tel:${membershipContent.contact.phone}`}
+                    class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                    Call Us
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>

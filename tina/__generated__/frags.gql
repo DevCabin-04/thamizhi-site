@@ -1,0 +1,212 @@
+fragment Home_enParts on Home_en {
+  __typename
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    cta_primary {
+      __typename
+      text
+      href
+    }
+    cta_secondary {
+      __typename
+      text
+      href
+    }
+  }
+  mission_statement {
+    __typename
+    title
+    content
+  }
+  featured_departments {
+    __typename
+    name
+    description
+    icon
+    href
+  }
+  recent_events {
+    __typename
+    title
+    date
+    time
+    location
+    description
+    image
+    category
+  }
+  announcements {
+    __typename
+    title
+    date
+    content
+    priority
+    category
+  }
+  statistics {
+    __typename
+    number
+    label
+  }
+  quick_actions {
+    __typename
+    title
+    description
+    icon
+    href
+    color
+  }
+  newsletter {
+    __typename
+    title
+    description
+    placeholder
+    button
+    privacy
+  }
+}
+
+fragment Home_siParts on Home_si {
+  __typename
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    cta_primary {
+      __typename
+      text
+      href
+    }
+    cta_secondary {
+      __typename
+      text
+      href
+    }
+  }
+  mission_statement {
+    __typename
+    title
+    content
+  }
+  featured_departments {
+    __typename
+    name
+    description
+    icon
+    href
+  }
+  recent_events {
+    __typename
+    title
+    date
+    time
+    location
+    description
+    image
+    category
+  }
+  announcements {
+    __typename
+    title
+    date
+    content
+    priority
+    category
+  }
+  statistics {
+    __typename
+    number
+    label
+  }
+  quick_actions {
+    __typename
+    title
+    description
+    icon
+    href
+    color
+  }
+  newsletter {
+    __typename
+    title
+    description
+    placeholder
+    button
+    privacy
+  }
+}
+
+fragment Home_taParts on Home_ta {
+  __typename
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    cta_primary {
+      __typename
+      text
+      href
+    }
+    cta_secondary {
+      __typename
+      text
+      href
+    }
+  }
+  mission_statement {
+    __typename
+    title
+    content
+  }
+  featured_departments {
+    __typename
+    name
+    description
+    icon
+    href
+  }
+  recent_events {
+    __typename
+    title
+    date
+    time
+    location
+    description
+    image
+    category
+  }
+  announcements {
+    __typename
+    title
+    date
+    content
+    priority
+    category
+  }
+  statistics {
+    __typename
+    number
+    label
+  }
+  quick_actions {
+    __typename
+    title
+    description
+    icon
+    href
+    color
+  }
+  newsletter {
+    __typename
+    title
+    description
+    placeholder
+    button
+    privacy
+  }
+}

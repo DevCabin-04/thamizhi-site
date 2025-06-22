@@ -1,0 +1,390 @@
+---
+import Layout from "../layouts/Layout.astro";
+import siteConfig from "../content/site_config.json";
+
+const eventsContent = {
+  hero: {
+    title: "Events",
+    subtitle: "Tamil Cultural Calendar",
+    description: "Join us for exciting cultural events, educational workshops, and community gatherings that celebrate Tamil heritage and bring our community together."
+  },
+  upcoming_events: [
+    {
+      title: "Tamil Heritage Month Celebration",
+      subtitle: "தமிழ் பாரம்பரிய மாத கொண்டாட்டம்",
+      date: "2024-05-15",
+      time: "6:00 PM - 10:00 PM",
+      location: "Tamil Heritage Center",
+      address: "123 Tamil Street, Cultural District",
+      category: "festival",
+      description: "A grand celebration featuring traditional performances, cultural exhibitions, and authentic Tamil cuisine. Join us for an evening of music, dance, and community spirit.",
+      image_color: "from-orange-500 to-red-600",
+      price: "Free",
+      registration_required: true,
+      capacity: 300,
+      registered: 185
+    },
+    {
+      title: "Tamil Language Workshop",
+      subtitle: "தமிழ் மொழி பயிற்சி",
+      date: "2024-05-08",
+      time: "2:00 PM - 5:00 PM",
+      location: "Education Hall",
+      address: "456 Learning Ave, Education Campus",
+      category: "education",
+      description: "Interactive workshop for beginners and intermediate learners. Learn basic Tamil script, pronunciation, and essential vocabulary with experienced instructors.",
+      image_color: "from-blue-500 to-indigo-600",
+      price: "$25",
+      registration_required: true,
+      capacity: 50,
+      registered: 32
+    },
+    {
+      title: "Youth Cultural Competition",
+      subtitle: "இளைஞர் கலை போட்டி",
+      date: "2024-05-22",
+      time: "10:00 AM - 4:00 PM",
+      location: "Community Center",
+      address: "789 Community Blvd, City Center",
+      category: "competition",
+      description: "Annual competition featuring Tamil oratory, classical dance, music, and art competitions for youth aged 8-25. Prizes and certificates for winners.",
+      image_color: "from-green-500 to-teal-600",
+      price: "$15 per participant",
+      registration_required: true,
+      capacity: 100,
+      registered: 67
+    },
+    {
+      title: "Traditional Cooking Class",
+      subtitle: "பாரம்பரிய சமையல் வகுப்பு",
+      date: "2024-05-29",
+      time: "11:00 AM - 3:00 PM",
+      location: "Culinary Center",
+      address: "321 Food Street, Culinary District",
+      category: "workshop",
+      description: "Learn to prepare authentic Tamil dishes including sambar, rasam, kootu, and traditional sweets. All ingredients and recipes provided.",
+      image_color: "from-purple-500 to-pink-600",
+      price: "$45",
+      registration_required: true,
+      capacity: 25,
+      registered: 18
+    }
+  ],
+  past_events: [
+    {
+      title: "Tamil New Year Celebration 2024",
+      date: "2024-04-14",
+      location: "Tamil Heritage Center",
+      attendees: 450,
+      category: "festival"
+    },
+    {
+      title: "Classical Music Concert",
+      date: "2024-03-20",
+      location: "Music Hall",
+      attendees: 200,
+      category: "cultural"
+    },
+    {
+      title: "Literature Reading Session",
+      date: "2024-03-05",
+      location: "Library Auditorium",
+      attendees: 75,
+      category: "education"
+    },
+    {
+      title: "Community Health Fair",
+      date: "2024-02-18",
+      location: "Community Center",
+      attendees: 350,
+      category: "community"
+    }
+  ],
+  event_categories: [
+    {
+      name: "Cultural Festivals",
+      description: "Traditional celebrations and festivals",
+      icon: "festival",
+      count: 12
+    },
+    {
+      name: "Educational Workshops",
+      description: "Learning and skill development programs",
+      icon: "education",
+      count: 18
+    },
+    {
+      name: "Community Gatherings",
+      description: "Social events and networking",
+      icon: "community",
+      count: 24
+    },
+    {
+      name: "Youth Programs",
+      description: "Activities for children and young adults",
+      icon: "youth",
+      count: 15
+    },
+    {
+      name: "Arts & Performance",
+      description: "Music, dance, and cultural performances",
+      icon: "arts",
+      count: 21
+    },
+    {
+      name: "Health & Wellness",
+      description: "Health awareness and wellness programs",
+      icon: "health",
+      count: 8
+    }
+  ],
+  monthly_schedule: {
+    title: "Regular Programs",
+    programs: [
+      {
+        name: "Tamil Language Classes",
+        schedule: "Every Saturday, 10:00 AM - 12:00 PM",
+        location: "Education Hall"
+      },
+      {
+        name: "Classical Dance Practice",
+        schedule: "Every Sunday, 2:00 PM - 4:00 PM",
+        location: "Dance Studio"
+      },
+      {
+        name: "Senior Citizens Gathering",
+        schedule: "First Wednesday of every month, 3:00 PM",
+        location: "Community Hall"
+      },
+      {
+        name: "Youth Leadership Meeting",
+        schedule: "Second Saturday of every month, 6:00 PM",
+        location: "Conference Room"
+      }
+    ]
+  }
+};
+---
+
+<Layout
+    title={`Events - ${siteConfig.organization.name}`}
+    description={eventsContent.hero.description}
+>
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+                    {eventsContent.hero.title}
+                </h1>
+                <h2 class="text-2xl lg:text-3xl font-medium text-orange-100 mb-6">
+                    {eventsContent.hero.subtitle}
+                </h2>
+                <p class="text-xl text-orange-100">
+                    {eventsContent.hero.description}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Categories -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Event Categories</h2>
+                <p class="text-lg text-gray-600">Discover events that interest you</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {eventsContent.event_categories.map((category) => (
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow cursor-pointer">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">{category.name}</h3>
+                        <p class="text-gray-600 mb-4">{category.description}</p>
+                        <div class="text-2xl font-bold text-orange-600">{category.count}</div>
+                        <p class="text-sm text-gray-500">Annual Events</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
+                <p class="text-lg text-gray-600">Don't miss these exciting upcoming events</p>
+            </div>
+
+            <div class="space-y-8">
+                {eventsContent.upcoming_events.map((event, index) => (
+                    <div class="bg-gray-50 rounded-lg p-6 lg:p-8 flex flex-col lg:flex-row gap-6">
+                        <!-- Event Image/Visual -->
+                        <div class={`w-full lg:w-64 h-48 bg-gradient-to-br ${event.image_color} rounded-lg flex-shrink-0 flex items-center justify-center`}>
+                            <div class="text-white text-center">
+                                <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                </svg>
+                                <div class="text-sm font-medium capitalize">{event.category}</div>
+                            </div>
+                        </div>
+
+                        <!-- Event Details -->
+                        <div class="flex-1">
+                            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-1">{event.title}</h3>
+                                    <h4 class="text-xl text-orange-600 mb-3">{event.subtitle}</h4>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-lg font-semibold text-gray-900">{event.price}</div>
+                                    {event.registration_required && (
+                                        <div class="text-sm text-gray-500">Registration Required</div>
+                                    )}
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                    </svg>
+                                    <span>{event.date} • {event.time}</span>
+                                </div>
+                                <div class="flex items-center text-gray-600">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                    <div>
+                                        <div>{event.location}</div>
+                                        <div class="text-sm text-gray-500">{event.address}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-700 mb-4">{event.description}</p>
+
+                            {event.registration_required && event.capacity && (
+                                <div class="mb-4">
+                                    <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                        <span>Registration Progress</span>
+                                        <span>{event.registered}/{event.capacity} registered</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div
+                                            class="bg-orange-600 h-2 rounded-full"
+                                            style={`width: ${(event.registered / event.capacity) * 100}%`}
+                                        ></div>
+                                    </div>
+                                </div>
+                            )}
+
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <button class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors">
+                                    Register Now
+                                </button>
+                                <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                    More Details
+                                </button>
+                                <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                                    Add to Calendar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Regular Programs -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">{eventsContent.monthly_schedule.title}</h2>
+                <p class="text-lg text-gray-600">Ongoing programs you can join anytime</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {eventsContent.monthly_schedule.programs.map((program) => (
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">{program.name}</h3>
+                        <div class="flex items-center text-gray-600 mb-2">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                            <span>{program.schedule}</span>
+                        </div>
+                        <div class="flex items-center text-gray-600 mb-4">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                            <span>{program.location}</span>
+                        </div>
+                        <button class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors">
+                            Join Program
+                        </button>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Events -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Recent Events</h2>
+                <p class="text-lg text-gray-600">Take a look at our successful past events</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {eventsContent.past_events.map((event) => (
+                    <div class="bg-gray-50 rounded-lg p-6 text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">{event.title}</h3>
+                        <p class="text-gray-600 text-sm mb-2">{event.location}</p>
+                        <p class="text-gray-500 text-sm mb-2">{event.date}</p>
+                        <div class="text-orange-600 font-semibold">{event.attendees} attendees</div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors">
+                    View Event Gallery
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Submission -->
+    <section class="py-16 bg-orange-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Host an Event</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                Have an idea for a Tamil cultural event? We'd love to help you organize and promote it to our community.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors">
+                    Submit Event Proposal
+                </button>
+                <button class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
+                    Event Guidelines
+                </button>
+            </div>
+        </div>
+    </section>
+</Layout>
