@@ -1,8 +1,13 @@
 import { useTina } from "tinacms/dist/react";
 
-export default function HomePage({ tinaProps, lang }) {
-  const { data } = useTina(tinaProps);
-  const homeContent = data
+export default function HomePage({ props, lang }) {
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
+
+    const homeContent = data[`home_${lang}`] || {};
 
   return (
     <>

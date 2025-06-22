@@ -1,23 +1,33 @@
 ---
+// src/pages/index.astro
 import Layout from "../layouts/Layout.astro";
-import { getLangFromUrl, loadContent,loadTina } from "../utils/i18n.js";
-import HomePage from "../components/Homepage.jsx";
+import HomePage from "../components/Homepage";
+import { getLangFromUrl, loadTina, loadContent } from "../utils/i18n.js";
 
-const lang = "en";
-const tinaData = await loadTina(lang, "home");
+const lang = getLangFromUrl(Astro.url) || "en";
+
+// This is equivalent to getStaticProps in Next.js
+const pageResponse = await loadTina(lang, "home");
 const siteConfig = await loadContent(lang, "site_config");
-const homeContent = tinaData.data
+
+// Prepare props for the React component
+const tinaProps = {
+  data: pageResponse.data,
+  query: pageResponse.query,
+  variables: pageResponse.variables,
+};
+const homeData = (pageResponse.data as any)[`home_${lang}`] || {};
 
 ---
 
-<Layout
-    title={`${siteConfig.organization?.name} - ${siteConfig.organization?.tagline}`}
-    description={homeContent.hero?.description || "Default description"}
-    lang={lang}
+<Layout 
+  title={`${siteConfig.organization?.name} - ${siteConfig.organization?.tagline}`}
+  description={homeData.hero?.description || "Default description"}
+  lang={lang}
 >
-    <HomePage 
-        tinaProps={tinaData}
-        lang={lang}
-        client:load
-    />
+  <HomePage 
+    props={tinaProps}
+    lang={lang}
+    client:load
+  />
 </Layout>

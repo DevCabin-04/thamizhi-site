@@ -50,46 +50,49 @@ export async function loadContent(lang, page) {
 
 export async function loadTina(lang, page) {
   try {
-    let content;
-    const dataKey = `${page}_${lang}`;
+    let pageResponse;
     
     switch (lang) {
       case 'en':
-        content = await client.queries[`${page}_en`]({ relativePath: `${page}.json` });
+        pageResponse = await client.queries.home_en({
+          relativePath: `${page}.json`
+        });
         break;
+        
+      case 'ta':
+        pageResponse = await client.queries.home_ta({
+          relativePath: `${page}.json`
+        });
+        break;
+        
       case 'si':
-        content = await client.queries[`${page}_si`]({ relativePath: `${page}.json` });
+        pageResponse = await client.queries.home_si({
+          relativePath: `${page}.json`
+        });
         break;
-      case 'tm':
-        content = await client.queries[`${page}_tm`]({ relativePath: `${page}.json` });
-        break;
+        
       default:
-        content = await client.queries[`${page}_en`]({ relativePath: `${page}.json` });
+        pageResponse = await client.queries.home_en({
+          relativePath: `${page}.json`
+        });
     }
     
-    // Return in the format you expect
+    // Return the complete TinaCMS response structure
     return {
-   data: content.data[dataKey],
-  query: content.query,
-  variables: content.variables
-};
+      data: pageResponse.data,
+      query: pageResponse.query,
+      variables: pageResponse.variables,
+    };
+    
   } catch (error) {
-    console.warn(`Content not found for ${lang}/${page}, falling back to English`);
-    try {
-      const fallbackContent = await import(`../content/i18n/en/${page}.json`);
-      return {
-        data: {
-          [`${page}_en`]: fallbackContent.default
-        }
-      };
-    } catch (fallbackError) {
-      console.error(`Fallback content not found for ${page}`);
-      return {
-        data: {
-          [`${page}_${lang}`]: {}
-        }
-      };
-    }
+    console.error(`TinaCMS content not found for ${lang}/${page}:`, error);
+    
+    // Return fallback structure that matches TinaCMS format
+    return {
+      data: { [`home_${lang}`]: {} },
+      query: '',
+      variables: { relativePath: `${page}.json` },
+    };
   }
 }
 
