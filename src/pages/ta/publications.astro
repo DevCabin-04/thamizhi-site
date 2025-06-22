@@ -1,14 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../utils/i18n.js";
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
 
-const lang = getLangFromUrl(Astro.url) || "en";
+const lang = getLangFromUrl(Astro.url) || "ta";
 const publicationsContent = await loadContent(lang, "publications");
 const siteConfig = await loadContent(lang, "site_config");
 ---
 
 <Layout
-    title={`Publications - ${siteConfig.organization?.name}`}
+    title={`${publicationsContent.hero?.title} - ${siteConfig.organization?.name}`}
     description={publicationsContent.hero?.description}
     lang={lang}
 >
@@ -46,11 +46,10 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Publication Categories
+                    வெளியீட்டு வகைகள்
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Explore our diverse collection of Tamil literature and
-                    resources
+                    தமிழ் இலக்கியம் மற்றும் வளங்களின் எங்கள் பலவகையான தொகுப்பை ஆராயுங்கள்
                 </p>
             </div>
 
@@ -88,7 +87,7 @@ const siteConfig = await loadContent(lang, "site_config");
                                 {category.description}
                             </p>
                             <div class="text-orange-600 font-medium">
-                                {category.count} items
+                                {category.count} பொருட்கள்
                             </div>
                         </div>
                     ))
@@ -102,10 +101,10 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Featured Publications
+                    சிறப்பு வெளியீடுகள்
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Highlighted works from our collection
+                    எங்கள் தொகுப்பிலிருந்து சிறப்பு படைப்புகள்
                 </p>
             </div>
 
@@ -133,26 +132,21 @@ const siteConfig = await loadContent(lang, "site_config");
                                     <h3 class="text-xl font-bold text-gray-900 mb-2">
                                         {publication.title}
                                     </h3>
-                                    {publication.title_tamil && (
-                                        <h4 class="text-lg text-orange-600 mb-3">
-                                            {publication.title_tamil}
-                                        </h4>
-                                    )}
 
                                     <div class="text-sm text-gray-600 mb-3">
                                         <p>
-                                            <strong>Author:</strong>{" "}
+                                            <strong>ஆசிரியர்:</strong>{" "}
                                             {publication.author}
                                         </p>
                                         {publication.year && (
                                             <p>
-                                                <strong>Year:</strong>{" "}
+                                                <strong>ஆண்டு:</strong>{" "}
                                                 {publication.year}
                                             </p>
                                         )}
                                         {publication.pages && (
                                             <p>
-                                                <strong>Pages:</strong>{" "}
+                                                <strong>பக்கங்கள்:</strong>{" "}
                                                 {publication.pages}
                                             </p>
                                         )}
@@ -169,7 +163,7 @@ const siteConfig = await loadContent(lang, "site_config");
                                             </div>
                                         ) : (
                                             <div class="text-green-600 font-medium">
-                                                Free
+                                                இலவசம்
                                             </div>
                                         )}
                                         {publication.availability && (
@@ -182,11 +176,11 @@ const siteConfig = await loadContent(lang, "site_config");
                                     <div class="flex gap-2 mt-4">
                                         <button class="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg font-medium transition-colors">
                                             {publication.price
-                                                ? "Purchase"
-                                                : "Download"}
+                                                ? "வாங்குக"
+                                                : "தரவிறக்குக"}
                                         </button>
                                         <button class="flex-1 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                                            Preview
+                                            முன்னோட்டம்
                                         </button>
                                     </div>
                                 </div>
@@ -203,10 +197,10 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Recent Publications
+                    சமீபத்திய வெளியீடுகள்
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Latest additions to our library
+                    எங்கள் நூலகத்தில் சமீபத்திய சேர்க்கைகள்
                 </p>
             </div>
 
@@ -232,13 +226,6 @@ const siteConfig = await loadContent(lang, "site_config");
                                                 <h3 class="text-xl font-bold text-gray-900 mb-1">
                                                     {publication.title}
                                                 </h3>
-                                                {publication.title_tamil && (
-                                                    <h4 class="text-lg text-orange-600 mb-2">
-                                                        {
-                                                            publication.title_tamil
-                                                        }
-                                                    </h4>
-                                                )}
                                             </div>
                                             <div class="text-right">
                                                 {publication.price ? (
@@ -247,7 +234,7 @@ const siteConfig = await loadContent(lang, "site_config");
                                                     </div>
                                                 ) : (
                                                     <div class="text-green-600 font-medium">
-                                                        Free
+                                                        இலவசம்
                                                     </div>
                                                 )}
                                                 <div class="text-sm text-gray-500">
@@ -258,18 +245,18 @@ const siteConfig = await loadContent(lang, "site_config");
 
                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 text-sm text-gray-600">
                                             <div>
-                                                <strong>Author:</strong>{" "}
+                                                <strong>ஆசிரியர்:</strong>{" "}
                                                 {publication.author}
                                             </div>
                                             {publication.year && (
                                                 <div>
-                                                    <strong>Published:</strong>{" "}
+                                                    <strong>வெளியிடப்பட்டது:</strong>{" "}
                                                     {publication.year}
                                                 </div>
                                             )}
                                             {publication.pages && (
                                                 <div>
-                                                    <strong>Pages:</strong>{" "}
+                                                    <strong>பக்கங்கள்:</strong>{" "}
                                                     {publication.pages}
                                                 </div>
                                             )}
@@ -282,14 +269,14 @@ const siteConfig = await loadContent(lang, "site_config");
                                         <div class="flex flex-col sm:flex-row gap-3">
                                             <button class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors">
                                                 {publication.price
-                                                    ? "Purchase"
-                                                    : "Download"}
+                                                    ? "வாங்குக"
+                                                    : "தரவிறக்குக"}
                                             </button>
                                             <button class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-50 transition-colors">
-                                                Preview
+                                                முன்னோட்டம்
                                             </button>
                                             <button class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-50 transition-colors">
-                                                Add to Library
+                                                நூலகத்தில் சேர்க்கவும்
                                             </button>
                                         </div>
                                     </div>
@@ -317,7 +304,7 @@ const siteConfig = await loadContent(lang, "site_config");
                     {publicationsContent.submission.guidelines && (
                         <div class="bg-white/50 backdrop-blur-sm rounded-xl p-6 mb-8 text-left max-w-2xl mx-auto">
                             <h3 class="text-lg font-semibold text-gray-900 mb-4">
-                                Submission Guidelines
+                                சமர்ப்பிப்பு வழிகாட்டுதல்கள்
                             </h3>
                             <ul class="space-y-2 text-gray-700">
                                 {publicationsContent.submission.guidelines.map(
@@ -342,10 +329,10 @@ const siteConfig = await loadContent(lang, "site_config");
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <button class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors">
-                            Submit Publication
+                            வெளியீட்டை சமர்ப்பிக்கவும்
                         </button>
                         <button class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-                            Guidelines & Forms
+                            வழிகாட்டுதல்கள் மற்றும் படிவங்கள்
                         </button>
                     </div>
                 </div>
@@ -356,27 +343,26 @@ const siteConfig = await loadContent(lang, "site_config");
     <!-- Newsletter Subscription -->
     <section class="py-16 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Stay Updated</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">புதுப்பித்த நிலையில் இருங்கள்</h2>
             <p class="text-lg text-gray-600 mb-8">
-                Subscribe to receive notifications about new publications and
-                literary events.
+                புதிய வெளியீடுகள் மற்றும் இலக்கிய நிகழ்வுகள் குறித்த அறிவிப்புகளைப் பெற சந்தா செய்யுங்கள்.
             </p>
 
             <div class="bg-gray-50 rounded-xl p-8 max-w-md mx-auto">
                 <div class="flex flex-col gap-4">
                     <input
                         type="email"
-                        placeholder="Enter your email address"
+                        placeholder="உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்"
                         class="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
                     />
                     <button
                         class="bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-lg font-medium transition-colors"
                     >
-                        Subscribe to Updates
+                        புதுப்பிப்புகளுக்கு சந்தா செய்யுங்கள்
                     </button>
                 </div>
                 <p class="text-sm text-gray-500 mt-4">
-                    We respect your privacy. Unsubscribe at any time.
+                    நாங்கள் உங்கள் தனியுரிமையை மதிக்கிறோம். எந்த நேரத்திலும் சந்தாவை ரத்து செய்யுங்கள்.
                 </p>
             </div>
         </div>

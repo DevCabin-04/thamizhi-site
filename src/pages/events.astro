@@ -1,390 +1,479 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import siteConfig from "../content/site_config.json";
+import { getLangFromUrl, loadContent } from "../utils/i18n.js";
 
-const eventsContent = {
-  hero: {
-    title: "Events",
-    subtitle: "Tamil Cultural Calendar",
-    description: "Join us for exciting cultural events, educational workshops, and community gatherings that celebrate Tamil heritage and bring our community together."
-  },
-  upcoming_events: [
-    {
-      title: "Tamil Heritage Month Celebration",
-      subtitle: "தமிழ் பாரம்பரிய மாத கொண்டாட்டம்",
-      date: "2024-05-15",
-      time: "6:00 PM - 10:00 PM",
-      location: "Tamil Heritage Center",
-      address: "123 Tamil Street, Cultural District",
-      category: "festival",
-      description: "A grand celebration featuring traditional performances, cultural exhibitions, and authentic Tamil cuisine. Join us for an evening of music, dance, and community spirit.",
-      image_color: "from-orange-500 to-red-600",
-      price: "Free",
-      registration_required: true,
-      capacity: 300,
-      registered: 185
-    },
-    {
-      title: "Tamil Language Workshop",
-      subtitle: "தமிழ் மொழி பயிற்சி",
-      date: "2024-05-08",
-      time: "2:00 PM - 5:00 PM",
-      location: "Education Hall",
-      address: "456 Learning Ave, Education Campus",
-      category: "education",
-      description: "Interactive workshop for beginners and intermediate learners. Learn basic Tamil script, pronunciation, and essential vocabulary with experienced instructors.",
-      image_color: "from-blue-500 to-indigo-600",
-      price: "$25",
-      registration_required: true,
-      capacity: 50,
-      registered: 32
-    },
-    {
-      title: "Youth Cultural Competition",
-      subtitle: "இளைஞர் கலை போட்டி",
-      date: "2024-05-22",
-      time: "10:00 AM - 4:00 PM",
-      location: "Community Center",
-      address: "789 Community Blvd, City Center",
-      category: "competition",
-      description: "Annual competition featuring Tamil oratory, classical dance, music, and art competitions for youth aged 8-25. Prizes and certificates for winners.",
-      image_color: "from-green-500 to-teal-600",
-      price: "$15 per participant",
-      registration_required: true,
-      capacity: 100,
-      registered: 67
-    },
-    {
-      title: "Traditional Cooking Class",
-      subtitle: "பாரம்பரிய சமையல் வகுப்பு",
-      date: "2024-05-29",
-      time: "11:00 AM - 3:00 PM",
-      location: "Culinary Center",
-      address: "321 Food Street, Culinary District",
-      category: "workshop",
-      description: "Learn to prepare authentic Tamil dishes including sambar, rasam, kootu, and traditional sweets. All ingredients and recipes provided.",
-      image_color: "from-purple-500 to-pink-600",
-      price: "$45",
-      registration_required: true,
-      capacity: 25,
-      registered: 18
-    }
-  ],
-  past_events: [
-    {
-      title: "Tamil New Year Celebration 2024",
-      date: "2024-04-14",
-      location: "Tamil Heritage Center",
-      attendees: 450,
-      category: "festival"
-    },
-    {
-      title: "Classical Music Concert",
-      date: "2024-03-20",
-      location: "Music Hall",
-      attendees: 200,
-      category: "cultural"
-    },
-    {
-      title: "Literature Reading Session",
-      date: "2024-03-05",
-      location: "Library Auditorium",
-      attendees: 75,
-      category: "education"
-    },
-    {
-      title: "Community Health Fair",
-      date: "2024-02-18",
-      location: "Community Center",
-      attendees: 350,
-      category: "community"
-    }
-  ],
-  event_categories: [
-    {
-      name: "Cultural Festivals",
-      description: "Traditional celebrations and festivals",
-      icon: "festival",
-      count: 12
-    },
-    {
-      name: "Educational Workshops",
-      description: "Learning and skill development programs",
-      icon: "education",
-      count: 18
-    },
-    {
-      name: "Community Gatherings",
-      description: "Social events and networking",
-      icon: "community",
-      count: 24
-    },
-    {
-      name: "Youth Programs",
-      description: "Activities for children and young adults",
-      icon: "youth",
-      count: 15
-    },
-    {
-      name: "Arts & Performance",
-      description: "Music, dance, and cultural performances",
-      icon: "arts",
-      count: 21
-    },
-    {
-      name: "Health & Wellness",
-      description: "Health awareness and wellness programs",
-      icon: "health",
-      count: 8
-    }
-  ],
-  monthly_schedule: {
-    title: "Regular Programs",
-    programs: [
-      {
-        name: "Tamil Language Classes",
-        schedule: "Every Saturday, 10:00 AM - 12:00 PM",
-        location: "Education Hall"
-      },
-      {
-        name: "Classical Dance Practice",
-        schedule: "Every Sunday, 2:00 PM - 4:00 PM",
-        location: "Dance Studio"
-      },
-      {
-        name: "Senior Citizens Gathering",
-        schedule: "First Wednesday of every month, 3:00 PM",
-        location: "Community Hall"
-      },
-      {
-        name: "Youth Leadership Meeting",
-        schedule: "Second Saturday of every month, 6:00 PM",
-        location: "Conference Room"
-      }
-    ]
-  }
-};
+const lang = getLangFromUrl(Astro.url) || "en";
+const eventsContent = await loadContent(lang, "events");
+const siteConfig = await loadContent(lang, "site_config");
 ---
 
 <Layout
-    title={`Events - ${siteConfig.organization.name}`}
-    description={eventsContent.hero.description}
+    title={`Events - ${siteConfig.organization?.name}`}
+    description={eventsContent.hero?.description}
+    lang={lang}
 >
     <!-- Page Header -->
-    <section class="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden">
+    <section
+        class="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden"
+    >
+        <!-- Decorative Pattern -->
         <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"></div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
-            <div class="max-w-3xl">
-                <h1 class="text-4xl lg:text-5xl font-bold mb-4">
-                    {eventsContent.hero.title}
-                </h1>
-                <h2 class="text-2xl lg:text-3xl font-medium text-orange-100 mb-6">
-                    {eventsContent.hero.subtitle}
-                </h2>
-                <p class="text-xl text-orange-100">
-                    {eventsContent.hero.description}
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Event Categories -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Event Categories</h2>
-                <p class="text-lg text-gray-600">Discover events that interest you</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {eventsContent.event_categories.map((category) => (
-                    <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow cursor-pointer">
-                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">{category.name}</h3>
-                        <p class="text-gray-600 mb-4">{category.description}</p>
-                        <div class="text-2xl font-bold text-orange-600">{category.count}</div>
-                        <p class="text-sm text-gray-500">Annual Events</p>
-                    </div>
-                ))}
-            </div>
+            <div
+                class="absolute inset-0"
+                style="background-image: url('data:image/svg+xml,<svg width="
+                60"
+                height="60"
+                viewBox="0 0 60 60"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <g fill="none" fill-rule="evenodd"
+                    ><g fill="%23ffffff" fill-opacity="0.1"
+                        ><circle cx="7" cy="7" r="7"></circle><circle
+                            cx="53"
+                            cy="7"
+                            r="7"></circle><circle cx="7" cy="53" r="7"
+                        ></circle><circle cx="53" cy="53" r="7"></circle></g
+                    ></g>
+            </div>'); background-size: 60px 60px;">
         </div>
     </section>
 
-    <!-- Upcoming Events -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
-                <p class="text-lg text-gray-600">Don't miss these exciting upcoming events</p>
-            </div>
-
-            <div class="space-y-8">
-                {eventsContent.upcoming_events.map((event, index) => (
-                    <div class="bg-gray-50 rounded-lg p-6 lg:p-8 flex flex-col lg:flex-row gap-6">
-                        <!-- Event Image/Visual -->
-                        <div class={`w-full lg:w-64 h-48 bg-gradient-to-br ${event.image_color} rounded-lg flex-shrink-0 flex items-center justify-center`}>
-                            <div class="text-white text-center">
-                                <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                                </svg>
-                                <div class="text-sm font-medium capitalize">{event.category}</div>
-                            </div>
-                        </div>
-
-                        <!-- Event Details -->
-                        <div class="flex-1">
-                            <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-gray-900 mb-1">{event.title}</h3>
-                                    <h4 class="text-xl text-orange-600 mb-3">{event.subtitle}</h4>
-                                </div>
-                                <div class="text-right">
-                                    <div class="text-lg font-semibold text-gray-900">{event.price}</div>
-                                    {event.registration_required && (
-                                        <div class="text-sm text-gray-500">Registration Required</div>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                                    </svg>
-                                    <span>{event.date} • {event.time}</span>
-                                </div>
-                                <div class="flex items-center text-gray-600">
-                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                    </svg>
-                                    <div>
-                                        <div>{event.location}</div>
-                                        <div class="text-sm text-gray-500">{event.address}</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <p class="text-gray-700 mb-4">{event.description}</p>
-
-                            {event.registration_required && event.capacity && (
-                                <div class="mb-4">
-                                    <div class="flex justify-between text-sm text-gray-600 mb-1">
-                                        <span>Registration Progress</span>
-                                        <span>{event.registered}/{event.capacity} registered</span>
-                                    </div>
-                                    <div class="w-full bg-gray-200 rounded-full h-2">
-                                        <div
-                                            class="bg-orange-600 h-2 rounded-full"
-                                            style={`width: ${(event.registered / event.capacity) * 100}%`}
-                                        ></div>
-                                    </div>
-                                </div>
-                            )}
-
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <button class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors">
-                                    Register Now
-                                </button>
-                                <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-                                    More Details
-                                </button>
-                                <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">
-                                    Add to Calendar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <!-- Regular Programs -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">{eventsContent.monthly_schedule.title}</h2>
-                <p class="text-lg text-gray-600">Ongoing programs you can join anytime</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {eventsContent.monthly_schedule.programs.map((program) => (
-                    <div class="bg-white rounded-lg shadow-lg p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-3">{program.name}</h3>
-                        <div class="flex items-center text-gray-600 mb-2">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                            </svg>
-                            <span>{program.schedule}</span>
-                        </div>
-                        <div class="flex items-center text-gray-600 mb-4">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            <span>{program.location}</span>
-                        </div>
-                        <button class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors">
-                            Join Program
-                        </button>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <!-- Past Events -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Recent Events</h2>
-                <p class="text-lg text-gray-600">Take a look at our successful past events</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {eventsContent.past_events.map((event) => (
-                    <div class="bg-gray-50 rounded-lg p-6 text-center">
-                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">{event.title}</h3>
-                        <p class="text-gray-600 text-sm mb-2">{event.location}</p>
-                        <p class="text-gray-500 text-sm mb-2">{event.date}</p>
-                        <div class="text-orange-600 font-semibold">{event.attendees} attendees</div>
-                    </div>
-                ))}
-            </div>
-
-            <div class="text-center mt-12">
-                <button class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors">
-                    View Event Gallery
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Event Submission -->
-    <section class="py-16 bg-orange-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">Host an Event</h2>
-            <p class="text-lg text-gray-600 mb-8">
-                Have an idea for a Tamil cultural event? We'd love to help you organize and promote it to our community.
+    <div
+        class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
+    >
+        <div class="text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                {eventsContent.hero?.title}
+            </h1>
+            <p
+                class="text-xl sm:text-2xl text-orange-100 mb-4 max-w-3xl mx-auto"
+            >
+                {eventsContent.hero?.subtitle}
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors">
-                    Submit Event Proposal
-                </button>
-                <button class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">
-                    Event Guidelines
-                </button>
+            <p
+                class="text-lg text-orange-200 max-w-4xl mx-auto leading-relaxed"
+            >
+                {eventsContent.hero?.description}
+            </p>
+
+            <!-- Quick Stats -->
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-4xl mx-auto"
+            >
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-2xl font-bold text-white">
+                        {eventsContent.upcoming_events?.length || 0}
+                    </div>
+                    <div class="text-orange-200 text-sm">Upcoming Events</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-2xl font-bold text-white">
+                        {eventsContent.event_categories?.length || 0}
+                    </div>
+                    <div class="text-orange-200 text-sm">Event Categories</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-2xl font-bold text-white">
+                        {eventsContent.past_events?.length || 0}
+                    </div>
+                    <div class="text-orange-200 text-sm">Past Events</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <div class="text-2xl font-bold text-white">
+                        {eventsContent.regular_programs?.programs?.length || 0}
+                    </div>
+                    <div class="text-orange-200 text-sm">Regular Programs</div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 </Layout>
+
+<!-- Upcoming Events -->
+<section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Upcoming Events
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Join us for these exciting upcoming events celebrating Tamil
+                culture and community
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {
+                eventsContent.upcoming_events?.map((event) => (
+                    <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <div
+                            class={`h-48 bg-gradient-to-br ${event.image_color || "from-orange-500 to-red-600"} relative`}
+                        >
+                            <div class="absolute inset-0 bg-black/20" />
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <div class="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1 text-white text-sm font-medium inline-block mb-2">
+                                    {event.category}
+                                </div>
+                                <h3 class="text-xl font-bold text-white">
+                                    {event.title}
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center text-gray-600 mb-2">
+                                <svg
+                                    class="w-4 h-4 mr-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                    />
+                                </svg>
+                                <span class="text-sm">
+                                    {event.date} at {event.time}
+                                </span>
+                            </div>
+
+                            <div class="flex items-center text-gray-600 mb-4">
+                                <svg
+                                    class="w-4 h-4 mr-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                    />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
+                                </svg>
+                                <span class="text-sm">{event.location}</span>
+                            </div>
+
+                            <p class="text-gray-700 text-sm mb-4 line-clamp-3">
+                                {event.description}
+                            </p>
+
+                            <div class="flex items-center justify-between">
+                                <div class="text-lg font-bold text-orange-600">
+                                    {event.price}
+                                </div>
+                                {event.registration_required && (
+                                    <div class="text-sm text-gray-500">
+                                        {event.registered}/{event.capacity}{" "}
+                                        registered
+                                    </div>
+                                )}
+                            </div>
+
+                            <button class="w-full mt-4 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200">
+                                {event.registration_required
+                                    ? "Register Now"
+                                    : "Learn More"}
+                            </button>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Event Categories -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Event Categories
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Explore our diverse range of cultural and educational programs
+            </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {
+                eventsContent.event_categories?.map((category) => (
+                    <div class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                                <span class="text-2xl">
+                                    {category.icon === "festival" && "🎊"}
+                                    {category.icon === "education" && "📚"}
+                                    {category.icon === "community" && "👥"}
+                                    {category.icon === "youth" && "🌱"}
+                                    {category.icon === "arts" && "🎭"}
+                                    {category.icon === "health" && "🏥"}
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900">
+                                    {category.name}
+                                </h3>
+                                <span class="text-sm text-orange-600 font-medium">
+                                    {category.count} events
+                                </span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            {category.description}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Regular Programs -->
+{
+    eventsContent.regular_programs && (
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                        {eventsContent.regular_programs.title}
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        {eventsContent.regular_programs.description}
+                    </p>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2">
+                    {eventsContent.regular_programs.programs?.map((program) => (
+                        <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                {program.name}
+                            </h3>
+                            <div class="flex items-center text-gray-600 mb-2">
+                                <svg
+                                    class="w-4 h-4 mr-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                </svg>
+                                <span class="text-sm">{program.schedule}</span>
+                            </div>
+                            <div class="flex items-center text-gray-600 mb-4">
+                                <svg
+                                    class="w-4 h-4 mr-2"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                    />
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                    />
+                                </svg>
+                                <span class="text-sm">{program.location}</span>
+                            </div>
+                            {program.instructor && (
+                                <p class="text-gray-700 text-sm mb-2">
+                                    <strong>Instructor:</strong>{" "}
+                                    {program.instructor}
+                                </p>
+                            )}
+                            {program.coordinator && (
+                                <p class="text-gray-700 text-sm mb-2">
+                                    <strong>Coordinator:</strong>{" "}
+                                    {program.coordinator}
+                                </p>
+                            )}
+                            {program.fee && (
+                                <p class="text-orange-600 font-medium">
+                                    {program.fee}
+                                </p>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )
+}
+
+<!-- Past Events -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                Recent Past Events
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                A look back at our recent successful events and celebrations
+            </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {
+                eventsContent.past_events?.map((event) => (
+                    <div class="bg-gray-50 rounded-xl p-6 text-center">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                            {event.title}
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-2">{event.date}</p>
+                        <p class="text-sm text-gray-600 mb-4">
+                            {event.location}
+                        </p>
+                        <div class="text-2xl font-bold text-orange-600">
+                            {event.attendees}
+                        </div>
+                        <div class="text-sm text-gray-500">attendees</div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Event Calendar Subscription -->
+{
+    eventsContent.event_calendar && (
+        <section class="py-16 bg-orange-600 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                    {eventsContent.event_calendar.title}
+                </h2>
+                <p class="text-lg text-orange-100 mb-8 max-w-2xl mx-auto">
+                    {eventsContent.event_calendar.description}
+                </p>
+
+                {eventsContent.event_calendar.subscription && (
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 max-w-2xl mx-auto">
+                        <h3 class="text-xl font-semibold mb-4">
+                            {eventsContent.event_calendar.subscription.title}
+                        </h3>
+                        <p class="text-orange-100 mb-6">
+                            {
+                                eventsContent.event_calendar.subscription
+                                    .description
+                            }
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                class="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300"
+                            />
+                            <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </section>
+    )
+}
+
+<!-- Contact Information -->
+{
+    eventsContent.contact && (
+        <section class="py-16 bg-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                        {eventsContent.contact.title}
+                    </h2>
+                    <p class="text-lg text-gray-600">
+                        {eventsContent.contact.description}
+                    </p>
+                </div>
+
+                <div class="grid gap-8 md:grid-cols-2">
+                    {eventsContent.contact.events_coordinator && (
+                        <div class="bg-white rounded-xl p-6 shadow-sm">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                                Events Coordinator
+                            </h3>
+                            <div class="space-y-2">
+                                <p class="text-gray-700">
+                                    <strong>
+                                        {
+                                            eventsContent.contact
+                                                .events_coordinator.name
+                                        }
+                                    </strong>
+                                </p>
+                                <p class="text-gray-600">
+                                    {
+                                        eventsContent.contact.events_coordinator
+                                            .position
+                                    }
+                                </p>
+                                <p class="text-gray-600">
+                                    <a
+                                        href={`mailto:${eventsContent.contact.events_coordinator.email}`}
+                                        class="text-orange-600 hover:text-orange-700"
+                                    >
+                                        {
+                                            eventsContent.contact
+                                                .events_coordinator.email
+                                        }
+                                    </a>
+                                </p>
+                                <p class="text-gray-600">
+                                    <a
+                                        href={`tel:${eventsContent.contact.events_coordinator.phone}`}
+                                        class="text-orange-600 hover:text-orange-700"
+                                    >
+                                        {
+                                            eventsContent.contact
+                                                .events_coordinator.phone
+                                        }
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    )}
+
+                    {eventsContent.contact.office_hours && (
+                        <div class="bg-white rounded-xl p-6 shadow-sm">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                                {eventsContent.contact.office_hours.title}
+                            </h3>
+                            <div class="space-y-2">
+                                {eventsContent.contact.office_hours.schedule?.map(
+                                    (hours, index) => (
+                                        <p key={index} class="text-gray-600">
+                                            {hours}
+                                        </p>
+                                    ),
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </section>
+    )
+}

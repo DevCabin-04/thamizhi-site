@@ -1,14 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../utils/i18n.js";
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
 
-const lang = getLangFromUrl(Astro.url) || "en";
+const lang = getLangFromUrl(Astro.url) || "si";
 const aboutContent = await loadContent(lang, "about");
 const siteConfig = await loadContent(lang, "site_config");
 ---
 
 <Layout
-    title={`About - ${siteConfig.organization?.name}`}
+    title={`${aboutContent.hero?.title} - ${siteConfig.organization?.name}`}
     description={aboutContent.hero?.description}
     lang={lang}
 >
@@ -16,31 +16,27 @@ const siteConfig = await loadContent(lang, "site_config");
     <section
         class="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden"
     >
+        <!-- Decorative Pattern -->
         <div class="absolute inset-0 opacity-10">
             <div
-                class="absolute top-0 left-0 w-full h-full"
-                style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"
+                class="absolute inset-0"
+                style='background-image: url(&apos;data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="7" cy="7" r="7"></circle><circle cx="53" cy="7" r="7"></circle><circle cx="7" cy="53" r="7"></circle><circle cx="53" cy="53" r="7"></circle></g></g></svg>&apos;); background-size: 60px 60px;'
             >
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
             <div class="max-w-3xl">
                 <h1 class="text-4xl lg:text-5xl font-bold mb-4">
-                    {aboutContent.hero.title}
+                    {aboutContent.hero?.title}
                 </h1>
-                <h2
-                    class="text-2xl lg:text-3xl font-medium text-orange-100 mb-6"
-                >
-                    {aboutContent.hero.title_tamil}
-                </h2>
                 <p class="text-xl text-orange-100">
-                    {aboutContent.hero.description}
+                    {aboutContent.hero?.description}
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision -->
+    <!-- Mission and Vision -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -49,14 +45,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">
                         {aboutContent.mission?.title}
                     </h2>
-                    <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                        {aboutContent.mission?.title_tamil}
-                    </h3>
                     <p class="text-lg text-gray-700 mb-4">
                         {aboutContent.mission?.content}
-                    </p>
-                    <p class="text-gray-600">
-                        {aboutContent.mission?.content_tamil}
                     </p>
                 </div>
 
@@ -65,14 +55,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">
                         {aboutContent.vision?.title}
                     </h2>
-                    <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                        {aboutContent.vision?.title_tamil}
-                    </h3>
                     <p class="text-lg text-gray-700">
                         {aboutContent.vision?.content}
-                    </p>
-                    <p class="text-md text-gray-600">
-                        {aboutContent.vision?.content_tamil}
                     </p>
                 </div>
             </div>
@@ -84,14 +68,10 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    Our Core Values
+                    අපගේ මූලික වටිනාකම්
                 </h2>
-                <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    எங்கள் முக்கிய மதிப்புகள்
-                </h3>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    The principles that guide our work and define our commitment
-                    to the Tamil community.
+                    තමිල් ප්‍රජාවට අපගේ කැපවීම නිර්වචනය කරන සහ අපගේ වැඩ මගපෙන්වන මූලධර්ම.
                 </p>
             </div>
 
@@ -111,14 +91,8 @@ const siteConfig = await loadContent(lang, "site_config");
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">
                                 {value.title}
                             </h3>
-                            <h4 class="text-lg font-medium text-orange-600 mb-3">
-                                {value.title_tamil}
-                            </h4>
                             <p class="text-gray-600 mb-2">
                                 {value.description}
-                            </p>
-                            <p class="text-sm text-gray-500">
-                                {value.description_tamil}
                             </p>
                         </div>
                     ))
@@ -127,7 +101,7 @@ const siteConfig = await loadContent(lang, "site_config");
         </div>
     </section>
 
-    <!-- History Timeline -->
+    <!-- History -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
@@ -135,9 +109,6 @@ const siteConfig = await loadContent(lang, "site_config");
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">
                         {aboutContent.history?.title}
                     </h2>
-                    <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                        {aboutContent.history?.title_tamil}
-                    </h3>
                     <p class="text-lg text-gray-600">
                         {aboutContent.history?.description}
                     </p>
@@ -165,14 +136,8 @@ const siteConfig = await loadContent(lang, "site_config");
                                     <h3 class="text-lg font-semibold text-gray-900 mb-1">
                                         {item.title}
                                     </h3>
-                                    <h4 class="text-md font-medium text-orange-600 mb-2">
-                                        {item.title_tamil}
-                                    </h4>
                                     <p class="text-gray-600 mb-2">
                                         {item.description}
-                                    </p>
-                                    <p class="text-sm text-gray-500">
-                                        {item.description_tamil}
                                     </p>
                                 </div>
                             </div>
@@ -183,16 +148,13 @@ const siteConfig = await loadContent(lang, "site_config");
         </div>
     </section>
 
-    <!-- Leadership Team -->
+    <!-- Leadership -->
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
                     {aboutContent.leadership?.title}
                 </h2>
-                <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {aboutContent.leadership?.title_tamil}
-                </h3>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                     {aboutContent.leadership?.description}
                 </p>
@@ -213,20 +175,14 @@ const siteConfig = await loadContent(lang, "site_config");
                             <h3 class="text-xl font-semibold text-gray-900 mb-1">
                                 {member.name}
                             </h3>
-                            <h4 class="text-lg font-medium text-orange-600 mb-1">
-                                {member.name_tamil}
-                            </h4>
                             <p class="text-orange-600 font-medium mb-2">
                                 {member.position}
-                            </p>
-                            <p class="text-sm text-gray-500 mb-3">
-                                {member.position_tamil}
                             </p>
                             <p class="text-gray-600 text-sm mb-4">
                                 {member.bio}
                             </p>
                             <div class="text-xs text-gray-500">
-                                <p class="font-medium mb-1">Education:</p>
+                                <p class="font-medium mb-1">අධ්‍යාපනය:</p>
                                 <p>{member.education}</p>
                             </div>
                         </div>
@@ -236,16 +192,13 @@ const siteConfig = await loadContent(lang, "site_config");
         </div>
     </section>
 
-    <!-- Statistics -->
+    <!-- Achievements -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
                     {aboutContent.achievements?.title}
                 </h2>
-                <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {aboutContent.achievements?.title_tamil}
-                </h3>
                 <p class="text-lg text-gray-600">
                     {aboutContent.achievements?.description}
                 </p>
@@ -263,9 +216,6 @@ const siteConfig = await loadContent(lang, "site_config");
                             <div class="text-gray-600 font-medium text-sm">
                                 {stat.label}
                             </div>
-                            <div class="text-xs text-gray-500">
-                                {stat.label_tamil}
-                            </div>
                         </div>
                     ))
                 }
@@ -274,7 +224,7 @@ const siteConfig = await loadContent(lang, "site_config");
             <!-- Awards -->
             <div class="bg-amber-50 rounded-lg p-8">
                 <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-                    Recent Awards & Recognition
+                    මෑත සම්මාන සහ පිළිගැනීම්
                 </h3>
                 <div class="space-y-6">
                     {
@@ -301,9 +251,6 @@ const siteConfig = await loadContent(lang, "site_config");
                                     <h4 class="text-lg font-semibold text-gray-900 mb-1">
                                         {award.title}
                                     </h4>
-                                    <h5 class="text-md font-medium text-orange-600 mb-2">
-                                        {award.title_tamil}
-                                    </h5>
                                     <p class="text-gray-600 text-sm">
                                         {award.description}
                                     </p>
@@ -325,9 +272,6 @@ const siteConfig = await loadContent(lang, "site_config");
                         <h2 class="text-3xl font-bold text-gray-900 mb-4">
                             {aboutContent.partnerships.title}
                         </h2>
-                        <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                            {aboutContent.partnerships.title_tamil}
-                        </h3>
                         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                             {aboutContent.partnerships.description}
                         </p>
@@ -360,27 +304,18 @@ const siteConfig = await loadContent(lang, "site_config");
         class="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white"
     >
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Join Our Mission</h2>
-            <h3 class="text-2xl font-medium mb-6">
-                எங்கள் நோக்கத்தில் சேருங்கள்
-            </h3>
-            <p class="text-xl text-orange-100 mb-8">
-                Help us preserve Tamil heritage and build a stronger community
-                for future generations.
+            <h2 class="text-3xl font-bold mb-4">අපගේ මෙහෙවරට එක්වන්න</h2>
+            <p class="text-lg text-orange-100 mb-8 max-w-2xl mx-auto">
+                තමිල් සංස්කෘතිය සහ භාෂාව සංරක්ෂණය කිරීම සහ ප්‍රවර්ධනය කිරීම සඳහා අප සමඟ එකතු වන්න.
             </p>
+
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                    href="/membership"
-                    class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-orange-50 transition-colors"
-                >
-                    Become a Member
-                </a>
-                <a
-                    href="/volunteer"
-                    class="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors"
-                >
-                    Volunteer With Us
-                </a>
+                <button class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                    සාමාජිකයෙකු වන්න
+                </button>
+                <button class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors">
+                    ස්වේච්ඡා සේවකයෙකු වන්න
+                </button>
             </div>
         </div>
     </section>

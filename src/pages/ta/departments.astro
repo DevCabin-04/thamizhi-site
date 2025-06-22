@@ -1,12 +1,16 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import departmentsContent from "../../content/i18n/ta/departments.json";
-import siteConfig from "../../content/site_config.json";
+import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+
+const lang = getLangFromUrl(Astro.url) || "ta";
+const departmentsContent = await loadContent(lang, "departments");
+const siteConfig = await loadContent(lang, "site_config");
 ---
 
 <Layout
-    title={`${departmentsContent.hero.title} - ${siteConfig.organization.name}`}
-    description={departmentsContent.hero.description}
+    title={`${departmentsContent.hero?.title} - ${siteConfig.organization?.name}`}
+    description={departmentsContent.hero?.description}
+    lang={lang}
 >
     <!-- Page Header -->
     <section
@@ -50,7 +54,7 @@ import siteConfig from "../../content/site_config.json";
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
-                    departmentsContent.departments.map((department) => (
+                    departmentsContent.departments?.map((department) => (
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                             <!-- Department Header -->
                             <div class={`h-32 bg-gradient-to-br ${department.color} flex items-center justify-center`}>

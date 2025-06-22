@@ -1,0 +1,299 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+
+const lang = getLangFromUrl(Astro.url) || "si";
+const membershipContent = await loadContent(lang, "membership");
+const siteConfig = await loadContent(lang, "site_config");
+---
+
+<Layout
+    title={`${membershipContent.hero?.title} - ${siteConfig.organization?.name}`}
+    description={membershipContent.hero?.description}
+    lang={lang}
+>
+    <!-- Page Header -->
+    <section
+        class="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden"
+    >
+        <!-- Decorative Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div
+                class="absolute inset-0"
+                style='background-image: url(&apos;data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="7" cy="7" r="7"></circle><circle cx="53" cy="7" r="7"></circle><circle cx="7" cy="53" r="7"></circle><circle cx="53" cy="53" r="7"></circle></g></g></svg>&apos;); background-size: 60px 60px;'
+            >
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+                    {membershipContent.hero?.title}
+                </h1>
+                <h2
+                    class="text-2xl lg:text-3xl font-medium text-orange-100 mb-6"
+                >
+                    {membershipContent.hero?.subtitle}
+                </h2>
+                <p class="text-xl text-orange-100">
+                    {membershipContent.hero?.description}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Benefits -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    {membershipContent.benefits?.title}
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    {membershipContent.benefits?.description}
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    membershipContent.benefits?.items?.map((benefit) => (
+                        <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                                <svg
+                                    class="w-6 h-6 text-orange-600"
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    {benefit.icon === "discount" && (
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    )}
+                                    {benefit.icon === "events" && (
+                                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    )}
+                                    {benefit.icon === "newsletter" && (
+                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                    )}
+                                    {benefit.icon === "community" && (
+                                        <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.003 1.003 0 0 0 18.97 8H16.8c-.41 0-.8.17-1.09.45L14 10.07 12.3 8.45c-.3-.28-.68-.45-1.09-.45H8.03c-.46 0-.9.3-1.05.76L4.5 16H7v6h2v-4h2v4h2v-6h2.5l.5 1.5V22h2z" />
+                                    )}
+                                    {benefit.icon === "support" && (
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z" />
+                                    )}
+                                    {!benefit.icon && (
+                                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                    )}
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                                {benefit.title}
+                            </h3>
+                            <p class="text-gray-600 text-sm">
+                                {benefit.description}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Tiers -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                    {membershipContent.membership_types?.title}
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    {membershipContent.membership_types?.description}
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    membershipContent.membership_types?.types?.map((type) => (
+                        <div
+                            class={`rounded-lg p-8 border-2 ${
+                                type.featured
+                                    ? "border-orange-500 bg-orange-50"
+                                    : "border-gray-200 bg-white"
+                            } hover:shadow-lg transition-shadow`}
+                        >
+                            {type.featured && (
+                                <div class="text-center mb-4">
+                                    <span class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                                        பரிந்துரைக்கப்பட்டது
+                                    </span>
+                                </div>
+                            )}
+
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                                    {type.name}
+                                </h3>
+                                <div class="text-4xl font-bold text-orange-600 mb-2">
+                                    {type.price}
+                                </div>
+                                <div class="text-gray-600 text-sm">
+                                    {type.duration}
+                                </div>
+                            </div>
+
+                            <ul class="space-y-3 mb-8">
+                                {type.features?.map((feature) => (
+                                    <li class="flex items-start">
+                                        <svg
+                                            class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0"
+                                            fill="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                        </svg>
+                                        <span class="text-gray-700 text-sm">
+                                            {feature}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <button
+                                class={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${
+                                    type.featured
+                                        ? "bg-orange-600 hover:bg-orange-700 text-white"
+                                        : "bg-gray-100 hover:bg-gray-200 text-gray-900"
+                                }`}
+                            >
+                                {type.cta || "இணையுங்கள்"}
+                            </button>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    {
+        membershipContent.application_process && (
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                            {membershipContent.application_process.title}
+                        </h2>
+                        <p class="text-lg text-gray-600">
+                            {membershipContent.application_process.description}
+                        </p>
+                    </div>
+
+                    <div class="space-y-8">
+                        {membershipContent.application_process.steps?.map(
+                            (step, index) => (
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center">
+                                            <span class="text-white font-bold">
+                                                {index + 1}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="ml-6">
+                                        <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                            {step.title}
+                                        </h3>
+                                        <p class="text-gray-600">
+                                            {step.description}
+                                        </p>
+                                        {step.note && (
+                                            <p class="text-sm text-gray-500 mt-2">
+                                                குறிப்பு: {step.note}
+                                            </p>
+                                        )}
+                                    </div>
+                                </div>
+                            ),
+                        )}
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    <!-- Testimonials -->
+    {
+        membershipContent.testimonials && (
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                            {membershipContent.testimonials.title}
+                        </h2>
+                        <p class="text-lg text-gray-600">
+                            {membershipContent.testimonials.description}
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {membershipContent.testimonials.items?.map(
+                            (testimonial) => (
+                                <div class="bg-gray-50 rounded-lg p-6">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-12 h-12 bg-orange-200 rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-orange-600 font-bold text-lg">
+                                                {testimonial.name
+                                                    .split(" ")
+                                                    .map((n) => n[0])
+                                                    .join("")}
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900">
+                                                {testimonial.name}
+                                            </h4>
+                                            <p class="text-sm text-gray-600">
+                                                {testimonial.title}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-700 italic">
+                                        "{testimonial.quote}"
+                                    </p>
+                                </div>
+                            ),
+                        )}
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-orange-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">
+                {membershipContent.cta?.title || "இன்றே எங்களுடன் சேருங்கள்"}
+            </h2>
+            <p class="text-lg text-orange-100 mb-8 max-w-2xl mx-auto">
+                {
+                    membershipContent.cta?.description ||
+                        "தமிழ் பாரம்பரியத்தை பாதுகாக்கும் மற்றும் கொண்டாடும் எங்கள் சமூகத்தின் ஒரு பகுதியாக மாறுங்கள்."
+                }
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                    class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                >
+                    {
+                        membershipContent.cta?.primary_button ||
+                            "உறுப்பினராக பதிவு செய்யுங்கள்"
+                    }
+                </button>
+                <button
+                    class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors"
+                >
+                    {membershipContent.cta?.secondary_button || "மேலும் அறிக"}
+                </button>
+            </div>
+        </div>
+    </section>
+</Layout>

@@ -1,12 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import departmentsContent from "../content/departments.json";
-import siteConfig from "../content/site_config.json";
+import { getLangFromUrl, loadContent } from "../utils/i18n.js";
+
+const lang = getLangFromUrl(Astro.url) || "en";
+const departmentsContent = await loadContent(lang, "departments");
+const siteConfig = await loadContent(lang, "site_config");
 ---
 
 <Layout
-    title={`Departments - ${siteConfig.organization.name}`}
-    description={departmentsContent.hero.description}
+    title={`Departments - ${siteConfig.organization?.name}`}
+    description={departmentsContent.hero?.description}
+    lang={lang}
 >
     <!-- Page Header -->
     <section
@@ -22,18 +26,18 @@ import siteConfig from "../content/site_config.json";
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
             <div class="max-w-3xl">
                 <h1 class="text-4xl lg:text-5xl font-bold mb-4">
-                    {departmentsContent.hero.title}
+                    {departmentsContent.hero?.title}
                 </h1>
                 <h2
                     class="text-2xl lg:text-3xl font-medium text-orange-100 mb-6"
                 >
-                    {departmentsContent.hero.title_tamil}
+                    {departmentsContent.hero?.title_tamil}
                 </h2>
                 <p class="text-xl text-orange-100 mb-4">
-                    {departmentsContent.hero.subtitle}
+                    {departmentsContent.hero?.subtitle}
                 </p>
                 <p class="text-lg text-orange-200">
-                    {departmentsContent.hero.subtitle_tamil}
+                    {departmentsContent.hero?.subtitle_tamil}
                 </p>
             </div>
         </div>
@@ -44,13 +48,13 @@ import siteConfig from "../content/site_config.json";
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    {departmentsContent.hero.description}
+                    {departmentsContent.hero?.description}
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
-                    departmentsContent.departments.map((dept) => (
+                    departmentsContent.departments?.map((dept) => (
                         <div class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                             <div
                                 class={`h-2 ${
@@ -190,7 +194,7 @@ import siteConfig from "../content/site_config.json";
 
     <!-- Detailed Department Sections -->
     {
-        departmentsContent.departments.map((dept) => (
+        departmentsContent.departments?.map((dept) => (
             <section
                 id={dept.id}
                 class={`py-16 ${
@@ -375,19 +379,19 @@ import siteConfig from "../content/site_config.json";
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    {departmentsContent.volunteer_opportunities.title}
+                    {departmentsContent.volunteer_opportunities?.title}
                 </h2>
                 <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {departmentsContent.volunteer_opportunities.title_tamil}
+                    {departmentsContent.volunteer_opportunities?.title_tamil}
                 </h3>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    {departmentsContent.volunteer_opportunities.description}
+                    {departmentsContent.volunteer_opportunities?.description}
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {
-                    departmentsContent.volunteer_opportunities.opportunities.map(
+                    departmentsContent.volunteer_opportunities?.opportunities?.map(
                         (opportunity) => (
                             <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
                                 <h4 class="text-lg font-semibold text-gray-900 mb-2">

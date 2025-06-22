@@ -1,0 +1,466 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+
+const lang = getLangFromUrl(Astro.url) || "ta";
+const eventsContent = await loadContent(lang, "events");
+const siteConfig = await loadContent(lang, "site_config");
+---
+
+<Layout
+    title={`${eventsContent.hero?.title} - ${siteConfig.organization?.name}`}
+    description={eventsContent.hero?.description}
+    lang={lang}
+>
+    <!-- Page Header -->
+    <section
+        class="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden"
+    >
+        <!-- Decorative Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div
+                class="absolute inset-0"
+                style='background-image: url(&apos;data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.1"><circle cx="7" cy="7" r="7"></circle><circle cx="53" cy="7" r="7"></circle><circle cx="7" cy="53" r="7"></circle><circle cx="53" cy="53" r="7"></circle></g></g></svg>&apos;); background-size: 60px 60px;'
+            >
+            </div>
+        </div>
+
+        <div
+            class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
+        >
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+                    {eventsContent.hero?.title}
+                </h1>
+                <p
+                    class="text-xl sm:text-2xl text-orange-100 mb-4 max-w-3xl mx-auto"
+                >
+                    {eventsContent.hero?.subtitle}
+                </p>
+                <p
+                    class="text-lg text-orange-200 max-w-4xl mx-auto leading-relaxed"
+                >
+                    {eventsContent.hero?.description}
+                </p>
+
+                <!-- Quick Stats -->
+                <div
+                    class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 max-w-4xl mx-auto"
+                >
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-2xl font-bold text-white">
+                            {eventsContent.upcoming_events?.length || 0}
+                        </div>
+                        <div class="text-orange-200 text-sm">வரவிருக்கும் நிகழ்வுகள்</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-2xl font-bold text-white">
+                            {eventsContent.event_categories?.length || 0}
+                        </div>
+                        <div class="text-orange-200 text-sm">நிகழ்வு வகைகள்</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-2xl font-bold text-white">
+                            {eventsContent.past_events?.length || 0}
+                        </div>
+                        <div class="text-orange-200 text-sm">கடந்த நிகழ்வுகள்</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-2xl font-bold text-white">
+                            {eventsContent.regular_programs?.programs?.length || 0}
+                        </div>
+                        <div class="text-orange-200 text-sm">வழக்கமான திட்டங்கள்</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    வரவிருக்கும் நிகழ்வுகள்
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    தமிழ் பண்பாடு மற்றும் சமூகத்தைக் கொண்டாடும் இந்த சுவாரஸ்யமான வரவிருக்கும் நிகழ்வுகளில் எங்களுடன் சேருங்கள்
+                </p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    eventsContent.upcoming_events?.map((event) => (
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                            <div
+                                class={`h-48 bg-gradient-to-br ${event.image_color || "from-orange-500 to-red-600"} relative`}
+                            >
+                                <div class="absolute inset-0 bg-black/20" />
+                                <div class="absolute bottom-4 left-4 right-4">
+                                    <div class="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1 text-white text-sm font-medium inline-block mb-2">
+                                        {event.category}
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white">
+                                        {event.title}
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <svg
+                                        class="w-4 h-4 mr-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                        />
+                                    </svg>
+                                    <span class="text-sm">
+                                        {event.date} - {event.time}
+                                    </span>
+                                </div>
+
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <svg
+                                        class="w-4 h-4 mr-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                        />
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                        />
+                                    </svg>
+                                    <span class="text-sm">{event.location}</span>
+                                </div>
+
+                                <p class="text-gray-700 text-sm mb-4 line-clamp-3">
+                                    {event.description}
+                                </p>
+
+                                <div class="flex items-center justify-between">
+                                    <div class="text-lg font-bold text-orange-600">
+                                        {event.price}
+                                    </div>
+                                    {event.registration_required && (
+                                        <div class="text-sm text-gray-500">
+                                            {event.registered}/{event.capacity}{" "}
+                                            பதிவு செய்யப்பட்டது
+                                        </div>
+                                    )}
+                                </div>
+
+                                <button class="w-full mt-4 bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg font-medium transition-colors duration-200">
+                                    {event.registration_required
+                                        ? "இப்போது பதிவு செய்யுங்கள்"
+                                        : "மேலும் அறிக"}
+                                </button>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Categories -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    நிகழ்வு வகைகள்
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    எங்கள் பல்வேறு பண்பாட்டு மற்றும் கல்வி திட்டங்களை ஆராயுங்கள்
+                </p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {
+                    eventsContent.event_categories?.map((category) => (
+                        <div class="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                                    <span class="text-2xl">
+                                        {category.icon === "festival" && "🎊"}
+                                        {category.icon === "education" && "📚"}
+                                        {category.icon === "community" && "👥"}
+                                        {category.icon === "youth" && "🌱"}
+                                        {category.icon === "arts" && "🎭"}
+                                        {category.icon === "health" && "🏥"}
+                                    </span>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-900">
+                                        {category.name}
+                                    </h3>
+                                    <span class="text-sm text-orange-600 font-medium">
+                                        {category.count} நிகழ்வுகள்
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm">
+                                {category.description}
+                            </p>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Regular Programs -->
+    {
+        eventsContent.regular_programs && (
+            <section class="py-16 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                            {eventsContent.regular_programs.title}
+                        </h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                            {eventsContent.regular_programs.description}
+                        </p>
+                    </div>
+
+                    <div class="grid gap-6 md:grid-cols-2">
+                        {eventsContent.regular_programs.programs?.map((program) => (
+                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                    {program.name}
+                                </h3>
+                                <div class="flex items-center text-gray-600 mb-2">
+                                    <svg
+                                        class="w-4 h-4 mr-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                        />
+                                    </svg>
+                                    <span class="text-sm">{program.schedule}</span>
+                                </div>
+                                <div class="flex items-center text-gray-600 mb-4">
+                                    <svg
+                                        class="w-4 h-4 mr-2"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                        />
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                        />
+                                    </svg>
+                                    <span class="text-sm">{program.location}</span>
+                                </div>
+                                {program.instructor && (
+                                    <p class="text-gray-700 text-sm mb-2">
+                                        <strong>ஆசிரியர்:</strong>{" "}
+                                        {program.instructor}
+                                    </p>
+                                )}
+                                {program.coordinator && (
+                                    <p class="text-gray-700 text-sm mb-2">
+                                        <strong>ஒருங்கிணைப்பாளர்:</strong>{" "}
+                                        {program.coordinator}
+                                    </p>
+                                )}
+                                {program.fee && (
+                                    <p class="text-orange-600 font-medium">
+                                        {program.fee}
+                                    </p>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        )
+    }
+
+    <!-- Past Events -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    சமீபத்திய கடந்த நிகழ்வுகள்
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    எங்கள் சமீபத்திய வெற்றிகரமான நிகழ்வுகள் மற்றும் கொண்டாட்டங்களை ஒரு பார்வை
+                </p>
+            </div>
+
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {
+                    eventsContent.past_events?.map((event) => (
+                        <div class="bg-gray-50 rounded-xl p-6 text-center">
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                                {event.title}
+                            </h3>
+                            <p class="text-sm text-gray-600 mb-2">{event.date}</p>
+                            <p class="text-sm text-gray-600 mb-4">
+                                {event.location}
+                            </p>
+                            <div class="text-2xl font-bold text-orange-600">
+                                {event.attendees}
+                            </div>
+                            <div class="text-sm text-gray-500">பங்கேற்பாளர்கள்</div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Calendar Subscription -->
+    {
+        eventsContent.event_calendar && (
+            <section class="py-16 bg-orange-600 text-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                        {eventsContent.event_calendar.title}
+                    </h2>
+                    <p class="text-lg text-orange-100 mb-8 max-w-2xl mx-auto">
+                        {eventsContent.event_calendar.description}
+                    </p>
+
+                    {eventsContent.event_calendar.subscription && (
+                        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 max-w-2xl mx-auto">
+                            <h3 class="text-xl font-semibold mb-4">
+                                {eventsContent.event_calendar.subscription.title}
+                            </h3>
+                            <p class="text-orange-100 mb-6">
+                                {
+                                    eventsContent.event_calendar.subscription
+                                        .description
+                                }
+                            </p>
+                            <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                                <input
+                                    type="email"
+                                    placeholder="உங்கள் மின்னஞ்சலை உள்ளிடவும்"
+                                    class="flex-1 px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300"
+                                />
+                                <button class="bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200">
+                                    சந்தா செய்யுங்கள்
+                                </button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </section>
+        )
+    }
+
+    <!-- Contact Information -->
+    {
+        eventsContent.contact && (
+            <section class="py-16 bg-gray-100">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                            {eventsContent.contact.title}
+                        </h2>
+                        <p class="text-lg text-gray-600">
+                            {eventsContent.contact.description}
+                        </p>
+                    </div>
+
+                    <div class="grid gap-8 md:grid-cols-2">
+                        {eventsContent.contact.events_coordinator && (
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                                    நிகழ்வுகள் ஒருங்கிணைப்பாளர்
+                                </h3>
+                                <div class="space-y-2">
+                                    <p class="text-gray-700">
+                                        <strong>
+                                            {
+                                                eventsContent.contact
+                                                    .events_coordinator.name
+                                            }
+                                        </strong>
+                                    </p>
+                                    <p class="text-gray-600">
+                                        {
+                                            eventsContent.contact.events_coordinator
+                                                .position
+                                        }
+                                    </p>
+                                    <p class="text-gray-600">
+                                        <a
+                                            href={`mailto:${eventsContent.contact.events_coordinator.email}`}
+                                            class="text-orange-600 hover:text-orange-700"
+                                        >
+                                            {
+                                                eventsContent.contact
+                                                    .events_coordinator.email
+                                            }
+                                        </a>
+                                    </p>
+                                    <p class="text-gray-600">
+                                        <a
+                                            href={`tel:${eventsContent.contact.events_coordinator.phone}`}
+                                            class="text-orange-600 hover:text-orange-700"
+                                        >
+                                            {
+                                                eventsContent.contact
+                                                    .events_coordinator.phone
+                                            }
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
+                        {eventsContent.contact.office_hours && (
+                            <div class="bg-white rounded-xl p-6 shadow-sm">
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                                    {eventsContent.contact.office_hours.title}
+                                </h3>
+                                <div class="space-y-2">
+                                    {eventsContent.contact.office_hours.schedule?.map(
+                                        (hours, index) => (
+                                            <p key={index} class="text-gray-600">
+                                                {hours}
+                                            </p>
+                                        ),
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </section>
+        )
+    }
+</Layout>
