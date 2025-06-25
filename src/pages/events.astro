@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../utils/i18n.js";
+import { getLangFromUrl, loadContentSafe } from "../utils/i18n";
 
-const lang = getLangFromUrl(Astro.url) || "en";
-const eventsContent = await loadContent(lang, "events");
-const siteConfig = await loadContent(lang, "site_config");
+const lang = getLangFromUrl(Astro.url);
+const eventsContent = await loadContentSafe(lang, "events");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -33,7 +33,8 @@ const siteConfig = await loadContent(lang, "site_config");
                             cy="7"
                             r="7"></circle><circle cx="7" cy="53" r="7"
                         ></circle><circle cx="53" cy="53" r="7"></circle></g
-                    ></g>
+                    ></g
+                >
             </div>'); background-size: 60px 60px;">
         </div>
     </section>

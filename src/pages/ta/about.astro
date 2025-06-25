@@ -1,15 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+import { getLangFromUrl, loadContentSafe } from "../../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url) || "ta";
-const aboutContent = await loadContent(lang, "about");
-const siteConfig = await loadContent(lang, "site_config");
+const aboutContent = await loadContentSafe(lang, "about");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
-    title={`${aboutContent.hero?.title} - ${siteConfig.organization?.name}`}
-    description={aboutContent.hero?.description}
+    title={`${aboutContent.hero?.title ?? ""} - ${siteConfig.organization?.name ?? ""}`}
+    description={aboutContent.hero?.description ?? ""}
     lang={lang}
 >
     <!-- Page Header -->
@@ -26,15 +26,15 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
             <div class="max-w-3xl">
                 <h1 class="text-4xl lg:text-5xl font-bold mb-4">
-                    {aboutContent.hero.title}
+                    {aboutContent.hero?.title}
                 </h1>
                 <h2
                     class="text-2xl lg:text-3xl font-medium text-orange-100 mb-6"
                 >
-                    {aboutContent.hero.title_tamil}
+                    {aboutContent.hero?.title_tamil}
                 </h2>
                 <p class="text-xl text-orange-100">
-                    {aboutContent.hero.description}
+                    {aboutContent.hero?.description}
                 </p>
             </div>
         </div>
@@ -47,26 +47,26 @@ const siteConfig = await loadContent(lang, "site_config");
                 <!-- Mission -->
                 <div class="bg-orange-50 rounded-lg p-8">
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                        {aboutContent.mission.title}
+                        {aboutContent.mission?.title}
                     </h2>
                     <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                        {aboutContent.mission.title_tamil}
+                        {aboutContent.mission?.title_tamil}
                     </h3>
                     <p class="text-gray-700 leading-relaxed">
-                        {aboutContent.mission.content}
+                        {aboutContent.mission?.content}
                     </p>
                 </div>
 
                 <!-- Vision -->
                 <div class="bg-blue-50 rounded-lg p-8">
                     <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                        {aboutContent.vision.title}
+                        {aboutContent.vision?.title}
                     </h2>
                     <h3 class="text-2xl font-medium text-blue-600 mb-6">
-                        {aboutContent.vision.title_tamil}
+                        {aboutContent.vision?.title_tamil}
                     </h3>
                     <p class="text-gray-700 leading-relaxed">
-                        {aboutContent.vision.content}
+                        {aboutContent.vision?.content}
                     </p>
                 </div>
             </div>
@@ -87,7 +87,7 @@ const siteConfig = await loadContent(lang, "site_config");
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {
-                    aboutContent.values.map((value) => (
+                    aboutContent.values?.map((value) => (
                         <div class="bg-white rounded-lg shadow-lg p-6 text-center">
                             <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg
@@ -117,13 +117,13 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    {aboutContent.history.title}
+                    {aboutContent.history?.title}
                 </h2>
                 <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {aboutContent.history.title_tamil}
+                    {aboutContent.history?.title_tamil}
                 </h3>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    {aboutContent.history.content}
+                    {aboutContent.history?.content}
                 </p>
             </div>
 
@@ -135,7 +135,7 @@ const siteConfig = await loadContent(lang, "site_config");
 
                 <div class="space-y-12">
                     {
-                        aboutContent.history.milestones.map(
+                        aboutContent.history?.milestones?.map(
                             (milestone, index) => (
                                 <div
                                     class={`relative flex items-center ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
@@ -173,16 +173,16 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    {aboutContent.leadership.title}
+                    {aboutContent.leadership?.title}
                 </h2>
                 <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {aboutContent.leadership.title_tamil}
+                    {aboutContent.leadership?.title_tamil}
                 </h3>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {
-                    aboutContent.leadership.board_members.map((member) => (
+                    aboutContent.leadership?.board_members?.map((member) => (
                         <div class="bg-white rounded-lg shadow-lg p-6 text-center">
                             <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <svg
@@ -215,16 +215,16 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    {aboutContent.programs.title}
+                    {aboutContent.programs?.title}
                 </h2>
                 <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {aboutContent.programs.title_tamil}
+                    {aboutContent.programs?.title_tamil}
                 </h3>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {
-                    aboutContent.programs.list.map((program) => (
+                    aboutContent.programs?.list?.map((program) => (
                         <div class="bg-orange-50 rounded-lg p-6">
                             <h3 class="text-xl font-semibold text-gray-900 mb-2">
                                 {program.name}
@@ -245,10 +245,10 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    {aboutContent.achievements.title}
+                    {aboutContent.achievements?.title}
                 </h2>
                 <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {aboutContent.achievements.title_tamil}
+                    {aboutContent.achievements?.title_tamil}
                 </h3>
             </div>
 
@@ -257,7 +257,7 @@ const siteConfig = await loadContent(lang, "site_config");
                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
             >
                 {
-                    aboutContent.achievements.stats.map((stat) => (
+                    aboutContent.achievements?.stats?.map((stat) => (
                         <div class="text-center">
                             <div class="text-4xl font-bold text-orange-600 mb-2">
                                 {stat.number}
@@ -280,7 +280,7 @@ const siteConfig = await loadContent(lang, "site_config");
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {
-                        aboutContent.achievements.awards.map((award) => (
+                        aboutContent.achievements?.awards?.map((award) => (
                             <div class="text-center p-4 border border-orange-200 rounded-lg">
                                 <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
                                     <svg
@@ -313,13 +313,13 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    {aboutContent.contact.title}
+                    {aboutContent.contact?.title}
                 </h2>
                 <h3 class="text-2xl font-medium text-orange-600 mb-6">
-                    {aboutContent.contact.title_tamil}
+                    {aboutContent.contact?.title_tamil}
                 </h3>
                 <p class="text-lg text-gray-600">
-                    {aboutContent.contact.description}
+                    {aboutContent.contact?.description}
                 </p>
             </div>
 
@@ -327,13 +327,13 @@ const siteConfig = await loadContent(lang, "site_config");
                 <!-- Address -->
                 <div class="bg-gray-50 rounded-lg p-6">
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">
-                        {aboutContent.contact.address.title}
+                        {aboutContent.contact?.address?.title}
                     </h3>
                     <div class="space-y-2">
                         {
-                            aboutContent.contact.address.lines.map((line) => (
-                                <p class="text-gray-700">{line}</p>
-                            ))
+                            aboutContent.contact?.address?.lines?.map(
+                                (line) => <p class="text-gray-700">{line}</p>,
+                            )
                         }
                     </div>
                 </div>
@@ -341,34 +341,34 @@ const siteConfig = await loadContent(lang, "site_config");
                 <!-- Office Hours -->
                 <div class="bg-gray-50 rounded-lg p-6">
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">
-                        {aboutContent.contact.hours.title}
+                        {aboutContent.contact?.hours?.title}
                     </h3>
                     <div class="space-y-2">
                         {
-                            aboutContent.contact.hours.schedule.map((time) => (
-                                <p class="text-gray-700">{time}</p>
-                            ))
+                            aboutContent.contact?.hours?.schedule?.map(
+                                (time) => <p class="text-gray-700">{time}</p>,
+                            )
                         }
                     </div>
                 </div>
             </div>
-
-            <div class="text-center mt-8">
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a
-                        href="mailto:info@thamizhi.org"
-                        class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors"
-                    >
-                        மின்னஞ்சல் அனுப்புங்கள்
-                    </a>
-                    <a
-                        href="tel:+15551234500"
-                        class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
-                    >
-                        தொலைபேசியில் அழைக்கவும்
-                    </a>
-                </div>
-            </div>
         </div>
     </section>
+
+    <div class="text-center mt-8">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+                href="mailto:info@thamizhi.org"
+                class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors"
+            >
+                மின்னஞ்சல் அனுப்புங்கள்
+            </a>
+            <a
+                href="tel:+15551234500"
+                class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+            >
+                தொலைபேசியில் அழைக்கவும்
+            </a>
+        </div>
+    </div>
 </Layout>

@@ -2,10 +2,11 @@
 import "../styles/global.css";
 import {
     getLangFromUrl,
-    loadContent,
+    loadContentSafe,
     getLocalizedUrl,
     languages,
-} from "../utils/i18n.js";
+    type SupportedLang,
+} from "../utils/i18n";
 
 export interface Props {
     title?: string;
@@ -14,10 +15,11 @@ export interface Props {
 }
 
 const { title, description, lang } = Astro.props;
-const currentLang = lang || getLangFromUrl(Astro.url) || "en";
+const currentLang: SupportedLang = (lang ||
+    getLangFromUrl(Astro.url)) as SupportedLang;
 
 // Load site configuration for current language
-const siteConfig = await loadContent(currentLang, "site_config");
+const siteConfig = await loadContentSafe(currentLang, "site_config");
 
 const pageTitle =
     title || siteConfig.meta?.title_suffix || siteConfig.organization?.name;

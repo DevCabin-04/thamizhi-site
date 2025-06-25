@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+import { getLangFromUrl, loadContentSafe } from "../../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url) || "si";
-const aboutContent = await loadContent(lang, "about");
-const siteConfig = await loadContent(lang, "site_config");
+const aboutContent = await loadContentSafe(lang, "about");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -71,7 +71,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     අපගේ මූලික වටිනාකම්
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    තමිල් ප්‍රජාවට අපගේ කැපවීම නිර්වචනය කරන සහ අපගේ වැඩ මගපෙන්වන මූලධර්ම.
+                    තමිල් ප්‍රජාවට අපගේ කැපවීම නිර්වචනය කරන සහ අපගේ වැඩ මගපෙන්වන
+                    මූලධර්ම.
                 </p>
             </div>
 
@@ -306,14 +307,19 @@ const siteConfig = await loadContent(lang, "site_config");
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-bold mb-4">අපගේ මෙහෙවරට එක්වන්න</h2>
             <p class="text-lg text-orange-100 mb-8 max-w-2xl mx-auto">
-                තමිල් සංස්කෘතිය සහ භාෂාව සංරක්ෂණය කිරීම සහ ප්‍රවර්ධනය කිරීම සඳහා අප සමඟ එකතු වන්න.
+                තමිල් සංස්කෘතිය සහ භාෂාව සංරක්ෂණය කිරීම සහ ප්‍රවර්ධනය කිරීම සඳහා
+                අප සමඟ එකතු වන්න.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                <button
+                    class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                >
                     සාමාජිකයෙකු වන්න
                 </button>
-                <button class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors">
+                <button
+                    class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors"
+                >
                     ස්වේච්ඡා සේවකයෙකු වන්න
                 </button>
             </div>

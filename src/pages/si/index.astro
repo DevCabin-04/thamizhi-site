@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { loadContent } from "../../utils/i18n.js";
+import { loadContentSafe } from "../../utils/i18n";
 
 const lang = "si";
-const homeContent = await loadContent(lang, "home");
-const siteConfig = await loadContent(lang, "site_config");
+const homeContent = await loadContentSafe(lang, "home");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -104,7 +104,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     අපගේ දෙපාර්තමේන්තු
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    තමිළ සංස්කෘතිය සුරැකීමට සහ අපගේ ප්‍රජාවට සේවය කිරීමට නිර්මාණය කර ඇති අපගේ විවිධ වැඩසටහන් සොයා ගන්න.
+                    තමිළ සංස්කෘතිය සුරැකීමට සහ අපගේ ප්‍රජාවට සේවය කිරීමට
+                    නිර්මාණය කර ඇති අපගේ විවිධ වැඩසටහන් සොයා ගන්න.
                 </p>
             </div>
 
@@ -147,7 +148,8 @@ const siteConfig = await loadContent(lang, "site_config");
                         මෑත සිදුවීම්
                     </h2>
                     <p class="text-lg text-gray-600">
-                        සංස්කෘතික සිදුවීම් සහ වැඩසටහන් හරහා අපගේ ප්‍රජාව සමඟ සම්බන්ධව සිටින්න.
+                        සංස්කෘතික සිදුවීම් සහ වැඩසටහන් හරහා අපගේ ප්‍රජාව සමඟ
+                        සම්බන්ධව සිටින්න.
                     </p>
                 </div>
                 <a
@@ -215,7 +217,8 @@ const siteConfig = await loadContent(lang, "site_config");
                                         <strong>වේලාව:</strong> {event.time}
                                     </p>
                                     <p>
-                                        <strong>ස්ථානය:</strong> {event.location}
+                                        <strong>ස්ථානය:</strong>{" "}
+                                        {event.location}
                                     </p>
                                 </div>
                             </div>
@@ -297,7 +300,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     සම්බන්ධ වන්න
                 </h2>
                 <p class="text-lg text-gray-600">
-                    අපගේ ප්‍රජාවට එකතු වී අනාගත පරම්පරාවන් සඳහා තමිළ උරුමය සුරැකීමට උපකාර කරන්න.
+                    අපගේ ප්‍රජාවට එකතු වී අනාගත පරම්පරාවන් සඳහා තමිළ උරුමය
+                    සුරැකීමට උපකාර කරන්න.
                 </p>
             </div>
 

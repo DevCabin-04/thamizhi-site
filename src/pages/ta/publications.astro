@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+import { getLangFromUrl, loadContentSafe } from "../../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url) || "ta";
-const publicationsContent = await loadContent(lang, "publications");
-const siteConfig = await loadContent(lang, "site_config");
+const publicationsContent = await loadContentSafe(lang, "publications");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -49,7 +49,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     வெளியீட்டு வகைகள்
                 </h2>
                 <p class="text-lg text-gray-600">
-                    தமிழ் இலக்கியம் மற்றும் வளங்களின் எங்கள் பலவகையான தொகுப்பை ஆராயுங்கள்
+                    தமிழ் இலக்கியம் மற்றும் வளங்களின் எங்கள் பலவகையான தொகுப்பை
+                    ஆராயுங்கள்
                 </p>
             </div>
 
@@ -250,7 +251,9 @@ const siteConfig = await loadContent(lang, "site_config");
                                             </div>
                                             {publication.year && (
                                                 <div>
-                                                    <strong>வெளியிடப்பட்டது:</strong>{" "}
+                                                    <strong>
+                                                        வெளியிடப்பட்டது:
+                                                    </strong>{" "}
                                                     {publication.year}
                                                 </div>
                                             )}
@@ -343,9 +346,12 @@ const siteConfig = await loadContent(lang, "site_config");
     <!-- Newsletter Subscription -->
     <section class="py-16 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">புதுப்பித்த நிலையில் இருங்கள்</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">
+                புதுப்பித்த நிலையில் இருங்கள்
+            </h2>
             <p class="text-lg text-gray-600 mb-8">
-                புதிய வெளியீடுகள் மற்றும் இலக்கிய நிகழ்வுகள் குறித்த அறிவிப்புகளைப் பெற சந்தா செய்யுங்கள்.
+                புதிய வெளியீடுகள் மற்றும் இலக்கிய நிகழ்வுகள் குறித்த
+                அறிவிப்புகளைப் பெற சந்தா செய்யுங்கள்.
             </p>
 
             <div class="bg-gray-50 rounded-xl p-8 max-w-md mx-auto">
@@ -362,7 +368,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     </button>
                 </div>
                 <p class="text-sm text-gray-500 mt-4">
-                    நாங்கள் உங்கள் தனியுரிமையை மதிக்கிறோம். எந்த நேரத்திலும் சந்தாவை ரத்து செய்யுங்கள்.
+                    நாங்கள் உங்கள் தனியுரிமையை மதிக்கிறோம். எந்த நேரத்திலும்
+                    சந்தாவை ரத்து செய்யுங்கள்.
                 </p>
             </div>
         </div>

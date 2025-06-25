@@ -20,5 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# loose testing
+tmp/
+
 # jetbrains setting folder
 .idea/

@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+import { getLangFromUrl, loadContentSafe } from "../../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url) || "ta";
-const eventsContent = await loadContent(lang, "events");
-const siteConfig = await loadContent(lang, "site_config");
+const eventsContent = await loadContentSafe(lang, "events");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -51,25 +51,36 @@ const siteConfig = await loadContent(lang, "site_config");
                         <div class="text-2xl font-bold text-white">
                             {eventsContent.upcoming_events?.length || 0}
                         </div>
-                        <div class="text-orange-200 text-sm">வரவிருக்கும் நிகழ்வுகள்</div>
+                        <div class="text-orange-200 text-sm">
+                            வரவிருக்கும் நிகழ்வுகள்
+                        </div>
                     </div>
                     <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                         <div class="text-2xl font-bold text-white">
                             {eventsContent.event_categories?.length || 0}
                         </div>
-                        <div class="text-orange-200 text-sm">நிகழ்வு வகைகள்</div>
+                        <div class="text-orange-200 text-sm">
+                            நிகழ்வு வகைகள்
+                        </div>
                     </div>
                     <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                         <div class="text-2xl font-bold text-white">
                             {eventsContent.past_events?.length || 0}
                         </div>
-                        <div class="text-orange-200 text-sm">கடந்த நிகழ்வுகள்</div>
+                        <div class="text-orange-200 text-sm">
+                            கடந்த நிகழ்வுகள்
+                        </div>
                     </div>
                     <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                         <div class="text-2xl font-bold text-white">
-                            {eventsContent.regular_programs?.programs?.length || 0}
+                            {
+                                eventsContent.regular_programs?.programs
+                                    ?.length || 0
+                            }
                         </div>
-                        <div class="text-orange-200 text-sm">வழக்கமான திட்டங்கள்</div>
+                        <div class="text-orange-200 text-sm">
+                            வழக்கமான திட்டங்கள்
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,7 +95,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     வரவிருக்கும் நிகழ்வுகள்
                 </h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    தமிழ் பண்பாடு மற்றும் சமூகத்தைக் கொண்டாடும் இந்த சுவாரஸ்யமான வரவிருக்கும் நிகழ்வுகளில் எங்களுடன் சேருங்கள்
+                    தமிழ் பண்பாடு மற்றும் சமூகத்தைக் கொண்டாடும் இந்த சுவாரஸ்யமான
+                    வரவிருக்கும் நிகழ்வுகளில் எங்களுடன் சேருங்கள்
                 </p>
             </div>
 
@@ -146,7 +158,9 @@ const siteConfig = await loadContent(lang, "site_config");
                                             d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                                         />
                                     </svg>
-                                    <span class="text-sm">{event.location}</span>
+                                    <span class="text-sm">
+                                        {event.location}
+                                    </span>
                                 </div>
 
                                 <p class="text-gray-700 text-sm mb-4 line-clamp-3">
@@ -239,68 +253,74 @@ const siteConfig = await loadContent(lang, "site_config");
                     </div>
 
                     <div class="grid gap-6 md:grid-cols-2">
-                        {eventsContent.regular_programs.programs?.map((program) => (
-                            <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
-                                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                                    {program.name}
-                                </h3>
-                                <div class="flex items-center text-gray-600 mb-2">
-                                    <svg
-                                        class="w-4 h-4 mr-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                                        />
-                                    </svg>
-                                    <span class="text-sm">{program.schedule}</span>
+                        {eventsContent.regular_programs.programs?.map(
+                            (program) => (
+                                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
+                                    <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                                        {program.name}
+                                    </h3>
+                                    <div class="flex items-center text-gray-600 mb-2">
+                                        <svg
+                                            class="w-4 h-4 mr-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                            />
+                                        </svg>
+                                        <span class="text-sm">
+                                            {program.schedule}
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center text-gray-600 mb-4">
+                                        <svg
+                                            class="w-4 h-4 mr-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                            />
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                            />
+                                        </svg>
+                                        <span class="text-sm">
+                                            {program.location}
+                                        </span>
+                                    </div>
+                                    {program.instructor && (
+                                        <p class="text-gray-700 text-sm mb-2">
+                                            <strong>ஆசிரியர்:</strong>{" "}
+                                            {program.instructor}
+                                        </p>
+                                    )}
+                                    {program.coordinator && (
+                                        <p class="text-gray-700 text-sm mb-2">
+                                            <strong>ஒருங்கிணைப்பாளர்:</strong>{" "}
+                                            {program.coordinator}
+                                        </p>
+                                    )}
+                                    {program.fee && (
+                                        <p class="text-orange-600 font-medium">
+                                            {program.fee}
+                                        </p>
+                                    )}
                                 </div>
-                                <div class="flex items-center text-gray-600 mb-4">
-                                    <svg
-                                        class="w-4 h-4 mr-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                                        />
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                                        />
-                                    </svg>
-                                    <span class="text-sm">{program.location}</span>
-                                </div>
-                                {program.instructor && (
-                                    <p class="text-gray-700 text-sm mb-2">
-                                        <strong>ஆசிரியர்:</strong>{" "}
-                                        {program.instructor}
-                                    </p>
-                                )}
-                                {program.coordinator && (
-                                    <p class="text-gray-700 text-sm mb-2">
-                                        <strong>ஒருங்கிணைப்பாளர்:</strong>{" "}
-                                        {program.coordinator}
-                                    </p>
-                                )}
-                                {program.fee && (
-                                    <p class="text-orange-600 font-medium">
-                                        {program.fee}
-                                    </p>
-                                )}
-                            </div>
-                        ))}
+                            ),
+                        )}
                     </div>
                 </div>
             </section>
@@ -315,7 +335,8 @@ const siteConfig = await loadContent(lang, "site_config");
                     சமீபத்திய கடந்த நிகழ்வுகள்
                 </h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    எங்கள் சமீபத்திய வெற்றிகரமான நிகழ்வுகள் மற்றும் கொண்டாட்டங்களை ஒரு பார்வை
+                    எங்கள் சமீபத்திய வெற்றிகரமான நிகழ்வுகள் மற்றும்
+                    கொண்டாட்டங்களை ஒரு பார்வை
                 </p>
             </div>
 
@@ -326,14 +347,18 @@ const siteConfig = await loadContent(lang, "site_config");
                             <h3 class="text-lg font-semibold text-gray-900 mb-2">
                                 {event.title}
                             </h3>
-                            <p class="text-sm text-gray-600 mb-2">{event.date}</p>
+                            <p class="text-sm text-gray-600 mb-2">
+                                {event.date}
+                            </p>
                             <p class="text-sm text-gray-600 mb-4">
                                 {event.location}
                             </p>
                             <div class="text-2xl font-bold text-orange-600">
                                 {event.attendees}
                             </div>
-                            <div class="text-sm text-gray-500">பங்கேற்பாளர்கள்</div>
+                            <div class="text-sm text-gray-500">
+                                பங்கேற்பாளர்கள்
+                            </div>
                         </div>
                     ))
                 }
@@ -356,7 +381,10 @@ const siteConfig = await loadContent(lang, "site_config");
                     {eventsContent.event_calendar.subscription && (
                         <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 max-w-2xl mx-auto">
                             <h3 class="text-xl font-semibold mb-4">
-                                {eventsContent.event_calendar.subscription.title}
+                                {
+                                    eventsContent.event_calendar.subscription
+                                        .title
+                                }
                             </h3>
                             <p class="text-orange-100 mb-6">
                                 {
@@ -412,8 +440,8 @@ const siteConfig = await loadContent(lang, "site_config");
                                     </p>
                                     <p class="text-gray-600">
                                         {
-                                            eventsContent.contact.events_coordinator
-                                                .position
+                                            eventsContent.contact
+                                                .events_coordinator.position
                                         }
                                     </p>
                                     <p class="text-gray-600">
@@ -450,7 +478,10 @@ const siteConfig = await loadContent(lang, "site_config");
                                 <div class="space-y-2">
                                     {eventsContent.contact.office_hours.schedule?.map(
                                         (hours, index) => (
-                                            <p key={index} class="text-gray-600">
+                                            <p
+                                                key={index}
+                                                class="text-gray-600"
+                                            >
                                                 {hours}
                                             </p>
                                         ),

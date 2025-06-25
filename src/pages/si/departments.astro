@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+import { getLangFromUrl, loadContentSafe } from "../../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url) || "si";
-const departmentsContent = await loadContent(lang, "departments");
-const siteConfig = await loadContent(lang, "site_config");
+const departmentsContent = await loadContentSafe(lang, "departments");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -49,9 +49,7 @@ const siteConfig = await loadContent(lang, "site_config");
                     departmentsContent.departments?.map((dept) => (
                         <div class="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
                             <div
-                                class={`h-2 ${
-                                    dept.color || "bg-orange-500"
-                                }`}
+                                class={`h-2 ${dept.color || "bg-orange-500"}`}
                             />
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-gray-900 mb-3">
@@ -68,7 +66,9 @@ const siteConfig = await loadContent(lang, "site_config");
                                     >
                                         <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                                     </svg>
-                                    <span>{dept.programs?.length || 0} වැඩසටහන්</span>
+                                    <span>
+                                        {dept.programs?.length || 0} වැඩසටහන්
+                                    </span>
                                 </div>
                                 <a
                                     href={`#${dept.id}`}
@@ -306,13 +306,18 @@ const siteConfig = await loadContent(lang, "site_config");
                 වැඩසටහනකට සම්බන්ධ වන්න
             </h2>
             <p class="text-lg text-gray-600 mb-8">
-                ඔබගේ රුචිකත්වයන්ට සහ ලබාගත හැකි කාලයට ගැළපෙන වැඩසටහනක් සොයා ගන්න.
+                ඔබගේ රුචිකත්වයන්ට සහ ලබාගත හැකි කාලයට ගැළපෙන වැඩසටහනක් සොයා
+                ගන්න.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors">
+                <button
+                    class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors"
+                >
                     වැඩසටහනකට ලියාපදිංචි වන්න
                 </button>
-                <button class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <button
+                    class="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors"
+                >
                     සම්බන්ධීකාරකයින් සමඟ කතා කරන්න
                 </button>
             </div>

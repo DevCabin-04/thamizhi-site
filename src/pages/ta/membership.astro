@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, loadContent } from "../../utils/i18n.js";
+import { getLangFromUrl, loadContentSafe } from "../../utils/i18n";
 
 const lang = getLangFromUrl(Astro.url) || "ta";
-const membershipContent = await loadContent(lang, "membership");
-const siteConfig = await loadContent(lang, "site_config");
+const membershipContent = await loadContentSafe(lang, "membership");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -273,15 +273,24 @@ const siteConfig = await loadContent(lang, "site_config");
                 {membershipContent.cta?.title || "இன்றே எங்களுடன் சேருங்கள்"}
             </h2>
             <p class="text-lg text-orange-100 mb-8 max-w-2xl mx-auto">
-                {membershipContent.cta?.description ||
-                    "தமிழ் பாரம்பரியத்தை பாதுகாக்கும் மற்றும் கொண்டாடும் எங்கள் சமூகத்தின் ஒரு பகுதியாக மாறுங்கள்."}
+                {
+                    membershipContent.cta?.description ||
+                        "தமிழ் பாரம்பரியத்தை பாதுகாக்கும் மற்றும் கொண்டாடும் எங்கள் சமூகத்தின் ஒரு பகுதியாக மாறுங்கள்."
+                }
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
-                    {membershipContent.cta?.primary_button || "உறுப்பினராக பதிவு செய்யுங்கள்"}
+                <button
+                    class="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                >
+                    {
+                        membershipContent.cta?.primary_button ||
+                            "உறுப்பினராக பதிவு செய்யுங்கள்"
+                    }
                 </button>
-                <button class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors">
+                <button
+                    class="border border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors"
+                >
                     {membershipContent.cta?.secondary_button || "மேலும் அறிக"}
                 </button>
             </div>

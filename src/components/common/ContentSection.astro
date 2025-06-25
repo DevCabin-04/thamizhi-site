@@ -1,0 +1,94 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  variant?: 'default' | 'centered' | 'wide' | 'narrow';
+  background?: 'white' | 'gray' | 'gradient' | 'transparent';
+  padding?: 'sm' | 'md' | 'lg' | 'xl';
+  id?: string;
+  class?: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  variant = 'default',
+  background = 'white',
+  padding = 'lg',
+  id,
+  class: className = ''
+} = Astro.props;
+
+const variantClasses = {
+  default: 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+  centered: 'max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center',
+  wide: 'max-w-8xl mx-auto px-4 sm:px-6 lg:px-8',
+  narrow: 'max-w-3xl mx-auto px-4 sm:px-6 lg:px-8'
+};
+
+const backgroundClasses = {
+  white: 'bg-white',
+  gray: 'bg-gray-50',
+  gradient: 'bg-gradient-to-br from-orange-50 to-red-50',
+  transparent: 'bg-transparent'
+};
+
+const paddingClasses = {
+  sm: 'py-8',
+  md: 'py-12',
+  lg: 'py-16',
+  xl: 'py-20'
+};
+
+const sectionClasses = `${backgroundClasses[background]} ${paddingClasses[padding]} ${className}`;
+const containerClasses = variantClasses[variant];
+---
+
+<section class={sectionClasses} id={id}>
+  <div class={containerClasses}>
+    {(title || subtitle || description) && (
+      <div class="section-header mb-12">
+        {subtitle && (
+          <p class="text-sm font-semibold text-orange-600 uppercase tracking-wide mb-2">
+            {subtitle}
+          </p>
+        )}
+
+        {title && (
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            {title}
+          </h2>
+        )}
+
+        {description && (
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            {description}
+          </p>
+        )}
+      </div>
+    )}
+
+    <div class="section-content">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: inherit;
+  }
+
+  .section-content > :global(* + *) {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .section-header h2 {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+  }
+</style>

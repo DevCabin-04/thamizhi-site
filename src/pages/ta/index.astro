@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { loadContent } from "../../utils/i18n.js";
+import { loadContentSafe } from "../../utils/i18n";
 
 const lang = "ta";
-const homeContent = await loadContent(lang, "home");
-const siteConfig = await loadContent(lang, "site_config");
+const homeContent = await loadContentSafe(lang, "home");
+const siteConfig = await loadContentSafe(lang, "site_config");
 ---
 
 <Layout
@@ -104,7 +104,9 @@ const siteConfig = await loadContent(lang, "site_config");
                     எங்கள் துறைகள்
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    தமிழ் கலாச்சாரத்தை பாதுகாக்கவும் எங்கள் சமூகத்திற்கு சேவை செய்யவும் வடிவமைக்கப்பட்ட எங்கள் பல்வேறு திட்டங்களைக் கண்டறியுங்கள்.
+                    தமிழ் கலாச்சாரத்தை பாதுகாக்கவும் எங்கள் சமூகத்திற்கு சேவை
+                    செய்யவும் வடிவமைக்கப்பட்ட எங்கள் பல்வேறு திட்டங்களைக்
+                    கண்டறியுங்கள்.
                 </p>
             </div>
 
@@ -147,7 +149,8 @@ const siteConfig = await loadContent(lang, "site_config");
                         சமீபத்திய நிகழ்வுகள்
                     </h2>
                     <p class="text-lg text-gray-600">
-                        கலாச்சார நிகழ்வுகள் மற்றும் திட்டங்கள் மூலம் எங்கள் சமூகத்துடன் தொடர்புடன் இருங்கள்.
+                        கலாச்சார நிகழ்வுகள் மற்றும் திட்டங்கள் மூலம் எங்கள்
+                        சமூகத்துடன் தொடர்புடன் இருங்கள்.
                     </p>
                 </div>
                 <a
@@ -293,11 +296,10 @@ const siteConfig = await loadContent(lang, "site_config");
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                    பங்கேற்க
-                </h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">பங்கேற்க</h2>
                 <p class="text-lg text-gray-600">
-                    எங்கள் சமூகத்தில் சேர்ந்து எதிர்கால தலைமுறைகளுக்காக தமிழ் பாரம்பரியத்தை பாதுகாக்க உதவுங்கள்.
+                    எங்கள் சமூகத்தில் சேர்ந்து எதிர்கால தலைமுறைகளுக்காக தமிழ்
+                    பாரம்பரியத்தை பாதுகாக்க உதவுங்கள்.
                 </p>
             </div>
 
