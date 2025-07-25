@@ -8,7 +8,7 @@ export const languages = {
   },
   ta: {
     code: 'ta',
-    name: 'தமிழ்',
+    name: 'தமிழ்l',
     dir: 'ltr',
     flag: '🇱🇰'
   },
