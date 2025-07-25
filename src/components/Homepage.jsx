@@ -3,18 +3,6 @@ import { useEffect, useState } from "react";
 
 export default function HomePage({ props, lang }) {
 
-  const [currentLang, setCurrentLang] = useState(lang);
-  
-  useEffect(() => {
-    if (lang !== currentLang) {
-      setCurrentLang(lang);
-    }
-  }, [lang, currentLang]);
-
-
-
-
-
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
