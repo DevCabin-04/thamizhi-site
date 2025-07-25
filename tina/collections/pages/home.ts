@@ -335,7 +335,11 @@ const createHomepageCollection = (lang: string): Collection => ({
   ],
   ui: {
     router: ({ document }) => {
-      return lang === 'en' ? '/' : `/${lang}`;
+      // Return the path that matches your site's routing
+      if (lang === 'en') {
+        return '/';
+      }
+      return `/${lang}`;
     }
   }
 });

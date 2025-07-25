@@ -336,7 +336,10 @@ var createHomepageCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
-      return lang === "en" ? "/" : `/${lang}`;
+      if (lang === "en") {
+        return "/";
+      }
+      return `/${lang}`;
     }
   }
 });
