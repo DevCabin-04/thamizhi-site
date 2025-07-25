@@ -51,10 +51,12 @@ export async function loadContent(lang, page) {
 export async function loadTina(lang, page) {
   try {
     let pageResponse;
+
+     const queryKey = `${page}_${lang}` || `${page}_en`;
     
     switch (lang) {
       case 'en':
-        pageResponse = await client.queries.home_en({
+        pageResponse = await client.queries[queryKey]({
           relativePath: `${page}.json`
         });
         break;
