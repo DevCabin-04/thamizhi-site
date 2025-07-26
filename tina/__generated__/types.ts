@@ -88,6 +88,12 @@ export type Query = {
   home_siConnection: Home_SiConnection;
   home_ta: Home_Ta;
   home_taConnection: Home_TaConnection;
+  about_en: About_En;
+  about_enConnection: About_EnConnection;
+  about_si: About_Si;
+  about_siConnection: About_SiConnection;
+  about_ta: About_Ta;
+  about_taConnection: About_TaConnection;
 };
 
 
@@ -156,10 +162,58 @@ export type QueryHome_TaConnectionArgs = {
   filter?: InputMaybe<Home_TaFilter>;
 };
 
+
+export type QueryAbout_EnArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAbout_EnConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<About_EnFilter>;
+};
+
+
+export type QueryAbout_SiArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAbout_SiConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<About_SiFilter>;
+};
+
+
+export type QueryAbout_TaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryAbout_TaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<About_TaFilter>;
+};
+
 export type DocumentFilter = {
   home_en?: InputMaybe<Home_EnFilter>;
   home_si?: InputMaybe<Home_SiFilter>;
   home_ta?: InputMaybe<Home_TaFilter>;
+  about_en?: InputMaybe<About_EnFilter>;
+  about_si?: InputMaybe<About_SiFilter>;
+  about_ta?: InputMaybe<About_TaFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -199,7 +253,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Home_En | Home_Si | Home_Ta | Folder;
+export type DocumentNode = Home_En | Home_Si | Home_Ta | About_En | About_Si | About_Ta | Folder;
 
 export type Home_EnHeroCta_Primary = {
   __typename?: 'Home_enHeroCta_primary';
@@ -784,6 +838,813 @@ export type Home_TaConnection = Connection & {
   edges?: Maybe<Array<Maybe<Home_TaConnectionEdges>>>;
 };
 
+export type About_EnHero = {
+  __typename?: 'About_enHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+};
+
+export type About_EnMission = {
+  __typename?: 'About_enMission';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  content_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_EnVision = {
+  __typename?: 'About_enVision';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  content_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_EnValuess = {
+  __typename?: 'About_enValuess';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+};
+
+export type About_EnHistoryMilestones = {
+  __typename?: 'About_enHistoryMilestones';
+  year: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+};
+
+export type About_EnHistory = {
+  __typename?: 'About_enHistory';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  milestones?: Maybe<Array<Maybe<About_EnHistoryMilestones>>>;
+};
+
+export type About_EnLeadershipBoard_Members = {
+  __typename?: 'About_enLeadershipBoard_members';
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  position: Scalars['String']['output'];
+  position_tamil?: Maybe<Scalars['String']['output']>;
+  bio: Scalars['String']['output'];
+  photo?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_EnLeadership = {
+  __typename?: 'About_enLeadership';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  board_members?: Maybe<Array<Maybe<About_EnLeadershipBoard_Members>>>;
+};
+
+export type About_EnProgramsList = {
+  __typename?: 'About_enProgramsList';
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  icon?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_EnPrograms = {
+  __typename?: 'About_enPrograms';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  list?: Maybe<Array<Maybe<About_EnProgramsList>>>;
+};
+
+export type About_EnAchievementsStats = {
+  __typename?: 'About_enAchievementsStats';
+  number: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+  label_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_EnAchievementsAwards = {
+  __typename?: 'About_enAchievementsAwards';
+  title: Scalars['String']['output'];
+  year: Scalars['String']['output'];
+  organization: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_EnAchievements = {
+  __typename?: 'About_enAchievements';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  stats?: Maybe<Array<Maybe<About_EnAchievementsStats>>>;
+  awards?: Maybe<Array<Maybe<About_EnAchievementsAwards>>>;
+};
+
+export type About_EnContactAddress = {
+  __typename?: 'About_enContactAddress';
+  title: Scalars['String']['output'];
+  lines: Array<Scalars['String']['output']>;
+};
+
+export type About_EnContactHours = {
+  __typename?: 'About_enContactHours';
+  title: Scalars['String']['output'];
+  schedule: Array<Scalars['String']['output']>;
+};
+
+export type About_EnContact = {
+  __typename?: 'About_enContact';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  address?: Maybe<About_EnContactAddress>;
+  hours?: Maybe<About_EnContactHours>;
+};
+
+export type About_En = Node & Document & {
+  __typename?: 'About_en';
+  hero?: Maybe<About_EnHero>;
+  mission?: Maybe<About_EnMission>;
+  vision?: Maybe<About_EnVision>;
+  valuess?: Maybe<Array<Maybe<About_EnValuess>>>;
+  history?: Maybe<About_EnHistory>;
+  leadership?: Maybe<About_EnLeadership>;
+  programs?: Maybe<About_EnPrograms>;
+  achievements?: Maybe<About_EnAchievements>;
+  contact?: Maybe<About_EnContact>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type About_EnHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_EnMissionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  content_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_EnVisionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  content_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_EnValuessFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_EnHistoryMilestonesFilter = {
+  year?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_EnHistoryFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  milestones?: InputMaybe<About_EnHistoryMilestonesFilter>;
+};
+
+export type About_EnLeadershipBoard_MembersFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  position?: InputMaybe<StringFilter>;
+  position_tamil?: InputMaybe<StringFilter>;
+  bio?: InputMaybe<StringFilter>;
+  photo?: InputMaybe<ImageFilter>;
+};
+
+export type About_EnLeadershipFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  board_members?: InputMaybe<About_EnLeadershipBoard_MembersFilter>;
+};
+
+export type About_EnProgramsListFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+};
+
+export type About_EnProgramsFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  list?: InputMaybe<About_EnProgramsListFilter>;
+};
+
+export type About_EnAchievementsStatsFilter = {
+  number?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  label_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_EnAchievementsAwardsFilter = {
+  title?: InputMaybe<StringFilter>;
+  year?: InputMaybe<StringFilter>;
+  organization?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_EnAchievementsFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<About_EnAchievementsStatsFilter>;
+  awards?: InputMaybe<About_EnAchievementsAwardsFilter>;
+};
+
+export type About_EnContactAddressFilter = {
+  title?: InputMaybe<StringFilter>;
+  lines?: InputMaybe<StringFilter>;
+};
+
+export type About_EnContactHoursFilter = {
+  title?: InputMaybe<StringFilter>;
+  schedule?: InputMaybe<StringFilter>;
+};
+
+export type About_EnContactFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  address?: InputMaybe<About_EnContactAddressFilter>;
+  hours?: InputMaybe<About_EnContactHoursFilter>;
+};
+
+export type About_EnFilter = {
+  hero?: InputMaybe<About_EnHeroFilter>;
+  mission?: InputMaybe<About_EnMissionFilter>;
+  vision?: InputMaybe<About_EnVisionFilter>;
+  valuess?: InputMaybe<About_EnValuessFilter>;
+  history?: InputMaybe<About_EnHistoryFilter>;
+  leadership?: InputMaybe<About_EnLeadershipFilter>;
+  programs?: InputMaybe<About_EnProgramsFilter>;
+  achievements?: InputMaybe<About_EnAchievementsFilter>;
+  contact?: InputMaybe<About_EnContactFilter>;
+};
+
+export type About_EnConnectionEdges = {
+  __typename?: 'About_enConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<About_En>;
+};
+
+export type About_EnConnection = Connection & {
+  __typename?: 'About_enConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<About_EnConnectionEdges>>>;
+};
+
+export type About_SiHero = {
+  __typename?: 'About_siHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+};
+
+export type About_SiMission = {
+  __typename?: 'About_siMission';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  content_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_SiVision = {
+  __typename?: 'About_siVision';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  content_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_SiValuess = {
+  __typename?: 'About_siValuess';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+};
+
+export type About_SiHistoryMilestones = {
+  __typename?: 'About_siHistoryMilestones';
+  year: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+};
+
+export type About_SiHistory = {
+  __typename?: 'About_siHistory';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  milestones?: Maybe<Array<Maybe<About_SiHistoryMilestones>>>;
+};
+
+export type About_SiLeadershipBoard_Members = {
+  __typename?: 'About_siLeadershipBoard_members';
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  position: Scalars['String']['output'];
+  position_tamil?: Maybe<Scalars['String']['output']>;
+  bio: Scalars['String']['output'];
+  photo?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_SiLeadership = {
+  __typename?: 'About_siLeadership';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  board_members?: Maybe<Array<Maybe<About_SiLeadershipBoard_Members>>>;
+};
+
+export type About_SiProgramsList = {
+  __typename?: 'About_siProgramsList';
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  icon?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_SiPrograms = {
+  __typename?: 'About_siPrograms';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  list?: Maybe<Array<Maybe<About_SiProgramsList>>>;
+};
+
+export type About_SiAchievementsStats = {
+  __typename?: 'About_siAchievementsStats';
+  number: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+  label_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_SiAchievementsAwards = {
+  __typename?: 'About_siAchievementsAwards';
+  title: Scalars['String']['output'];
+  year: Scalars['String']['output'];
+  organization: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_SiAchievements = {
+  __typename?: 'About_siAchievements';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  stats?: Maybe<Array<Maybe<About_SiAchievementsStats>>>;
+  awards?: Maybe<Array<Maybe<About_SiAchievementsAwards>>>;
+};
+
+export type About_SiContactAddress = {
+  __typename?: 'About_siContactAddress';
+  title: Scalars['String']['output'];
+  lines: Array<Scalars['String']['output']>;
+};
+
+export type About_SiContactHours = {
+  __typename?: 'About_siContactHours';
+  title: Scalars['String']['output'];
+  schedule: Array<Scalars['String']['output']>;
+};
+
+export type About_SiContact = {
+  __typename?: 'About_siContact';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  address?: Maybe<About_SiContactAddress>;
+  hours?: Maybe<About_SiContactHours>;
+};
+
+export type About_Si = Node & Document & {
+  __typename?: 'About_si';
+  hero?: Maybe<About_SiHero>;
+  mission?: Maybe<About_SiMission>;
+  vision?: Maybe<About_SiVision>;
+  valuess?: Maybe<Array<Maybe<About_SiValuess>>>;
+  history?: Maybe<About_SiHistory>;
+  leadership?: Maybe<About_SiLeadership>;
+  programs?: Maybe<About_SiPrograms>;
+  achievements?: Maybe<About_SiAchievements>;
+  contact?: Maybe<About_SiContact>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type About_SiHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_SiMissionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  content_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_SiVisionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  content_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_SiValuessFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_SiHistoryMilestonesFilter = {
+  year?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_SiHistoryFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  milestones?: InputMaybe<About_SiHistoryMilestonesFilter>;
+};
+
+export type About_SiLeadershipBoard_MembersFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  position?: InputMaybe<StringFilter>;
+  position_tamil?: InputMaybe<StringFilter>;
+  bio?: InputMaybe<StringFilter>;
+  photo?: InputMaybe<ImageFilter>;
+};
+
+export type About_SiLeadershipFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  board_members?: InputMaybe<About_SiLeadershipBoard_MembersFilter>;
+};
+
+export type About_SiProgramsListFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+};
+
+export type About_SiProgramsFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  list?: InputMaybe<About_SiProgramsListFilter>;
+};
+
+export type About_SiAchievementsStatsFilter = {
+  number?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  label_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_SiAchievementsAwardsFilter = {
+  title?: InputMaybe<StringFilter>;
+  year?: InputMaybe<StringFilter>;
+  organization?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_SiAchievementsFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<About_SiAchievementsStatsFilter>;
+  awards?: InputMaybe<About_SiAchievementsAwardsFilter>;
+};
+
+export type About_SiContactAddressFilter = {
+  title?: InputMaybe<StringFilter>;
+  lines?: InputMaybe<StringFilter>;
+};
+
+export type About_SiContactHoursFilter = {
+  title?: InputMaybe<StringFilter>;
+  schedule?: InputMaybe<StringFilter>;
+};
+
+export type About_SiContactFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  address?: InputMaybe<About_SiContactAddressFilter>;
+  hours?: InputMaybe<About_SiContactHoursFilter>;
+};
+
+export type About_SiFilter = {
+  hero?: InputMaybe<About_SiHeroFilter>;
+  mission?: InputMaybe<About_SiMissionFilter>;
+  vision?: InputMaybe<About_SiVisionFilter>;
+  valuess?: InputMaybe<About_SiValuessFilter>;
+  history?: InputMaybe<About_SiHistoryFilter>;
+  leadership?: InputMaybe<About_SiLeadershipFilter>;
+  programs?: InputMaybe<About_SiProgramsFilter>;
+  achievements?: InputMaybe<About_SiAchievementsFilter>;
+  contact?: InputMaybe<About_SiContactFilter>;
+};
+
+export type About_SiConnectionEdges = {
+  __typename?: 'About_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<About_Si>;
+};
+
+export type About_SiConnection = Connection & {
+  __typename?: 'About_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<About_SiConnectionEdges>>>;
+};
+
+export type About_TaHero = {
+  __typename?: 'About_taHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+};
+
+export type About_TaMission = {
+  __typename?: 'About_taMission';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  content_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_TaVision = {
+  __typename?: 'About_taVision';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  content_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_TaValuess = {
+  __typename?: 'About_taValuess';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+};
+
+export type About_TaHistoryMilestones = {
+  __typename?: 'About_taHistoryMilestones';
+  year: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+};
+
+export type About_TaHistory = {
+  __typename?: 'About_taHistory';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  content: Scalars['String']['output'];
+  milestones?: Maybe<Array<Maybe<About_TaHistoryMilestones>>>;
+};
+
+export type About_TaLeadershipBoard_Members = {
+  __typename?: 'About_taLeadershipBoard_members';
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  position: Scalars['String']['output'];
+  position_tamil?: Maybe<Scalars['String']['output']>;
+  bio: Scalars['String']['output'];
+  photo?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_TaLeadership = {
+  __typename?: 'About_taLeadership';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  board_members?: Maybe<Array<Maybe<About_TaLeadershipBoard_Members>>>;
+};
+
+export type About_TaProgramsList = {
+  __typename?: 'About_taProgramsList';
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  icon?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_TaPrograms = {
+  __typename?: 'About_taPrograms';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  list?: Maybe<Array<Maybe<About_TaProgramsList>>>;
+};
+
+export type About_TaAchievementsStats = {
+  __typename?: 'About_taAchievementsStats';
+  number: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+  label_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_TaAchievementsAwards = {
+  __typename?: 'About_taAchievementsAwards';
+  title: Scalars['String']['output'];
+  year: Scalars['String']['output'];
+  organization: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type About_TaAchievements = {
+  __typename?: 'About_taAchievements';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  stats?: Maybe<Array<Maybe<About_TaAchievementsStats>>>;
+  awards?: Maybe<Array<Maybe<About_TaAchievementsAwards>>>;
+};
+
+export type About_TaContactAddress = {
+  __typename?: 'About_taContactAddress';
+  title: Scalars['String']['output'];
+  lines: Array<Scalars['String']['output']>;
+};
+
+export type About_TaContactHours = {
+  __typename?: 'About_taContactHours';
+  title: Scalars['String']['output'];
+  schedule: Array<Scalars['String']['output']>;
+};
+
+export type About_TaContact = {
+  __typename?: 'About_taContact';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  address?: Maybe<About_TaContactAddress>;
+  hours?: Maybe<About_TaContactHours>;
+};
+
+export type About_Ta = Node & Document & {
+  __typename?: 'About_ta';
+  hero?: Maybe<About_TaHero>;
+  mission?: Maybe<About_TaMission>;
+  vision?: Maybe<About_TaVision>;
+  valuess?: Maybe<Array<Maybe<About_TaValuess>>>;
+  history?: Maybe<About_TaHistory>;
+  leadership?: Maybe<About_TaLeadership>;
+  programs?: Maybe<About_TaPrograms>;
+  achievements?: Maybe<About_TaAchievements>;
+  contact?: Maybe<About_TaContact>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type About_TaHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_TaMissionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  content_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_TaVisionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  content_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_TaValuessFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_TaHistoryMilestonesFilter = {
+  year?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_TaHistoryFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  content?: InputMaybe<StringFilter>;
+  milestones?: InputMaybe<About_TaHistoryMilestonesFilter>;
+};
+
+export type About_TaLeadershipBoard_MembersFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  position?: InputMaybe<StringFilter>;
+  position_tamil?: InputMaybe<StringFilter>;
+  bio?: InputMaybe<StringFilter>;
+  photo?: InputMaybe<ImageFilter>;
+};
+
+export type About_TaLeadershipFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  board_members?: InputMaybe<About_TaLeadershipBoard_MembersFilter>;
+};
+
+export type About_TaProgramsListFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  icon?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+};
+
+export type About_TaProgramsFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  list?: InputMaybe<About_TaProgramsListFilter>;
+};
+
+export type About_TaAchievementsStatsFilter = {
+  number?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  label_tamil?: InputMaybe<StringFilter>;
+};
+
+export type About_TaAchievementsAwardsFilter = {
+  title?: InputMaybe<StringFilter>;
+  year?: InputMaybe<StringFilter>;
+  organization?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type About_TaAchievementsFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<About_TaAchievementsStatsFilter>;
+  awards?: InputMaybe<About_TaAchievementsAwardsFilter>;
+};
+
+export type About_TaContactAddressFilter = {
+  title?: InputMaybe<StringFilter>;
+  lines?: InputMaybe<StringFilter>;
+};
+
+export type About_TaContactHoursFilter = {
+  title?: InputMaybe<StringFilter>;
+  schedule?: InputMaybe<StringFilter>;
+};
+
+export type About_TaContactFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  address?: InputMaybe<About_TaContactAddressFilter>;
+  hours?: InputMaybe<About_TaContactHoursFilter>;
+};
+
+export type About_TaFilter = {
+  hero?: InputMaybe<About_TaHeroFilter>;
+  mission?: InputMaybe<About_TaMissionFilter>;
+  vision?: InputMaybe<About_TaVisionFilter>;
+  valuess?: InputMaybe<About_TaValuessFilter>;
+  history?: InputMaybe<About_TaHistoryFilter>;
+  leadership?: InputMaybe<About_TaLeadershipFilter>;
+  programs?: InputMaybe<About_TaProgramsFilter>;
+  achievements?: InputMaybe<About_TaAchievementsFilter>;
+  contact?: InputMaybe<About_TaContactFilter>;
+};
+
+export type About_TaConnectionEdges = {
+  __typename?: 'About_taConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<About_Ta>;
+};
+
+export type About_TaConnection = Connection & {
+  __typename?: 'About_taConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<About_TaConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -797,6 +1658,12 @@ export type Mutation = {
   createHome_si: Home_Si;
   updateHome_ta: Home_Ta;
   createHome_ta: Home_Ta;
+  updateAbout_en: About_En;
+  createAbout_en: About_En;
+  updateAbout_si: About_Si;
+  createAbout_si: About_Si;
+  updateAbout_ta: About_Ta;
+  createAbout_ta: About_Ta;
 };
 
 
@@ -868,10 +1735,49 @@ export type MutationCreateHome_TaArgs = {
   params: Home_TaMutation;
 };
 
+
+export type MutationUpdateAbout_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: About_EnMutation;
+};
+
+
+export type MutationCreateAbout_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: About_EnMutation;
+};
+
+
+export type MutationUpdateAbout_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: About_SiMutation;
+};
+
+
+export type MutationCreateAbout_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: About_SiMutation;
+};
+
+
+export type MutationUpdateAbout_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: About_TaMutation;
+};
+
+
+export type MutationCreateAbout_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: About_TaMutation;
+};
+
 export type DocumentUpdateMutation = {
   home_en?: InputMaybe<Home_EnMutation>;
   home_si?: InputMaybe<Home_SiMutation>;
   home_ta?: InputMaybe<Home_TaMutation>;
+  about_en?: InputMaybe<About_EnMutation>;
+  about_si?: InputMaybe<About_SiMutation>;
+  about_ta?: InputMaybe<About_TaMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -879,6 +1785,9 @@ export type DocumentMutation = {
   home_en?: InputMaybe<Home_EnMutation>;
   home_si?: InputMaybe<Home_SiMutation>;
   home_ta?: InputMaybe<Home_TaMutation>;
+  about_en?: InputMaybe<About_EnMutation>;
+  about_si?: InputMaybe<About_SiMutation>;
+  about_ta?: InputMaybe<About_TaMutation>;
 };
 
 export type Home_EnHeroCta_PrimaryMutation = {
@@ -1121,11 +2030,371 @@ export type Home_TaMutation = {
   newsletter?: InputMaybe<Home_TaNewsletterMutation>;
 };
 
+export type About_EnHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnMissionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  content_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnVisionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  content_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnValuessMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnHistoryMilestonesMutation = {
+  year?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnHistoryMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  milestones?: InputMaybe<Array<InputMaybe<About_EnHistoryMilestonesMutation>>>;
+};
+
+export type About_EnLeadershipBoard_MembersMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  position_tamil?: InputMaybe<Scalars['String']['input']>;
+  bio?: InputMaybe<Scalars['String']['input']>;
+  photo?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnLeadershipMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  board_members?: InputMaybe<Array<InputMaybe<About_EnLeadershipBoard_MembersMutation>>>;
+};
+
+export type About_EnProgramsListMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnProgramsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  list?: InputMaybe<Array<InputMaybe<About_EnProgramsListMutation>>>;
+};
+
+export type About_EnAchievementsStatsMutation = {
+  number?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  label_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnAchievementsAwardsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  year?: InputMaybe<Scalars['String']['input']>;
+  organization?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_EnAchievementsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  stats?: InputMaybe<Array<InputMaybe<About_EnAchievementsStatsMutation>>>;
+  awards?: InputMaybe<Array<InputMaybe<About_EnAchievementsAwardsMutation>>>;
+};
+
+export type About_EnContactAddressMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  lines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_EnContactHoursMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  schedule?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_EnContactMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<About_EnContactAddressMutation>;
+  hours?: InputMaybe<About_EnContactHoursMutation>;
+};
+
+export type About_EnMutation = {
+  hero?: InputMaybe<About_EnHeroMutation>;
+  mission?: InputMaybe<About_EnMissionMutation>;
+  vision?: InputMaybe<About_EnVisionMutation>;
+  valuess?: InputMaybe<Array<InputMaybe<About_EnValuessMutation>>>;
+  history?: InputMaybe<About_EnHistoryMutation>;
+  leadership?: InputMaybe<About_EnLeadershipMutation>;
+  programs?: InputMaybe<About_EnProgramsMutation>;
+  achievements?: InputMaybe<About_EnAchievementsMutation>;
+  contact?: InputMaybe<About_EnContactMutation>;
+};
+
+export type About_SiHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiMissionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  content_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiVisionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  content_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiValuessMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiHistoryMilestonesMutation = {
+  year?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiHistoryMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  milestones?: InputMaybe<Array<InputMaybe<About_SiHistoryMilestonesMutation>>>;
+};
+
+export type About_SiLeadershipBoard_MembersMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  position_tamil?: InputMaybe<Scalars['String']['input']>;
+  bio?: InputMaybe<Scalars['String']['input']>;
+  photo?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiLeadershipMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  board_members?: InputMaybe<Array<InputMaybe<About_SiLeadershipBoard_MembersMutation>>>;
+};
+
+export type About_SiProgramsListMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiProgramsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  list?: InputMaybe<Array<InputMaybe<About_SiProgramsListMutation>>>;
+};
+
+export type About_SiAchievementsStatsMutation = {
+  number?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  label_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiAchievementsAwardsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  year?: InputMaybe<Scalars['String']['input']>;
+  organization?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_SiAchievementsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  stats?: InputMaybe<Array<InputMaybe<About_SiAchievementsStatsMutation>>>;
+  awards?: InputMaybe<Array<InputMaybe<About_SiAchievementsAwardsMutation>>>;
+};
+
+export type About_SiContactAddressMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  lines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_SiContactHoursMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  schedule?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_SiContactMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<About_SiContactAddressMutation>;
+  hours?: InputMaybe<About_SiContactHoursMutation>;
+};
+
+export type About_SiMutation = {
+  hero?: InputMaybe<About_SiHeroMutation>;
+  mission?: InputMaybe<About_SiMissionMutation>;
+  vision?: InputMaybe<About_SiVisionMutation>;
+  valuess?: InputMaybe<Array<InputMaybe<About_SiValuessMutation>>>;
+  history?: InputMaybe<About_SiHistoryMutation>;
+  leadership?: InputMaybe<About_SiLeadershipMutation>;
+  programs?: InputMaybe<About_SiProgramsMutation>;
+  achievements?: InputMaybe<About_SiAchievementsMutation>;
+  contact?: InputMaybe<About_SiContactMutation>;
+};
+
+export type About_TaHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaMissionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  content_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaVisionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  content_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaValuessMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaHistoryMilestonesMutation = {
+  year?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaHistoryMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['String']['input']>;
+  milestones?: InputMaybe<Array<InputMaybe<About_TaHistoryMilestonesMutation>>>;
+};
+
+export type About_TaLeadershipBoard_MembersMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  position?: InputMaybe<Scalars['String']['input']>;
+  position_tamil?: InputMaybe<Scalars['String']['input']>;
+  bio?: InputMaybe<Scalars['String']['input']>;
+  photo?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaLeadershipMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  board_members?: InputMaybe<Array<InputMaybe<About_TaLeadershipBoard_MembersMutation>>>;
+};
+
+export type About_TaProgramsListMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaProgramsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  list?: InputMaybe<Array<InputMaybe<About_TaProgramsListMutation>>>;
+};
+
+export type About_TaAchievementsStatsMutation = {
+  number?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  label_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaAchievementsAwardsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  year?: InputMaybe<Scalars['String']['input']>;
+  organization?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type About_TaAchievementsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  stats?: InputMaybe<Array<InputMaybe<About_TaAchievementsStatsMutation>>>;
+  awards?: InputMaybe<Array<InputMaybe<About_TaAchievementsAwardsMutation>>>;
+};
+
+export type About_TaContactAddressMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  lines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_TaContactHoursMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  schedule?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type About_TaContactMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<About_TaContactAddressMutation>;
+  hours?: InputMaybe<About_TaContactHoursMutation>;
+};
+
+export type About_TaMutation = {
+  hero?: InputMaybe<About_TaHeroMutation>;
+  mission?: InputMaybe<About_TaMissionMutation>;
+  vision?: InputMaybe<About_TaVisionMutation>;
+  valuess?: InputMaybe<Array<InputMaybe<About_TaValuessMutation>>>;
+  history?: InputMaybe<About_TaHistoryMutation>;
+  leadership?: InputMaybe<About_TaLeadershipMutation>;
+  programs?: InputMaybe<About_TaProgramsMutation>;
+  achievements?: InputMaybe<About_TaAchievementsMutation>;
+  contact?: InputMaybe<About_TaContactMutation>;
+};
+
 export type Home_EnPartsFragment = { __typename: 'Home_en', hero?: { __typename: 'Home_enHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_enHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_enHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_enMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_enFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_enRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_enAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_enStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_enQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_enNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null };
 
 export type Home_SiPartsFragment = { __typename: 'Home_si', hero?: { __typename: 'Home_siHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_siHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_siHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_siMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_siFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_siRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_siAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_siStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_siQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_siNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null };
 
 export type Home_TaPartsFragment = { __typename: 'Home_ta', hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null };
+
+export type About_EnPartsFragment = { __typename: 'About_en', hero?: { __typename: 'About_enHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_enMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_enVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_enValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_enHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_enHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_enLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_enLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_enPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_enProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_enAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_enAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_enAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_enContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_enContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_enContactHours', title: string, schedule: Array<string> } | null } | null };
+
+export type About_SiPartsFragment = { __typename: 'About_si', hero?: { __typename: 'About_siHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_siMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_siVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_siValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_siHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_siHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_siLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_siLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_siPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_siProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_siAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_siAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_siAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_siContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_siContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_siContactHours', title: string, schedule: Array<string> } | null } | null };
+
+export type About_TaPartsFragment = { __typename: 'About_ta', hero?: { __typename: 'About_taHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_taMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_taVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_taValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_taHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_taHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_taLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_taLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_taPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_taProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_taAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_taAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_taAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_taContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_taContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_taContactHours', title: string, schedule: Array<string> } | null } | null };
 
 export type Home_EnQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -1183,6 +2452,63 @@ export type Home_TaConnectionQueryVariables = Exact<{
 
 
 export type Home_TaConnectionQuery = { __typename?: 'Query', home_taConnection: { __typename?: 'Home_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Home_taConnectionEdges', cursor: string, node?: { __typename: 'Home_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null } | null } | null> | null } };
+
+export type About_EnQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type About_EnQuery = { __typename?: 'Query', about_en: { __typename: 'About_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'About_enHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_enMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_enVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_enValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_enHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_enHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_enLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_enLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_enPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_enProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_enAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_enAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_enAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_enContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_enContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_enContactHours', title: string, schedule: Array<string> } | null } | null } };
+
+export type About_EnConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<About_EnFilter>;
+}>;
+
+
+export type About_EnConnectionQuery = { __typename?: 'Query', about_enConnection: { __typename?: 'About_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'About_enConnectionEdges', cursor: string, node?: { __typename: 'About_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'About_enHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_enMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_enVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_enValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_enHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_enHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_enLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_enLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_enPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_enProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_enAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_enAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_enAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_enContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_enContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_enContactHours', title: string, schedule: Array<string> } | null } | null } | null } | null> | null } };
+
+export type About_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type About_SiQuery = { __typename?: 'Query', about_si: { __typename: 'About_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'About_siHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_siMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_siVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_siValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_siHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_siHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_siLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_siLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_siPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_siProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_siAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_siAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_siAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_siContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_siContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_siContactHours', title: string, schedule: Array<string> } | null } | null } };
+
+export type About_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<About_SiFilter>;
+}>;
+
+
+export type About_SiConnectionQuery = { __typename?: 'Query', about_siConnection: { __typename?: 'About_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'About_siConnectionEdges', cursor: string, node?: { __typename: 'About_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'About_siHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_siMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_siVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_siValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_siHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_siHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_siLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_siLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_siPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_siProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_siAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_siAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_siAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_siContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_siContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_siContactHours', title: string, schedule: Array<string> } | null } | null } | null } | null> | null } };
+
+export type About_TaQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type About_TaQuery = { __typename?: 'Query', about_ta: { __typename: 'About_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'About_taHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_taMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_taVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_taValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_taHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_taHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_taLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_taLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_taPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_taProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_taAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_taAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_taAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_taContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_taContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_taContactHours', title: string, schedule: Array<string> } | null } | null } };
+
+export type About_TaConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<About_TaFilter>;
+}>;
+
+
+export type About_TaConnectionQuery = { __typename?: 'Query', about_taConnection: { __typename?: 'About_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'About_taConnectionEdges', cursor: string, node?: { __typename: 'About_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'About_taHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_taMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_taVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_taValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_taHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_taHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_taLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_taLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_taPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_taProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_taAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_taAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_taAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_taContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_taContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_taContactHours', title: string, schedule: Array<string> } | null } | null } | null } | null> | null } };
 
 export const Home_EnPartsFragmentDoc = gql`
     fragment Home_enParts on Home_en {
@@ -1400,6 +2726,318 @@ export const Home_TaPartsFragmentDoc = gql`
   }
 }
     `;
+export const About_EnPartsFragmentDoc = gql`
+    fragment About_enParts on About_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  mission {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  vision {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  valuess {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  history {
+    __typename
+    title
+    title_tamil
+    content
+    milestones {
+      __typename
+      year
+      title
+      description
+    }
+  }
+  leadership {
+    __typename
+    title
+    title_tamil
+    board_members {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      bio
+      photo
+    }
+  }
+  programs {
+    __typename
+    title
+    title_tamil
+    list {
+      __typename
+      name
+      name_tamil
+      description
+      icon
+      image
+    }
+  }
+  achievements {
+    __typename
+    title
+    title_tamil
+    stats {
+      __typename
+      number
+      label
+      label_tamil
+    }
+    awards {
+      __typename
+      title
+      year
+      organization
+      description
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    address {
+      __typename
+      title
+      lines
+    }
+    hours {
+      __typename
+      title
+      schedule
+    }
+  }
+}
+    `;
+export const About_SiPartsFragmentDoc = gql`
+    fragment About_siParts on About_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  mission {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  vision {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  valuess {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  history {
+    __typename
+    title
+    title_tamil
+    content
+    milestones {
+      __typename
+      year
+      title
+      description
+    }
+  }
+  leadership {
+    __typename
+    title
+    title_tamil
+    board_members {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      bio
+      photo
+    }
+  }
+  programs {
+    __typename
+    title
+    title_tamil
+    list {
+      __typename
+      name
+      name_tamil
+      description
+      icon
+      image
+    }
+  }
+  achievements {
+    __typename
+    title
+    title_tamil
+    stats {
+      __typename
+      number
+      label
+      label_tamil
+    }
+    awards {
+      __typename
+      title
+      year
+      organization
+      description
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    address {
+      __typename
+      title
+      lines
+    }
+    hours {
+      __typename
+      title
+      schedule
+    }
+  }
+}
+    `;
+export const About_TaPartsFragmentDoc = gql`
+    fragment About_taParts on About_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  mission {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  vision {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  valuess {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  history {
+    __typename
+    title
+    title_tamil
+    content
+    milestones {
+      __typename
+      year
+      title
+      description
+    }
+  }
+  leadership {
+    __typename
+    title
+    title_tamil
+    board_members {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      bio
+      photo
+    }
+  }
+  programs {
+    __typename
+    title
+    title_tamil
+    list {
+      __typename
+      name
+      name_tamil
+      description
+      icon
+      image
+    }
+  }
+  achievements {
+    __typename
+    title
+    title_tamil
+    stats {
+      __typename
+      number
+      label
+      label_tamil
+    }
+    awards {
+      __typename
+      title
+      year
+      organization
+      description
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    address {
+      __typename
+      title
+      lines
+    }
+    hours {
+      __typename
+      title
+      schedule
+    }
+  }
+}
+    `;
 export const Home_EnDocument = gql`
     query home_en($relativePath: String!) {
   home_en(relativePath: $relativePath) {
@@ -1571,6 +3209,177 @@ export const Home_TaConnectionDocument = gql`
   }
 }
     ${Home_TaPartsFragmentDoc}`;
+export const About_EnDocument = gql`
+    query about_en($relativePath: String!) {
+  about_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...About_enParts
+  }
+}
+    ${About_EnPartsFragmentDoc}`;
+export const About_EnConnectionDocument = gql`
+    query about_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: About_enFilter) {
+  about_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...About_enParts
+      }
+    }
+  }
+}
+    ${About_EnPartsFragmentDoc}`;
+export const About_SiDocument = gql`
+    query about_si($relativePath: String!) {
+  about_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...About_siParts
+  }
+}
+    ${About_SiPartsFragmentDoc}`;
+export const About_SiConnectionDocument = gql`
+    query about_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: About_siFilter) {
+  about_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...About_siParts
+      }
+    }
+  }
+}
+    ${About_SiPartsFragmentDoc}`;
+export const About_TaDocument = gql`
+    query about_ta($relativePath: String!) {
+  about_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...About_taParts
+  }
+}
+    ${About_TaPartsFragmentDoc}`;
+export const About_TaConnectionDocument = gql`
+    query about_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: About_taFilter) {
+  about_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...About_taParts
+      }
+    }
+  }
+}
+    ${About_TaPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -1591,6 +3400,24 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
       },
     home_taConnection(variables?: Home_TaConnectionQueryVariables, options?: C): Promise<{data: Home_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Home_TaConnectionQueryVariables, query: string}> {
         return requester<{data: Home_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Home_TaConnectionQueryVariables, query: string}, Home_TaConnectionQueryVariables>(Home_TaConnectionDocument, variables, options);
+      },
+    about_en(variables: About_EnQueryVariables, options?: C): Promise<{data: About_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_EnQueryVariables, query: string}> {
+        return requester<{data: About_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_EnQueryVariables, query: string}, About_EnQueryVariables>(About_EnDocument, variables, options);
+      },
+    about_enConnection(variables?: About_EnConnectionQueryVariables, options?: C): Promise<{data: About_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_EnConnectionQueryVariables, query: string}> {
+        return requester<{data: About_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_EnConnectionQueryVariables, query: string}, About_EnConnectionQueryVariables>(About_EnConnectionDocument, variables, options);
+      },
+    about_si(variables: About_SiQueryVariables, options?: C): Promise<{data: About_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_SiQueryVariables, query: string}> {
+        return requester<{data: About_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_SiQueryVariables, query: string}, About_SiQueryVariables>(About_SiDocument, variables, options);
+      },
+    about_siConnection(variables?: About_SiConnectionQueryVariables, options?: C): Promise<{data: About_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_SiConnectionQueryVariables, query: string}> {
+        return requester<{data: About_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_SiConnectionQueryVariables, query: string}, About_SiConnectionQueryVariables>(About_SiConnectionDocument, variables, options);
+      },
+    about_ta(variables: About_TaQueryVariables, options?: C): Promise<{data: About_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_TaQueryVariables, query: string}> {
+        return requester<{data: About_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_TaQueryVariables, query: string}, About_TaQueryVariables>(About_TaDocument, variables, options);
+      },
+    about_taConnection(variables?: About_TaConnectionQueryVariables, options?: C): Promise<{data: About_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_TaConnectionQueryVariables, query: string}> {
+        return requester<{data: About_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: About_TaConnectionQueryVariables, query: string}, About_TaConnectionQueryVariables>(About_TaConnectionDocument, variables, options);
       }
     };
   }

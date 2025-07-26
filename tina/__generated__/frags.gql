@@ -210,3 +210,312 @@ fragment Home_taParts on Home_ta {
     privacy
   }
 }
+
+fragment About_enParts on About_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  mission {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  vision {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  valuess {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  history {
+    __typename
+    title
+    title_tamil
+    content
+    milestones {
+      __typename
+      year
+      title
+      description
+    }
+  }
+  leadership {
+    __typename
+    title
+    title_tamil
+    board_members {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      bio
+      photo
+    }
+  }
+  programs {
+    __typename
+    title
+    title_tamil
+    list {
+      __typename
+      name
+      name_tamil
+      description
+      icon
+      image
+    }
+  }
+  achievements {
+    __typename
+    title
+    title_tamil
+    stats {
+      __typename
+      number
+      label
+      label_tamil
+    }
+    awards {
+      __typename
+      title
+      year
+      organization
+      description
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    address {
+      __typename
+      title
+      lines
+    }
+    hours {
+      __typename
+      title
+      schedule
+    }
+  }
+}
+
+fragment About_siParts on About_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  mission {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  vision {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  valuess {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  history {
+    __typename
+    title
+    title_tamil
+    content
+    milestones {
+      __typename
+      year
+      title
+      description
+    }
+  }
+  leadership {
+    __typename
+    title
+    title_tamil
+    board_members {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      bio
+      photo
+    }
+  }
+  programs {
+    __typename
+    title
+    title_tamil
+    list {
+      __typename
+      name
+      name_tamil
+      description
+      icon
+      image
+    }
+  }
+  achievements {
+    __typename
+    title
+    title_tamil
+    stats {
+      __typename
+      number
+      label
+      label_tamil
+    }
+    awards {
+      __typename
+      title
+      year
+      organization
+      description
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    address {
+      __typename
+      title
+      lines
+    }
+    hours {
+      __typename
+      title
+      schedule
+    }
+  }
+}
+
+fragment About_taParts on About_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  mission {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  vision {
+    __typename
+    title
+    title_tamil
+    content
+    content_tamil
+  }
+  valuess {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  history {
+    __typename
+    title
+    title_tamil
+    content
+    milestones {
+      __typename
+      year
+      title
+      description
+    }
+  }
+  leadership {
+    __typename
+    title
+    title_tamil
+    board_members {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      bio
+      photo
+    }
+  }
+  programs {
+    __typename
+    title
+    title_tamil
+    list {
+      __typename
+      name
+      name_tamil
+      description
+      icon
+      image
+    }
+  }
+  achievements {
+    __typename
+    title
+    title_tamil
+    stats {
+      __typename
+      number
+      label
+      label_tamil
+    }
+    awards {
+      __typename
+      title
+      year
+      organization
+      description
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    address {
+      __typename
+      title
+      lines
+    }
+    hours {
+      __typename
+      title
+      schedule
+    }
+  }
+}

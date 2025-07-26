@@ -60,12 +60,21 @@ type Query {
   home_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Home_siFilter): Home_siConnection!
   home_ta(relativePath: String): Home_ta!
   home_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Home_taFilter): Home_taConnection!
+  about_en(relativePath: String): About_en!
+  about_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: About_enFilter): About_enConnection!
+  about_si(relativePath: String): About_si!
+  about_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: About_siFilter): About_siConnection!
+  about_ta(relativePath: String): About_ta!
+  about_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: About_taFilter): About_taConnection!
 }
 
 input DocumentFilter {
   home_en: Home_enFilter
   home_si: Home_siFilter
   home_ta: Home_taFilter
+  about_en: About_enFilter
+  about_si: About_siFilter
+  about_ta: About_taFilter
 }
 
 type DocumentConnectionEdges {
@@ -91,7 +100,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Home_en | Home_si | Home_ta | Folder
+union DocumentNode = Home_en | Home_si | Home_ta | About_en | About_si | About_ta | Folder
 
 type Home_enHeroCta_primary {
   text: String!
@@ -637,6 +646,756 @@ type Home_taConnection implements Connection {
   edges: [Home_taConnectionEdges]
 }
 
+type About_enHero {
+  title: String!
+  title_tamil: String
+  description: String!
+}
+
+type About_enMission {
+  title: String!
+  title_tamil: String
+  content: String!
+  content_tamil: String
+}
+
+type About_enVision {
+  title: String!
+  title_tamil: String
+  content: String!
+  content_tamil: String
+}
+
+type About_enValuess {
+  title: String!
+  title_tamil: String
+  description: String!
+}
+
+type About_enHistoryMilestones {
+  year: String!
+  title: String!
+  description: String!
+}
+
+type About_enHistory {
+  title: String!
+  title_tamil: String
+  content: String!
+  milestones: [About_enHistoryMilestones]
+}
+
+type About_enLeadershipBoard_members {
+  name: String!
+  name_tamil: String
+  position: String!
+  position_tamil: String
+  bio: String!
+  photo: String
+}
+
+type About_enLeadership {
+  title: String!
+  title_tamil: String
+  board_members: [About_enLeadershipBoard_members]
+}
+
+type About_enProgramsList {
+  name: String!
+  name_tamil: String
+  description: String!
+  icon: String
+  image: String
+}
+
+type About_enPrograms {
+  title: String!
+  title_tamil: String
+  list: [About_enProgramsList]
+}
+
+type About_enAchievementsStats {
+  number: String!
+  label: String!
+  label_tamil: String
+}
+
+type About_enAchievementsAwards {
+  title: String!
+  year: String!
+  organization: String!
+  description: String
+}
+
+type About_enAchievements {
+  title: String!
+  title_tamil: String
+  stats: [About_enAchievementsStats]
+  awards: [About_enAchievementsAwards]
+}
+
+type About_enContactAddress {
+  title: String!
+  lines: [String!]!
+}
+
+type About_enContactHours {
+  title: String!
+  schedule: [String!]!
+}
+
+type About_enContact {
+  title: String!
+  title_tamil: String
+  description: String!
+  address: About_enContactAddress
+  hours: About_enContactHours
+}
+
+type About_en implements Node & Document {
+  hero: About_enHero
+  mission: About_enMission
+  vision: About_enVision
+  valuess: [About_enValuess]
+  history: About_enHistory
+  leadership: About_enLeadership
+  programs: About_enPrograms
+  achievements: About_enAchievements
+  contact: About_enContact
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input About_enHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+}
+
+input About_enMissionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  content_tamil: StringFilter
+}
+
+input About_enVisionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  content_tamil: StringFilter
+}
+
+input About_enValuessFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+}
+
+input About_enHistoryMilestonesFilter {
+  year: StringFilter
+  title: StringFilter
+  description: StringFilter
+}
+
+input About_enHistoryFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  milestones: About_enHistoryMilestonesFilter
+}
+
+input About_enLeadershipBoard_membersFilter {
+  name: StringFilter
+  name_tamil: StringFilter
+  position: StringFilter
+  position_tamil: StringFilter
+  bio: StringFilter
+  photo: ImageFilter
+}
+
+input About_enLeadershipFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  board_members: About_enLeadershipBoard_membersFilter
+}
+
+input About_enProgramsListFilter {
+  name: StringFilter
+  name_tamil: StringFilter
+  description: StringFilter
+  icon: StringFilter
+  image: ImageFilter
+}
+
+input About_enProgramsFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  list: About_enProgramsListFilter
+}
+
+input About_enAchievementsStatsFilter {
+  number: StringFilter
+  label: StringFilter
+  label_tamil: StringFilter
+}
+
+input About_enAchievementsAwardsFilter {
+  title: StringFilter
+  year: StringFilter
+  organization: StringFilter
+  description: StringFilter
+}
+
+input About_enAchievementsFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  stats: About_enAchievementsStatsFilter
+  awards: About_enAchievementsAwardsFilter
+}
+
+input About_enContactAddressFilter {
+  title: StringFilter
+  lines: StringFilter
+}
+
+input About_enContactHoursFilter {
+  title: StringFilter
+  schedule: StringFilter
+}
+
+input About_enContactFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+  address: About_enContactAddressFilter
+  hours: About_enContactHoursFilter
+}
+
+input About_enFilter {
+  hero: About_enHeroFilter
+  mission: About_enMissionFilter
+  vision: About_enVisionFilter
+  valuess: About_enValuessFilter
+  history: About_enHistoryFilter
+  leadership: About_enLeadershipFilter
+  programs: About_enProgramsFilter
+  achievements: About_enAchievementsFilter
+  contact: About_enContactFilter
+}
+
+type About_enConnectionEdges {
+  cursor: String!
+  node: About_en
+}
+
+type About_enConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [About_enConnectionEdges]
+}
+
+type About_siHero {
+  title: String!
+  title_tamil: String
+  description: String!
+}
+
+type About_siMission {
+  title: String!
+  title_tamil: String
+  content: String!
+  content_tamil: String
+}
+
+type About_siVision {
+  title: String!
+  title_tamil: String
+  content: String!
+  content_tamil: String
+}
+
+type About_siValuess {
+  title: String!
+  title_tamil: String
+  description: String!
+}
+
+type About_siHistoryMilestones {
+  year: String!
+  title: String!
+  description: String!
+}
+
+type About_siHistory {
+  title: String!
+  title_tamil: String
+  content: String!
+  milestones: [About_siHistoryMilestones]
+}
+
+type About_siLeadershipBoard_members {
+  name: String!
+  name_tamil: String
+  position: String!
+  position_tamil: String
+  bio: String!
+  photo: String
+}
+
+type About_siLeadership {
+  title: String!
+  title_tamil: String
+  board_members: [About_siLeadershipBoard_members]
+}
+
+type About_siProgramsList {
+  name: String!
+  name_tamil: String
+  description: String!
+  icon: String
+  image: String
+}
+
+type About_siPrograms {
+  title: String!
+  title_tamil: String
+  list: [About_siProgramsList]
+}
+
+type About_siAchievementsStats {
+  number: String!
+  label: String!
+  label_tamil: String
+}
+
+type About_siAchievementsAwards {
+  title: String!
+  year: String!
+  organization: String!
+  description: String
+}
+
+type About_siAchievements {
+  title: String!
+  title_tamil: String
+  stats: [About_siAchievementsStats]
+  awards: [About_siAchievementsAwards]
+}
+
+type About_siContactAddress {
+  title: String!
+  lines: [String!]!
+}
+
+type About_siContactHours {
+  title: String!
+  schedule: [String!]!
+}
+
+type About_siContact {
+  title: String!
+  title_tamil: String
+  description: String!
+  address: About_siContactAddress
+  hours: About_siContactHours
+}
+
+type About_si implements Node & Document {
+  hero: About_siHero
+  mission: About_siMission
+  vision: About_siVision
+  valuess: [About_siValuess]
+  history: About_siHistory
+  leadership: About_siLeadership
+  programs: About_siPrograms
+  achievements: About_siAchievements
+  contact: About_siContact
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input About_siHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+}
+
+input About_siMissionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  content_tamil: StringFilter
+}
+
+input About_siVisionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  content_tamil: StringFilter
+}
+
+input About_siValuessFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+}
+
+input About_siHistoryMilestonesFilter {
+  year: StringFilter
+  title: StringFilter
+  description: StringFilter
+}
+
+input About_siHistoryFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  milestones: About_siHistoryMilestonesFilter
+}
+
+input About_siLeadershipBoard_membersFilter {
+  name: StringFilter
+  name_tamil: StringFilter
+  position: StringFilter
+  position_tamil: StringFilter
+  bio: StringFilter
+  photo: ImageFilter
+}
+
+input About_siLeadershipFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  board_members: About_siLeadershipBoard_membersFilter
+}
+
+input About_siProgramsListFilter {
+  name: StringFilter
+  name_tamil: StringFilter
+  description: StringFilter
+  icon: StringFilter
+  image: ImageFilter
+}
+
+input About_siProgramsFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  list: About_siProgramsListFilter
+}
+
+input About_siAchievementsStatsFilter {
+  number: StringFilter
+  label: StringFilter
+  label_tamil: StringFilter
+}
+
+input About_siAchievementsAwardsFilter {
+  title: StringFilter
+  year: StringFilter
+  organization: StringFilter
+  description: StringFilter
+}
+
+input About_siAchievementsFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  stats: About_siAchievementsStatsFilter
+  awards: About_siAchievementsAwardsFilter
+}
+
+input About_siContactAddressFilter {
+  title: StringFilter
+  lines: StringFilter
+}
+
+input About_siContactHoursFilter {
+  title: StringFilter
+  schedule: StringFilter
+}
+
+input About_siContactFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+  address: About_siContactAddressFilter
+  hours: About_siContactHoursFilter
+}
+
+input About_siFilter {
+  hero: About_siHeroFilter
+  mission: About_siMissionFilter
+  vision: About_siVisionFilter
+  valuess: About_siValuessFilter
+  history: About_siHistoryFilter
+  leadership: About_siLeadershipFilter
+  programs: About_siProgramsFilter
+  achievements: About_siAchievementsFilter
+  contact: About_siContactFilter
+}
+
+type About_siConnectionEdges {
+  cursor: String!
+  node: About_si
+}
+
+type About_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [About_siConnectionEdges]
+}
+
+type About_taHero {
+  title: String!
+  title_tamil: String
+  description: String!
+}
+
+type About_taMission {
+  title: String!
+  title_tamil: String
+  content: String!
+  content_tamil: String
+}
+
+type About_taVision {
+  title: String!
+  title_tamil: String
+  content: String!
+  content_tamil: String
+}
+
+type About_taValuess {
+  title: String!
+  title_tamil: String
+  description: String!
+}
+
+type About_taHistoryMilestones {
+  year: String!
+  title: String!
+  description: String!
+}
+
+type About_taHistory {
+  title: String!
+  title_tamil: String
+  content: String!
+  milestones: [About_taHistoryMilestones]
+}
+
+type About_taLeadershipBoard_members {
+  name: String!
+  name_tamil: String
+  position: String!
+  position_tamil: String
+  bio: String!
+  photo: String
+}
+
+type About_taLeadership {
+  title: String!
+  title_tamil: String
+  board_members: [About_taLeadershipBoard_members]
+}
+
+type About_taProgramsList {
+  name: String!
+  name_tamil: String
+  description: String!
+  icon: String
+  image: String
+}
+
+type About_taPrograms {
+  title: String!
+  title_tamil: String
+  list: [About_taProgramsList]
+}
+
+type About_taAchievementsStats {
+  number: String!
+  label: String!
+  label_tamil: String
+}
+
+type About_taAchievementsAwards {
+  title: String!
+  year: String!
+  organization: String!
+  description: String
+}
+
+type About_taAchievements {
+  title: String!
+  title_tamil: String
+  stats: [About_taAchievementsStats]
+  awards: [About_taAchievementsAwards]
+}
+
+type About_taContactAddress {
+  title: String!
+  lines: [String!]!
+}
+
+type About_taContactHours {
+  title: String!
+  schedule: [String!]!
+}
+
+type About_taContact {
+  title: String!
+  title_tamil: String
+  description: String!
+  address: About_taContactAddress
+  hours: About_taContactHours
+}
+
+type About_ta implements Node & Document {
+  hero: About_taHero
+  mission: About_taMission
+  vision: About_taVision
+  valuess: [About_taValuess]
+  history: About_taHistory
+  leadership: About_taLeadership
+  programs: About_taPrograms
+  achievements: About_taAchievements
+  contact: About_taContact
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input About_taHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+}
+
+input About_taMissionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  content_tamil: StringFilter
+}
+
+input About_taVisionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  content_tamil: StringFilter
+}
+
+input About_taValuessFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+}
+
+input About_taHistoryMilestonesFilter {
+  year: StringFilter
+  title: StringFilter
+  description: StringFilter
+}
+
+input About_taHistoryFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  content: StringFilter
+  milestones: About_taHistoryMilestonesFilter
+}
+
+input About_taLeadershipBoard_membersFilter {
+  name: StringFilter
+  name_tamil: StringFilter
+  position: StringFilter
+  position_tamil: StringFilter
+  bio: StringFilter
+  photo: ImageFilter
+}
+
+input About_taLeadershipFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  board_members: About_taLeadershipBoard_membersFilter
+}
+
+input About_taProgramsListFilter {
+  name: StringFilter
+  name_tamil: StringFilter
+  description: StringFilter
+  icon: StringFilter
+  image: ImageFilter
+}
+
+input About_taProgramsFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  list: About_taProgramsListFilter
+}
+
+input About_taAchievementsStatsFilter {
+  number: StringFilter
+  label: StringFilter
+  label_tamil: StringFilter
+}
+
+input About_taAchievementsAwardsFilter {
+  title: StringFilter
+  year: StringFilter
+  organization: StringFilter
+  description: StringFilter
+}
+
+input About_taAchievementsFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  stats: About_taAchievementsStatsFilter
+  awards: About_taAchievementsAwardsFilter
+}
+
+input About_taContactAddressFilter {
+  title: StringFilter
+  lines: StringFilter
+}
+
+input About_taContactHoursFilter {
+  title: StringFilter
+  schedule: StringFilter
+}
+
+input About_taContactFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+  address: About_taContactAddressFilter
+  hours: About_taContactHoursFilter
+}
+
+input About_taFilter {
+  hero: About_taHeroFilter
+  mission: About_taMissionFilter
+  vision: About_taVisionFilter
+  valuess: About_taValuessFilter
+  history: About_taHistoryFilter
+  leadership: About_taLeadershipFilter
+  programs: About_taProgramsFilter
+  achievements: About_taAchievementsFilter
+  contact: About_taContactFilter
+}
+
+type About_taConnectionEdges {
+  cursor: String!
+  node: About_ta
+}
+
+type About_taConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [About_taConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -649,12 +1408,21 @@ type Mutation {
   createHome_si(relativePath: String!, params: Home_siMutation!): Home_si!
   updateHome_ta(relativePath: String!, params: Home_taMutation!): Home_ta!
   createHome_ta(relativePath: String!, params: Home_taMutation!): Home_ta!
+  updateAbout_en(relativePath: String!, params: About_enMutation!): About_en!
+  createAbout_en(relativePath: String!, params: About_enMutation!): About_en!
+  updateAbout_si(relativePath: String!, params: About_siMutation!): About_si!
+  createAbout_si(relativePath: String!, params: About_siMutation!): About_si!
+  updateAbout_ta(relativePath: String!, params: About_taMutation!): About_ta!
+  createAbout_ta(relativePath: String!, params: About_taMutation!): About_ta!
 }
 
 input DocumentUpdateMutation {
   home_en: Home_enMutation
   home_si: Home_siMutation
   home_ta: Home_taMutation
+  about_en: About_enMutation
+  about_si: About_siMutation
+  about_ta: About_taMutation
   relativePath: String
 }
 
@@ -662,6 +1430,9 @@ input DocumentMutation {
   home_en: Home_enMutation
   home_si: Home_siMutation
   home_ta: Home_taMutation
+  about_en: About_enMutation
+  about_si: About_siMutation
+  about_ta: About_taMutation
 }
 
 input Home_enHeroCta_primaryMutation {
@@ -902,6 +1673,360 @@ input Home_taMutation {
   statistics: [Home_taStatisticsMutation]
   quick_actions: [Home_taQuick_actionsMutation]
   newsletter: Home_taNewsletterMutation
+}
+
+input About_enHeroMutation {
+  title: String
+  title_tamil: String
+  description: String
+}
+
+input About_enMissionMutation {
+  title: String
+  title_tamil: String
+  content: String
+  content_tamil: String
+}
+
+input About_enVisionMutation {
+  title: String
+  title_tamil: String
+  content: String
+  content_tamil: String
+}
+
+input About_enValuessMutation {
+  title: String
+  title_tamil: String
+  description: String
+}
+
+input About_enHistoryMilestonesMutation {
+  year: String
+  title: String
+  description: String
+}
+
+input About_enHistoryMutation {
+  title: String
+  title_tamil: String
+  content: String
+  milestones: [About_enHistoryMilestonesMutation]
+}
+
+input About_enLeadershipBoard_membersMutation {
+  name: String
+  name_tamil: String
+  position: String
+  position_tamil: String
+  bio: String
+  photo: String
+}
+
+input About_enLeadershipMutation {
+  title: String
+  title_tamil: String
+  board_members: [About_enLeadershipBoard_membersMutation]
+}
+
+input About_enProgramsListMutation {
+  name: String
+  name_tamil: String
+  description: String
+  icon: String
+  image: String
+}
+
+input About_enProgramsMutation {
+  title: String
+  title_tamil: String
+  list: [About_enProgramsListMutation]
+}
+
+input About_enAchievementsStatsMutation {
+  number: String
+  label: String
+  label_tamil: String
+}
+
+input About_enAchievementsAwardsMutation {
+  title: String
+  year: String
+  organization: String
+  description: String
+}
+
+input About_enAchievementsMutation {
+  title: String
+  title_tamil: String
+  stats: [About_enAchievementsStatsMutation]
+  awards: [About_enAchievementsAwardsMutation]
+}
+
+input About_enContactAddressMutation {
+  title: String
+  lines: [String]
+}
+
+input About_enContactHoursMutation {
+  title: String
+  schedule: [String]
+}
+
+input About_enContactMutation {
+  title: String
+  title_tamil: String
+  description: String
+  address: About_enContactAddressMutation
+  hours: About_enContactHoursMutation
+}
+
+input About_enMutation {
+  hero: About_enHeroMutation
+  mission: About_enMissionMutation
+  vision: About_enVisionMutation
+  valuess: [About_enValuessMutation]
+  history: About_enHistoryMutation
+  leadership: About_enLeadershipMutation
+  programs: About_enProgramsMutation
+  achievements: About_enAchievementsMutation
+  contact: About_enContactMutation
+}
+
+input About_siHeroMutation {
+  title: String
+  title_tamil: String
+  description: String
+}
+
+input About_siMissionMutation {
+  title: String
+  title_tamil: String
+  content: String
+  content_tamil: String
+}
+
+input About_siVisionMutation {
+  title: String
+  title_tamil: String
+  content: String
+  content_tamil: String
+}
+
+input About_siValuessMutation {
+  title: String
+  title_tamil: String
+  description: String
+}
+
+input About_siHistoryMilestonesMutation {
+  year: String
+  title: String
+  description: String
+}
+
+input About_siHistoryMutation {
+  title: String
+  title_tamil: String
+  content: String
+  milestones: [About_siHistoryMilestonesMutation]
+}
+
+input About_siLeadershipBoard_membersMutation {
+  name: String
+  name_tamil: String
+  position: String
+  position_tamil: String
+  bio: String
+  photo: String
+}
+
+input About_siLeadershipMutation {
+  title: String
+  title_tamil: String
+  board_members: [About_siLeadershipBoard_membersMutation]
+}
+
+input About_siProgramsListMutation {
+  name: String
+  name_tamil: String
+  description: String
+  icon: String
+  image: String
+}
+
+input About_siProgramsMutation {
+  title: String
+  title_tamil: String
+  list: [About_siProgramsListMutation]
+}
+
+input About_siAchievementsStatsMutation {
+  number: String
+  label: String
+  label_tamil: String
+}
+
+input About_siAchievementsAwardsMutation {
+  title: String
+  year: String
+  organization: String
+  description: String
+}
+
+input About_siAchievementsMutation {
+  title: String
+  title_tamil: String
+  stats: [About_siAchievementsStatsMutation]
+  awards: [About_siAchievementsAwardsMutation]
+}
+
+input About_siContactAddressMutation {
+  title: String
+  lines: [String]
+}
+
+input About_siContactHoursMutation {
+  title: String
+  schedule: [String]
+}
+
+input About_siContactMutation {
+  title: String
+  title_tamil: String
+  description: String
+  address: About_siContactAddressMutation
+  hours: About_siContactHoursMutation
+}
+
+input About_siMutation {
+  hero: About_siHeroMutation
+  mission: About_siMissionMutation
+  vision: About_siVisionMutation
+  valuess: [About_siValuessMutation]
+  history: About_siHistoryMutation
+  leadership: About_siLeadershipMutation
+  programs: About_siProgramsMutation
+  achievements: About_siAchievementsMutation
+  contact: About_siContactMutation
+}
+
+input About_taHeroMutation {
+  title: String
+  title_tamil: String
+  description: String
+}
+
+input About_taMissionMutation {
+  title: String
+  title_tamil: String
+  content: String
+  content_tamil: String
+}
+
+input About_taVisionMutation {
+  title: String
+  title_tamil: String
+  content: String
+  content_tamil: String
+}
+
+input About_taValuessMutation {
+  title: String
+  title_tamil: String
+  description: String
+}
+
+input About_taHistoryMilestonesMutation {
+  year: String
+  title: String
+  description: String
+}
+
+input About_taHistoryMutation {
+  title: String
+  title_tamil: String
+  content: String
+  milestones: [About_taHistoryMilestonesMutation]
+}
+
+input About_taLeadershipBoard_membersMutation {
+  name: String
+  name_tamil: String
+  position: String
+  position_tamil: String
+  bio: String
+  photo: String
+}
+
+input About_taLeadershipMutation {
+  title: String
+  title_tamil: String
+  board_members: [About_taLeadershipBoard_membersMutation]
+}
+
+input About_taProgramsListMutation {
+  name: String
+  name_tamil: String
+  description: String
+  icon: String
+  image: String
+}
+
+input About_taProgramsMutation {
+  title: String
+  title_tamil: String
+  list: [About_taProgramsListMutation]
+}
+
+input About_taAchievementsStatsMutation {
+  number: String
+  label: String
+  label_tamil: String
+}
+
+input About_taAchievementsAwardsMutation {
+  title: String
+  year: String
+  organization: String
+  description: String
+}
+
+input About_taAchievementsMutation {
+  title: String
+  title_tamil: String
+  stats: [About_taAchievementsStatsMutation]
+  awards: [About_taAchievementsAwardsMutation]
+}
+
+input About_taContactAddressMutation {
+  title: String
+  lines: [String]
+}
+
+input About_taContactHoursMutation {
+  title: String
+  schedule: [String]
+}
+
+input About_taContactMutation {
+  title: String
+  title_tamil: String
+  description: String
+  address: About_taContactAddressMutation
+  hours: About_taContactHoursMutation
+}
+
+input About_taMutation {
+  hero: About_taHeroMutation
+  mission: About_taMissionMutation
+  vision: About_taVisionMutation
+  valuess: [About_taValuessMutation]
+  history: About_taHistoryMutation
+  leadership: About_taLeadershipMutation
+  programs: About_taProgramsMutation
+  achievements: About_taAchievementsMutation
+  contact: About_taContactMutation
 }
 
 schema {

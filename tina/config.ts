@@ -1,6 +1,6 @@
 import { defineConfig } from "tinacms";
 import { homepageCollections } from "./collections/pages/home";
-
+import { aboutCollections } from "./collections/pages/about";
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -31,6 +31,7 @@ export default defineConfig({
   schema: {
     collections: [
       ...homepageCollections,
+      ...aboutCollections,
       
     ],
   },
