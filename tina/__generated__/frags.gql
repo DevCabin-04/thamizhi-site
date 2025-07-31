@@ -519,3 +519,1530 @@ fragment About_taParts on About_ta {
     }
   }
 }
+
+fragment Departments_enParts on Departments_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  departments {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    icon
+    color
+    head {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+    }
+    programs {
+      __typename
+      name
+      name_tamil
+      description
+    }
+    achievements
+    contact {
+      __typename
+      email
+      phone
+    }
+  }
+  volunteer_opportunities {
+    __typename
+    title
+    title_tamil
+    description
+    positions {
+      __typename
+      role
+      role_tamil
+      commitment
+      description
+    }
+  }
+  contact_info {
+    __typename
+    title
+    title_tamil
+    general {
+      __typename
+      email
+      phone
+      address
+    }
+    office_hours {
+      __typename
+      title
+      title_tamil
+      schedule
+    }
+  }
+}
+
+fragment Departments_siParts on Departments_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  departments {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    icon
+    color
+    head {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+    }
+    programs {
+      __typename
+      name
+      name_tamil
+      description
+    }
+    achievements
+    contact {
+      __typename
+      email
+      phone
+    }
+  }
+  volunteer_opportunities {
+    __typename
+    title
+    title_tamil
+    description
+    positions {
+      __typename
+      role
+      role_tamil
+      commitment
+      description
+    }
+  }
+  contact_info {
+    __typename
+    title
+    title_tamil
+    general {
+      __typename
+      email
+      phone
+      address
+    }
+    office_hours {
+      __typename
+      title
+      title_tamil
+      schedule
+    }
+  }
+}
+
+fragment Departments_taParts on Departments_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    description
+  }
+  departments {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    icon
+    color
+    head {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+    }
+    programs {
+      __typename
+      name
+      name_tamil
+      description
+    }
+    achievements
+    contact {
+      __typename
+      email
+      phone
+    }
+  }
+  volunteer_opportunities {
+    __typename
+    title
+    title_tamil
+    description
+    positions {
+      __typename
+      role
+      role_tamil
+      commitment
+      description
+    }
+  }
+  contact_info {
+    __typename
+    title
+    title_tamil
+    general {
+      __typename
+      email
+      phone
+      address
+    }
+    office_hours {
+      __typename
+      title
+      title_tamil
+      schedule
+    }
+  }
+}
+
+fragment Membership_enParts on Membership_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  membership_types {
+    __typename
+    id
+    name
+    name_tamil
+    price
+    duration
+    duration_tamil
+    benefits
+    benefits_tamil
+  }
+  general_benefits {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    items {
+      __typename
+      title
+      title_tamil
+      description
+    }
+  }
+  application_process {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    steps {
+      __typename
+      step
+      title
+      title_tamil
+      description
+    }
+  }
+  requirements {
+    __typename
+    title
+    title_tamil
+    general
+    documents
+  }
+  member_testimonials {
+    __typename
+    title
+    title_tamil
+    testimonials {
+      __typename
+      name
+      name_tamil
+      membership_type
+      quote
+      rating
+    }
+  }
+  faqs {
+    __typename
+    title
+    title_tamil
+    items {
+      __typename
+      question
+      question_tamil
+      answer
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    email
+    phone
+    office_hours
+  }
+}
+
+fragment Membership_siParts on Membership_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  membership_types {
+    __typename
+    id
+    name
+    name_tamil
+    price
+    duration
+    duration_tamil
+    benefits
+    benefits_tamil
+  }
+  general_benefits {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    items {
+      __typename
+      title
+      title_tamil
+      description
+    }
+  }
+  application_process {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    steps {
+      __typename
+      step
+      title
+      title_tamil
+      description
+    }
+  }
+  requirements {
+    __typename
+    title
+    title_tamil
+    general
+    documents
+  }
+  member_testimonials {
+    __typename
+    title
+    title_tamil
+    testimonials {
+      __typename
+      name
+      name_tamil
+      membership_type
+      quote
+      rating
+    }
+  }
+  faqs {
+    __typename
+    title
+    title_tamil
+    items {
+      __typename
+      question
+      question_tamil
+      answer
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    email
+    phone
+    office_hours
+  }
+}
+
+fragment Membership_taParts on Membership_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  membership_types {
+    __typename
+    id
+    name
+    name_tamil
+    price
+    duration
+    duration_tamil
+    benefits
+    benefits_tamil
+  }
+  general_benefits {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    items {
+      __typename
+      title
+      title_tamil
+      description
+    }
+  }
+  application_process {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    steps {
+      __typename
+      step
+      title
+      title_tamil
+      description
+    }
+  }
+  requirements {
+    __typename
+    title
+    title_tamil
+    general
+    documents
+  }
+  member_testimonials {
+    __typename
+    title
+    title_tamil
+    testimonials {
+      __typename
+      name
+      name_tamil
+      membership_type
+      quote
+      rating
+    }
+  }
+  faqs {
+    __typename
+    title
+    title_tamil
+    items {
+      __typename
+      question
+      question_tamil
+      answer
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    email
+    phone
+    office_hours
+  }
+}
+
+fragment Publications_enParts on Publications_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    description_tamil
+    count
+    icon
+  }
+  featured_publications {
+    __typename
+    id
+    title
+    title_tamil
+    author
+    author_tamil
+    category
+    category_tamil
+    year
+    pages
+    isbn
+    description
+    description_tamil
+    cover_color
+    available
+    price
+    format
+    release_date
+  }
+  magazines {
+    __typename
+    id
+    name
+    name_tamil
+    subtitle
+    subtitle_tamil
+    frequency
+    frequency_tamil
+    description
+    description_tamil
+    subscription_price
+    editor
+    editor_tamil
+  }
+  digital_resources {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    items {
+      __typename
+      name
+      name_tamil
+      description
+      access
+    }
+  }
+  research_publications {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    recent_papers {
+      __typename
+      title
+      title_tamil
+      author
+      journal
+      year
+      pages
+    }
+  }
+  submission_guidelines {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    requirements {
+      __typename
+      category
+      category_tamil
+      items
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    editorial_office {
+      __typename
+      title
+      title_tamil
+      email
+      phone
+      editor_in_chief
+      editor_in_chief_tamil
+    }
+    distribution {
+      __typename
+      title
+      title_tamil
+      email
+      phone
+    }
+    submissions {
+      __typename
+      title
+      title_tamil
+      email
+      guidelines_url
+    }
+  }
+}
+
+fragment Publications_siParts on Publications_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    description_tamil
+    count
+    icon
+  }
+  featured_publications {
+    __typename
+    id
+    title
+    title_tamil
+    author
+    author_tamil
+    category
+    category_tamil
+    year
+    pages
+    isbn
+    description
+    description_tamil
+    cover_color
+    available
+    price
+    format
+    release_date
+  }
+  magazines {
+    __typename
+    id
+    name
+    name_tamil
+    subtitle
+    subtitle_tamil
+    frequency
+    frequency_tamil
+    description
+    description_tamil
+    subscription_price
+    editor
+    editor_tamil
+  }
+  digital_resources {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    items {
+      __typename
+      name
+      name_tamil
+      description
+      access
+    }
+  }
+  research_publications {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    recent_papers {
+      __typename
+      title
+      title_tamil
+      author
+      journal
+      year
+      pages
+    }
+  }
+  submission_guidelines {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    requirements {
+      __typename
+      category
+      category_tamil
+      items
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    editorial_office {
+      __typename
+      title
+      title_tamil
+      email
+      phone
+      editor_in_chief
+      editor_in_chief_tamil
+    }
+    distribution {
+      __typename
+      title
+      title_tamil
+      email
+      phone
+    }
+    submissions {
+      __typename
+      title
+      title_tamil
+      email
+      guidelines_url
+    }
+  }
+}
+
+fragment Publications_taParts on Publications_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    description_tamil
+    count
+    icon
+  }
+  featured_publications {
+    __typename
+    id
+    title
+    title_tamil
+    author
+    author_tamil
+    category
+    category_tamil
+    year
+    pages
+    isbn
+    description
+    description_tamil
+    cover_color
+    available
+    price
+    format
+    release_date
+  }
+  magazines {
+    __typename
+    id
+    name
+    name_tamil
+    subtitle
+    subtitle_tamil
+    frequency
+    frequency_tamil
+    description
+    description_tamil
+    subscription_price
+    editor
+    editor_tamil
+  }
+  digital_resources {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    items {
+      __typename
+      name
+      name_tamil
+      description
+      access
+    }
+  }
+  research_publications {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    recent_papers {
+      __typename
+      title
+      title_tamil
+      author
+      journal
+      year
+      pages
+    }
+  }
+  submission_guidelines {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    requirements {
+      __typename
+      category
+      category_tamil
+      items
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    editorial_office {
+      __typename
+      title
+      title_tamil
+      email
+      phone
+      editor_in_chief
+      editor_in_chief_tamil
+    }
+    distribution {
+      __typename
+      title
+      title_tamil
+      email
+      phone
+    }
+    submissions {
+      __typename
+      title
+      title_tamil
+      email
+      guidelines_url
+    }
+  }
+}
+
+fragment Events_enParts on Events_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  upcoming_events {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    time
+    time_tamil
+    location
+    location_tamil
+    address
+    category
+    category_tamil
+    description
+    description_tamil
+    image_color
+    price
+    price_tamil
+    registration_required
+    capacity
+    registered
+    age_limit
+    includes
+    organizer
+    contact_email
+  }
+  past_events {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    location
+    location_tamil
+    attendees
+    category
+    category_tamil
+    highlights
+  }
+  event_categories {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    description_tamil
+    icon
+    count
+    color
+  }
+  regular_programs {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    programs {
+      __typename
+      id
+      name
+      name_tamil
+      schedule
+      schedule_tamil
+      location
+      location_tamil
+      instructor
+      coordinator
+      fee
+    }
+  }
+  event_calendar {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    subscription {
+      __typename
+      title
+      title_tamil
+      description
+      description_tamil
+    }
+  }
+  event_hosting {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    requirements
+    requirements_tamil
+    contact_email
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    events_coordinator {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      email
+      phone
+    }
+    office_hours {
+      __typename
+      title
+      title_tamil
+      schedule
+      schedule_tamil
+    }
+  }
+}
+
+fragment Events_siParts on Events_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  upcoming_events {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    time
+    time_tamil
+    location
+    location_tamil
+    address
+    category
+    category_tamil
+    description
+    description_tamil
+    image_color
+    price
+    price_tamil
+    registration_required
+    capacity
+    registered
+    age_limit
+    includes
+    organizer
+    contact_email
+  }
+  past_events {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    location
+    location_tamil
+    attendees
+    category
+    category_tamil
+    highlights
+  }
+  event_categories {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    description_tamil
+    icon
+    count
+    color
+  }
+  regular_programs {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    programs {
+      __typename
+      id
+      name
+      name_tamil
+      schedule
+      schedule_tamil
+      location
+      location_tamil
+      instructor
+      coordinator
+      fee
+    }
+  }
+  event_calendar {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    subscription {
+      __typename
+      title
+      title_tamil
+      description
+      description_tamil
+    }
+  }
+  event_hosting {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    requirements
+    requirements_tamil
+    contact_email
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    events_coordinator {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      email
+      phone
+    }
+    office_hours {
+      __typename
+      title
+      title_tamil
+      schedule
+      schedule_tamil
+    }
+  }
+}
+
+fragment Events_taParts on Events_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  upcoming_events {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    time
+    time_tamil
+    location
+    location_tamil
+    address
+    category
+    category_tamil
+    description
+    description_tamil
+    image_color
+    price
+    price_tamil
+    registration_required
+    capacity
+    registered
+    age_limit
+    includes
+    organizer
+    contact_email
+  }
+  past_events {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    location
+    location_tamil
+    attendees
+    category
+    category_tamil
+    highlights
+  }
+  event_categories {
+    __typename
+    id
+    name
+    name_tamil
+    description
+    description_tamil
+    icon
+    count
+    color
+  }
+  regular_programs {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    programs {
+      __typename
+      id
+      name
+      name_tamil
+      schedule
+      schedule_tamil
+      location
+      location_tamil
+      instructor
+      coordinator
+      fee
+    }
+  }
+  event_calendar {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    subscription {
+      __typename
+      title
+      title_tamil
+      description
+      description_tamil
+    }
+  }
+  event_hosting {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    requirements
+    requirements_tamil
+    contact_email
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    events_coordinator {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+      email
+      phone
+    }
+    office_hours {
+      __typename
+      title
+      title_tamil
+      schedule
+      schedule_tamil
+    }
+  }
+}
+
+fragment Gallery_enParts on Gallery_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    count
+    description
+    description_tamil
+  }
+  featured_albums {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    date_tamil
+    location
+    location_tamil
+    image_count
+    description
+    description_tamil
+    cover_color
+    photographer
+    highlights
+  }
+  recent_highlights {
+    __typename
+    id
+    title
+    title_tamil
+    description
+    description_tamil
+    date
+    date_tamil
+    image_count
+  }
+  photo_contest {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    categories {
+      __typename
+      name
+      name_tamil
+      prize
+    }
+    deadline
+    rules
+  }
+  submission_guidelines {
+    __typename
+    title
+    title_tamil
+    description
+    requirements {
+      __typename
+      title
+      title_tamil
+      items
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    email
+    phone
+    gallery_coordinator {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+    }
+    office_hours
+  }
+}
+
+fragment Gallery_siParts on Gallery_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    count
+    description
+    description_tamil
+  }
+  featured_albums {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    date_tamil
+    location
+    location_tamil
+    image_count
+    description
+    description_tamil
+    cover_color
+    photographer
+    highlights
+  }
+  recent_highlights {
+    __typename
+    id
+    title
+    title_tamil
+    description
+    description_tamil
+    date
+    date_tamil
+    image_count
+  }
+  photo_contest {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    categories {
+      __typename
+      name
+      name_tamil
+      prize
+    }
+    deadline
+    rules
+  }
+  submission_guidelines {
+    __typename
+    title
+    title_tamil
+    description
+    requirements {
+      __typename
+      title
+      title_tamil
+      items
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    email
+    phone
+    gallery_coordinator {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+    }
+    office_hours
+  }
+}
+
+fragment Gallery_taParts on Gallery_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    count
+    description
+    description_tamil
+  }
+  featured_albums {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    date_tamil
+    location
+    location_tamil
+    image_count
+    description
+    description_tamil
+    cover_color
+    photographer
+    highlights
+  }
+  recent_highlights {
+    __typename
+    id
+    title
+    title_tamil
+    description
+    description_tamil
+    date
+    date_tamil
+    image_count
+  }
+  photo_contest {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    categories {
+      __typename
+      name
+      name_tamil
+      prize
+    }
+    deadline
+    rules
+  }
+  submission_guidelines {
+    __typename
+    title
+    title_tamil
+    description
+    requirements {
+      __typename
+      title
+      title_tamil
+      items
+    }
+  }
+  contact {
+    __typename
+    title
+    title_tamil
+    description
+    email
+    phone
+    gallery_coordinator {
+      __typename
+      name
+      name_tamil
+      position
+      position_tamil
+    }
+    office_hours
+  }
+}

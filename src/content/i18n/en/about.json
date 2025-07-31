@@ -7,8 +7,8 @@
   "mission": {
     "title": "Our Mission",
     "title_tamil": "எங்கள் நோக்கம்",
-    "content": "To preserve, promote, and celebrate Tamil culture and language through education, community programs, and cultural events that connect generations and strengthen our global Tamil community.",
-    "content_tamil": "கல்வி, சமுதாய திட்டங்கள் மற்றும் பண்பாட்டு நிகழ்வுகள் மூலம் தமிழ் பண்பாடு மற்றும் மொழியைப் பாதுகாத்து, ஊக்குவித்து, கொண்டாடுவது எங்கள் நோக்கம்."
+    "content": "Live, Let Live",
+    "content_tamil": "வாழு, வாழ விடு "
   },
   "vision": {
     "title": "Our Vision",
@@ -23,13 +23,13 @@
       "description": "Safeguarding Tamil traditions, arts, and customs for future generations"
     },
     {
-      "title": "Educational Excellence", 
+      "title": "Educational Excellence",
       "title_tamil": "கல்வி சிறப்பு",
       "description": "Providing high-quality Tamil language education and cultural learning opportunities"
     },
     {
       "title": "Community Unity",
-      "title_tamil": "சமுதாய ஒற்றுமை", 
+      "title_tamil": "சமுதாய ஒற்றுமை",
       "description": "Building strong bonds within the Tamil community through shared experiences and mutual support"
     },
     {
@@ -49,13 +49,13 @@
         "description": "Thamizhi was established by 15 founding families"
       },
       {
-        "year": "2012", 
+        "year": "2012",
         "title": "First Cultural Center",
         "description": "Opened our first dedicated space for cultural activities"
       },
       {
         "year": "2015",
-        "title": "Language School Launch", 
+        "title": "Language School Launch",
         "description": "Started formal Tamil language education programs"
       },
       {
@@ -82,7 +82,7 @@
       {
         "name": "Dr. Priya Kumaran",
         "name_tamil": "டாக்டர் பிரியா குமரன்",
-        "position": "President", 
+        "position": "President",
         "position_tamil": "தலைவர்",
         "bio": "Community leader with 20+ years of experience in cultural organizations"
       },
@@ -95,7 +95,7 @@
       },
       {
         "name": "Ms. Meera Krishnan",
-        "name_tamil": "திருமதி மீரா கிருஷ்ணன்", 
+        "name_tamil": "திருமதி மீரா கிருஷ்ணன்",
         "position": "Secretary",
         "position_tamil": "செயலாளர்",
         "bio": "Professional organizer specializing in community events"
@@ -119,7 +119,7 @@
         "description": "Comprehensive Tamil language learning programs for all ages"
       },
       {
-        "name": "Cultural Arts Training", 
+        "name": "Cultural Arts Training",
         "name_tamil": "பண்பாட்டு கலைப் பயிற்சி",
         "description": "Traditional dance, music, and performing arts instruction"
       },
@@ -161,7 +161,7 @@
       },
       {
         "number": "500+",
-        "label": "Students Taught", 
+        "label": "Students Taught",
         "label_tamil": "கற்பித்த மாணவர்கள்"
       },
       {
@@ -178,7 +178,7 @@
       },
       {
         "title": "Best Cultural Education Program",
-        "year": "2022", 
+        "year": "2022",
         "organization": "Regional Heritage Foundation"
       },
       {
@@ -196,7 +196,7 @@
       "title": "Visit Us",
       "lines": [
         "123 Tamil Heritage Street",
-        "Cultural District, City 12345", 
+        "Cultural District, City 12345",
         "United States"
       ]
     },
