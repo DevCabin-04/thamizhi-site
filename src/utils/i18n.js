@@ -24,6 +24,8 @@ export const languages = {
 
 export const defaultLang = 'en';
 
+export const supportedLangs = ["en", "ta", "si"];
+
 // Get current language from URL or default
 export function getLangFromUrl(url) {
   const [, lang] = url.pathname.split('/');

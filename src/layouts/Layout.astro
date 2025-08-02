@@ -6,6 +6,7 @@ import {
     getLocalizedUrl,
     languages,
 } from "../utils/i18n.js";
+import LanguageSwitcher from "../components/common/LanguageSwitcher.astro";
 
 export interface Props {
     title?: string;
@@ -66,7 +67,7 @@ const pageDescription =
                         </div>
 
                         <!-- Language Switcher -->
-                        <div class="flex items-center space-x-2">
+                        <!-- <div class="flex items-center space-x-2">
                             {
                                 Object.entries(languages).map(
                                     ([langCode, langInfo]) => (
@@ -90,6 +91,9 @@ const pageDescription =
                                     ),
                                 )
                             }
+                        </div> -->
+                        <div class="flex items-center">
+                            <LanguageSwitcher currentLang={currentLang} />
                         </div>
                     </div>
                 </div>

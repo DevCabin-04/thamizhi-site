@@ -1,0 +1,54 @@
+---
+// src/pages/events.astro
+import Layout from "../../layouts/Layout.astro";
+import EventsPage from "../../components/Eventspage.jsx";
+import { getLangFromUrl, loadTina, loadContent, defaultLang, supportedLangs } from "../../utils/i18n.js";
+
+// Static Path Generation for supported languages
+export async function getStaticPaths() {
+//   const supportedLanguages = ['en', 'ta', 'si'];
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+    props: { lang },
+  }));
+}
+
+// Get language from props
+const { lang } = Astro.props;
+const currentLang = lang || defaultLang;
+
+// Determine the language from the URL, default to 'en'
+// const lang = getLangFromUrl(Astro.url) || "en";
+
+// Fetch the content for the events page from TinaCMS
+const pageResponse = await loadTina(currentLang, "events");
+
+// Fetch the global site configuration
+const siteConfig = await loadContent(currentLang, "site_config");
+
+// Prepare props to be passed to the interactive React component
+const tinaProps = {
+  data: pageResponse.data,
+  query: pageResponse.query,
+  variables: pageResponse.variables,
+};
+
+// Extract the language-specific data for use in the Astro layout
+const eventsData = (pageResponse.data as any)[`events_${currentLang}`] || {};
+---
+
+<Layout
+  title={`Events - ${siteConfig.organization?.name}`}
+  description={eventsData.hero?.description || "Upcoming events and activities from our organization"}
+  lang={currentLang}
+>
+  {/* 
+    Render the interactive EventsPage component on the client.
+    'client:load' ensures the component's JavaScript is loaded and hydrated as soon as the page loads.
+  */}
+  <EventsPage
+    props={tinaProps}
+    lang={currentLang}
+    client:load
+  />
+</Layout>
