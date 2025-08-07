@@ -337,9 +337,9 @@ var createHomepageCollection = (lang) => ({
   ui: {
     router: ({ document }) => {
       if (lang === "en") {
-        return "/";
+        return "/thamizhi-site";
       }
-      return `/${lang}`;
+      return `/thamizhi-site/${lang}`;
     }
   }
 });
