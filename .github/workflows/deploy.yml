@@ -38,13 +38,13 @@ jobs:
         env:
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: bunx tinacms build
+        run: npx tinacms build
       
       - name: Build Astro site
+        run: bun run build
         env:
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-        run: bun run build
       
       # Disable Jekyll processing since we're using Astro
       - name: Add .nojekyll file
