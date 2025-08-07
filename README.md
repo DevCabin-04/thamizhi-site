@@ -1,13 +1,12 @@
 # thamizhi site
 
-## setup
+## todo
 
-to set up this project, you need to have [bun](https://bun.sh/) installed. then, run the following commands in your terminal:
-
-```bash
-bun install
-bun dev
-```
+- [ ] proper tailwind config
+- [ ] block style buttons and navbar
+- [ ] i18n setup
+- [ ] initial page setup
+- [ ] tinacms setup
 
 ## project structure
 

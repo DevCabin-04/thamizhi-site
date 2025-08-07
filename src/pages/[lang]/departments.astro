@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import DepartmentsPage from "../../components/Departmentpage.jsx";
+import { getLangFromUrl, loadTina, loadContent, defaultLang, supportedLangs } from "../../utils/i18n.js";
+
+// Static Path Generation for supported languages
+export async function getStaticPaths() {
+//   const supportedLanguages = ['en', 'ta', 'si'];
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+    props: { lang },
+  }));
+}
+
+// Get language from props
+const { lang } = Astro.props;
+const currentLang = lang || defaultLang;
+
+// const lang = getLangFromUrl(Astro.url) || "en";
+
+// Load TinaCMS data
+const pageResponse = await loadTina(currentLang, "departments");
+const siteConfig = await loadContent(currentLang, "site_config");
+
+// Prepare props for the React component
+const tinaProps = {
+  data: pageResponse.data,
+  query: pageResponse.query,
+  variables: pageResponse.variables,
+};
+const departmentsData = (pageResponse.data as any)[`departments_${currentLang}`] || {};
+---
+
+<Layout
+  title={`Departments - ${siteConfig.organization?.name}`}
+  description={departmentsData.hero?.description ||
+    "Explore our community departments"}
+  lang={currentLang}
+>
+  <DepartmentsPage props={tinaProps} lang={currentLang} client:load />
+</Layout>

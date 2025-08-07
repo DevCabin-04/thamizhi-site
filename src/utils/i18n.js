@@ -1,4 +1,6 @@
 // Language configuration
+
+import {client} from '../../tina/__generated__/client';
 export const languages = {
   en: {
     code: 'en',
@@ -22,6 +24,8 @@ export const languages = {
 
 export const defaultLang = 'en';
 
+export const supportedLangs = ["en", "ta", "si"];
+
 // Get current language from URL or default
 export function getLangFromUrl(url) {
   const [, lang] = url.pathname.split('/');
@@ -43,6 +47,71 @@ export async function loadContent(lang, page) {
       console.error(`Fallback content not found for ${page}`);
       return {};
     }
+  }
+}
+
+export async function loadTina(lang, page) {
+  try {
+    let pageResponse;
+    const queryKey = `${page}_${lang}`;
+    
+    console.log(`Loading TinaCMS data for: ${queryKey}`);
+    
+    // Check if the query exists in the client
+    if (!client.queries[queryKey]) {
+      console.warn(`Query ${queryKey} not found in client.queries`);
+      throw new Error(`Query ${queryKey} not found`);
+    }
+    
+    pageResponse = await client.queries[queryKey]({
+      relativePath: `${page}.json`
+    });
+    
+    console.log(`Successfully loaded TinaCMS data for: ${queryKey}`, pageResponse);
+    
+    // Return the complete TinaCMS response structure
+    return {
+      data: pageResponse.data,
+      query: pageResponse.query,
+      variables: pageResponse.variables,
+    };
+    
+  } catch (error) {
+    console.error(`TinaCMS content not found for ${lang}/${page}:`, error);
+    
+    // Try fallback to English if not already English
+    if (lang !== 'en') {
+      try {
+        const fallbackQueryKey = `${page}_en`;
+        console.log(`Trying fallback query: ${fallbackQueryKey}`);
+        
+        if (client.queries[fallbackQueryKey]) {
+          const fallbackResponse = await client.queries[fallbackQueryKey]({
+            relativePath: `${page}.json`
+          });
+          
+          console.log(`Fallback successful for: ${fallbackQueryKey}`);
+          
+          return {
+            data: fallbackResponse.data,
+            query: fallbackResponse.query,
+            variables: fallbackResponse.variables,
+          };
+        }
+      } catch (fallbackError) {
+        console.error(`Fallback query also failed:`, fallbackError);
+      }
+    }
+    
+    // Return empty structure that matches TinaCMS format with correct page type
+    const emptyData = {};
+    emptyData[`${page}_${lang}`] = {};
+    
+    return {
+      data: emptyData,
+      query: '',
+      variables: { relativePath: `${page}.json` },
+    };
   }
 }
 

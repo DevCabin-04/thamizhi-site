@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import GalleryPage from "../../components/Gallerypage.jsx";
+import { getLangFromUrl, loadTina, loadContent, defaultLang, supportedLangs } from "../../utils/i18n.js";
+
+// Static Path Generation for supported languages
+export async function getStaticPaths() {
+//   const supportedLanguages = ['en', 'ta', 'si'];
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+    props: { lang },
+  }));
+}
+
+// Get language from props
+const { lang } = Astro.props;
+const currentLang = lang || defaultLang;
+
+// const lang = getLangFromUrl(Astro.url) || "en";
+
+// Fetch the content for the gallery page using TinaCMS
+const pageResponse = await loadTina(currentLang, "gallery");
+const siteConfig = await loadContent(currentLang, "site_config");
+
+// Prepare props to be passed to the React component
+const tinaProps = {
+  data: pageResponse.data,
+  query: pageResponse.query,
+  variables: pageResponse.variables,
+};
+
+// Extract gallery-specific data for metadata in the layout
+const galleryData = (pageResponse.data as any)[`gallery_${currentLang}`] || {};
+---
+
+<Layout
+  title={`Gallery - ${siteConfig.organization?.name || "Our Organization"}`}
+  description={galleryData.hero?.description ||
+    "A gallery of our cultural events and activities."}
+  lang={currentLang}
+>
+  {/* Render the interactive React component on the client */}
+  <GalleryPage props={tinaProps} lang={currentLang} client:load />
+</Layout>
