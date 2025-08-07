@@ -8,7 +8,7 @@ import { eventsCollections } from "./collections/pages/events";
 import { galleryCollections } from "./collections/pages/gallery";
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = 
+const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
@@ -25,7 +25,9 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    basePath: process.env.NODE_ENV === 'production' ? '/thamizhi-site' : undefined,
+    // This is the corrected line.
+    // Setting a fixed basePath is more reliable for GitHub Pages.
+    basePath: "thamizhi-site",
   },
   media: {
     tina: {
@@ -36,6 +38,7 @@ export default defineConfig({
   
   ui: {
     // Preview URL configuration for both local and production environments
+    // This looks correct and will work as expected.
     previewUrl: (context) => {
       if (process.env.NODE_ENV === 'production') {
         return { url: 'https://devcabin-04.github.io/thamizhi-site' };
