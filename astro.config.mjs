@@ -5,6 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://lagithan.github.io',
+  base: '/thamizhi-site',
+  output: 'static',
   i18n: {
     defaultLocale: "en",
     locales: ["en", "ta", "si"],
@@ -13,8 +16,11 @@ export default defineConfig({
     },
   },
   integrations: [react()],
-  base: '/thamizhi-site/',
   vite: {
     plugins: [tailwindcss()],
+    define: {
+      'process.env.NEXT_PUBLIC_TINA_CLIENT_ID': JSON.stringify(process.env.NEXT_PUBLIC_TINA_CLIENT_ID),
+      'process.env.TINA_TOKEN': JSON.stringify(process.env.TINA_TOKEN),
+    },
   },
 });

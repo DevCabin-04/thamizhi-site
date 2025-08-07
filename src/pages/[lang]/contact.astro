@@ -1,5 +1,18 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { supportedLangs, defaultLang } from "../../utils/i18n.js";
+
+// Static Path Generation for supported languages
+export async function getStaticPaths() {
+  return supportedLangs.map((lang) => ({
+    params: { lang },
+    props: { lang },
+  }));
+}
+
+// Get language from props
+const { lang } = Astro.props;
+const currentLang = lang || defaultLang;
 ---
 
 <Layout

@@ -9,7 +9,11 @@ import { galleryCollections } from "./collections/pages/gallery";
 
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = "main";
+const branch = 
+  process.env.GITHUB_BRANCH ||
+  process.env.VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  "main";
 
 export default defineConfig({
   branch,
@@ -22,7 +26,7 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    basePath: process.env.NODE_ENV === 'production' ? '/admin' : undefined,
+    basePath: process.env.NODE_ENV === 'production' ? '/thamizhi-site' : undefined,
   },
   media: {
     tina: {
