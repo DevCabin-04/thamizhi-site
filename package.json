@@ -7,7 +7,8 @@
     "build": "tinacms build && astro build",
     "preview": "astro preview",
     "predeploy": "bun run build", 
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "tinacms": "tinacms"
   },
   "dependencies": {
     "@astrojs/react": "^4.0.0",
