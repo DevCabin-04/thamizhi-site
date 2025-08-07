@@ -337,9 +337,9 @@ const createHomepageCollection = (lang: string): Collection => ({
     router: ({ document }) => {
       // Return the path that matches your site's routing
       if (lang === 'en') {
-        return '/';
+        return '/thamizhi-site';
       }
-      return `/${lang}`;
+      return `/thamizhi-site/${lang}`;
     }
   }
 });
