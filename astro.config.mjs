@@ -6,8 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 const isDev = process.env.NODE_ENV !== 'production';
 
 export default defineConfig({
-  site: isDev ? 'http://localhost:4321' : 'https://lagithan.github.io',
-  base: isDev ? undefined : '/thamizhi-site',
+  site: isDev ? 'http://localhost:4321' : 'https://devcabin-04.github.io',
   output: 'static',
   i18n: {
     defaultLocale: "en",
