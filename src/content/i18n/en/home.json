@@ -1,6 +1,6 @@
 {
   "hero": {
-    "title": "Welcome to Thamizhi",
+    "title": "Welcome to Thami",
     "subtitle": "Preserving Tamil Heritage, Empowering Communities",
     "description": "Join us in celebrating the rich culture, language, and traditions of Tamil heritage. We are dedicated to preserving our ancient wisdom while building bridges to the futureeee.dddddd",
     "cta_primary": {
@@ -49,7 +49,7 @@
       "time": "6:00 PM",
       "location": "Tamil Heritage Center",
       "description": "Join us for a grand celebration of Tamil New Year with traditional performances, cultural programs, and festive meals.",
-      "image": "tamil-new-year-2024.jpg",
+      "image": "/uploadstamil-new-year-2024.jpg",
       "category": "festival"
     },
     {
@@ -58,7 +58,7 @@
       "time": "2:00 PM",
       "location": "Library Hall",
       "description": "An interactive workshop exploring classical Tamil literature and contemporary writings.",
-      "image": "literature-workshop.jpg",
+      "image": "/uploadsliterature-workshop.jpg",
       "category": "education"
     },
     {
@@ -67,7 +67,7 @@
       "time": "10:00 AM",
       "location": "Community Center",
       "description": "Free health screenings and wellness information for community members.",
-      "image": "health-fair.jpg",
+      "image": "/uploadshealth-fair.jpg",
       "category": "community"
     }
   ],
