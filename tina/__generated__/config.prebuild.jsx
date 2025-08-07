@@ -3397,7 +3397,7 @@ var galleryCollections = [
 ];
 
 // tina/config.ts
-var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
+var branch = "main";
 var config_default = defineConfig({
   branch,
   // Get this from tina.io
