@@ -13,6 +13,7 @@ export default defineConfig({
     },
   },
   integrations: [react()],
+  base: '/thamizhi-site/',
   vite: {
     plugins: [tailwindcss()],
   },
