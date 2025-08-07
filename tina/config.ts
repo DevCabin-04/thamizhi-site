@@ -7,7 +7,6 @@ import { publicationsCollections } from "./collections/pages/publications";
 import { eventsCollections } from "./collections/pages/events";
 import { galleryCollections } from "./collections/pages/gallery";
 
-
 // Your hosting provider likely exposes this as an environment variable
 const branch = 
   process.env.GITHUB_BRANCH ||
@@ -34,6 +33,18 @@ export default defineConfig({
       publicFolder: "public",
     },
   },
+  
+  ui: {
+    // Preview URL configuration for both local and production environments
+    previewUrl: (context) => {
+      if (process.env.NODE_ENV === 'production') {
+        return { url: 'https://devcabin-04.github.io/thamizhi-site' };
+      }
+      // Local development
+      return { url: 'http://localhost:4321' };
+    },
+  },
+  
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
@@ -44,7 +55,6 @@ export default defineConfig({
       ...publicationsCollections,
       ...eventsCollections,
       ...galleryCollections,
-      
     ],
   },
 });

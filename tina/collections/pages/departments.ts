@@ -335,11 +335,14 @@ const createDepartmentsCollection = (lang: string): Collection => ({
   ],
   ui: {
     router: ({ document }) => {
+      // Base path for production (GitHub Pages) vs local development
+      const basePath = process.env.NODE_ENV === 'production' ? '/thamizhi-site' : '';
+      
       // Return the path that matches your site's routing
       if (lang === 'en') {
-        return '/departments';
+        return `${basePath}/departments`;
       }
-      return `/${lang}/departments`;
+      return `${basePath}/${lang}/departments`;
     }
   }
 });

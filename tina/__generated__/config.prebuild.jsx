@@ -336,10 +336,11 @@ var createHomepageCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
+      const basePath = false ? "/thamizhi-site" : "";
       if (lang === "en") {
-        return "/thamizhi-site";
+        return basePath || "/";
       }
-      return `/thamizhi-site/${lang}`;
+      return `${basePath}/${lang}`;
     }
   }
 });
@@ -840,10 +841,11 @@ var createAboutCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
+      const basePath = false ? "/thamizhi-site" : "";
       if (lang === "en") {
-        return "/about";
+        return `${basePath}/about`;
       }
-      return `/${lang}/about`;
+      return `${basePath}/${lang}/about`;
     }
   }
 });
@@ -1189,10 +1191,11 @@ var createDepartmentsCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
+      const basePath = false ? "/thamizhi-site" : "";
       if (lang === "en") {
-        return "/departments";
+        return `${basePath}/departments`;
       }
-      return `/${lang}/departments`;
+      return `${basePath}/${lang}/departments`;
     }
   }
 });
@@ -1663,10 +1666,11 @@ var createMembershipCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
+      const basePath = false ? "/thamizhi-site" : "";
       if (lang === "en") {
-        return "/membership";
+        return `${basePath}/membership`;
       }
-      return `/${lang}/membership`;
+      return `${basePath}/${lang}/membership`;
     }
   }
 });
@@ -2376,10 +2380,11 @@ var createPublicationsCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
+      const basePath = false ? "/thamizhi-site" : "";
       if (lang === "en") {
-        return "/publications";
+        return `${basePath}/publications`;
       }
-      return `/${lang}/publications`;
+      return `${basePath}/${lang}/publications`;
     }
   }
 });
@@ -3121,10 +3126,11 @@ var createEventsCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
+      const basePath = false ? "/thamizhi-site" : "";
       if (lang === "en") {
-        return "/events";
+        return `${basePath}/events`;
       }
-      return `/${lang}/events`;
+      return `${basePath}/${lang}/events`;
     }
   }
 });
@@ -3382,10 +3388,11 @@ var createGalleryCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
+      const basePath = false ? "/thamizhi-site" : "";
       if (lang === "en") {
-        return "/gallery";
+        return `${basePath}/gallery`;
       }
-      return `/${lang}/gallery`;
+      return `${basePath}/${lang}/gallery`;
     }
   }
 });
@@ -3413,6 +3420,15 @@ var config_default = defineConfig({
     tina: {
       mediaRoot: "uploads",
       publicFolder: "public"
+    }
+  },
+  ui: {
+    // Preview URL configuration for both local and production environments
+    previewUrl: (context) => {
+      if (false) {
+        return { url: "https://devcabin-04.github.io/thamizhi-site" };
+      }
+      return { url: "http://localhost:4321" };
     }
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/

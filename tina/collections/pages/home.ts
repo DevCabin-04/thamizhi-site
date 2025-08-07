@@ -334,14 +334,17 @@ const createHomepageCollection = (lang: string): Collection => ({
     },
   ],
   ui: {
-    router: ({ document }) => {
-      // Return the path that matches your site's routing
-      if (lang === 'en') {
-        return '/thamizhi-site';
-      }
-      return `/thamizhi-site/${lang}`;
+  router: ({ document }) => {
+    // Base path for production (GitHub Pages) vs local development
+    const basePath = process.env.NODE_ENV === 'production' ? '/thamizhi-site' : '';
+    
+    // Return the path that matches your site's routing
+    if (lang === 'en') {
+      return basePath || '/';  // Root path for English
     }
+    return `${basePath}/${lang}`;
   }
+}
 });
 
 export const homepageCollections = [
