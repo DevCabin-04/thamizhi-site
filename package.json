@@ -3,14 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "bunx tinacms dev -c \"bunx astro dev\"",
-    "build": "bunx tinacms build && bunx astro build",
-    "preview": "bunx astro preview",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
+    "preview": "astro preview",
     "predeploy": "bun run build", 
-    "deploy": "bunx gh-pages -d dist",
-    "tina:build": "bunx tinacms build",
-    "tina:dev": "bunx tinacms dev -c \"bunx astro dev\"",
-    "install:bun": "bun install"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@astrojs/react": "^4.0.0",

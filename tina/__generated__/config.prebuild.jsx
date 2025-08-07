@@ -3397,7 +3397,7 @@ var galleryCollections = [
 ];
 
 // tina/config.ts
-var branch = "main";
+var branch = process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 var config_default = defineConfig({
   branch,
   // Get this from tina.io
@@ -3407,7 +3407,7 @@ var config_default = defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    basePath: false ? "/admin" : void 0
+    basePath: false ? "/thamizhi-site" : void 0
   },
   media: {
     tina: {

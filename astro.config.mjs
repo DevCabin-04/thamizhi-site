@@ -3,10 +3,11 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 
-// https://astro.build/config
+const isDev = process.env.NODE_ENV !== 'production';
+
 export default defineConfig({
-  site: 'https://lagithan.github.io',
-  base: '/thamizhi-site',
+  site: isDev ? 'http://localhost:4321' : 'https://lagithan.github.io',
+  base: isDev ? undefined : '/thamizhi-site',
   output: 'static',
   i18n: {
     defaultLocale: "en",
