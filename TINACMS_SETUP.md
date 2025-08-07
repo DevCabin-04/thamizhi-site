@@ -17,8 +17,10 @@
 
 ### 2. Enable GitHub Pages
 1. Go to **Settings > Pages**
-2. Under "Source", select **GitHub Actions**
+2. Under "Source", select **GitHub Actions** (NOT "Deploy from branch")
 3. Save the settings
+
+**⚠️ Important**: Make sure you select "GitHub Actions" as the source, not "Deploy from a branch". This ensures your custom workflow runs instead of Jekyll.
 
 ### 3. Local Development
 ```bash
@@ -31,10 +33,7 @@ bun run dev
 
 ### 4. Deploy to GitHub Pages
 ```bash
-# Push your changes to trigger deployment
-git add .
-git commit -m "Setup TinaCMS integration with Bun"
-git push origin main
+# Push your changes
 ```
 
 ## Bun Commands
