@@ -20,6 +20,24 @@ const currentLang = lang || getLangFromUrl(Astro.url) || "en";
 // Load site configuration for current language
 const siteConfig = await loadContent(currentLang, "site_config");
 
+// Helper function to construct URLs with base path in production
+const getUrlWithBase = (href) => {
+    const isDev = import.meta.env.NODE_ENV !== 'production';
+    const basePath = isDev ? '' : '/thamizhi-site';
+    
+    if (!href || href === '') {
+        // Handle home page
+        return currentLang === 'en' ? basePath || '/' : `${basePath}/${currentLang}`;
+    }
+    
+    // Handle other pages
+    if (currentLang === 'en') {
+        return `${basePath}/${href}`;
+    } else {
+        return `${basePath}/${currentLang}/${href}`;
+    }
+};
+
 const pageTitle =
     title || siteConfig.meta?.title_suffix || siteConfig.organization?.name;
 const pageDescription =
@@ -105,9 +123,7 @@ const pageDescription =
                     <div class="flex items-center space-x-4">
                         <div class="flex items-center">
                             <a
-                                href={currentLang === "en"
-                                    ? "/"
-                                    : `/${currentLang}`}
+                                href={getUrlWithBase('')}
                                 class="flex items-center"
                             >
                                 <div
@@ -136,7 +152,7 @@ const pageDescription =
                         {
                             siteConfig.navigation?.primary?.map((item) => (
                                 <a
-                                    href={item.href}
+                                    href={getUrlWithBase(item.href)}
                                     class="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200 relative group"
                                 >
                                     {item.name}
@@ -177,7 +193,7 @@ const pageDescription =
                         {
                             siteConfig.navigation?.primary?.map((item) => (
                                 <a
-                                    href={item.href}
+                                    href={getUrlWithBase(item.href)}
                                     class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md font-medium transition-colors"
                                 >
                                     {item.name}
@@ -259,7 +275,7 @@ const pageDescription =
                                 siteConfig.navigation?.footer?.map((item) => (
                                     <li>
                                         <a
-                                            href={item.href}
+                                            href={getUrlWithBase(item.href)}
                                             class="text-gray-300 hover:text-white transition-colors"
                                         >
                                             {item.name}

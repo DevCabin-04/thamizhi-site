@@ -841,7 +841,7 @@ var createAboutCollection = (lang) => ({
   ],
   ui: {
     router: ({ document }) => {
-      const basePath = false ? "/thamizhi-site" : "";
+      const basePath = "/thamizhi-site";
       if (lang === "en") {
         return `${basePath}/about`;
       }
