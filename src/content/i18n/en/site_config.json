@@ -28,7 +28,7 @@
   },
   "navigation": {
     "primary": [
-      { "name": "Home", "href": "/" },
+      { "name": "Home", "href": "" },
       { "name": "About", "href": "/about" },
       { "name": "Departments", "href": "/departments" },
       { "name": "Membership", "href": "/membership" },

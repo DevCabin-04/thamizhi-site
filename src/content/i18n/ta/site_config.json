@@ -28,7 +28,7 @@
   },
   "navigation": {
     "primary": [
-      { "name": "முகப்பு", "href": "/ta" },
+      { "name": "முகப்பு", "href": "" },
       { "name": "எங்களைப் பற்றி", "href": "about" },
       { "name": "துறைகள்", "href": "departments" },
       { "name": "உறுப்பினர்", "href": "membership" },
