@@ -3414,7 +3414,9 @@ var config_default = defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    basePath: false ? "/thamizhi-site" : void 0
+    // This is the corrected line.
+    // Setting a fixed basePath is more reliable for GitHub Pages.
+    basePath: "thamizhi-site"
   },
   media: {
     tina: {
@@ -3424,6 +3426,7 @@ var config_default = defineConfig({
   },
   ui: {
     // Preview URL configuration for both local and production environments
+    // This looks correct and will work as expected.
     previewUrl: (context) => {
       if (false) {
         return { url: "https://devcabin-04.github.io/thamizhi-site" };
