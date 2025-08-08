@@ -2,6 +2,8 @@
 import {
     getLangFromUrl,
     languages,
+    getBasePath,
+    getUrlWithBase,
     // type SupportedLangs,
 } from "../../utils/i18n";
 import { getRelativeLocaleUrl } from 'astro:i18n';
@@ -12,11 +14,24 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const { currentLang } = Astro.props;
 
-const getUrlWithBase = (href: string) => {
-    const isDev = import.meta.env.NODE_ENV !== 'production';
-    const basePath = isDev ? '' : '/thamizhi-site';
+// Helper function to get clean page path without language or base path
+const getPagePath = (url: URL) => {
+    let pathname = url.pathname;
+    const basePath = getBasePath();
     
-    return href ? `${basePath}${href}` : href;
+    // Remove base path if it exists
+    if (basePath && pathname.startsWith(basePath)) {
+        pathname = pathname.substring(basePath.length);
+    }
+    
+    // Remove current language prefix
+    const pathParts = pathname.split('/').filter(part => part);
+    if (pathParts.length > 0 && Object.keys(languages).includes(pathParts[0])) {
+        pathParts.shift(); // Remove language code
+    }
+    
+    // Return the clean path
+    return pathParts.length > 0 ? `/${pathParts.join('/')}` : '';
 };
 ---
 
@@ -46,17 +61,22 @@ const getUrlWithBase = (href: string) => {
         id="language-menu"
     >
         <div class="py-1" role="none">
-            {Object.entries(languages).map(([langCode, langInfo]) => (
-                <a
-                    href={getUrlWithBase(`/${langCode}${Astro.url.pathname.replace(new RegExp(`^/${currentLang}`), '')}`)}
-                    class={`flex items-center px-4 py-2 text-sm ${currentLang === langCode ? 'bg-orange-50 text-orange-600 font-medium' : 'text-gray-700 hover:bg-orange-50 hover:text-orange-600'}`}
-                    role="menuitem"
-                    tabindex="-1"
-                >
-                    <span class="mr-2">{langInfo.flag}</span>
-                    {langInfo.name}
-                </a>
-            ))}
+            {Object.entries(languages).map(([langCode, langInfo]) => {
+                const pagePath = getPagePath(Astro.url);
+                const newUrl = getUrlWithBase(pagePath, langCode);
+                
+                return (
+                    <a
+                        href={newUrl}
+                        class={`flex items-center px-4 py-2 text-sm ${currentLang === langCode ? 'bg-orange-50 text-orange-600 font-medium' : 'text-gray-700 hover:bg-orange-50 hover:text-orange-600'}`}
+                        role="menuitem"
+                        tabindex="-1"
+                    >
+                        <span class="mr-2">{langInfo.flag}</span>
+                        {langInfo.name}
+                    </a>
+                );
+            })}
         </div>
     </div>
 </div>

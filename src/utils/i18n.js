@@ -201,6 +201,29 @@ export function getDirection(lang) {
   return languages[lang]?.dir || 'ltr';
 }
 
+// Shared utility for base path handling
+export function getBasePath() {
+  const isDev = import.meta.env.NODE_ENV !== 'production';
+  return isDev ? '' : '/thamizhi-site';
+}
+
+// Helper function to construct URLs with base path
+export function getUrlWithBase(href, lang = null) {
+  const basePath = getBasePath();
+  
+  if (!href || href === '') {
+    // Handle home page
+    return lang === 'en' || lang === null ? basePath || '/' : `${basePath}/${lang}`;
+  }
+  
+  // Handle other pages
+  if (lang === 'en' || lang === null) {
+    return `${basePath}${href}`;
+  } else {
+    return `${basePath}/${lang}${href}`;
+  }
+}
+
 // Navigation items with translations
 export function getNavigation(lang) {
   const nav = {

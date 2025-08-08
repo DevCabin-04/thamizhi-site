@@ -5,6 +5,7 @@ import {
     loadContent,
     getLocalizedUrl,
     languages,
+    getUrlWithBase as getUrlWithBaseUtil,
 } from "../utils/i18n.js";
 import LanguageSwitcher from "../components/common/LanguageSwitcher.astro";
 
@@ -22,20 +23,7 @@ const siteConfig = await loadContent(currentLang, "site_config");
 
 // Helper function to construct URLs with base path in production
 const getUrlWithBase = (href) => {
-    const isDev = import.meta.env.NODE_ENV !== 'production';
-    const basePath = isDev ? '' : '/thamizhi-site';
-    
-    if (!href || href === '') {
-        // Handle home page
-        return currentLang === 'en' ? basePath || '/' : `${basePath}/${currentLang}`;
-    }
-    
-    // Handle other pages
-    if (currentLang === 'en') {
-        return `${basePath}/${href}`;
-    } else {
-        return `${basePath}/${currentLang}/${href}`;
-    }
+    return getUrlWithBaseUtil(href, currentLang);
 };
 
 const pageTitle =
