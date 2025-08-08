@@ -4,7 +4,7 @@ const getUrlWithBase = (href: string) => {
     const isDev = import.meta.env.NODE_ENV !== 'production';
     const basePath = isDev ? '' : '/thamizhi-site';
     
-    return href ? `${basePath}/en/${href}` : href;
+    return href !== undefined && href !== null ? `${basePath}/en/${href}` : href;
 };
 return Astro.redirect(getUrlWithBase(''), 301);
 ---
