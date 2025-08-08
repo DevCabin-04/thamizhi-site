@@ -29,19 +29,19 @@
   },
   "navigation": {
     "primary": [
-      { "name": "Home", "name_tamil": "முகப்பு", "href": "/" },
-      { "name": "About", "name_tamil": "எங்களைப் பற்றி", "href": "/about" },
-      { "name": "Departments", "name_tamil": "துறைகள்", "href": "/departments" },
-      { "name": "Membership", "name_tamil": "உறுப்பினர்", "href": "/membership" },
-      { "name": "Publications", "name_tamil": "வெளியீடுகள்", "href": "/publications" },
-      { "name": "Gallery", "name_tamil": "படங்கள்", "href": "/gallery" },
-      { "name": "Events", "name_tamil": "நிகழ்வுகள்", "href": "/events" }
+      { "name": "Home", "name_tamil": "முகப்பு", "href": "" },
+      { "name": "About", "name_tamil": "எங்களைப் பற்றி", "href": "about" },
+      { "name": "Departments", "name_tamil": "துறைகள்", "href": "departments" },
+      { "name": "Membership", "name_tamil": "உறுப்பினர்", "href": "membership" },
+      { "name": "Publications", "name_tamil": "வெளியீடுகள்", "href": "publications" },
+      { "name": "Gallery", "name_tamil": "படங்கள்", "href": "gallery" },
+      { "name": "Events", "name_tamil": "நிகழ்வுகள்", "href": "events" }
     ],
     "footer": [
-      { "name": "Privacy Policy", "href": "/privacy" },
-      { "name": "Terms of Service", "href": "/terms" },
-      { "name": "Donate", "href": "/donate" },
-      { "name": "Volunteer", "href": "/volunteer" }
+      { "name": "Privacy Policy", "href": "privacy" },
+      { "name": "Terms of Service", "href": "terms" },
+      { "name": "Donate", "href": "donate" },
+      { "name": "Volunteer", "href": "volunteer" }
     ]
   },
   "theme": {
