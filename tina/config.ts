@@ -36,19 +36,7 @@ export default defineConfig({
     },
   },
   
-  // ui: {
-  //   // Preview URL configuration for both local and production environments
-  //   // This looks correct and will work as expected.
-  //   previewUrl: (context) => {
-  //     if (process.env.NODE_ENV == 'production') {
-  //       return { url: 'https://devcabin-04.github.io/thamizhi-site' };
-  //     }
-  //     // Local development
-  //     return { url: 'http://localhost:4321' };
-  //   },
-  // },
-  
-  // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
+ 
   schema: {
     collections: [
       ...homepageCollections,
