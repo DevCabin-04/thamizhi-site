@@ -19,9 +19,6 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
-    define: {
-      'process.env.NEXT_PUBLIC_TINA_CLIENT_ID': JSON.stringify(process.env.NEXT_PUBLIC_TINA_CLIENT_ID),
-      'process.env.TINA_TOKEN': JSON.stringify(process.env.TINA_TOKEN),
-    },
+    
   },
 });
