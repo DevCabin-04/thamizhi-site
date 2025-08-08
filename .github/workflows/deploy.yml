@@ -43,6 +43,7 @@ jobs:
       - name: Build Astro site
         run: bun run build
         env:
+          NODE_ENV: production
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
       

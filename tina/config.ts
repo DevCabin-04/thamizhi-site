@@ -40,7 +40,7 @@ export default defineConfig({
     // Preview URL configuration for both local and production environments
     // This looks correct and will work as expected.
     previewUrl: (context) => {
-      if (process.env.NODE_ENV === 'production') {
+      if (process.env.NODE_ENV == 'production') {
         return { url: 'https://devcabin-04.github.io/thamizhi-site' };
       }
       // Local development
