@@ -118,13 +118,37 @@ export async function loadTina(lang, page) {
 // Generate URLs for language switching
 export function getLocalizedUrl(url, targetLang) {
   const currentLang = getLangFromUrl(url);
-  const pathWithoutLang = url.pathname.replace(`/${currentLang}`, '') || '/';
-
-  if (targetLang === defaultLang) {
-    return pathWithoutLang;
+  let pathname = url.pathname;
+  const basePath = getBasePath();
+  
+  // Remove base path if it exists (for production)
+  if (basePath && pathname.startsWith(basePath)) {
+    pathname = pathname.substring(basePath.length);
   }
-
-  return `/${targetLang}${pathWithoutLang}`;
+  
+  // Ensure pathname starts with /
+  if (!pathname.startsWith('/')) {
+    pathname = '/' + pathname;
+  }
+  
+  // Remove trailing slash if present
+  if (pathname.endsWith('/') && pathname !== '/') {
+    pathname = pathname.slice(0, -1);
+  }
+  
+  // Split path and filter empty parts
+  const pathParts = pathname.split('/').filter(part => part);
+  
+  // Check if first part is a language code and remove it
+  if (pathParts.length > 0 && Object.keys(languages).includes(pathParts[0])) {
+    pathParts.shift(); // Remove language code
+  }
+  
+  // Get the clean path
+  const cleanPath = pathParts.length > 0 ? `/${pathParts.join('/')}` : '';
+  
+  // Return the localized URL using the shared utility
+  return getUrlWithBase(cleanPath, targetLang);
 }
 
 // Get language-specific page paths
@@ -216,45 +240,17 @@ export function getUrlWithBase(href, lang = null) {
     return lang === 'en' || lang === null ? basePath || '/' : `${basePath}/${lang}`;
   }
   
+  // Ensure href starts with / if it's not empty
+  if (!href.startsWith('/')) {
+    href = '/' + href;
+  }
+  
   // Handle other pages
   if (lang === 'en' || lang === null) {
     return `${basePath}${href}`;
   } else {
-    return `${basePath}/${lang}${href}`;
+    return `${basePath}${href}`;
   }
 }
 
-// Navigation items with translations
-export function getNavigation(lang) {
-  const nav = {
-    en: [
-      { name: 'Home', href: '/' },
-      { name: 'About', href: '/about' },
-      { name: 'Departments', href: '/departments' },
-      { name: 'Membership', href: '/membership' },
-      { name: 'Publications', href: '/publications' },
-      { name: 'Gallery', href: '/gallery' },
-      { name: 'Events', href: '/events' }
-    ],
-    ta: [
-      { name: 'முகப்பு', href: '/ta' },
-      { name: 'எங்களைப் பற்றி', href: '/ta/about' },
-      { name: 'துறைகள்', href: '/ta/departments' },
-      { name: 'உறுப்பினர்', href: '/ta/membership' },
-      { name: 'வெளியீடுகள்', href: '/ta/publications' },
-      { name: 'படங்கள்', href: '/ta/gallery' },
-      { name: 'நிகழ்வுகள்', href: '/ta/events' }
-    ],
-    si: [
-      { name: 'මුල් පිටුව', href: '/si' },
-      { name: 'අප ගැන', href: '/si/about' },
-      { name: 'දෙපාර්තමේන්තු', href: '/si/departments' },
-      { name: 'සාමාජිකත්වය', href: '/si/membership' },
-      { name: 'ප්‍රකාශන', href: '/si/publications' },
-      { name: 'ගැලරිය', href: '/si/gallery' },
-      { name: 'සිදුවීම්', href: '/si/events' }
-    ]
-  };
 
-  return nav[lang] || nav.en;
-}

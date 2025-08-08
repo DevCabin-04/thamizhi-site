@@ -19,18 +19,30 @@ const getPagePath = (url: URL) => {
     let pathname = url.pathname;
     const basePath = getBasePath();
     
-    // Remove base path if it exists
+    // Remove base path if it exists (for production)
     if (basePath && pathname.startsWith(basePath)) {
         pathname = pathname.substring(basePath.length);
     }
     
-    // Remove current language prefix
+    // Ensure pathname starts with /
+    if (!pathname.startsWith('/')) {
+        pathname = '/' + pathname;
+    }
+    
+    // Remove trailing slash if present
+    if (pathname.endsWith('/') && pathname !== '/') {
+        pathname = pathname.slice(0, -1);
+    }
+    
+    // Split path and filter empty parts
     const pathParts = pathname.split('/').filter(part => part);
+    
+    // Check if first part is a language code and remove it
     if (pathParts.length > 0 && Object.keys(languages).includes(pathParts[0])) {
         pathParts.shift(); // Remove language code
     }
     
-    // Return the clean path
+    // Return the clean path (empty string for home page, /path for other pages)
     return pathParts.length > 0 ? `/${pathParts.join('/')}` : '';
 };
 ---
