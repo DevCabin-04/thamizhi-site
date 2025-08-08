@@ -29,18 +29,18 @@
   "navigation": {
     "primary": [
       { "name": "முகப்பு", "href": "/ta" },
-      { "name": "எங்களைப் பற்றி", "href": "/ta/about" },
-      { "name": "துறைகள்", "href": "/ta/departments" },
-      { "name": "உறுப்பினர்", "href": "/ta/membership" },
-      { "name": "வெளியீடுகள்", "href": "/ta/publications" },
-      { "name": "படங்கள்", "href": "/ta/gallery" },
-      { "name": "நிகழ்வுகள்", "href": "/ta/events" }
+      { "name": "எங்களைப் பற்றி", "href": "about" },
+      { "name": "துறைகள்", "href": "departments" },
+      { "name": "உறுப்பினர்", "href": "membership" },
+      { "name": "வெளியீடுகள்", "href": "publications" },
+      { "name": "படங்கள்", "href": "gallery" },
+      { "name": "நிகழ்வுகள்", "href": "events" }
     ],
     "footer": [
-      { "name": "தனியுரிமைக் கொள்கை", "href": "/ta/privacy" },
-      { "name": "சேவை விதிமுறைகள்", "href": "/ta/terms" },
-      { "name": "நன்கொடை", "href": "/ta/donate" },
-      { "name": "தன்னார்வலர்", "href": "/ta/volunteer" }
+      { "name": "தனியுரிமைக் கொள்கை", "href": "privacy" },
+      { "name": "சேவை விதிமுறைகள்", "href": "terms" },
+      { "name": "நன்கொடை", "href": "donate" },
+      { "name": "தன்னார்வலர்", "href": "volunteer" }
     ]
   },
   "theme": {

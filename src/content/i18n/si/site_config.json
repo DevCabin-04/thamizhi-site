@@ -28,19 +28,19 @@
   },
   "navigation": {
     "primary": [
-      { "name": "මුල් පිටුව", "href": "/si" },
-      { "name": "අප ගැන", "href": "/si/about" },
-      { "name": "දෙපාර්තමේන්තු", "href": "/si/departments" },
-      { "name": "සාමාජිකත්වය", "href": "/si/membership" },
-      { "name": "ප්‍රකාශන", "href": "/si/publications" },
-      { "name": "ගැලරිය", "href": "/si/gallery" },
-      { "name": "සිදුවීම්", "href": "/si/events" }
+      { "name": "මුල් පිටුව", "href": "" },
+      { "name": "අප ගැන", "href": "about" },
+      { "name": "දෙපාර්තමේන්තු", "href": "departments" },
+      { "name": "සාමාජිකත්වය", "href": "membership" },
+      { "name": "ප්‍රකාශන", "href": "publications" },
+      { "name": "ගැලරිය", "href": "gallery" },
+      { "name": "සිදුවීම්", "href": "events" }
     ],
     "footer": [
-      { "name": "රහස්‍යතා ප්‍රතිපත්තිය", "href": "/si/privacy" },
-      { "name": "සේවා නියමයන්", "href": "/si/terms" },
-      { "name": "පරිත්‍යාගය", "href": "/si/donate" },
-      { "name": "ස්වේච්ඡා සේවකයා", "href": "/si/volunteer" }
+      { "name": "රහස්‍යතා ප්‍රතිපත්තිය", "href": "privacy" },
+      { "name": "සේවා නියමයන්", "href": "terms" },
+      { "name": "පරිත්‍යාගය", "href": "donate" },
+      { "name": "ස්වේච්ඡා සේවකයා", "href": "volunteer" }
     ]
   },
   "theme": {
