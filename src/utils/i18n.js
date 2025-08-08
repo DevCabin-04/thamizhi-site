@@ -253,4 +253,37 @@ export function getUrlWithBase(href, lang = null) {
   }
 }
 
+// Navigation items with translations
+export function getNavigation(lang) {
+  const nav = {
+    en: [
+      { name: 'Home', href: '/' },
+      { name: 'About', href: '/about' },
+      { name: 'Departments', href: '/departments' },
+      { name: 'Membership', href: '/membership' },
+      { name: 'Publications', href: '/publications' },
+      { name: 'Gallery', href: '/gallery' },
+      { name: 'Events', href: '/events' }
+    ],
+    ta: [
+      { name: 'முகப்பு', href: '/ta' },
+      { name: 'எங்களைப் பற்றி', href: '/ta/about' },
+      { name: 'துறைகள்', href: '/ta/departments' },
+      { name: 'உறுப்பினர்', href: '/ta/membership' },
+      { name: 'வெளியீடுகள்', href: '/ta/publications' },
+      { name: 'படங்கள்', href: '/ta/gallery' },
+      { name: 'நிகழ்வுகள்', href: '/ta/events' }
+    ],
+    si: [
+      { name: 'මුල් පිටුව', href: '/si' },
+      { name: 'අප ගැන', href: '/si/about' },
+      { name: 'දෙපාර්තමේන්තු', href: '/si/departments' },
+      { name: 'සාමාජිකත්වය', href: '/si/membership' },
+      { name: 'ප්‍රකාශන', href: '/si/publications' },
+      { name: 'ගැලරිය', href: '/si/gallery' },
+      { name: 'සිදුවීම්', href: '/si/events' }
+    ]
+  };
 
+  return nav[lang] || nav.en;
+}
