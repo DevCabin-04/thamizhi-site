@@ -11,6 +11,13 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 // }
 
 const { currentLang } = Astro.props;
+
+const getUrlWithBase = (href: string) => {
+    const isDev = import.meta.env.NODE_ENV !== 'production';
+    const basePath = isDev ? '' : '/thamizhi-site';
+    
+    return href ? `${basePath}${href}` : href;
+};
 ---
 
 <div class="relative inline-block text-left">
@@ -41,7 +48,7 @@ const { currentLang } = Astro.props;
         <div class="py-1" role="none">
             {Object.entries(languages).map(([langCode, langInfo]) => (
                 <a
-                    href={getRelativeLocaleUrl(langCode, Astro.url.pathname.replace(new RegExp(`^/${currentLang}`), ''))}
+                    href={getUrlWithBase(`/${langCode}${Astro.url.pathname.replace(new RegExp(`^/${currentLang}`), '')}`)}
                     class={`flex items-center px-4 py-2 text-sm ${currentLang === langCode ? 'bg-orange-50 text-orange-600 font-medium' : 'text-gray-700 hover:bg-orange-50 hover:text-orange-600'}`}
                     role="menuitem"
                     tabindex="-1"
