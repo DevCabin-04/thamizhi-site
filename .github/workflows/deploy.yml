@@ -36,6 +36,7 @@ jobs:
         
       - name: Build TinaCMS
         env:
+          NODE_ENV: ${{ secrets.NODE_ENV }}
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
         run: npx tinacms build
@@ -43,7 +44,7 @@ jobs:
       - name: Build Astro site
         run: bun run build
         env:
-          NODE_ENV: production
+          NODE_ENV: ${{ secrets.NODE_ENV }}
           NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
       
