@@ -381,17 +381,49 @@ const pageDescription =
         </footer>
 
         <script>
-            // Mobile menu toggle
-            document.addEventListener("DOMContentLoaded", function () {
+            // Mobile menu toggle - works with Astro View Transitions
+            function setupMobileMenu() {
                 const button = document.getElementById("mobile-menu-button");
                 const menu = document.getElementById("mobile-menu");
 
                 if (button && menu) {
-                    button.addEventListener("click", function () {
-                        menu.classList.toggle("hidden");
-                    });
+                    // Remove any existing listeners by cloning and replacing the button
+                    const newButton = button.cloneNode(true);
+                    button.parentNode?.replaceChild(newButton, button);
+
+                    const finalButton = document.getElementById("mobile-menu-button");
+                    const finalMenu = document.getElementById("mobile-menu");
+
+                    if (finalButton && finalMenu) {
+                        // Toggle menu when button is clicked
+                        finalButton.addEventListener("click", function (e) {
+                            e.stopPropagation();
+                            finalMenu.classList.toggle("hidden");
+                        });
+
+                        // Close menu when clicking outside
+                        document.addEventListener("click", function (event) {
+                            if (!finalButton.contains(event.target as Node) && !finalMenu.contains(event.target as Node)) {
+                                finalMenu.classList.add("hidden");
+                            }
+                        });
+
+                        // Close menu when clicking on a menu item
+                        const menuLinks = finalMenu.querySelectorAll("a");
+                        menuLinks.forEach(link => {
+                            link.addEventListener("click", function () {
+                                finalMenu.classList.add("hidden");
+                            });
+                        });
+                    }
                 }
-            });
+            }
+
+            // Run on initial page load
+            document.addEventListener("DOMContentLoaded", setupMobileMenu);
+
+            // Run after Astro View Transitions (when navigating between pages)
+            document.addEventListener("astro:page-load", setupMobileMenu);
         </script>
     </body>
 </html>
