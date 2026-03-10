@@ -21,9 +21,9 @@ export default function GalleryPage({ props, lang }) {
     if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
       return imagePath;
     }
-    // For local images, add base path in production and handle spaces
+    // For local images, handle spaces
     const isDev = import.meta.env.MODE === 'development';
-    const basePath = isDev ? '' : '/thamizhi-site';
+    const basePath = ''; // No base path for Vercel
     // Simple replacement of spaces with %20 for filenames with spaces
     const encodedPath = imagePath.replace(/ /g, '%20');
     return `${basePath}${encodedPath}`;

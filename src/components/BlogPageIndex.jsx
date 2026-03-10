@@ -58,7 +58,7 @@ export default function BlogPageIndex({ props, lang, blogPosts }) {
   const getUrlWithBase = (href) => {
     if (!href) return '#';
     const isDev = import.meta.env.MODE === 'development';
-    const basePath = isDev ? '' : '/thamizhi-site';
+    const basePath = ''; // No base path for Vercel
     if (href.startsWith('http://') || href.startsWith('https://')) return href;
     if (href.startsWith(basePath)) return href;
     const cleanHref = href.startsWith('/') ? href.substring(1) : href;

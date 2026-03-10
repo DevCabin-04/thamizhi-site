@@ -23,7 +23,7 @@ export default function HomePage({ props, lang }) {
     if (!href) return '#';
 
     const isDev = import.meta.env.MODE === 'development';
-    const basePath = isDev ? '' : '/thamizhi-site';
+    const basePath = ''; // No base path for Vercel
 
     // If href is an absolute URL, return as-is
     if (href.startsWith('http://') || href.startsWith('https://')) {

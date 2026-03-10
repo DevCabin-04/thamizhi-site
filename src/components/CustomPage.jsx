@@ -11,7 +11,7 @@ const CustomPage = ({ props, lang }) => {
   const getUrlWithBase = (href) => {
     if (!href) return '#';
     const isDev = import.meta.env.MODE === 'development';
-    const basePath = isDev ? '' : '/thamizhi-site';
+    const basePath = ''; // No base path for Vercel
 
     // If href already starts with basePath or is an absolute URL, return as-is
     if (href.startsWith('http') || href.startsWith(basePath)) {
