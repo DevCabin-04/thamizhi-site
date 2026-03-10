@@ -227,8 +227,9 @@ export function getDirection(lang) {
 
 // Shared utility for base path handling
 export function getBasePath() {
-  const isDev = import.meta.env.NODE_ENV !== 'production';
-  return isDev ? '' : '/thamizhi-site';
+  // No base path needed for Vercel deployment
+  // Only use base path for GitHub Pages
+  return '';
 }
 
 // Helper function to construct URLs with base path
