@@ -1,0 +1,48 @@
+/* TinaCMS Field Highlighting Styles */
+/* ONLY apply when page is inside an iframe (TinaCMS preview context) */
+
+/* Check if we're in an iframe - these styles only apply inside TinaCMS admin */
+@media all {
+  /* Base styles - only when in iframe */
+  body.tina-iframe [data-tina-field] {
+    position: relative;
+    transition: outline 0.2s ease, background-color 0.2s ease;
+  }
+
+  /* Hover effect for editable fields - only in iframe */
+  body.tina-iframe [data-tina-field]:hover {
+    outline: 2px dashed rgba(212, 175, 55, 0.5); /* Gold color with transparency */
+    outline-offset: 2px;
+    cursor: pointer;
+  }
+
+  /* Add a small "edit" indicator on hover - only in iframe */
+  body.tina-iframe [data-tina-field]:hover::before {
+    content: "✏️ Click to edit";
+    position: absolute;
+    top: -28px;
+    left: 0;
+    background: rgba(122, 19, 21, 0.95); /* Thamizhi maroon */
+    color: #d4af37; /* Thamizhi gold */
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Special handling for inline elements - only in iframe */
+  body.tina-iframe span[data-tina-field],
+  body.tina-iframe a[data-tina-field],
+  body.tina-iframe strong[data-tina-field] {
+    display: inline-block;
+  }
+
+  /* Prevent tooltip from showing on nested fields - only in iframe */
+  body.tina-iframe [data-tina-field] [data-tina-field]:hover::before {
+    display: none;
+  }
+}

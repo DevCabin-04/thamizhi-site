@@ -1,0 +1,89 @@
+{
+  "title": "Tamil New Year Celebration: A Memorable Evening",
+  "slug": "tamil-new-year-celebration-recap",
+  "excerpt": "Relive the highlights of our spectacular Tamil New Year celebration with traditional performances, delicious food, and amazing student participation!",
+  "content": {
+    "type": "root",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "What an incredible evening! Our Tamil New Year celebration brought together over 200 students, faculty, and community members for an unforgettable night of culture, tradition, and celebration."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Traditional Performances"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The evening featured stunning Bharatanatyam dance performances by our talented club members, traditional Carnatic music, and a special drama presentation depicting the Tamil New Year story."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Authentic Tamil Cuisine"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Guests enjoyed a feast of traditional Tamil dishes including Mango Pachadi, Vada, Payasam, and more. A huge thank you to our volunteer chefs who worked tirelessly to prepare these authentic dishes!"
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Community Spirit"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The event showcased the strong sense of community within our club. Students from diverse backgrounds came together to celebrate, learn, and appreciate Tamil culture. This is what Thamizhi is all about!"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Check out our gallery for photos from the event, and stay tuned for more exciting cultural celebrations throughout the year!"
+          }
+        ]
+      }
+    ]
+  },
+  "featured_image": "/uploads/tamil-new-year-2024.jpg",
+  "author": "Cultural Secretary",
+  "author_role": "Cultural Events Coordinator",
+  "published_date": "2024-04-20T00:00:00.000Z",
+  "category": "events",
+  "tags": ["tamil-new-year", "cultural-event", "celebration"],
+  "featured": true
+}

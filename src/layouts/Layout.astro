@@ -1,5 +1,7 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import "../styles/global.css";
+import "../styles/thamizhi-theme.css";
 import {
     getLangFromUrl,
     loadContent,
@@ -8,6 +10,7 @@ import {
     getUrlWithBase as getUrlWithBaseUtil,
 } from "../utils/i18n.js";
 import LanguageSwitcher from "../components/common/LanguageSwitcher.astro";
+import logoImage from "../assets/logo.jpeg";
 
 export interface Props {
     title?: string;
@@ -59,53 +62,30 @@ const pageDescription =
                 />
             ))
         }
+
+        <!-- Enable View Transitions for TinaCMS integration -->
+        <ViewTransitions />
+        <!-- TinaCMS iframe communication helper -->
+        <script is:inline src="/tinacms-iframe.js"></script>
     </head>
-    <body class="min-h-screen bg-amber-50 font-sans antialiased">
-        <header class="bg-white shadow-sm border-b border-orange-200">
-            <!-- Cultural Header Banner -->
-            <div
-                class="bg-gradient-to-r from-orange-600 to-red-600 text-white py-3"
-            >
+    <body class="min-h-screen bg-white font-sans antialiased">
+        <header class="bg-white shadow-sm">
+            <!-- Utility Bar -->
+            <div class="bg-[#4a0a0a] text-white py-2">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between items-center">
-                        <div class="text-sm font-medium">
+                        <div class="text-xs text-gray-300">
                             {siteConfig.organization?.tagline}
                         </div>
-
-                        <!-- Language Switcher -->
-                        <!-- <div class="flex items-center space-x-2">
-                            {
-                                Object.entries(languages).map(
-                                    ([langCode, langInfo]) => (
-                                        <a
-                                            href={getLocalizedUrl(
-                                                Astro.url,
-                                                langCode,
-                                            )}
-                                            class={`px-2 py-1 rounded text-xs font-medium transition-colors ${
-                                                currentLang === langCode
-                                                    ? "bg-white bg-opacity-20 text-white"
-                                                    : "text-orange-100 hover:text-white hover:bg-white hover:bg-opacity-10"
-                                            }`}
-                                            title={langInfo.name}
-                                        >
-                                            <span class="mr-1">
-                                                {langInfo.flag}
-                                            </span>
-                                            {langInfo.name}
-                                        </a>
-                                    ),
-                                )
-                            }
-                        </div> -->
-                        <div class="flex items-center">
+                        <div class="flex items-center space-x-6">
                             <LanguageSwitcher currentLang={currentLang} />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Main Header -->
+            <nav class="bg-white border-b border-gray-200 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
                     <!-- Logo and Organization Name -->
                     <div class="flex items-center space-x-4">
@@ -114,11 +94,11 @@ const pageDescription =
                                 href={getUrlWithBase('')}
                                 class="flex items-center"
                             >
-                                <div
-                                    class="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg"
-                                >
-                                    த
-                                </div>
+                                <img
+                                    src={logoImage.src}
+                                    alt={siteConfig.organization?.name}
+                                    class="w-12 h-12 object-contain rounded-full shadow-lg"
+                                />
                                 <div class="ml-3">
                                     <div
                                         class="text-xl font-bold text-gray-900"
@@ -126,7 +106,7 @@ const pageDescription =
                                         {siteConfig.organization?.name}
                                     </div>
                                     <div
-                                        class="text-sm text-orange-600 font-medium"
+                                        class="text-sm text-[#7a1315] font-medium"
                                     >
                                         {siteConfig.organization?.name_local}
                                     </div>
@@ -141,10 +121,10 @@ const pageDescription =
                             siteConfig.navigation?.primary?.map((item) => (
                                 <a
                                     href={getUrlWithBase(item.href)}
-                                    class="text-gray-700 hover:text-orange-600 font-medium transition-colors duration-200 relative group"
+                                    class="text-gray-700 hover:text-[#7a1315] font-medium transition-colors duration-200 relative group"
                                 >
                                     {item.name}
-                                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-200 group-hover:w-full" />
+                                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7a1315] transition-all duration-200 group-hover:w-full" />
                                 </a>
                             ))
                         }
@@ -154,7 +134,7 @@ const pageDescription =
                     <div class="md:hidden">
                         <button
                             type="button"
-                            class="text-gray-700 hover:text-orange-600 transition-colors"
+                            class="text-gray-700 hover:text-[#7a1315] transition-colors"
                             id="mobile-menu-button"
                         >
                             <svg
@@ -182,7 +162,7 @@ const pageDescription =
                             siteConfig.navigation?.primary?.map((item) => (
                                 <a
                                     href={getUrlWithBase(item.href)}
-                                    class="block px-3 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-md font-medium transition-colors"
+                                    class="block px-3 py-2 text-gray-700 hover:text-[#7a1315] hover:bg-[#fdf2f2] rounded-md font-medium transition-colors"
                                 >
                                     {item.name}
                                 </a>
@@ -193,21 +173,24 @@ const pageDescription =
             </nav>
         </header>
 
+        <!-- Breadcrumb Slot -->
+        <slot name="breadcrumb" />
+
         <main class="flex-1">
             <slot />
         </main>
 
-        <footer class="bg-gray-800 text-white">
+        <footer class="bg-[#4a0a0a] text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <!-- Organization Info -->
                     <div class="md:col-span-2">
                         <div class="flex items-center mb-4">
-                            <div
-                                class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-bold"
-                            >
-                                த
-                            </div>
+                            <img
+                                src={logoImage.src}
+                                alt={siteConfig.organization?.name}
+                                class="w-10 h-10 object-contain rounded-full"
+                            />
                             <div class="ml-3">
                                 <div class="text-lg font-bold">
                                     {siteConfig.organization?.name}

@@ -33,6 +33,22 @@ const createHomepageCollection = (lang: string): Collection => ({
           ui: { component: "textarea" },
         },
         {
+          type: "image",
+          name: "background_image",
+          label: "Background Image (Optional)",
+        },
+        {
+          type: "string",
+          name: "hero_video_url",
+          label: "Hero Video URL (Optional)",
+          description: "YouTube URL to display video in hero section",
+        },
+        {
+          type: "string",
+          name: "hero_video_title",
+          label: "Hero Video Title (Optional)",
+        },
+        {
           type: "object",
           name: "cta_primary",
           label: "Primary Button",
@@ -97,6 +113,11 @@ const createHomepageCollection = (lang: string): Collection => ({
       name: "featured_departments",
       label: "Featured Departments",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.name || "New Department" };
+        },
+      },
       fields: [
         {
           type: "string",
@@ -118,6 +139,11 @@ const createHomepageCollection = (lang: string): Collection => ({
           required: true,
         },
         {
+          type: "image",
+          name: "image",
+          label: "Department Image (Optional)",
+        },
+        {
           type: "string",
           name: "href",
           label: "Link URL",
@@ -130,6 +156,11 @@ const createHomepageCollection = (lang: string): Collection => ({
       name: "recent_events",
       label: "Recent Events",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.title || "New Event" };
+        },
+      },
       fields: [
         {
           type: "string",
@@ -186,6 +217,11 @@ const createHomepageCollection = (lang: string): Collection => ({
       name: "announcements",
       label: "Announcements",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.title || "New Announcement" };
+        },
+      },
       fields: [
         {
           type: "string",
@@ -234,6 +270,11 @@ const createHomepageCollection = (lang: string): Collection => ({
       name: "statistics",
       label: "Statistics",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: `${item?.number || "?"} - ${item?.label || "New Stat"}` };
+        },
+      },
       fields: [
         {
           type: "string",
@@ -254,6 +295,11 @@ const createHomepageCollection = (lang: string): Collection => ({
       name: "quick_actions",
       label: "Quick Actions",
       list: true,
+      ui: {
+        itemProps: (item) => {
+          return { label: item?.title || "New Action" };
+        },
+      },
       fields: [
         {
           type: "string",
@@ -296,6 +342,35 @@ const createHomepageCollection = (lang: string): Collection => ({
     },
     {
       type: "object",
+      name: "featured_video",
+      label: "Featured Video Section",
+      fields: [
+        {
+          type: "string",
+          name: "title",
+          label: "Section Title",
+        },
+        {
+          type: "string",
+          name: "video_title",
+          label: "Video Title",
+        },
+        {
+          type: "string",
+          name: "video_description",
+          label: "Video Description",
+          ui: { component: "textarea" },
+        },
+        {
+          type: "string",
+          name: "youtube_url",
+          label: "YouTube Video URL",
+          description: "Full YouTube URL (e.g., https://www.youtube.com/watch?v=VIDEO_ID)",
+        },
+      ],
+    },
+    {
+      type: "object",
       name: "newsletter",
       label: "Newsletter Section",
       fields: [
@@ -332,16 +407,116 @@ const createHomepageCollection = (lang: string): Collection => ({
         },
       ],
     },
+    {
+      type: "object",
+      name: "recent_articles",
+      label: "Recent Articles/Blog Posts",
+      fields: [
+        {
+          type: "string",
+          name: "section_title",
+          label: "Section Title",
+          required: true,
+        },
+        {
+          type: "string",
+          name: "section_description",
+          label: "Section Description",
+          ui: { component: "textarea" },
+        },
+        {
+          type: "string",
+          name: "view_all_text",
+          label: "View All Button Text",
+          required: true,
+        },
+        {
+          type: "string",
+          name: "view_all_href",
+          label: "View All Button Link",
+          required: true,
+        },
+        {
+          type: "number",
+          name: "posts_to_show",
+          label: "Number of Posts to Show",
+          description: "How many recent blog posts to display (1-6)",
+          required: true,
+        },
+      ],
+    },
+    {
+      type: "object",
+      name: "photo_highlights",
+      label: "Photo Highlights Section",
+      fields: [
+        {
+          type: "string",
+          name: "section_title",
+          label: "Section Title",
+          required: true,
+        },
+        {
+          type: "string",
+          name: "section_description",
+          label: "Section Description",
+          ui: { component: "textarea" },
+        },
+        {
+          type: "object",
+          name: "photos",
+          label: "Photos",
+          list: true,
+          ui: {
+            itemProps: (item) => {
+              return { label: item?.title || "New Photo" };
+            },
+          },
+          fields: [
+            {
+              type: "image",
+              name: "image",
+              label: "Photo",
+              required: true,
+            },
+            {
+              type: "string",
+              name: "title",
+              label: "Photo Title",
+              required: true,
+            },
+            {
+              type: "string",
+              name: "description",
+              label: "Photo Description",
+            },
+            {
+              type: "string",
+              name: "link",
+              label: "Link (Optional)",
+              description: "Link to event or gallery page",
+            },
+          ],
+        },
+        {
+          type: "string",
+          name: "view_gallery_text",
+          label: "View Gallery Button Text",
+        },
+        {
+          type: "string",
+          name: "view_gallery_href",
+          label: "View Gallery Button Link",
+        },
+      ],
+    },
   ],
   ui: {
   router: ({ document }) => {
     // Base path for production (GitHub Pages) vs local development
-    const basePath = process.env.NODE_ENV == 'production' ? '/thamizhi-site' : '';
-    
-    // Return the path that matches your site's routing
-    if (lang === 'en') {
-      return basePath || '/';  // Root path for English
-    }
+    const basePath = process.env.NODE_ENV === 'production' ? '/thamizhi-site' : '';
+
+    // All languages now use prefix consistently (prefixDefaultLocale: true)
     return `${basePath}/${lang}`;
   }
 }

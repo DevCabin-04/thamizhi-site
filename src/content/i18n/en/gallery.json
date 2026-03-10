@@ -1,225 +1,4 @@
 {
-  "hero": {
-    "title": "Gallery",
-    "title_tamil": "படத்தொகுப்பு",
-    "subtitle": "Tamil Cultural Moments",
-    "subtitle_tamil": "தமிழ் பண்பாட்டு தருணங்கள்",
-    "description": "Explore our collection of photographs capturing the vibrant moments of Tamil cultural celebrations, events, and community gatherings."
-  },
-  "categories": [
-    {
-      "id": "cultural_events",
-      "name": "Cultural Events",
-      "name_tamil": "பண்பாட்டு நிகழ்வுகள்",
-      "count": 45,
-      "description": "Festivals and celebrations",
-      "description_tamil": "திருவிழாக்கள் மற்றும் கொண்டாட்டங்கள்"
-    },
-    {
-      "id": "educational_programs",
-      "name": "Educational Programs",
-      "name_tamil": "கல்வி திட்டங்கள்",
-      "count": 28,
-      "description": "Classes and workshops",
-      "description_tamil": "வகுப்புகள் மற்றும் பயிலரங்கங்கள்"
-    },
-    {
-      "id": "community_gatherings",
-      "name": "Community Gatherings",
-      "name_tamil": "சமுதாய கூட்டங்கள்",
-      "count": 32,
-      "description": "Social events and meetings",
-      "description_tamil": "சமூக நிகழ்வுகள் மற்றும் கூட்டங்கள்"
-    },
-    {
-      "id": "youth_activities",
-      "name": "Youth Activities",
-      "name_tamil": "இளைஞர் நடவடிக்கைகள்",
-      "count": 24,
-      "description": "Children and youth programs",
-      "description_tamil": "குழந்தைகள் மற்றும் இளைஞர் திட்டங்கள்"
-    },
-    {
-      "id": "traditional_arts",
-      "name": "Traditional Arts",
-      "name_tamil": "பாரம்பரிய கலைகள்",
-      "count": 18,
-      "description": "Dance, music, and performances",
-      "description_tamil": "நடனம், இசை மற்றும் நிகழ்ச்சிகள்"
-    },
-    {
-      "id": "special_occasions",
-      "name": "Special Occasions",
-      "name_tamil": "சிறப்பு நிகழ்வுகள்",
-      "count": 15,
-      "description": "Milestone celebrations",
-      "description_tamil": "மைல்கல் கொண்டாட்டங்கள்"
-    }
-  ],
-  "featured_albums": [
-    {
-      "id": "tamil_new_year_2024",
-      "title": "Tamil New Year 2024",
-      "title_tamil": "தமிழ் புத்தாண்டு 2024",
-      "date": "April 14, 2024",
-      "date_tamil": "ஏப்ரல் 14, 2024",
-      "location": "Tamil Heritage Center",
-      "location_tamil": "தமிழ் பாரம்பரிய மையம்",
-      "image_count": 42,
-      "description": "A grand celebration with traditional performances, cultural programs, and festive meals.",
-      "description_tamil": "பாரம்பரிய நிகழ்ச்சிகள், பண்பாட்டு திட்டங்கள் மற்றும் பண்டிகை உணவுகளுடன் ஒரு பெரிய கொண்டாட்டம்.",
-      "cover_color": "from-yellow-400 to-orange-600",
-      "photographer": "Ravi Photography",
-      "highlights": [
-        "Traditional Tamil dance performances",
-        "Cultural costume parade",
-        "Community feast preparation",
-        "Children's cultural activities"
-      ]
-    },
-    {
-      "id": "dance_workshop_2024",
-      "title": "Classical Dance Workshop",
-      "title_tamil": "பாரதநாட்டியம் பயிற்சி",
-      "date": "March 15, 2024",
-      "date_tamil": "மார்ச் 15, 2024",
-      "location": "Dance Hall",
-      "location_tamil": "நடன அரங்கம்",
-      "image_count": 28,
-      "description": "Young dancers learning the graceful art of Bharatanatyam from renowned instructors.",
-      "description_tamil": "புகழ்பெற்ற பயிற்றுவிப்பாளர்களிடமிருந்து பரதநாட்டியத்தின் அழகான கலையை கற்கும் இளம் நடனக் கலைஞர்கள்.",
-      "cover_color": "from-pink-400 to-purple-600",
-      "photographer": "Cultural Arts Studio",
-      "highlights": [
-        "Bharatanatyam basic positions",
-        "Hand gesture demonstrations",
-        "Student practice sessions",
-        "Master class with guest instructor"
-      ]
-    },
-    {
-      "id": "literature_festival_2024",
-      "title": "Tamil Literature Festival",
-      "title_tamil": "தமிழ் இலக்கிய விழா",
-      "date": "February 18, 2024",
-      "date_tamil": "பிப்ரவரி 18, 2024",
-      "location": "Library Auditorium",
-      "location_tamil": "நூலக கூடம்",
-      "image_count": 35,
-      "description": "Poets, writers, and literature enthusiasts sharing their love for Tamil literature.",
-      "description_tamil": "கவிஞர்கள், எழுத்தாளர்கள் மற்றும் இலக்கிய ஆர்வலர்கள் தமிழ் இலக்கியத்தின் மீதான தங்கள் அன்பைப் பகிர்ந்து கொள்கிறார்கள்.",
-      "cover_color": "from-blue-400 to-indigo-600",
-      "photographer": "Literary Society",
-      "highlights": [
-        "Poetry reading sessions",
-        "Book launch ceremonies",
-        "Author meet and greet",
-        "Student writing competitions"
-      ]
-    },
-    {
-      "id": "youth_summit_2024",
-      "title": "Youth Leadership Summit",
-      "title_tamil": "இளைஞர் தலைமைத்துவ மாநாடு",
-      "date": "January 20, 2024",
-      "date_tamil": "ஜனவரி 20, 2024",
-      "location": "Conference Center",
-      "location_tamil": "மாநாட்டு மையம்",
-      "image_count": 31,
-      "description": "Empowering young Tamil leaders with skills and cultural knowledge.",
-      "description_tamil": "திறமைகள் மற்றும் பண்பாட்டு அறிவுடன் இளம் தமிழ் தலைவர்களை வலுப்படுத்துதல்.",
-      "cover_color": "from-green-400 to-teal-600",
-      "photographer": "Youth Media Team",
-      "highlights": [
-        "Leadership workshops",
-        "Cultural identity sessions",
-        "Networking activities",
-        "Future planning discussions"
-      ]
-    },
-    {
-      "id": "music_concert_2023",
-      "title": "Traditional Music Concert",
-      "title_tamil": "கர்நாடக சங்கீத நிகழ்ச்சி",
-      "date": "December 10, 2023",
-      "date_tamil": "டிசம்பர் 10, 2023",
-      "location": "Music Hall",
-      "location_tamil": "இசை அரங்கம்",
-      "image_count": 38,
-      "description": "An evening of classical Tamil and Carnatic music performances.",
-      "description_tamil": "கிளாசிக்கல் தமிழ் மற்றும் கர்நாடக இசை நிகழ்ச்சிகளின் ஒரு மாலை.",
-      "cover_color": "from-red-400 to-pink-600",
-      "photographer": "Music Arts Collective",
-      "highlights": [
-        "Carnatic vocal performances",
-        "Traditional instrument displays",
-        "Student music recitals",
-        "Master musician tribute"
-      ]
-    },
-    {
-      "id": "service_day_2023",
-      "title": "Community Service Day",
-      "title_tamil": "சமுதாய சேவை நாள்",
-      "date": "November 25, 2023",
-      "date_tamil": "நவம்பர் 25, 2023",
-      "location": "Various Locations",
-      "location_tamil": "பல்வேறு இடங்கள்",
-      "image_count": 44,
-      "description": "Community members coming together to serve local neighborhoods.",
-      "description_tamil": "உள்ளூர் சுற்றுப்புறங்களுக்கு சேவை செய்ய சமுதாய உறுப்பினர்கள் ஒன்றிணைந்து வருகிறார்கள்.",
-      "cover_color": "from-purple-400 to-blue-600",
-      "photographer": "Community Volunteers",
-      "highlights": [
-        "Food distribution drives",
-        "Neighborhood cleanup",
-        "Senior care visits",
-        "Educational support activities"
-      ]
-    }
-  ],
-  "recent_highlights": [
-    {
-      "id": "award_ceremony",
-      "title": "Award Ceremony",
-      "title_tamil": "விருது விழா",
-      "description": "Recognizing outstanding community contributions",
-      "description_tamil": "சிறந்த சமுதாய பங்களிப்புகளை அங்கீகரித்தல்",
-      "date": "March 30, 2024",
-      "date_tamil": "மார்ச் 30, 2024",
-      "image_count": 15
-    },
-    {
-      "id": "cooking_workshop",
-      "title": "Cooking Workshop",
-      "title_tamil": "சமையல் பயிலரங்கம்",
-      "description": "Learning traditional Tamil cuisine",
-      "description_tamil": "பாரம்பரிய தமிழ் உணவு வகைகளை கற்றுக்கொள்ளுதல்",
-      "date": "March 25, 2024",
-      "date_tamil": "மார்ச் 25, 2024",
-      "image_count": 12
-    },
-    {
-      "id": "language_competition",
-      "title": "Language Competition",
-      "title_tamil": "மொழி போட்டி",
-      "description": "Tamil oratory and writing contests",
-      "description_tamil": "தமிழ் பேச்சு மற்றும் எழுத்து போட்டிகள்",
-      "date": "March 20, 2024",
-      "date_tamil": "மார்ச் 20, 2024",
-      "image_count": 18
-    },
-    {
-      "id": "art_exhibition",
-      "title": "Art Exhibition",
-      "title_tamil": "கலை கண்காட்சி",
-      "description": "Showcasing Tamil artists and their work",
-      "description_tamil": "தமிழ் கலைஞர்கள் மற்றும் அவர்களின் படைப்புகளை காட்சிப்படுத்துதல்",
-      "date": "March 15, 2024",
-      "date_tamil": "மார்ச் 15, 2024",
-      "image_count": 22
-    }
-  ],
   "photo_contest": {
     "title": "Annual Photo Contest",
     "title_tamil": "ஆண்டு படம் போட்டி",
@@ -306,5 +85,201 @@
       "Saturday: 12:00 PM - 4:00 PM",
       "Sunday: By appointment only"
     ]
-  }
+  },
+  "hero": {
+    "title": "Gallery",
+    "title_tamil": "படத்தொகுப்பு",
+    "subtitle": "Tamil Cultural Moments",
+    "subtitle_tamil": "தமிழ் பண்பாட்டு தருணங்கள்",
+    "description": "Explore our collection of photographs capturing the vibrant moments of Tamil cultural celebrations, events, and community gatherings."
+  },
+  "categories": [
+    {
+      "id": "cultural_events",
+      "name": "Cultural Events",
+      "name_tamil": "பண்பாட்டு நிகழ்வுகள்",
+      "count": 45,
+      "description": "Festivals and celebrations",
+      "description_tamil": "திருவிழாக்கள் மற்றும் கொண்டாட்டங்கள்"
+    },
+    {
+      "id": "educational_programs",
+      "name": "Educational Programs",
+      "name_tamil": "கல்வி திட்டங்கள்",
+      "count": 28,
+      "description": "Classes and workshops",
+      "description_tamil": "வகுப்புகள் மற்றும் பயிலரங்கங்கள்"
+    },
+    {
+      "id": "community_gatherings",
+      "name": "Community Gatherings",
+      "name_tamil": "சமுதாய கூட்டங்கள்",
+      "count": 32,
+      "description": "Social events and meetings",
+      "description_tamil": "சமூக நிகழ்வுகள் மற்றும் கூட்டங்கள்"
+    },
+    {
+      "id": "youth_activities",
+      "name": "Youth Activities",
+      "name_tamil": "இளைஞர் நடவடிக்கைகள்",
+      "count": 24,
+      "description": "Children and youth programs",
+      "description_tamil": "குழந்தைகள் மற்றும் இளைஞர் திட்டங்கள்"
+    },
+    {
+      "id": "traditional_arts",
+      "name": "Traditional Arts",
+      "name_tamil": "பாரம்பரிய கலைகள்",
+      "count": 18,
+      "description": "Dance, music, and performances",
+      "description_tamil": "நடனம், இசை மற்றும் நிகழ்ச்சிகள்"
+    },
+    {
+      "id": "special_occasions",
+      "name": "Special Occasions",
+      "name_tamil": "சிறப்பு நிகழ்வுகள்",
+      "count": 15,
+      "description": "Milestone celebrations",
+      "description_tamil": "மைல்கல் கொண்டாட்டங்கள்"
+    }
+  ],
+  "featured_albums": [
+    {
+      "id": "tamil_new_year_2024",
+      "title": "Tamil New Year 2024",
+      "title_tamil": "தமிழ் புத்தாண்டு 2024",
+      "date": "April 14, 2024",
+      "date_tamil": "ஏப்ரல் 14, 2024",
+      "location": "Tamil Heritage Center",
+      "location_tamil": "தமிழ் பாரம்பரிய மையம்",
+      "description": "A grand celebration with traditional performances, cultural programs, and festive meals.",
+      "description_tamil": "பாரம்பரிய நிகழ்ச்சிகள், பண்பாட்டு திட்டங்கள் மற்றும் பண்டிகை உணவுகளுடன் ஒரு பெரிய கொண்டாட்டம்.",
+      "cover_image": "/uploads/tamil-new-year-2024.jpeg",
+      "images": [
+        {
+          "url": "/uploads/logo.jpeg",
+          "title": "Tamil New Year Celebration",
+          "caption": "Community celebration photo"
+        },
+        {
+          "url": "/uploads/tamil-new-year-2024.jpeg",
+          "title": "",
+          "caption": ""
+        }
+      ],
+      "photographer": "Ravi Photography"
+    },
+    {
+      "id": "dance_workshop_2024",
+      "title": "Classical Dance Workshop",
+      "title_tamil": "பாரதநாட்டியம் பயிற்சி",
+      "date": "March 15, 2024",
+      "date_tamil": "மார்ச் 15, 2024",
+      "location": "Dance Hall",
+      "location_tamil": "நடன அரங்கம்",
+      "description": "Young dancers learning the graceful art of Bharatanatyam from renowned instructors.",
+      "description_tamil": "புகழ்பெற்ற பயிற்றுவிப்பாளர்களிடமிருந்து பரதநாட்டியத்தின் அழகான கலையை கற்கும் இளம் நடனக் கலைஞர்கள்.",
+      "cover_image": "https://placehold.co/600x400/7a1315/white?text=Dance+Workshop",
+      "images": [],
+      "photographer": "Cultural Arts Studio"
+    },
+    {
+      "id": "literature_festival_2024",
+      "title": "Tamil Literature Festival",
+      "title_tamil": "தமிழ் இலக்கிய விழா",
+      "date": "February 18, 2024",
+      "date_tamil": "பிப்ரவரி 18, 2024",
+      "location": "Library Auditorium",
+      "location_tamil": "நூலக கூடம்",
+      "description": "Poets, writers, and literature enthusiasts sharing their love for Tamil literature.",
+      "description_tamil": "கவிஞர்கள், எழுத்தாளர்கள் மற்றும் இலக்கிய ஆர்வலர்கள் தமிழ் இலக்கியத்தின் மீதான தங்கள் அன்பைப் பகிர்ந்து கொள்கிறார்கள்.",
+      "cover_image": "https://placehold.co/600x400/7a1315/white?text=Literature+Festival",
+      "images": [],
+      "photographer": "Literary Society"
+    },
+    {
+      "id": "youth_summit_2024",
+      "title": "Youth Leadership Summit",
+      "title_tamil": "இளைஞர் தலைமைத்துவ மாநாடு",
+      "date": "January 20, 2024",
+      "date_tamil": "ஜனவரி 20, 2024",
+      "location": "Conference Center",
+      "location_tamil": "மாநாட்டு மையம்",
+      "description": "Empowering young Tamil leaders with skills and cultural knowledge.",
+      "description_tamil": "திறமைகள் மற்றும் பண்பாட்டு அறிவுடன் இளம் தமிழ் தலைவர்களை வலுப்படுத்துதல்.",
+      "cover_image": "https://placehold.co/600x400/7a1315/white?text=Youth+Summit",
+      "images": [],
+      "photographer": "Youth Media Team"
+    },
+    {
+      "id": "music_concert_2023",
+      "title": "Traditional Music Concert",
+      "title_tamil": "கர்நாடக சங்கீத நிகழ்ச்சி",
+      "date": "December 10, 2023",
+      "date_tamil": "டிசம்பர் 10, 2023",
+      "location": "Music Hall",
+      "location_tamil": "இசை அரங்கம்",
+      "description": "An evening of classical Tamil and Carnatic music performances.",
+      "description_tamil": "கிளாசிக்கல் தமிழ் மற்றும் கர்நாடக இசை நிகழ்ச்சிகளின் ஒரு மாலை.",
+      "cover_image": "https://placehold.co/600x400/7a1315/white?text=Music+Concert",
+      "images": [],
+      "photographer": "Music Arts Collective"
+    },
+    {
+      "id": "service_day_2023",
+      "title": "Community Service Day",
+      "title_tamil": "சமுதாய சேவை நாள்",
+      "date": "November 25, 2023",
+      "date_tamil": "நவம்பர் 25, 2023",
+      "location": "Various Locations",
+      "location_tamil": "பல்வேறு இடங்கள்",
+      "description": "Community members coming together to serve local neighborhoods.",
+      "description_tamil": "உள்ளூர் சுற்றுப்புறங்களுக்கு சேவை செய்ய சமுதாய உறுப்பினர்கள் ஒன்றிணைந்து வருகிறார்கள்.",
+      "cover_image": "https://placehold.co/600x400/7a1315/white?text=Service+Day",
+      "images": [],
+      "photographer": "Community Volunteers"
+    }
+  ],
+  "recent_highlights": [
+    {
+      "id": "award_ceremony",
+      "title": "Award Ceremony",
+      "title_tamil": "விருது விழா",
+      "description": "Recognizing outstanding community contributions",
+      "description_tamil": "சிறந்த சமுதாய பங்களிப்புகளை அங்கீகரித்தல்",
+      "thumbnail": "/uploads/logo.jpeg",
+      "date": "March 30, 2024",
+      "date_tamil": "மார்ச் 30, 2024"
+    },
+    {
+      "id": "cooking_workshop",
+      "title": "Cooking Workshop",
+      "title_tamil": "சமையல் பயிலரங்கம்",
+      "description": "Learning traditional Tamil cuisine",
+      "description_tamil": "பாரம்பரிய தமிழ் உணவு வகைகளை கற்றுக்கொள்ளுதல்",
+      "thumbnail": "/uploads/tamil-new-year-2024.jpeg",
+      "date": "March 25, 2024",
+      "date_tamil": "மார்ச் 25, 2024"
+    },
+    {
+      "id": "language_competition",
+      "title": "Language Competition",
+      "title_tamil": "மொழி போட்டி",
+      "description": "Tamil oratory and writing contests",
+      "description_tamil": "தமிழ் பேச்சு மற்றும் எழுத்து போட்டிகள்",
+      "thumbnail": "https://placehold.co/600x400/7a1315/white?text=Language+Competition",
+      "date": "March 20, 2024",
+      "date_tamil": "மார்ச் 20, 2024"
+    },
+    {
+      "id": "art_exhibition",
+      "title": "Art Exhibition",
+      "title_tamil": "கலை கண்காட்சி",
+      "description": "Showcasing Tamil artists and their work",
+      "description_tamil": "தமிழ் கலைஞர்கள் மற்றும் அவர்களின் படைப்புகளை காட்சிப்படுத்துதல்",
+      "thumbnail": "https://placehold.co/600x400/7a1315/white?text=Art+Exhibition",
+      "date": "March 15, 2024",
+      "date_tamil": "மார்ச் 15, 2024"
+    }
+  ]
 }

@@ -1,0 +1,244 @@
+/* Thamizhi Custom Theme - Government Style */
+/* This CSS file ensures colors work even if Tailwind compilation has issues */
+
+:root {
+  /* Thamizhi Brand Colors */
+  --thamizhi-maroon-900: #7a1315;
+  --thamizhi-maroon-800: #8b1313;
+  --thamizhi-maroon-700: #b91515;
+  --thamizhi-maroon-950: #4a0a0a;
+  --thamizhi-gold-600: #d4af37;
+  --thamizhi-gold-500: #ffd700;
+  --thamizhi-gold-100: #fffbcc;
+  --thamizhi-gold-200: #fff899;
+  --thamizhi-red-600: #e10600;
+  --thamizhi-red-800: #a30400;
+  --thamizhi-black-900: #1a1a1a;
+  --thamizhi-black-950: #0a0a0a;
+}
+
+/* Force border-radius to 0 everywhere */
+* {
+  border-radius: 0 !important;
+}
+
+/* Government-style sharp borders */
+.border,
+[class*="border-"] {
+  border-radius: 0 !important;
+}
+
+/* Utility classes for Thamizhi colors (fallback if Tailwind doesn't compile) */
+.bg-thamizhi-maroon-900 {
+  background-color: var(--thamizhi-maroon-900) !important;
+}
+
+.bg-thamizhi-maroon-800 {
+  background-color: var(--thamizhi-maroon-800) !important;
+}
+
+.bg-thamizhi-maroon-700 {
+  background-color: var(--thamizhi-maroon-700) !important;
+}
+
+.bg-thamizhi-gold-600 {
+  background-color: var(--thamizhi-gold-600) !important;
+}
+
+.bg-thamizhi-gold-500 {
+  background-color: var(--thamizhi-gold-500) !important;
+}
+
+.bg-thamizhi-red-600 {
+  background-color: var(--thamizhi-red-600) !important;
+}
+
+.bg-thamizhi-black-900 {
+  background-color: var(--thamizhi-black-900) !important;
+}
+
+.text-thamizhi-maroon-900 {
+  color: var(--thamizhi-maroon-900) !important;
+}
+
+.text-thamizhi-maroon-800 {
+  color: var(--thamizhi-maroon-800) !important;
+}
+
+.text-thamizhi-maroon-700 {
+  color: var(--thamizhi-maroon-700) !important;
+}
+
+.text-thamizhi-gold-100 {
+  color: var(--thamizhi-gold-100) !important;
+}
+
+.text-thamizhi-gold-200 {
+  color: var(--thamizhi-gold-200) !important;
+}
+
+.text-thamizhi-black-900 {
+  color: var(--thamizhi-black-900) !important;
+}
+
+.border-thamizhi-maroon-900 {
+  border-color: var(--thamizhi-maroon-900) !important;
+}
+
+.border-thamizhi-gold-600 {
+  border-color: var(--thamizhi-gold-600) !important;
+}
+
+.border-thamizhi-red-800 {
+  border-color: var(--thamizhi-red-800) !important;
+}
+
+/* Hover states */
+.hover\:bg-thamizhi-maroon-800:hover {
+  background-color: var(--thamizhi-maroon-800) !important;
+}
+
+.hover\:bg-thamizhi-maroon-700:hover {
+  background-color: var(--thamizhi-maroon-700) !important;
+}
+
+.hover\:bg-thamizhi-gold-500:hover {
+  background-color: var(--thamizhi-gold-500) !important;
+}
+
+.hover\:text-thamizhi-maroon-700:hover {
+  color: var(--thamizhi-maroon-700) !important;
+}
+
+.hover\:text-thamizhi-maroon-900:hover {
+  color: var(--thamizhi-maroon-900) !important;
+}
+
+.hover\:border-thamizhi-maroon-900:hover {
+  border-color: var(--thamizhi-maroon-900) !important;
+}
+
+/* Government-style containers */
+.gov-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  border-radius: 0;
+}
+
+/* Government-style cards */
+.gov-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  padding: 1.5rem;
+  transition: all 0.2s;
+  border-radius: 0 !important;
+}
+
+.gov-card:hover {
+  border-color: var(--thamizhi-maroon-900);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Government-style buttons */
+.gov-btn-primary {
+  background-color: var(--thamizhi-maroon-900);
+  color: white;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border: 2px solid var(--thamizhi-maroon-900);
+  transition: all 0.2s;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+
+.gov-btn-primary:hover {
+  background-color: var(--thamizhi-maroon-800);
+}
+
+.gov-btn-secondary {
+  background-color: var(--thamizhi-gold-600);
+  color: var(--thamizhi-black-900);
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  border: 2px solid var(--thamizhi-gold-600);
+  transition: all 0.2s;
+  border-radius: 0 !important;
+  cursor: pointer;
+}
+
+.gov-btn-secondary:hover {
+  background-color: var(--thamizhi-gold-500);
+}
+
+/* Sharp borders for all elements */
+button,
+input,
+textarea,
+select,
+.card,
+.button,
+img {
+  border-radius: 0 !important;
+}
+
+/* Global palette remap: replace legacy blue accents with maroon/gold/black */
+.text-blue-900 {
+  color: var(--thamizhi-black-900) !important;
+}
+
+.text-blue-800,
+.text-blue-700,
+.text-blue-600 {
+  color: var(--thamizhi-maroon-900) !important;
+}
+
+.text-blue-100 {
+  color: var(--thamizhi-gold-100) !important;
+}
+
+.bg-blue-50 {
+  background-color: var(--thamizhi-gold-100) !important;
+}
+
+.bg-blue-100 {
+  background-color: var(--thamizhi-gold-200) !important;
+}
+
+.bg-blue-600,
+.bg-blue-700,
+.bg-blue-800 {
+  background-color: var(--thamizhi-maroon-900) !important;
+}
+
+.border-blue-500,
+.border-blue-600,
+.border-blue-800 {
+  border-color: var(--thamizhi-maroon-900) !important;
+}
+
+.hover\:bg-blue-50:hover {
+  background-color: var(--thamizhi-gold-200) !important;
+}
+
+.hover\:bg-blue-600:hover,
+.hover\:bg-blue-700:hover,
+.hover\:bg-blue-800:hover {
+  background-color: var(--thamizhi-maroon-800) !important;
+}
+
+.hover\:text-blue-800:hover,
+.hover\:text-blue-600:hover {
+  color: var(--thamizhi-maroon-800) !important;
+}
+
+.hover\:border-blue-600:hover,
+.hover\:border-blue-800:hover {
+  border-color: var(--thamizhi-maroon-800) !important;
+}
+
+.focus\:ring-blue-400:focus,
+.focus\:ring-blue-500:focus,
+.focus\:ring-blue-600:focus {
+  --tw-ring-color: rgba(122, 19, 21, 0.45) !important;
+}

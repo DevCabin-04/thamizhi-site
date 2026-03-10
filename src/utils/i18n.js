@@ -234,23 +234,20 @@ export function getBasePath() {
 // Helper function to construct URLs with base path
 export function getUrlWithBase(href, lang = null) {
   const basePath = getBasePath();
-  
+  const currentLang = lang || 'en'; // Default to 'en' if no lang provided
+
   if (!href || href === '') {
-    // Handle home page
-    return lang === 'en' || lang === null ? basePath || '/' : `${basePath}/${lang}`;
+    // Handle home page - always include language prefix
+    return `${basePath}/${currentLang}`;
   }
-  
-  // Ensure href starts with / if it's not empty
-  if (!href.startsWith('/')) {
-    href = '/' + href;
+
+  // Remove leading slash if present (we'll add it back with language)
+  if (href.startsWith('/')) {
+    href = href.substring(1);
   }
-  
-  // Handle other pages
-  if (lang === 'en' || lang === null) {
-    return `${basePath}${href}`;
-  } else {
-    return `${basePath}/${lang}${href}`;
-  }
+
+  // Always include language prefix for all pages
+  return `${basePath}/${currentLang}/${href}`;
 }
 
 // Navigation items with translations

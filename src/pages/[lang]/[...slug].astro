@@ -1,0 +1,100 @@
+---
+// src/pages/[lang]/[...slug].astro
+import Layout from "../../layouts/Layout.astro";
+import CustomPage from "../../components/CustomPage";
+import { supportedLangs, defaultLang, loadContent } from "../../utils/i18n.js";
+import { client } from "../../../tina/__generated__/client";
+import fs from 'fs';
+import path from 'path';
+
+// Static Path Generation for custom pages
+export async function getStaticPaths() {
+  const paths = [];
+
+  for (const lang of supportedLangs) {
+    const contentDir = path.join(process.cwd(), 'src', 'content', 'pages', lang);
+
+    // Check if directory exists
+    if (fs.existsSync(contentDir)) {
+      const files = fs.readdirSync(contentDir);
+
+      // Process each JSON file
+      for (const file of files) {
+        if (file.endsWith('.json') && !file.startsWith('.')) {
+          const filePath = path.join(contentDir, file);
+          const fileContent = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+
+          // Get the slug from the file content
+          if (fileContent.slug) {
+            paths.push({
+              params: {
+                lang: lang,
+                slug: fileContent.slug // For [...slug] route, just use the string directly
+              },
+              props: {
+                lang: lang,
+                filename: file.replace('.json', ''),
+                pageSlug: fileContent.slug
+              }
+            });
+          }
+        }
+      }
+    }
+  }
+
+  console.log('Generated custom page paths:', paths);
+  return paths;
+}
+
+// Get language and slug from params
+const { lang, slug } = Astro.params;
+const { filename, pageSlug } = Astro.props;
+const currentLang = lang || defaultLang;
+
+// Load page data using TinaCMS client
+let pageResponse;
+let pageData: any = {};
+
+try {
+  const queryKey = `pages_${currentLang}`;
+
+  // @ts-ignore - TypeScript doesn't recognize dynamic query names
+  if (client.queries[queryKey]) {
+    // @ts-ignore - Dynamic query access is safe here
+    pageResponse = await client.queries[queryKey]({
+      relativePath: `${filename}.json`
+    });
+
+    pageData = pageResponse.data[queryKey] || {};
+  }
+} catch (error) {
+  console.error(`Error loading custom page: ${currentLang}/${filename}`, error);
+}
+
+// Load site config
+const siteConfig = await loadContent(currentLang, "site_config");
+
+// Prepare props for the React component
+const tinaProps = pageResponse ? {
+  data: pageResponse.data,
+  query: pageResponse.query,
+  variables: pageResponse.variables,
+} : {
+  data: { [`pages_${currentLang}`]: pageData },
+  query: '',
+  variables: { relativePath: `${filename}.json` }
+};
+---
+
+<Layout
+  title={`${pageData.title || 'Page'} - ${siteConfig.organization?.name}`}
+  description={pageData.description || pageData.hero?.description || ""}
+  lang={currentLang}
+>
+  <CustomPage
+    props={tinaProps}
+    lang={currentLang}
+    client:load
+  />
+</Layout>

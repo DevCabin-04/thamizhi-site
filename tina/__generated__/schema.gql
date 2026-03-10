@@ -54,6 +54,12 @@ type Query {
   collections: [Collection!]!
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
+  site_config_en(relativePath: String): Site_config_en!
+  site_config_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Site_config_enFilter): Site_config_enConnection!
+  site_config_ta(relativePath: String): Site_config_ta!
+  site_config_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Site_config_taFilter): Site_config_taConnection!
+  site_config_si(relativePath: String): Site_config_si!
+  site_config_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Site_config_siFilter): Site_config_siConnection!
   home_en(relativePath: String): Home_en!
   home_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Home_enFilter): Home_enConnection!
   home_si(relativePath: String): Home_si!
@@ -80,10 +86,10 @@ type Query {
   membership_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Membership_taFilter): Membership_taConnection!
   publications_en(relativePath: String): Publications_en!
   publications_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Publications_enFilter): Publications_enConnection!
-  publications_si(relativePath: String): Publications_si!
-  publications_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Publications_siFilter): Publications_siConnection!
   publications_ta(relativePath: String): Publications_ta!
   publications_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Publications_taFilter): Publications_taConnection!
+  publications_si(relativePath: String): Publications_si!
+  publications_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Publications_siFilter): Publications_siConnection!
   events_en(relativePath: String): Events_en!
   events_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Events_enFilter): Events_enConnection!
   events_si(relativePath: String): Events_si!
@@ -92,13 +98,40 @@ type Query {
   events_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Events_taFilter): Events_taConnection!
   gallery_en(relativePath: String): Gallery_en!
   gallery_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Gallery_enFilter): Gallery_enConnection!
-  gallery_si(relativePath: String): Gallery_si!
-  gallery_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Gallery_siFilter): Gallery_siConnection!
   gallery_ta(relativePath: String): Gallery_ta!
   gallery_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Gallery_taFilter): Gallery_taConnection!
+  gallery_si(relativePath: String): Gallery_si!
+  gallery_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Gallery_siFilter): Gallery_siConnection!
+  contact_en(relativePath: String): Contact_en!
+  contact_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Contact_enFilter): Contact_enConnection!
+  contact_si(relativePath: String): Contact_si!
+  contact_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Contact_siFilter): Contact_siConnection!
+  contact_ta(relativePath: String): Contact_ta!
+  contact_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Contact_taFilter): Contact_taConnection!
+  pages_en(relativePath: String): Pages_en!
+  pages_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Pages_enFilter): Pages_enConnection!
+  pages_ta(relativePath: String): Pages_ta!
+  pages_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Pages_taFilter): Pages_taConnection!
+  pages_si(relativePath: String): Pages_si!
+  pages_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Pages_siFilter): Pages_siConnection!
+  blog_page_en(relativePath: String): Blog_page_en!
+  blog_page_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Blog_page_enFilter): Blog_page_enConnection!
+  blog_page_si(relativePath: String): Blog_page_si!
+  blog_page_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Blog_page_siFilter): Blog_page_siConnection!
+  blog_page_ta(relativePath: String): Blog_page_ta!
+  blog_page_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Blog_page_taFilter): Blog_page_taConnection!
+  blog_en(relativePath: String): Blog_en!
+  blog_enConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Blog_enFilter): Blog_enConnection!
+  blog_ta(relativePath: String): Blog_ta!
+  blog_taConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Blog_taFilter): Blog_taConnection!
+  blog_si(relativePath: String): Blog_si!
+  blog_siConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: Blog_siFilter): Blog_siConnection!
 }
 
 input DocumentFilter {
+  site_config_en: Site_config_enFilter
+  site_config_ta: Site_config_taFilter
+  site_config_si: Site_config_siFilter
   home_en: Home_enFilter
   home_si: Home_siFilter
   home_ta: Home_taFilter
@@ -112,14 +145,26 @@ input DocumentFilter {
   membership_si: Membership_siFilter
   membership_ta: Membership_taFilter
   publications_en: Publications_enFilter
-  publications_si: Publications_siFilter
   publications_ta: Publications_taFilter
+  publications_si: Publications_siFilter
   events_en: Events_enFilter
   events_si: Events_siFilter
   events_ta: Events_taFilter
   gallery_en: Gallery_enFilter
-  gallery_si: Gallery_siFilter
   gallery_ta: Gallery_taFilter
+  gallery_si: Gallery_siFilter
+  contact_en: Contact_enFilter
+  contact_si: Contact_siFilter
+  contact_ta: Contact_taFilter
+  pages_en: Pages_enFilter
+  pages_ta: Pages_taFilter
+  pages_si: Pages_siFilter
+  blog_page_en: Blog_page_enFilter
+  blog_page_si: Blog_page_siFilter
+  blog_page_ta: Blog_page_taFilter
+  blog_en: Blog_enFilter
+  blog_ta: Blog_taFilter
+  blog_si: Blog_siFilter
 }
 
 type DocumentConnectionEdges {
@@ -145,7 +190,464 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Home_en | Home_si | Home_ta | About_en | About_si | About_ta | Departments_en | Departments_si | Departments_ta | Membership_en | Membership_si | Membership_ta | Publications_en | Publications_si | Publications_ta | Events_en | Events_si | Events_ta | Gallery_en | Gallery_si | Gallery_ta | Folder
+union DocumentNode = Site_config_en | Site_config_ta | Site_config_si | Home_en | Home_si | Home_ta | About_en | About_si | About_ta | Departments_en | Departments_si | Departments_ta | Membership_en | Membership_si | Membership_ta | Publications_en | Publications_ta | Publications_si | Events_en | Events_si | Events_ta | Gallery_en | Gallery_ta | Gallery_si | Contact_en | Contact_si | Contact_ta | Pages_en | Pages_ta | Pages_si | Blog_page_en | Blog_page_si | Blog_page_ta | Blog_en | Blog_ta | Blog_si | Folder
+
+type Site_config_enOrganization {
+  name: String!
+  name_local: String!
+  tagline: String!
+  description: String!
+  mission: String
+  vision: String
+  founded: String
+  registration_number: String
+}
+
+type Site_config_enContactAddress {
+  street: String
+  city: String
+  state: String
+  postal_code: String
+  country: String
+}
+
+type Site_config_enContactSocial_media {
+  facebook: String
+  twitter: String
+  instagram: String
+  youtube: String
+}
+
+type Site_config_enContact {
+  email: String!
+  phone: String!
+  address: Site_config_enContactAddress
+  social_media: Site_config_enContactSocial_media
+}
+
+type Site_config_enNavigationPrimary {
+  name: String!
+  href: String!
+}
+
+type Site_config_enNavigationFooter {
+  name: String!
+  href: String!
+}
+
+type Site_config_enNavigation {
+  primary: [Site_config_enNavigationPrimary]
+  footer: [Site_config_enNavigationFooter]
+}
+
+type Site_config_enFooter {
+  copyright: String!
+  description: String
+}
+
+type Site_config_enMeta {
+  title_suffix: String
+  description: String
+  keywords: String
+  author: String
+}
+
+type Site_config_en implements Node & Document {
+  organization: Site_config_enOrganization
+  contact: Site_config_enContact
+  navigation: Site_config_enNavigation
+  footer: Site_config_enFooter
+  meta: Site_config_enMeta
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input StringFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input Site_config_enOrganizationFilter {
+  name: StringFilter
+  name_local: StringFilter
+  tagline: StringFilter
+  description: StringFilter
+  mission: StringFilter
+  vision: StringFilter
+  founded: StringFilter
+  registration_number: StringFilter
+}
+
+input Site_config_enContactAddressFilter {
+  street: StringFilter
+  city: StringFilter
+  state: StringFilter
+  postal_code: StringFilter
+  country: StringFilter
+}
+
+input Site_config_enContactSocial_mediaFilter {
+  facebook: StringFilter
+  twitter: StringFilter
+  instagram: StringFilter
+  youtube: StringFilter
+}
+
+input Site_config_enContactFilter {
+  email: StringFilter
+  phone: StringFilter
+  address: Site_config_enContactAddressFilter
+  social_media: Site_config_enContactSocial_mediaFilter
+}
+
+input Site_config_enNavigationPrimaryFilter {
+  name: StringFilter
+  href: StringFilter
+}
+
+input Site_config_enNavigationFooterFilter {
+  name: StringFilter
+  href: StringFilter
+}
+
+input Site_config_enNavigationFilter {
+  primary: Site_config_enNavigationPrimaryFilter
+  footer: Site_config_enNavigationFooterFilter
+}
+
+input Site_config_enFooterFilter {
+  copyright: StringFilter
+  description: StringFilter
+}
+
+input Site_config_enMetaFilter {
+  title_suffix: StringFilter
+  description: StringFilter
+  keywords: StringFilter
+  author: StringFilter
+}
+
+input Site_config_enFilter {
+  organization: Site_config_enOrganizationFilter
+  contact: Site_config_enContactFilter
+  navigation: Site_config_enNavigationFilter
+  footer: Site_config_enFooterFilter
+  meta: Site_config_enMetaFilter
+}
+
+type Site_config_enConnectionEdges {
+  cursor: String!
+  node: Site_config_en
+}
+
+type Site_config_enConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Site_config_enConnectionEdges]
+}
+
+type Site_config_taOrganization {
+  name: String!
+  name_local: String!
+  tagline: String!
+  description: String!
+  mission: String
+  vision: String
+  founded: String
+  registration_number: String
+}
+
+type Site_config_taContactAddress {
+  street: String
+  city: String
+  state: String
+  postal_code: String
+  country: String
+}
+
+type Site_config_taContactSocial_media {
+  facebook: String
+  twitter: String
+  instagram: String
+  youtube: String
+}
+
+type Site_config_taContact {
+  email: String!
+  phone: String!
+  address: Site_config_taContactAddress
+  social_media: Site_config_taContactSocial_media
+}
+
+type Site_config_taNavigationPrimary {
+  name: String!
+  href: String!
+}
+
+type Site_config_taNavigationFooter {
+  name: String!
+  href: String!
+}
+
+type Site_config_taNavigation {
+  primary: [Site_config_taNavigationPrimary]
+  footer: [Site_config_taNavigationFooter]
+}
+
+type Site_config_taFooter {
+  copyright: String!
+  description: String
+}
+
+type Site_config_taMeta {
+  title_suffix: String
+  description: String
+  keywords: String
+  author: String
+}
+
+type Site_config_ta implements Node & Document {
+  organization: Site_config_taOrganization
+  contact: Site_config_taContact
+  navigation: Site_config_taNavigation
+  footer: Site_config_taFooter
+  meta: Site_config_taMeta
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Site_config_taOrganizationFilter {
+  name: StringFilter
+  name_local: StringFilter
+  tagline: StringFilter
+  description: StringFilter
+  mission: StringFilter
+  vision: StringFilter
+  founded: StringFilter
+  registration_number: StringFilter
+}
+
+input Site_config_taContactAddressFilter {
+  street: StringFilter
+  city: StringFilter
+  state: StringFilter
+  postal_code: StringFilter
+  country: StringFilter
+}
+
+input Site_config_taContactSocial_mediaFilter {
+  facebook: StringFilter
+  twitter: StringFilter
+  instagram: StringFilter
+  youtube: StringFilter
+}
+
+input Site_config_taContactFilter {
+  email: StringFilter
+  phone: StringFilter
+  address: Site_config_taContactAddressFilter
+  social_media: Site_config_taContactSocial_mediaFilter
+}
+
+input Site_config_taNavigationPrimaryFilter {
+  name: StringFilter
+  href: StringFilter
+}
+
+input Site_config_taNavigationFooterFilter {
+  name: StringFilter
+  href: StringFilter
+}
+
+input Site_config_taNavigationFilter {
+  primary: Site_config_taNavigationPrimaryFilter
+  footer: Site_config_taNavigationFooterFilter
+}
+
+input Site_config_taFooterFilter {
+  copyright: StringFilter
+  description: StringFilter
+}
+
+input Site_config_taMetaFilter {
+  title_suffix: StringFilter
+  description: StringFilter
+  keywords: StringFilter
+  author: StringFilter
+}
+
+input Site_config_taFilter {
+  organization: Site_config_taOrganizationFilter
+  contact: Site_config_taContactFilter
+  navigation: Site_config_taNavigationFilter
+  footer: Site_config_taFooterFilter
+  meta: Site_config_taMetaFilter
+}
+
+type Site_config_taConnectionEdges {
+  cursor: String!
+  node: Site_config_ta
+}
+
+type Site_config_taConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Site_config_taConnectionEdges]
+}
+
+type Site_config_siOrganization {
+  name: String!
+  name_local: String!
+  tagline: String!
+  description: String!
+  mission: String
+  vision: String
+  founded: String
+  registration_number: String
+}
+
+type Site_config_siContactAddress {
+  street: String
+  city: String
+  state: String
+  postal_code: String
+  country: String
+}
+
+type Site_config_siContactSocial_media {
+  facebook: String
+  twitter: String
+  instagram: String
+  youtube: String
+}
+
+type Site_config_siContact {
+  email: String!
+  phone: String!
+  address: Site_config_siContactAddress
+  social_media: Site_config_siContactSocial_media
+}
+
+type Site_config_siNavigationPrimary {
+  name: String!
+  href: String!
+}
+
+type Site_config_siNavigationFooter {
+  name: String!
+  href: String!
+}
+
+type Site_config_siNavigation {
+  primary: [Site_config_siNavigationPrimary]
+  footer: [Site_config_siNavigationFooter]
+}
+
+type Site_config_siFooter {
+  copyright: String!
+  description: String
+}
+
+type Site_config_siMeta {
+  title_suffix: String
+  description: String
+  keywords: String
+  author: String
+}
+
+type Site_config_si implements Node & Document {
+  organization: Site_config_siOrganization
+  contact: Site_config_siContact
+  navigation: Site_config_siNavigation
+  footer: Site_config_siFooter
+  meta: Site_config_siMeta
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Site_config_siOrganizationFilter {
+  name: StringFilter
+  name_local: StringFilter
+  tagline: StringFilter
+  description: StringFilter
+  mission: StringFilter
+  vision: StringFilter
+  founded: StringFilter
+  registration_number: StringFilter
+}
+
+input Site_config_siContactAddressFilter {
+  street: StringFilter
+  city: StringFilter
+  state: StringFilter
+  postal_code: StringFilter
+  country: StringFilter
+}
+
+input Site_config_siContactSocial_mediaFilter {
+  facebook: StringFilter
+  twitter: StringFilter
+  instagram: StringFilter
+  youtube: StringFilter
+}
+
+input Site_config_siContactFilter {
+  email: StringFilter
+  phone: StringFilter
+  address: Site_config_siContactAddressFilter
+  social_media: Site_config_siContactSocial_mediaFilter
+}
+
+input Site_config_siNavigationPrimaryFilter {
+  name: StringFilter
+  href: StringFilter
+}
+
+input Site_config_siNavigationFooterFilter {
+  name: StringFilter
+  href: StringFilter
+}
+
+input Site_config_siNavigationFilter {
+  primary: Site_config_siNavigationPrimaryFilter
+  footer: Site_config_siNavigationFooterFilter
+}
+
+input Site_config_siFooterFilter {
+  copyright: StringFilter
+  description: StringFilter
+}
+
+input Site_config_siMetaFilter {
+  title_suffix: StringFilter
+  description: StringFilter
+  keywords: StringFilter
+  author: StringFilter
+}
+
+input Site_config_siFilter {
+  organization: Site_config_siOrganizationFilter
+  contact: Site_config_siContactFilter
+  navigation: Site_config_siNavigationFilter
+  footer: Site_config_siFooterFilter
+  meta: Site_config_siMetaFilter
+}
+
+type Site_config_siConnectionEdges {
+  cursor: String!
+  node: Site_config_si
+}
+
+type Site_config_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Site_config_siConnectionEdges]
+}
 
 type Home_enHeroCta_primary {
   text: String!
@@ -161,6 +663,9 @@ type Home_enHero {
   title: String!
   subtitle: String
   description: String
+  background_image: String
+  hero_video_url: String
+  hero_video_title: String
   cta_primary: Home_enHeroCta_primary
   cta_secondary: Home_enHeroCta_secondary
 }
@@ -174,6 +679,7 @@ type Home_enFeatured_departments {
   name: String!
   description: String!
   icon: String!
+  image: String
   href: String!
 }
 
@@ -208,12 +714,42 @@ type Home_enQuick_actions {
   color: String
 }
 
+type Home_enFeatured_video {
+  title: String
+  video_title: String
+  video_description: String
+  youtube_url: String
+}
+
 type Home_enNewsletter {
   title: String!
   description: String!
   placeholder: String!
   button: String!
   privacy: String
+}
+
+type Home_enRecent_articles {
+  section_title: String!
+  section_description: String
+  view_all_text: String!
+  view_all_href: String!
+  posts_to_show: Float!
+}
+
+type Home_enPhoto_highlightsPhotos {
+  image: String!
+  title: String!
+  description: String
+  link: String
+}
+
+type Home_enPhoto_highlights {
+  section_title: String!
+  section_description: String
+  photos: [Home_enPhoto_highlightsPhotos]
+  view_gallery_text: String
+  view_gallery_href: String
 }
 
 type Home_en implements Node & Document {
@@ -224,13 +760,16 @@ type Home_en implements Node & Document {
   announcements: [Home_enAnnouncements]
   statistics: [Home_enStatistics]
   quick_actions: [Home_enQuick_actions]
+  featured_video: Home_enFeatured_video
   newsletter: Home_enNewsletter
+  recent_articles: Home_enRecent_articles
+  photo_highlights: Home_enPhoto_highlights
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input StringFilter {
+input ImageFilter {
   startsWith: String
   eq: String
   exists: Boolean
@@ -251,6 +790,9 @@ input Home_enHeroFilter {
   title: StringFilter
   subtitle: StringFilter
   description: StringFilter
+  background_image: ImageFilter
+  hero_video_url: StringFilter
+  hero_video_title: StringFilter
   cta_primary: Home_enHeroCta_primaryFilter
   cta_secondary: Home_enHeroCta_secondaryFilter
 }
@@ -264,19 +806,13 @@ input Home_enFeatured_departmentsFilter {
   name: StringFilter
   description: StringFilter
   icon: StringFilter
+  image: ImageFilter
   href: StringFilter
 }
 
 input DatetimeFilter {
   after: String
   before: String
-  eq: String
-  exists: Boolean
-  in: [String]
-}
-
-input ImageFilter {
-  startsWith: String
   eq: String
   exists: Boolean
   in: [String]
@@ -313,12 +849,52 @@ input Home_enQuick_actionsFilter {
   color: StringFilter
 }
 
+input Home_enFeatured_videoFilter {
+  title: StringFilter
+  video_title: StringFilter
+  video_description: StringFilter
+  youtube_url: StringFilter
+}
+
 input Home_enNewsletterFilter {
   title: StringFilter
   description: StringFilter
   placeholder: StringFilter
   button: StringFilter
   privacy: StringFilter
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input Home_enRecent_articlesFilter {
+  section_title: StringFilter
+  section_description: StringFilter
+  view_all_text: StringFilter
+  view_all_href: StringFilter
+  posts_to_show: NumberFilter
+}
+
+input Home_enPhoto_highlightsPhotosFilter {
+  image: ImageFilter
+  title: StringFilter
+  description: StringFilter
+  link: StringFilter
+}
+
+input Home_enPhoto_highlightsFilter {
+  section_title: StringFilter
+  section_description: StringFilter
+  photos: Home_enPhoto_highlightsPhotosFilter
+  view_gallery_text: StringFilter
+  view_gallery_href: StringFilter
 }
 
 input Home_enFilter {
@@ -329,7 +905,10 @@ input Home_enFilter {
   announcements: Home_enAnnouncementsFilter
   statistics: Home_enStatisticsFilter
   quick_actions: Home_enQuick_actionsFilter
+  featured_video: Home_enFeatured_videoFilter
   newsletter: Home_enNewsletterFilter
+  recent_articles: Home_enRecent_articlesFilter
+  photo_highlights: Home_enPhoto_highlightsFilter
 }
 
 type Home_enConnectionEdges {
@@ -357,6 +936,9 @@ type Home_siHero {
   title: String!
   subtitle: String
   description: String
+  background_image: String
+  hero_video_url: String
+  hero_video_title: String
   cta_primary: Home_siHeroCta_primary
   cta_secondary: Home_siHeroCta_secondary
 }
@@ -370,6 +952,7 @@ type Home_siFeatured_departments {
   name: String!
   description: String!
   icon: String!
+  image: String
   href: String!
 }
 
@@ -404,12 +987,42 @@ type Home_siQuick_actions {
   color: String
 }
 
+type Home_siFeatured_video {
+  title: String
+  video_title: String
+  video_description: String
+  youtube_url: String
+}
+
 type Home_siNewsletter {
   title: String!
   description: String!
   placeholder: String!
   button: String!
   privacy: String
+}
+
+type Home_siRecent_articles {
+  section_title: String!
+  section_description: String
+  view_all_text: String!
+  view_all_href: String!
+  posts_to_show: Float!
+}
+
+type Home_siPhoto_highlightsPhotos {
+  image: String!
+  title: String!
+  description: String
+  link: String
+}
+
+type Home_siPhoto_highlights {
+  section_title: String!
+  section_description: String
+  photos: [Home_siPhoto_highlightsPhotos]
+  view_gallery_text: String
+  view_gallery_href: String
 }
 
 type Home_si implements Node & Document {
@@ -420,7 +1033,10 @@ type Home_si implements Node & Document {
   announcements: [Home_siAnnouncements]
   statistics: [Home_siStatistics]
   quick_actions: [Home_siQuick_actions]
+  featured_video: Home_siFeatured_video
   newsletter: Home_siNewsletter
+  recent_articles: Home_siRecent_articles
+  photo_highlights: Home_siPhoto_highlights
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -440,6 +1056,9 @@ input Home_siHeroFilter {
   title: StringFilter
   subtitle: StringFilter
   description: StringFilter
+  background_image: ImageFilter
+  hero_video_url: StringFilter
+  hero_video_title: StringFilter
   cta_primary: Home_siHeroCta_primaryFilter
   cta_secondary: Home_siHeroCta_secondaryFilter
 }
@@ -453,6 +1072,7 @@ input Home_siFeatured_departmentsFilter {
   name: StringFilter
   description: StringFilter
   icon: StringFilter
+  image: ImageFilter
   href: StringFilter
 }
 
@@ -487,12 +1107,42 @@ input Home_siQuick_actionsFilter {
   color: StringFilter
 }
 
+input Home_siFeatured_videoFilter {
+  title: StringFilter
+  video_title: StringFilter
+  video_description: StringFilter
+  youtube_url: StringFilter
+}
+
 input Home_siNewsletterFilter {
   title: StringFilter
   description: StringFilter
   placeholder: StringFilter
   button: StringFilter
   privacy: StringFilter
+}
+
+input Home_siRecent_articlesFilter {
+  section_title: StringFilter
+  section_description: StringFilter
+  view_all_text: StringFilter
+  view_all_href: StringFilter
+  posts_to_show: NumberFilter
+}
+
+input Home_siPhoto_highlightsPhotosFilter {
+  image: ImageFilter
+  title: StringFilter
+  description: StringFilter
+  link: StringFilter
+}
+
+input Home_siPhoto_highlightsFilter {
+  section_title: StringFilter
+  section_description: StringFilter
+  photos: Home_siPhoto_highlightsPhotosFilter
+  view_gallery_text: StringFilter
+  view_gallery_href: StringFilter
 }
 
 input Home_siFilter {
@@ -503,7 +1153,10 @@ input Home_siFilter {
   announcements: Home_siAnnouncementsFilter
   statistics: Home_siStatisticsFilter
   quick_actions: Home_siQuick_actionsFilter
+  featured_video: Home_siFeatured_videoFilter
   newsletter: Home_siNewsletterFilter
+  recent_articles: Home_siRecent_articlesFilter
+  photo_highlights: Home_siPhoto_highlightsFilter
 }
 
 type Home_siConnectionEdges {
@@ -531,6 +1184,9 @@ type Home_taHero {
   title: String!
   subtitle: String
   description: String
+  background_image: String
+  hero_video_url: String
+  hero_video_title: String
   cta_primary: Home_taHeroCta_primary
   cta_secondary: Home_taHeroCta_secondary
 }
@@ -544,6 +1200,7 @@ type Home_taFeatured_departments {
   name: String!
   description: String!
   icon: String!
+  image: String
   href: String!
 }
 
@@ -578,12 +1235,42 @@ type Home_taQuick_actions {
   color: String
 }
 
+type Home_taFeatured_video {
+  title: String
+  video_title: String
+  video_description: String
+  youtube_url: String
+}
+
 type Home_taNewsletter {
   title: String!
   description: String!
   placeholder: String!
   button: String!
   privacy: String
+}
+
+type Home_taRecent_articles {
+  section_title: String!
+  section_description: String
+  view_all_text: String!
+  view_all_href: String!
+  posts_to_show: Float!
+}
+
+type Home_taPhoto_highlightsPhotos {
+  image: String!
+  title: String!
+  description: String
+  link: String
+}
+
+type Home_taPhoto_highlights {
+  section_title: String!
+  section_description: String
+  photos: [Home_taPhoto_highlightsPhotos]
+  view_gallery_text: String
+  view_gallery_href: String
 }
 
 type Home_ta implements Node & Document {
@@ -594,7 +1281,10 @@ type Home_ta implements Node & Document {
   announcements: [Home_taAnnouncements]
   statistics: [Home_taStatistics]
   quick_actions: [Home_taQuick_actions]
+  featured_video: Home_taFeatured_video
   newsletter: Home_taNewsletter
+  recent_articles: Home_taRecent_articles
+  photo_highlights: Home_taPhoto_highlights
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -614,6 +1304,9 @@ input Home_taHeroFilter {
   title: StringFilter
   subtitle: StringFilter
   description: StringFilter
+  background_image: ImageFilter
+  hero_video_url: StringFilter
+  hero_video_title: StringFilter
   cta_primary: Home_taHeroCta_primaryFilter
   cta_secondary: Home_taHeroCta_secondaryFilter
 }
@@ -627,6 +1320,7 @@ input Home_taFeatured_departmentsFilter {
   name: StringFilter
   description: StringFilter
   icon: StringFilter
+  image: ImageFilter
   href: StringFilter
 }
 
@@ -661,12 +1355,42 @@ input Home_taQuick_actionsFilter {
   color: StringFilter
 }
 
+input Home_taFeatured_videoFilter {
+  title: StringFilter
+  video_title: StringFilter
+  video_description: StringFilter
+  youtube_url: StringFilter
+}
+
 input Home_taNewsletterFilter {
   title: StringFilter
   description: StringFilter
   placeholder: StringFilter
   button: StringFilter
   privacy: StringFilter
+}
+
+input Home_taRecent_articlesFilter {
+  section_title: StringFilter
+  section_description: StringFilter
+  view_all_text: StringFilter
+  view_all_href: StringFilter
+  posts_to_show: NumberFilter
+}
+
+input Home_taPhoto_highlightsPhotosFilter {
+  image: ImageFilter
+  title: StringFilter
+  description: StringFilter
+  link: StringFilter
+}
+
+input Home_taPhoto_highlightsFilter {
+  section_title: StringFilter
+  section_description: StringFilter
+  photos: Home_taPhoto_highlightsPhotosFilter
+  view_gallery_text: StringFilter
+  view_gallery_href: StringFilter
 }
 
 input Home_taFilter {
@@ -677,7 +1401,10 @@ input Home_taFilter {
   announcements: Home_taAnnouncementsFilter
   statistics: Home_taStatisticsFilter
   quick_actions: Home_taQuick_actionsFilter
+  featured_video: Home_taFeatured_videoFilter
   newsletter: Home_taNewsletterFilter
+  recent_articles: Home_taRecent_articlesFilter
+  photo_highlights: Home_taPhoto_highlightsFilter
 }
 
 type Home_taConnectionEdges {
@@ -2083,16 +2810,6 @@ input Membership_enGeneral_benefitsFilter {
   items: Membership_enGeneral_benefitsItemsFilter
 }
 
-input NumberFilter {
-  lt: Float
-  lte: Float
-  gte: Float
-  gt: Float
-  eq: Float
-  exists: Boolean
-  in: [Float]
-}
-
 input Membership_enApplication_processStepsFilter {
   step: NumberFilter
   title: StringFilter
@@ -2627,7 +3344,7 @@ type Publications_enCategories {
   icon: String!
 }
 
-type Publications_enFeatured_publications {
+type Publications_enFeatured_resources {
   id: String!
   title: String!
   title_tamil: String
@@ -2636,120 +3353,40 @@ type Publications_enFeatured_publications {
   category: String!
   category_tamil: String
   year: String!
-  pages: Float!
+  pages: Float
   isbn: String
   description: String!
   description_tamil: String
-  cover_color: String!
-  available: Boolean
-  price: String!
-  format: [String!]!
-  release_date: String
+  cover_image: String
+  file_url: String!
+  file_type: String!
+  file_size_mb: Float
+  language: String
+  tags: [String]
 }
 
-type Publications_enMagazines {
-  id: String!
-  name: String!
-  name_tamil: String
-  subtitle: String!
-  subtitle_tamil: String
-  frequency: String!
-  frequency_tamil: String
-  description: String!
-  description_tamil: String
-  subscription_price: String!
-  editor: String!
-  editor_tamil: String
-}
-
-type Publications_enDigital_resourcesItems {
-  name: String!
-  name_tamil: String
-  description: String!
-  access: String!
-}
-
-type Publications_enDigital_resources {
+type Publications_enAbout_section {
   title: String!
   title_tamil: String
   description: String!
   description_tamil: String
-  items: [Publications_enDigital_resourcesItems]
 }
 
-type Publications_enResearch_publicationsRecent_papers {
-  title: String!
-  title_tamil: String
-  author: String!
-  journal: String!
-  year: String!
-  pages: String!
-}
-
-type Publications_enResearch_publications {
+type Publications_enSubmission_section {
   title: String!
   title_tamil: String
   description: String!
   description_tamil: String
-  recent_papers: [Publications_enResearch_publicationsRecent_papers]
-}
-
-type Publications_enSubmission_guidelinesRequirements {
-  category: String!
-  category_tamil: String
-  items: [String!]!
-}
-
-type Publications_enSubmission_guidelines {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  requirements: [Publications_enSubmission_guidelinesRequirements]
-}
-
-type Publications_enContactEditorial_office {
-  title: String!
-  title_tamil: String
-  email: String!
-  phone: String!
-  editor_in_chief: String!
-  editor_in_chief_tamil: String
-}
-
-type Publications_enContactDistribution {
-  title: String!
-  title_tamil: String
-  email: String!
-  phone: String!
-}
-
-type Publications_enContactSubmissions {
-  title: String!
-  title_tamil: String
-  email: String!
-  guidelines_url: String!
-}
-
-type Publications_enContact {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  editorial_office: Publications_enContactEditorial_office
-  distribution: Publications_enContactDistribution
-  submissions: Publications_enContactSubmissions
+  contact_email: String!
+  guidelines: [String]
 }
 
 type Publications_en implements Node & Document {
   hero: Publications_enHero
   categories: [Publications_enCategories]
-  featured_publications: [Publications_enFeatured_publications]
-  magazines: [Publications_enMagazines]
-  digital_resources: Publications_enDigital_resources
-  research_publications: Publications_enResearch_publications
-  submission_guidelines: Publications_enSubmission_guidelines
-  contact: Publications_enContact
+  featured_resources: [Publications_enFeatured_resources]
+  about_section: Publications_enAbout_section
+  submission_section: Publications_enSubmission_section
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -2773,12 +3410,7 @@ input Publications_enCategoriesFilter {
   icon: StringFilter
 }
 
-input BooleanFilter {
-  eq: Boolean
-  exists: Boolean
-}
-
-input Publications_enFeatured_publicationsFilter {
+input Publications_enFeatured_resourcesFilter {
   id: StringFilter
   title: StringFilter
   title_tamil: StringFilter
@@ -2791,116 +3423,36 @@ input Publications_enFeatured_publicationsFilter {
   isbn: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  cover_color: StringFilter
-  available: BooleanFilter
-  price: StringFilter
-  format: StringFilter
-  release_date: StringFilter
+  cover_image: ImageFilter
+  file_url: StringFilter
+  file_type: StringFilter
+  file_size_mb: NumberFilter
+  language: StringFilter
+  tags: StringFilter
 }
 
-input Publications_enMagazinesFilter {
-  id: StringFilter
-  name: StringFilter
-  name_tamil: StringFilter
-  subtitle: StringFilter
-  subtitle_tamil: StringFilter
-  frequency: StringFilter
-  frequency_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  subscription_price: StringFilter
-  editor: StringFilter
-  editor_tamil: StringFilter
-}
-
-input Publications_enDigital_resourcesItemsFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  description: StringFilter
-  access: StringFilter
-}
-
-input Publications_enDigital_resourcesFilter {
+input Publications_enAbout_sectionFilter {
   title: StringFilter
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  items: Publications_enDigital_resourcesItemsFilter
 }
 
-input Publications_enResearch_publicationsRecent_papersFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  author: StringFilter
-  journal: StringFilter
-  year: StringFilter
-  pages: StringFilter
-}
-
-input Publications_enResearch_publicationsFilter {
+input Publications_enSubmission_sectionFilter {
   title: StringFilter
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  recent_papers: Publications_enResearch_publicationsRecent_papersFilter
-}
-
-input Publications_enSubmission_guidelinesRequirementsFilter {
-  category: StringFilter
-  category_tamil: StringFilter
-  items: StringFilter
-}
-
-input Publications_enSubmission_guidelinesFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  requirements: Publications_enSubmission_guidelinesRequirementsFilter
-}
-
-input Publications_enContactEditorial_officeFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  phone: StringFilter
-  editor_in_chief: StringFilter
-  editor_in_chief_tamil: StringFilter
-}
-
-input Publications_enContactDistributionFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  phone: StringFilter
-}
-
-input Publications_enContactSubmissionsFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  guidelines_url: StringFilter
-}
-
-input Publications_enContactFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  editorial_office: Publications_enContactEditorial_officeFilter
-  distribution: Publications_enContactDistributionFilter
-  submissions: Publications_enContactSubmissionsFilter
+  contact_email: StringFilter
+  guidelines: StringFilter
 }
 
 input Publications_enFilter {
   hero: Publications_enHeroFilter
   categories: Publications_enCategoriesFilter
-  featured_publications: Publications_enFeatured_publicationsFilter
-  magazines: Publications_enMagazinesFilter
-  digital_resources: Publications_enDigital_resourcesFilter
-  research_publications: Publications_enResearch_publicationsFilter
-  submission_guidelines: Publications_enSubmission_guidelinesFilter
-  contact: Publications_enContactFilter
+  featured_resources: Publications_enFeatured_resourcesFilter
+  about_section: Publications_enAbout_sectionFilter
+  submission_section: Publications_enSubmission_sectionFilter
 }
 
 type Publications_enConnectionEdges {
@@ -2912,306 +3464,6 @@ type Publications_enConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [Publications_enConnectionEdges]
-}
-
-type Publications_siHero {
-  title: String!
-  title_tamil: String
-  subtitle: String!
-  subtitle_tamil: String
-  description: String!
-}
-
-type Publications_siCategories {
-  id: String!
-  name: String!
-  name_tamil: String
-  description: String!
-  description_tamil: String
-  count: Float!
-  icon: String!
-}
-
-type Publications_siFeatured_publications {
-  id: String!
-  title: String!
-  title_tamil: String
-  author: String!
-  author_tamil: String
-  category: String!
-  category_tamil: String
-  year: String!
-  pages: Float!
-  isbn: String
-  description: String!
-  description_tamil: String
-  cover_color: String!
-  available: Boolean
-  price: String!
-  format: [String!]!
-  release_date: String
-}
-
-type Publications_siMagazines {
-  id: String!
-  name: String!
-  name_tamil: String
-  subtitle: String!
-  subtitle_tamil: String
-  frequency: String!
-  frequency_tamil: String
-  description: String!
-  description_tamil: String
-  subscription_price: String!
-  editor: String!
-  editor_tamil: String
-}
-
-type Publications_siDigital_resourcesItems {
-  name: String!
-  name_tamil: String
-  description: String!
-  access: String!
-}
-
-type Publications_siDigital_resources {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  items: [Publications_siDigital_resourcesItems]
-}
-
-type Publications_siResearch_publicationsRecent_papers {
-  title: String!
-  title_tamil: String
-  author: String!
-  journal: String!
-  year: String!
-  pages: String!
-}
-
-type Publications_siResearch_publications {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  recent_papers: [Publications_siResearch_publicationsRecent_papers]
-}
-
-type Publications_siSubmission_guidelinesRequirements {
-  category: String!
-  category_tamil: String
-  items: [String!]!
-}
-
-type Publications_siSubmission_guidelines {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  requirements: [Publications_siSubmission_guidelinesRequirements]
-}
-
-type Publications_siContactEditorial_office {
-  title: String!
-  title_tamil: String
-  email: String!
-  phone: String!
-  editor_in_chief: String!
-  editor_in_chief_tamil: String
-}
-
-type Publications_siContactDistribution {
-  title: String!
-  title_tamil: String
-  email: String!
-  phone: String!
-}
-
-type Publications_siContactSubmissions {
-  title: String!
-  title_tamil: String
-  email: String!
-  guidelines_url: String!
-}
-
-type Publications_siContact {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  editorial_office: Publications_siContactEditorial_office
-  distribution: Publications_siContactDistribution
-  submissions: Publications_siContactSubmissions
-}
-
-type Publications_si implements Node & Document {
-  hero: Publications_siHero
-  categories: [Publications_siCategories]
-  featured_publications: [Publications_siFeatured_publications]
-  magazines: [Publications_siMagazines]
-  digital_resources: Publications_siDigital_resources
-  research_publications: Publications_siResearch_publications
-  submission_guidelines: Publications_siSubmission_guidelines
-  contact: Publications_siContact
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input Publications_siHeroFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  subtitle: StringFilter
-  subtitle_tamil: StringFilter
-  description: StringFilter
-}
-
-input Publications_siCategoriesFilter {
-  id: StringFilter
-  name: StringFilter
-  name_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  count: NumberFilter
-  icon: StringFilter
-}
-
-input Publications_siFeatured_publicationsFilter {
-  id: StringFilter
-  title: StringFilter
-  title_tamil: StringFilter
-  author: StringFilter
-  author_tamil: StringFilter
-  category: StringFilter
-  category_tamil: StringFilter
-  year: StringFilter
-  pages: NumberFilter
-  isbn: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  cover_color: StringFilter
-  available: BooleanFilter
-  price: StringFilter
-  format: StringFilter
-  release_date: StringFilter
-}
-
-input Publications_siMagazinesFilter {
-  id: StringFilter
-  name: StringFilter
-  name_tamil: StringFilter
-  subtitle: StringFilter
-  subtitle_tamil: StringFilter
-  frequency: StringFilter
-  frequency_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  subscription_price: StringFilter
-  editor: StringFilter
-  editor_tamil: StringFilter
-}
-
-input Publications_siDigital_resourcesItemsFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  description: StringFilter
-  access: StringFilter
-}
-
-input Publications_siDigital_resourcesFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  items: Publications_siDigital_resourcesItemsFilter
-}
-
-input Publications_siResearch_publicationsRecent_papersFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  author: StringFilter
-  journal: StringFilter
-  year: StringFilter
-  pages: StringFilter
-}
-
-input Publications_siResearch_publicationsFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  recent_papers: Publications_siResearch_publicationsRecent_papersFilter
-}
-
-input Publications_siSubmission_guidelinesRequirementsFilter {
-  category: StringFilter
-  category_tamil: StringFilter
-  items: StringFilter
-}
-
-input Publications_siSubmission_guidelinesFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  requirements: Publications_siSubmission_guidelinesRequirementsFilter
-}
-
-input Publications_siContactEditorial_officeFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  phone: StringFilter
-  editor_in_chief: StringFilter
-  editor_in_chief_tamil: StringFilter
-}
-
-input Publications_siContactDistributionFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  phone: StringFilter
-}
-
-input Publications_siContactSubmissionsFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  guidelines_url: StringFilter
-}
-
-input Publications_siContactFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  editorial_office: Publications_siContactEditorial_officeFilter
-  distribution: Publications_siContactDistributionFilter
-  submissions: Publications_siContactSubmissionsFilter
-}
-
-input Publications_siFilter {
-  hero: Publications_siHeroFilter
-  categories: Publications_siCategoriesFilter
-  featured_publications: Publications_siFeatured_publicationsFilter
-  magazines: Publications_siMagazinesFilter
-  digital_resources: Publications_siDigital_resourcesFilter
-  research_publications: Publications_siResearch_publicationsFilter
-  submission_guidelines: Publications_siSubmission_guidelinesFilter
-  contact: Publications_siContactFilter
-}
-
-type Publications_siConnectionEdges {
-  cursor: String!
-  node: Publications_si
-}
-
-type Publications_siConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [Publications_siConnectionEdges]
 }
 
 type Publications_taHero {
@@ -3232,7 +3484,7 @@ type Publications_taCategories {
   icon: String!
 }
 
-type Publications_taFeatured_publications {
+type Publications_taFeatured_resources {
   id: String!
   title: String!
   title_tamil: String
@@ -3241,120 +3493,40 @@ type Publications_taFeatured_publications {
   category: String!
   category_tamil: String
   year: String!
-  pages: Float!
+  pages: Float
   isbn: String
   description: String!
   description_tamil: String
-  cover_color: String!
-  available: Boolean
-  price: String!
-  format: [String!]!
-  release_date: String
+  cover_image: String
+  file_url: String!
+  file_type: String!
+  file_size_mb: Float
+  language: String
+  tags: [String]
 }
 
-type Publications_taMagazines {
-  id: String!
-  name: String!
-  name_tamil: String
-  subtitle: String!
-  subtitle_tamil: String
-  frequency: String!
-  frequency_tamil: String
-  description: String!
-  description_tamil: String
-  subscription_price: String!
-  editor: String!
-  editor_tamil: String
-}
-
-type Publications_taDigital_resourcesItems {
-  name: String!
-  name_tamil: String
-  description: String!
-  access: String!
-}
-
-type Publications_taDigital_resources {
+type Publications_taAbout_section {
   title: String!
   title_tamil: String
   description: String!
   description_tamil: String
-  items: [Publications_taDigital_resourcesItems]
 }
 
-type Publications_taResearch_publicationsRecent_papers {
-  title: String!
-  title_tamil: String
-  author: String!
-  journal: String!
-  year: String!
-  pages: String!
-}
-
-type Publications_taResearch_publications {
+type Publications_taSubmission_section {
   title: String!
   title_tamil: String
   description: String!
   description_tamil: String
-  recent_papers: [Publications_taResearch_publicationsRecent_papers]
-}
-
-type Publications_taSubmission_guidelinesRequirements {
-  category: String!
-  category_tamil: String
-  items: [String!]!
-}
-
-type Publications_taSubmission_guidelines {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  requirements: [Publications_taSubmission_guidelinesRequirements]
-}
-
-type Publications_taContactEditorial_office {
-  title: String!
-  title_tamil: String
-  email: String!
-  phone: String!
-  editor_in_chief: String!
-  editor_in_chief_tamil: String
-}
-
-type Publications_taContactDistribution {
-  title: String!
-  title_tamil: String
-  email: String!
-  phone: String!
-}
-
-type Publications_taContactSubmissions {
-  title: String!
-  title_tamil: String
-  email: String!
-  guidelines_url: String!
-}
-
-type Publications_taContact {
-  title: String!
-  title_tamil: String
-  description: String!
-  description_tamil: String
-  editorial_office: Publications_taContactEditorial_office
-  distribution: Publications_taContactDistribution
-  submissions: Publications_taContactSubmissions
+  contact_email: String!
+  guidelines: [String]
 }
 
 type Publications_ta implements Node & Document {
   hero: Publications_taHero
   categories: [Publications_taCategories]
-  featured_publications: [Publications_taFeatured_publications]
-  magazines: [Publications_taMagazines]
-  digital_resources: Publications_taDigital_resources
-  research_publications: Publications_taResearch_publications
-  submission_guidelines: Publications_taSubmission_guidelines
-  contact: Publications_taContact
+  featured_resources: [Publications_taFeatured_resources]
+  about_section: Publications_taAbout_section
+  submission_section: Publications_taSubmission_section
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -3378,7 +3550,7 @@ input Publications_taCategoriesFilter {
   icon: StringFilter
 }
 
-input Publications_taFeatured_publicationsFilter {
+input Publications_taFeatured_resourcesFilter {
   id: StringFilter
   title: StringFilter
   title_tamil: StringFilter
@@ -3391,116 +3563,36 @@ input Publications_taFeatured_publicationsFilter {
   isbn: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  cover_color: StringFilter
-  available: BooleanFilter
-  price: StringFilter
-  format: StringFilter
-  release_date: StringFilter
+  cover_image: ImageFilter
+  file_url: StringFilter
+  file_type: StringFilter
+  file_size_mb: NumberFilter
+  language: StringFilter
+  tags: StringFilter
 }
 
-input Publications_taMagazinesFilter {
-  id: StringFilter
-  name: StringFilter
-  name_tamil: StringFilter
-  subtitle: StringFilter
-  subtitle_tamil: StringFilter
-  frequency: StringFilter
-  frequency_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  subscription_price: StringFilter
-  editor: StringFilter
-  editor_tamil: StringFilter
-}
-
-input Publications_taDigital_resourcesItemsFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  description: StringFilter
-  access: StringFilter
-}
-
-input Publications_taDigital_resourcesFilter {
+input Publications_taAbout_sectionFilter {
   title: StringFilter
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  items: Publications_taDigital_resourcesItemsFilter
 }
 
-input Publications_taResearch_publicationsRecent_papersFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  author: StringFilter
-  journal: StringFilter
-  year: StringFilter
-  pages: StringFilter
-}
-
-input Publications_taResearch_publicationsFilter {
+input Publications_taSubmission_sectionFilter {
   title: StringFilter
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  recent_papers: Publications_taResearch_publicationsRecent_papersFilter
-}
-
-input Publications_taSubmission_guidelinesRequirementsFilter {
-  category: StringFilter
-  category_tamil: StringFilter
-  items: StringFilter
-}
-
-input Publications_taSubmission_guidelinesFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  requirements: Publications_taSubmission_guidelinesRequirementsFilter
-}
-
-input Publications_taContactEditorial_officeFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  phone: StringFilter
-  editor_in_chief: StringFilter
-  editor_in_chief_tamil: StringFilter
-}
-
-input Publications_taContactDistributionFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  phone: StringFilter
-}
-
-input Publications_taContactSubmissionsFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  email: StringFilter
-  guidelines_url: StringFilter
-}
-
-input Publications_taContactFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  editorial_office: Publications_taContactEditorial_officeFilter
-  distribution: Publications_taContactDistributionFilter
-  submissions: Publications_taContactSubmissionsFilter
+  contact_email: StringFilter
+  guidelines: StringFilter
 }
 
 input Publications_taFilter {
   hero: Publications_taHeroFilter
   categories: Publications_taCategoriesFilter
-  featured_publications: Publications_taFeatured_publicationsFilter
-  magazines: Publications_taMagazinesFilter
-  digital_resources: Publications_taDigital_resourcesFilter
-  research_publications: Publications_taResearch_publicationsFilter
-  submission_guidelines: Publications_taSubmission_guidelinesFilter
-  contact: Publications_taContactFilter
+  featured_resources: Publications_taFeatured_resourcesFilter
+  about_section: Publications_taAbout_sectionFilter
+  submission_section: Publications_taSubmission_sectionFilter
 }
 
 type Publications_taConnectionEdges {
@@ -3512,6 +3604,146 @@ type Publications_taConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [Publications_taConnectionEdges]
+}
+
+type Publications_siHero {
+  title: String!
+  title_tamil: String
+  subtitle: String!
+  subtitle_tamil: String
+  description: String!
+}
+
+type Publications_siCategories {
+  id: String!
+  name: String!
+  name_tamil: String
+  description: String!
+  description_tamil: String
+  count: Float!
+  icon: String!
+}
+
+type Publications_siFeatured_resources {
+  id: String!
+  title: String!
+  title_tamil: String
+  author: String!
+  author_tamil: String
+  category: String!
+  category_tamil: String
+  year: String!
+  pages: Float
+  isbn: String
+  description: String!
+  description_tamil: String
+  cover_image: String
+  file_url: String!
+  file_type: String!
+  file_size_mb: Float
+  language: String
+  tags: [String]
+}
+
+type Publications_siAbout_section {
+  title: String!
+  title_tamil: String
+  description: String!
+  description_tamil: String
+}
+
+type Publications_siSubmission_section {
+  title: String!
+  title_tamil: String
+  description: String!
+  description_tamil: String
+  contact_email: String!
+  guidelines: [String]
+}
+
+type Publications_si implements Node & Document {
+  hero: Publications_siHero
+  categories: [Publications_siCategories]
+  featured_resources: [Publications_siFeatured_resources]
+  about_section: Publications_siAbout_section
+  submission_section: Publications_siSubmission_section
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Publications_siHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  subtitle: StringFilter
+  subtitle_tamil: StringFilter
+  description: StringFilter
+}
+
+input Publications_siCategoriesFilter {
+  id: StringFilter
+  name: StringFilter
+  name_tamil: StringFilter
+  description: StringFilter
+  description_tamil: StringFilter
+  count: NumberFilter
+  icon: StringFilter
+}
+
+input Publications_siFeatured_resourcesFilter {
+  id: StringFilter
+  title: StringFilter
+  title_tamil: StringFilter
+  author: StringFilter
+  author_tamil: StringFilter
+  category: StringFilter
+  category_tamil: StringFilter
+  year: StringFilter
+  pages: NumberFilter
+  isbn: StringFilter
+  description: StringFilter
+  description_tamil: StringFilter
+  cover_image: ImageFilter
+  file_url: StringFilter
+  file_type: StringFilter
+  file_size_mb: NumberFilter
+  language: StringFilter
+  tags: StringFilter
+}
+
+input Publications_siAbout_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+  description_tamil: StringFilter
+}
+
+input Publications_siSubmission_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+  description_tamil: StringFilter
+  contact_email: StringFilter
+  guidelines: StringFilter
+}
+
+input Publications_siFilter {
+  hero: Publications_siHeroFilter
+  categories: Publications_siCategoriesFilter
+  featured_resources: Publications_siFeatured_resourcesFilter
+  about_section: Publications_siAbout_sectionFilter
+  submission_section: Publications_siSubmission_sectionFilter
+}
+
+type Publications_siConnectionEdges {
+  cursor: String!
+  node: Publications_si
+}
+
+type Publications_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Publications_siConnectionEdges]
 }
 
 type Events_enHero {
@@ -3663,6 +3895,11 @@ input Events_enHeroFilter {
   subtitle: StringFilter
   subtitle_tamil: StringFilter
   description: StringFilter
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
 }
 
 input Events_enUpcoming_eventsFilter {
@@ -4408,25 +4645,33 @@ type Gallery_enCategories {
   id: String!
   name: String!
   name_tamil: String
-  count: Float
+  count: Float!
   description: String
   description_tamil: String
+}
+
+type Gallery_enFeatured_albumsImages {
+  url: String!
+  title: String
+  title_tamil: String
+  caption: String
+  caption_tamil: String
 }
 
 type Gallery_enFeatured_albums {
   id: String!
   title: String!
   title_tamil: String
-  date: String
+  date: String!
   date_tamil: String
   location: String
   location_tamil: String
-  image_count: Float
   description: String
   description_tamil: String
-  cover_color: String
+  cover_image: String!
+  images: [Gallery_enFeatured_albumsImages]
   photographer: String
-  highlights: [String]
+  photographer_tamil: String
 }
 
 type Gallery_enRecent_highlights {
@@ -4435,55 +4680,19 @@ type Gallery_enRecent_highlights {
   title_tamil: String
   description: String
   description_tamil: String
-  date: String
+  thumbnail: String!
+  date: String!
   date_tamil: String
-  image_count: Float
+  album_link: String
 }
 
-type Gallery_enPhoto_contestCategories {
-  name: String
-  name_tamil: String
-  prize: String
-}
-
-type Gallery_enPhoto_contest {
+type Gallery_enSubmission_section {
   title: String!
   title_tamil: String
   description: String
   description_tamil: String
-  categories: [Gallery_enPhoto_contestCategories]
-  deadline: String
-  rules: [String]
-}
-
-type Gallery_enSubmission_guidelinesRequirements {
-  title: String!
-  title_tamil: String
-  items: [String]
-}
-
-type Gallery_enSubmission_guidelines {
-  title: String!
-  title_tamil: String
-  description: String
-  requirements: [Gallery_enSubmission_guidelinesRequirements]
-}
-
-type Gallery_enContactGallery_coordinator {
-  name: String
-  name_tamil: String
-  position: String
-  position_tamil: String
-}
-
-type Gallery_enContact {
-  title: String!
-  title_tamil: String
-  description: String
-  email: String
-  phone: String
-  gallery_coordinator: Gallery_enContactGallery_coordinator
-  office_hours: [String]
+  contact_email: String!
+  guidelines: [String]
 }
 
 type Gallery_en implements Node & Document {
@@ -4491,9 +4700,7 @@ type Gallery_en implements Node & Document {
   categories: [Gallery_enCategories]
   featured_albums: [Gallery_enFeatured_albums]
   recent_highlights: [Gallery_enRecent_highlights]
-  photo_contest: Gallery_enPhoto_contest
-  submission_guidelines: Gallery_enSubmission_guidelines
-  contact: Gallery_enContact
+  submission_section: Gallery_enSubmission_section
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -4516,6 +4723,14 @@ input Gallery_enCategoriesFilter {
   description_tamil: StringFilter
 }
 
+input Gallery_enFeatured_albumsImagesFilter {
+  url: ImageFilter
+  title: StringFilter
+  title_tamil: StringFilter
+  caption: StringFilter
+  caption_tamil: StringFilter
+}
+
 input Gallery_enFeatured_albumsFilter {
   id: StringFilter
   title: StringFilter
@@ -4524,12 +4739,12 @@ input Gallery_enFeatured_albumsFilter {
   date_tamil: StringFilter
   location: StringFilter
   location_tamil: StringFilter
-  image_count: NumberFilter
   description: StringFilter
   description_tamil: StringFilter
-  cover_color: StringFilter
+  cover_image: ImageFilter
+  images: Gallery_enFeatured_albumsImagesFilter
   photographer: StringFilter
-  highlights: StringFilter
+  photographer_tamil: StringFilter
 }
 
 input Gallery_enRecent_highlightsFilter {
@@ -4538,55 +4753,19 @@ input Gallery_enRecent_highlightsFilter {
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
+  thumbnail: ImageFilter
   date: StringFilter
   date_tamil: StringFilter
-  image_count: NumberFilter
+  album_link: StringFilter
 }
 
-input Gallery_enPhoto_contestCategoriesFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  prize: StringFilter
-}
-
-input Gallery_enPhoto_contestFilter {
+input Gallery_enSubmission_sectionFilter {
   title: StringFilter
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  categories: Gallery_enPhoto_contestCategoriesFilter
-  deadline: StringFilter
-  rules: StringFilter
-}
-
-input Gallery_enSubmission_guidelinesRequirementsFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  items: StringFilter
-}
-
-input Gallery_enSubmission_guidelinesFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  requirements: Gallery_enSubmission_guidelinesRequirementsFilter
-}
-
-input Gallery_enContactGallery_coordinatorFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  position: StringFilter
-  position_tamil: StringFilter
-}
-
-input Gallery_enContactFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  email: StringFilter
-  phone: StringFilter
-  gallery_coordinator: Gallery_enContactGallery_coordinatorFilter
-  office_hours: StringFilter
+  contact_email: StringFilter
+  guidelines: StringFilter
 }
 
 input Gallery_enFilter {
@@ -4594,9 +4773,7 @@ input Gallery_enFilter {
   categories: Gallery_enCategoriesFilter
   featured_albums: Gallery_enFeatured_albumsFilter
   recent_highlights: Gallery_enRecent_highlightsFilter
-  photo_contest: Gallery_enPhoto_contestFilter
-  submission_guidelines: Gallery_enSubmission_guidelinesFilter
-  contact: Gallery_enContactFilter
+  submission_section: Gallery_enSubmission_sectionFilter
 }
 
 type Gallery_enConnectionEdges {
@@ -4608,220 +4785,6 @@ type Gallery_enConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [Gallery_enConnectionEdges]
-}
-
-type Gallery_siHero {
-  title: String!
-  title_tamil: String
-  subtitle: String
-  subtitle_tamil: String
-  description: String
-}
-
-type Gallery_siCategories {
-  id: String!
-  name: String!
-  name_tamil: String
-  count: Float
-  description: String
-  description_tamil: String
-}
-
-type Gallery_siFeatured_albums {
-  id: String!
-  title: String!
-  title_tamil: String
-  date: String
-  date_tamil: String
-  location: String
-  location_tamil: String
-  image_count: Float
-  description: String
-  description_tamil: String
-  cover_color: String
-  photographer: String
-  highlights: [String]
-}
-
-type Gallery_siRecent_highlights {
-  id: String!
-  title: String!
-  title_tamil: String
-  description: String
-  description_tamil: String
-  date: String
-  date_tamil: String
-  image_count: Float
-}
-
-type Gallery_siPhoto_contestCategories {
-  name: String
-  name_tamil: String
-  prize: String
-}
-
-type Gallery_siPhoto_contest {
-  title: String!
-  title_tamil: String
-  description: String
-  description_tamil: String
-  categories: [Gallery_siPhoto_contestCategories]
-  deadline: String
-  rules: [String]
-}
-
-type Gallery_siSubmission_guidelinesRequirements {
-  title: String!
-  title_tamil: String
-  items: [String]
-}
-
-type Gallery_siSubmission_guidelines {
-  title: String!
-  title_tamil: String
-  description: String
-  requirements: [Gallery_siSubmission_guidelinesRequirements]
-}
-
-type Gallery_siContactGallery_coordinator {
-  name: String
-  name_tamil: String
-  position: String
-  position_tamil: String
-}
-
-type Gallery_siContact {
-  title: String!
-  title_tamil: String
-  description: String
-  email: String
-  phone: String
-  gallery_coordinator: Gallery_siContactGallery_coordinator
-  office_hours: [String]
-}
-
-type Gallery_si implements Node & Document {
-  hero: Gallery_siHero
-  categories: [Gallery_siCategories]
-  featured_albums: [Gallery_siFeatured_albums]
-  recent_highlights: [Gallery_siRecent_highlights]
-  photo_contest: Gallery_siPhoto_contest
-  submission_guidelines: Gallery_siSubmission_guidelines
-  contact: Gallery_siContact
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input Gallery_siHeroFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  subtitle: StringFilter
-  subtitle_tamil: StringFilter
-  description: StringFilter
-}
-
-input Gallery_siCategoriesFilter {
-  id: StringFilter
-  name: StringFilter
-  name_tamil: StringFilter
-  count: NumberFilter
-  description: StringFilter
-  description_tamil: StringFilter
-}
-
-input Gallery_siFeatured_albumsFilter {
-  id: StringFilter
-  title: StringFilter
-  title_tamil: StringFilter
-  date: StringFilter
-  date_tamil: StringFilter
-  location: StringFilter
-  location_tamil: StringFilter
-  image_count: NumberFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  cover_color: StringFilter
-  photographer: StringFilter
-  highlights: StringFilter
-}
-
-input Gallery_siRecent_highlightsFilter {
-  id: StringFilter
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  date: StringFilter
-  date_tamil: StringFilter
-  image_count: NumberFilter
-}
-
-input Gallery_siPhoto_contestCategoriesFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  prize: StringFilter
-}
-
-input Gallery_siPhoto_contestFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  description_tamil: StringFilter
-  categories: Gallery_siPhoto_contestCategoriesFilter
-  deadline: StringFilter
-  rules: StringFilter
-}
-
-input Gallery_siSubmission_guidelinesRequirementsFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  items: StringFilter
-}
-
-input Gallery_siSubmission_guidelinesFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  requirements: Gallery_siSubmission_guidelinesRequirementsFilter
-}
-
-input Gallery_siContactGallery_coordinatorFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  position: StringFilter
-  position_tamil: StringFilter
-}
-
-input Gallery_siContactFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  email: StringFilter
-  phone: StringFilter
-  gallery_coordinator: Gallery_siContactGallery_coordinatorFilter
-  office_hours: StringFilter
-}
-
-input Gallery_siFilter {
-  hero: Gallery_siHeroFilter
-  categories: Gallery_siCategoriesFilter
-  featured_albums: Gallery_siFeatured_albumsFilter
-  recent_highlights: Gallery_siRecent_highlightsFilter
-  photo_contest: Gallery_siPhoto_contestFilter
-  submission_guidelines: Gallery_siSubmission_guidelinesFilter
-  contact: Gallery_siContactFilter
-}
-
-type Gallery_siConnectionEdges {
-  cursor: String!
-  node: Gallery_si
-}
-
-type Gallery_siConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [Gallery_siConnectionEdges]
 }
 
 type Gallery_taHero {
@@ -4836,25 +4799,33 @@ type Gallery_taCategories {
   id: String!
   name: String!
   name_tamil: String
-  count: Float
+  count: Float!
   description: String
   description_tamil: String
+}
+
+type Gallery_taFeatured_albumsImages {
+  url: String!
+  title: String
+  title_tamil: String
+  caption: String
+  caption_tamil: String
 }
 
 type Gallery_taFeatured_albums {
   id: String!
   title: String!
   title_tamil: String
-  date: String
+  date: String!
   date_tamil: String
   location: String
   location_tamil: String
-  image_count: Float
   description: String
   description_tamil: String
-  cover_color: String
+  cover_image: String!
+  images: [Gallery_taFeatured_albumsImages]
   photographer: String
-  highlights: [String]
+  photographer_tamil: String
 }
 
 type Gallery_taRecent_highlights {
@@ -4863,55 +4834,19 @@ type Gallery_taRecent_highlights {
   title_tamil: String
   description: String
   description_tamil: String
-  date: String
+  thumbnail: String!
+  date: String!
   date_tamil: String
-  image_count: Float
+  album_link: String
 }
 
-type Gallery_taPhoto_contestCategories {
-  name: String
-  name_tamil: String
-  prize: String
-}
-
-type Gallery_taPhoto_contest {
+type Gallery_taSubmission_section {
   title: String!
   title_tamil: String
   description: String
   description_tamil: String
-  categories: [Gallery_taPhoto_contestCategories]
-  deadline: String
-  rules: [String]
-}
-
-type Gallery_taSubmission_guidelinesRequirements {
-  title: String!
-  title_tamil: String
-  items: [String]
-}
-
-type Gallery_taSubmission_guidelines {
-  title: String!
-  title_tamil: String
-  description: String
-  requirements: [Gallery_taSubmission_guidelinesRequirements]
-}
-
-type Gallery_taContactGallery_coordinator {
-  name: String
-  name_tamil: String
-  position: String
-  position_tamil: String
-}
-
-type Gallery_taContact {
-  title: String!
-  title_tamil: String
-  description: String
-  email: String
-  phone: String
-  gallery_coordinator: Gallery_taContactGallery_coordinator
-  office_hours: [String]
+  contact_email: String!
+  guidelines: [String]
 }
 
 type Gallery_ta implements Node & Document {
@@ -4919,9 +4854,7 @@ type Gallery_ta implements Node & Document {
   categories: [Gallery_taCategories]
   featured_albums: [Gallery_taFeatured_albums]
   recent_highlights: [Gallery_taRecent_highlights]
-  photo_contest: Gallery_taPhoto_contest
-  submission_guidelines: Gallery_taSubmission_guidelines
-  contact: Gallery_taContact
+  submission_section: Gallery_taSubmission_section
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -4944,6 +4877,14 @@ input Gallery_taCategoriesFilter {
   description_tamil: StringFilter
 }
 
+input Gallery_taFeatured_albumsImagesFilter {
+  url: ImageFilter
+  title: StringFilter
+  title_tamil: StringFilter
+  caption: StringFilter
+  caption_tamil: StringFilter
+}
+
 input Gallery_taFeatured_albumsFilter {
   id: StringFilter
   title: StringFilter
@@ -4952,12 +4893,12 @@ input Gallery_taFeatured_albumsFilter {
   date_tamil: StringFilter
   location: StringFilter
   location_tamil: StringFilter
-  image_count: NumberFilter
   description: StringFilter
   description_tamil: StringFilter
-  cover_color: StringFilter
+  cover_image: ImageFilter
+  images: Gallery_taFeatured_albumsImagesFilter
   photographer: StringFilter
-  highlights: StringFilter
+  photographer_tamil: StringFilter
 }
 
 input Gallery_taRecent_highlightsFilter {
@@ -4966,55 +4907,19 @@ input Gallery_taRecent_highlightsFilter {
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
+  thumbnail: ImageFilter
   date: StringFilter
   date_tamil: StringFilter
-  image_count: NumberFilter
+  album_link: StringFilter
 }
 
-input Gallery_taPhoto_contestCategoriesFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  prize: StringFilter
-}
-
-input Gallery_taPhoto_contestFilter {
+input Gallery_taSubmission_sectionFilter {
   title: StringFilter
   title_tamil: StringFilter
   description: StringFilter
   description_tamil: StringFilter
-  categories: Gallery_taPhoto_contestCategoriesFilter
-  deadline: StringFilter
-  rules: StringFilter
-}
-
-input Gallery_taSubmission_guidelinesRequirementsFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  items: StringFilter
-}
-
-input Gallery_taSubmission_guidelinesFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  requirements: Gallery_taSubmission_guidelinesRequirementsFilter
-}
-
-input Gallery_taContactGallery_coordinatorFilter {
-  name: StringFilter
-  name_tamil: StringFilter
-  position: StringFilter
-  position_tamil: StringFilter
-}
-
-input Gallery_taContactFilter {
-  title: StringFilter
-  title_tamil: StringFilter
-  description: StringFilter
-  email: StringFilter
-  phone: StringFilter
-  gallery_coordinator: Gallery_taContactGallery_coordinatorFilter
-  office_hours: StringFilter
+  contact_email: StringFilter
+  guidelines: StringFilter
 }
 
 input Gallery_taFilter {
@@ -5022,9 +4927,7 @@ input Gallery_taFilter {
   categories: Gallery_taCategoriesFilter
   featured_albums: Gallery_taFeatured_albumsFilter
   recent_highlights: Gallery_taRecent_highlightsFilter
-  photo_contest: Gallery_taPhoto_contestFilter
-  submission_guidelines: Gallery_taSubmission_guidelinesFilter
-  contact: Gallery_taContactFilter
+  submission_section: Gallery_taSubmission_sectionFilter
 }
 
 type Gallery_taConnectionEdges {
@@ -5038,12 +4941,1516 @@ type Gallery_taConnection implements Connection {
   edges: [Gallery_taConnectionEdges]
 }
 
+type Gallery_siHero {
+  title: String!
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+type Gallery_siCategories {
+  id: String!
+  name: String!
+  name_tamil: String
+  count: Float!
+  description: String
+  description_tamil: String
+}
+
+type Gallery_siFeatured_albumsImages {
+  url: String!
+  title: String
+  title_tamil: String
+  caption: String
+  caption_tamil: String
+}
+
+type Gallery_siFeatured_albums {
+  id: String!
+  title: String!
+  title_tamil: String
+  date: String!
+  date_tamil: String
+  location: String
+  location_tamil: String
+  description: String
+  description_tamil: String
+  cover_image: String!
+  images: [Gallery_siFeatured_albumsImages]
+  photographer: String
+  photographer_tamil: String
+}
+
+type Gallery_siRecent_highlights {
+  id: String!
+  title: String!
+  title_tamil: String
+  description: String
+  description_tamil: String
+  thumbnail: String!
+  date: String!
+  date_tamil: String
+  album_link: String
+}
+
+type Gallery_siSubmission_section {
+  title: String!
+  title_tamil: String
+  description: String
+  description_tamil: String
+  contact_email: String!
+  guidelines: [String]
+}
+
+type Gallery_si implements Node & Document {
+  hero: Gallery_siHero
+  categories: [Gallery_siCategories]
+  featured_albums: [Gallery_siFeatured_albums]
+  recent_highlights: [Gallery_siRecent_highlights]
+  submission_section: Gallery_siSubmission_section
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Gallery_siHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  subtitle: StringFilter
+  subtitle_tamil: StringFilter
+  description: StringFilter
+}
+
+input Gallery_siCategoriesFilter {
+  id: StringFilter
+  name: StringFilter
+  name_tamil: StringFilter
+  count: NumberFilter
+  description: StringFilter
+  description_tamil: StringFilter
+}
+
+input Gallery_siFeatured_albumsImagesFilter {
+  url: ImageFilter
+  title: StringFilter
+  title_tamil: StringFilter
+  caption: StringFilter
+  caption_tamil: StringFilter
+}
+
+input Gallery_siFeatured_albumsFilter {
+  id: StringFilter
+  title: StringFilter
+  title_tamil: StringFilter
+  date: StringFilter
+  date_tamil: StringFilter
+  location: StringFilter
+  location_tamil: StringFilter
+  description: StringFilter
+  description_tamil: StringFilter
+  cover_image: ImageFilter
+  images: Gallery_siFeatured_albumsImagesFilter
+  photographer: StringFilter
+  photographer_tamil: StringFilter
+}
+
+input Gallery_siRecent_highlightsFilter {
+  id: StringFilter
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+  description_tamil: StringFilter
+  thumbnail: ImageFilter
+  date: StringFilter
+  date_tamil: StringFilter
+  album_link: StringFilter
+}
+
+input Gallery_siSubmission_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  description: StringFilter
+  description_tamil: StringFilter
+  contact_email: StringFilter
+  guidelines: StringFilter
+}
+
+input Gallery_siFilter {
+  hero: Gallery_siHeroFilter
+  categories: Gallery_siCategoriesFilter
+  featured_albums: Gallery_siFeatured_albumsFilter
+  recent_highlights: Gallery_siRecent_highlightsFilter
+  submission_section: Gallery_siSubmission_sectionFilter
+}
+
+type Gallery_siConnectionEdges {
+  cursor: String!
+  node: Gallery_si
+}
+
+type Gallery_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Gallery_siConnectionEdges]
+}
+
+type Contact_enHero {
+  title: String!
+  description: String
+}
+
+type Contact_enContact_methodsMethods {
+  title: String!
+  description: String
+  contact_info: String
+  hours: String
+  color: String
+}
+
+type Contact_enContact_methods {
+  title: String!
+  description: String
+  methods: [Contact_enContact_methodsMethods]
+}
+
+type Contact_enContact_form {
+  title: String!
+  description: String
+}
+
+type Contact_enEmergency_contact {
+  title: String!
+  description: String
+  label: String
+  phone: String
+  availability: String
+}
+
+type Contact_enOffice_infoHoursSchedule {
+  day: String!
+  time: String!
+}
+
+type Contact_enOffice_infoHours {
+  title: String!
+  schedule: [Contact_enOffice_infoHoursSchedule]
+  note: String
+}
+
+type Contact_enOffice_infoLocationAddress {
+  label: String
+  lines: [String]
+}
+
+type Contact_enOffice_infoLocationParking {
+  title: String
+  description: String
+}
+
+type Contact_enOffice_infoLocationTransport {
+  title: String
+  description: String
+}
+
+type Contact_enOffice_infoLocation {
+  title: String!
+  address: Contact_enOffice_infoLocationAddress
+  parking: Contact_enOffice_infoLocationParking
+  transport: Contact_enOffice_infoLocationTransport
+  security_notice: String
+}
+
+type Contact_enOffice_info {
+  hours: Contact_enOffice_infoHours
+  location: Contact_enOffice_infoLocation
+}
+
+type Contact_enFaq_link {
+  title: String!
+  description: String
+  button_text: String
+  link: String
+}
+
+type Contact_en implements Node & Document {
+  hero: Contact_enHero
+  contact_methods: Contact_enContact_methods
+  contact_form: Contact_enContact_form
+  emergency_contact: Contact_enEmergency_contact
+  office_info: Contact_enOffice_info
+  faq_link: Contact_enFaq_link
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Contact_enHeroFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_enContact_methodsMethodsFilter {
+  title: StringFilter
+  description: StringFilter
+  contact_info: StringFilter
+  hours: StringFilter
+  color: StringFilter
+}
+
+input Contact_enContact_methodsFilter {
+  title: StringFilter
+  description: StringFilter
+  methods: Contact_enContact_methodsMethodsFilter
+}
+
+input Contact_enContact_formFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_enEmergency_contactFilter {
+  title: StringFilter
+  description: StringFilter
+  label: StringFilter
+  phone: StringFilter
+  availability: StringFilter
+}
+
+input Contact_enOffice_infoHoursScheduleFilter {
+  day: StringFilter
+  time: StringFilter
+}
+
+input Contact_enOffice_infoHoursFilter {
+  title: StringFilter
+  schedule: Contact_enOffice_infoHoursScheduleFilter
+  note: StringFilter
+}
+
+input Contact_enOffice_infoLocationAddressFilter {
+  label: StringFilter
+  lines: StringFilter
+}
+
+input Contact_enOffice_infoLocationParkingFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_enOffice_infoLocationTransportFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_enOffice_infoLocationFilter {
+  title: StringFilter
+  address: Contact_enOffice_infoLocationAddressFilter
+  parking: Contact_enOffice_infoLocationParkingFilter
+  transport: Contact_enOffice_infoLocationTransportFilter
+  security_notice: StringFilter
+}
+
+input Contact_enOffice_infoFilter {
+  hours: Contact_enOffice_infoHoursFilter
+  location: Contact_enOffice_infoLocationFilter
+}
+
+input Contact_enFaq_linkFilter {
+  title: StringFilter
+  description: StringFilter
+  button_text: StringFilter
+  link: StringFilter
+}
+
+input Contact_enFilter {
+  hero: Contact_enHeroFilter
+  contact_methods: Contact_enContact_methodsFilter
+  contact_form: Contact_enContact_formFilter
+  emergency_contact: Contact_enEmergency_contactFilter
+  office_info: Contact_enOffice_infoFilter
+  faq_link: Contact_enFaq_linkFilter
+}
+
+type Contact_enConnectionEdges {
+  cursor: String!
+  node: Contact_en
+}
+
+type Contact_enConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Contact_enConnectionEdges]
+}
+
+type Contact_siHero {
+  title: String!
+  description: String
+}
+
+type Contact_siContact_methodsMethods {
+  title: String!
+  description: String
+  contact_info: String
+  hours: String
+  color: String
+}
+
+type Contact_siContact_methods {
+  title: String!
+  description: String
+  methods: [Contact_siContact_methodsMethods]
+}
+
+type Contact_siContact_form {
+  title: String!
+  description: String
+}
+
+type Contact_siEmergency_contact {
+  title: String!
+  description: String
+  label: String
+  phone: String
+  availability: String
+}
+
+type Contact_siOffice_infoHoursSchedule {
+  day: String!
+  time: String!
+}
+
+type Contact_siOffice_infoHours {
+  title: String!
+  schedule: [Contact_siOffice_infoHoursSchedule]
+  note: String
+}
+
+type Contact_siOffice_infoLocationAddress {
+  label: String
+  lines: [String]
+}
+
+type Contact_siOffice_infoLocationParking {
+  title: String
+  description: String
+}
+
+type Contact_siOffice_infoLocationTransport {
+  title: String
+  description: String
+}
+
+type Contact_siOffice_infoLocation {
+  title: String!
+  address: Contact_siOffice_infoLocationAddress
+  parking: Contact_siOffice_infoLocationParking
+  transport: Contact_siOffice_infoLocationTransport
+  security_notice: String
+}
+
+type Contact_siOffice_info {
+  hours: Contact_siOffice_infoHours
+  location: Contact_siOffice_infoLocation
+}
+
+type Contact_siFaq_link {
+  title: String!
+  description: String
+  button_text: String
+  link: String
+}
+
+type Contact_si implements Node & Document {
+  hero: Contact_siHero
+  contact_methods: Contact_siContact_methods
+  contact_form: Contact_siContact_form
+  emergency_contact: Contact_siEmergency_contact
+  office_info: Contact_siOffice_info
+  faq_link: Contact_siFaq_link
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Contact_siHeroFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_siContact_methodsMethodsFilter {
+  title: StringFilter
+  description: StringFilter
+  contact_info: StringFilter
+  hours: StringFilter
+  color: StringFilter
+}
+
+input Contact_siContact_methodsFilter {
+  title: StringFilter
+  description: StringFilter
+  methods: Contact_siContact_methodsMethodsFilter
+}
+
+input Contact_siContact_formFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_siEmergency_contactFilter {
+  title: StringFilter
+  description: StringFilter
+  label: StringFilter
+  phone: StringFilter
+  availability: StringFilter
+}
+
+input Contact_siOffice_infoHoursScheduleFilter {
+  day: StringFilter
+  time: StringFilter
+}
+
+input Contact_siOffice_infoHoursFilter {
+  title: StringFilter
+  schedule: Contact_siOffice_infoHoursScheduleFilter
+  note: StringFilter
+}
+
+input Contact_siOffice_infoLocationAddressFilter {
+  label: StringFilter
+  lines: StringFilter
+}
+
+input Contact_siOffice_infoLocationParkingFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_siOffice_infoLocationTransportFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_siOffice_infoLocationFilter {
+  title: StringFilter
+  address: Contact_siOffice_infoLocationAddressFilter
+  parking: Contact_siOffice_infoLocationParkingFilter
+  transport: Contact_siOffice_infoLocationTransportFilter
+  security_notice: StringFilter
+}
+
+input Contact_siOffice_infoFilter {
+  hours: Contact_siOffice_infoHoursFilter
+  location: Contact_siOffice_infoLocationFilter
+}
+
+input Contact_siFaq_linkFilter {
+  title: StringFilter
+  description: StringFilter
+  button_text: StringFilter
+  link: StringFilter
+}
+
+input Contact_siFilter {
+  hero: Contact_siHeroFilter
+  contact_methods: Contact_siContact_methodsFilter
+  contact_form: Contact_siContact_formFilter
+  emergency_contact: Contact_siEmergency_contactFilter
+  office_info: Contact_siOffice_infoFilter
+  faq_link: Contact_siFaq_linkFilter
+}
+
+type Contact_siConnectionEdges {
+  cursor: String!
+  node: Contact_si
+}
+
+type Contact_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Contact_siConnectionEdges]
+}
+
+type Contact_taHero {
+  title: String!
+  description: String
+}
+
+type Contact_taContact_methodsMethods {
+  title: String!
+  description: String
+  contact_info: String
+  hours: String
+  color: String
+}
+
+type Contact_taContact_methods {
+  title: String!
+  description: String
+  methods: [Contact_taContact_methodsMethods]
+}
+
+type Contact_taContact_form {
+  title: String!
+  description: String
+}
+
+type Contact_taEmergency_contact {
+  title: String!
+  description: String
+  label: String
+  phone: String
+  availability: String
+}
+
+type Contact_taOffice_infoHoursSchedule {
+  day: String!
+  time: String!
+}
+
+type Contact_taOffice_infoHours {
+  title: String!
+  schedule: [Contact_taOffice_infoHoursSchedule]
+  note: String
+}
+
+type Contact_taOffice_infoLocationAddress {
+  label: String
+  lines: [String]
+}
+
+type Contact_taOffice_infoLocationParking {
+  title: String
+  description: String
+}
+
+type Contact_taOffice_infoLocationTransport {
+  title: String
+  description: String
+}
+
+type Contact_taOffice_infoLocation {
+  title: String!
+  address: Contact_taOffice_infoLocationAddress
+  parking: Contact_taOffice_infoLocationParking
+  transport: Contact_taOffice_infoLocationTransport
+  security_notice: String
+}
+
+type Contact_taOffice_info {
+  hours: Contact_taOffice_infoHours
+  location: Contact_taOffice_infoLocation
+}
+
+type Contact_taFaq_link {
+  title: String!
+  description: String
+  button_text: String
+  link: String
+}
+
+type Contact_ta implements Node & Document {
+  hero: Contact_taHero
+  contact_methods: Contact_taContact_methods
+  contact_form: Contact_taContact_form
+  emergency_contact: Contact_taEmergency_contact
+  office_info: Contact_taOffice_info
+  faq_link: Contact_taFaq_link
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Contact_taHeroFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_taContact_methodsMethodsFilter {
+  title: StringFilter
+  description: StringFilter
+  contact_info: StringFilter
+  hours: StringFilter
+  color: StringFilter
+}
+
+input Contact_taContact_methodsFilter {
+  title: StringFilter
+  description: StringFilter
+  methods: Contact_taContact_methodsMethodsFilter
+}
+
+input Contact_taContact_formFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_taEmergency_contactFilter {
+  title: StringFilter
+  description: StringFilter
+  label: StringFilter
+  phone: StringFilter
+  availability: StringFilter
+}
+
+input Contact_taOffice_infoHoursScheduleFilter {
+  day: StringFilter
+  time: StringFilter
+}
+
+input Contact_taOffice_infoHoursFilter {
+  title: StringFilter
+  schedule: Contact_taOffice_infoHoursScheduleFilter
+  note: StringFilter
+}
+
+input Contact_taOffice_infoLocationAddressFilter {
+  label: StringFilter
+  lines: StringFilter
+}
+
+input Contact_taOffice_infoLocationParkingFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_taOffice_infoLocationTransportFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input Contact_taOffice_infoLocationFilter {
+  title: StringFilter
+  address: Contact_taOffice_infoLocationAddressFilter
+  parking: Contact_taOffice_infoLocationParkingFilter
+  transport: Contact_taOffice_infoLocationTransportFilter
+  security_notice: StringFilter
+}
+
+input Contact_taOffice_infoFilter {
+  hours: Contact_taOffice_infoHoursFilter
+  location: Contact_taOffice_infoLocationFilter
+}
+
+input Contact_taFaq_linkFilter {
+  title: StringFilter
+  description: StringFilter
+  button_text: StringFilter
+  link: StringFilter
+}
+
+input Contact_taFilter {
+  hero: Contact_taHeroFilter
+  contact_methods: Contact_taContact_methodsFilter
+  contact_form: Contact_taContact_formFilter
+  emergency_contact: Contact_taEmergency_contactFilter
+  office_info: Contact_taOffice_infoFilter
+  faq_link: Contact_taFaq_linkFilter
+}
+
+type Contact_taConnectionEdges {
+  cursor: String!
+  node: Contact_ta
+}
+
+type Contact_taConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Contact_taConnectionEdges]
+}
+
+type Pages_enHero {
+  title: String
+  subtitle: String
+  description: String
+  background_image: String
+}
+
+type Pages_enContent_sectionsText_section {
+  title: String
+  content: JSON!
+  background: String
+}
+
+type Pages_enContent_sectionsImage_section {
+  image: String!
+  caption: String
+  alt_text: String!
+}
+
+type Pages_enContent_sectionsCards_sectionCards {
+  title: String!
+  description: String
+  image: String
+  link: String
+}
+
+type Pages_enContent_sectionsCards_section {
+  section_title: String
+  cards: [Pages_enContent_sectionsCards_sectionCards]
+}
+
+type Pages_enContent_sectionsCta_section {
+  title: String
+  description: String
+  button_text: String!
+  button_link: String!
+  background_color: String
+}
+
+type Pages_enContent_sectionsStatistics_sectionStats {
+  number: String!
+  label: String!
+}
+
+type Pages_enContent_sectionsStatistics_section {
+  section_title: String
+  stats: [Pages_enContent_sectionsStatistics_sectionStats]
+}
+
+union Pages_enContent_sections = Pages_enContent_sectionsText_section | Pages_enContent_sectionsImage_section | Pages_enContent_sectionsCards_section | Pages_enContent_sectionsCta_section | Pages_enContent_sectionsStatistics_section
+
+type Pages_en implements Node & Document {
+  title: String!
+  slug: String!
+  description: String
+  hero: Pages_enHero
+  content_sections: [Pages_enContent_sections]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Pages_enHeroFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  description: StringFilter
+  background_image: ImageFilter
+}
+
+input RichTextFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+}
+
+input Pages_enContent_sectionsText_sectionFilter {
+  title: StringFilter
+  content: RichTextFilter
+  background: StringFilter
+}
+
+input Pages_enContent_sectionsImage_sectionFilter {
+  image: ImageFilter
+  caption: StringFilter
+  alt_text: StringFilter
+}
+
+input Pages_enContent_sectionsCards_sectionCardsFilter {
+  title: StringFilter
+  description: StringFilter
+  image: ImageFilter
+  link: StringFilter
+}
+
+input Pages_enContent_sectionsCards_sectionFilter {
+  section_title: StringFilter
+  cards: Pages_enContent_sectionsCards_sectionCardsFilter
+}
+
+input Pages_enContent_sectionsCta_sectionFilter {
+  title: StringFilter
+  description: StringFilter
+  button_text: StringFilter
+  button_link: StringFilter
+  background_color: StringFilter
+}
+
+input Pages_enContent_sectionsStatistics_sectionStatsFilter {
+  number: StringFilter
+  label: StringFilter
+}
+
+input Pages_enContent_sectionsStatistics_sectionFilter {
+  section_title: StringFilter
+  stats: Pages_enContent_sectionsStatistics_sectionStatsFilter
+}
+
+input Pages_enContent_sectionsFilter {
+  text_section: Pages_enContent_sectionsText_sectionFilter
+  image_section: Pages_enContent_sectionsImage_sectionFilter
+  cards_section: Pages_enContent_sectionsCards_sectionFilter
+  cta_section: Pages_enContent_sectionsCta_sectionFilter
+  statistics_section: Pages_enContent_sectionsStatistics_sectionFilter
+}
+
+input Pages_enFilter {
+  title: StringFilter
+  slug: StringFilter
+  description: StringFilter
+  hero: Pages_enHeroFilter
+  content_sections: Pages_enContent_sectionsFilter
+}
+
+type Pages_enConnectionEdges {
+  cursor: String!
+  node: Pages_en
+}
+
+type Pages_enConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Pages_enConnectionEdges]
+}
+
+type Pages_taHero {
+  title: String
+  subtitle: String
+  description: String
+  background_image: String
+}
+
+type Pages_taContent_sectionsText_section {
+  title: String
+  content: JSON!
+  background: String
+}
+
+type Pages_taContent_sectionsImage_section {
+  image: String!
+  caption: String
+  alt_text: String!
+}
+
+type Pages_taContent_sectionsCards_sectionCards {
+  title: String!
+  description: String
+  image: String
+  link: String
+}
+
+type Pages_taContent_sectionsCards_section {
+  section_title: String
+  cards: [Pages_taContent_sectionsCards_sectionCards]
+}
+
+type Pages_taContent_sectionsCta_section {
+  title: String
+  description: String
+  button_text: String!
+  button_link: String!
+  background_color: String
+}
+
+type Pages_taContent_sectionsStatistics_sectionStats {
+  number: String!
+  label: String!
+}
+
+type Pages_taContent_sectionsStatistics_section {
+  section_title: String
+  stats: [Pages_taContent_sectionsStatistics_sectionStats]
+}
+
+union Pages_taContent_sections = Pages_taContent_sectionsText_section | Pages_taContent_sectionsImage_section | Pages_taContent_sectionsCards_section | Pages_taContent_sectionsCta_section | Pages_taContent_sectionsStatistics_section
+
+type Pages_ta implements Node & Document {
+  title: String!
+  slug: String!
+  description: String
+  hero: Pages_taHero
+  content_sections: [Pages_taContent_sections]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Pages_taHeroFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  description: StringFilter
+  background_image: ImageFilter
+}
+
+input Pages_taContent_sectionsText_sectionFilter {
+  title: StringFilter
+  content: RichTextFilter
+  background: StringFilter
+}
+
+input Pages_taContent_sectionsImage_sectionFilter {
+  image: ImageFilter
+  caption: StringFilter
+  alt_text: StringFilter
+}
+
+input Pages_taContent_sectionsCards_sectionCardsFilter {
+  title: StringFilter
+  description: StringFilter
+  image: ImageFilter
+  link: StringFilter
+}
+
+input Pages_taContent_sectionsCards_sectionFilter {
+  section_title: StringFilter
+  cards: Pages_taContent_sectionsCards_sectionCardsFilter
+}
+
+input Pages_taContent_sectionsCta_sectionFilter {
+  title: StringFilter
+  description: StringFilter
+  button_text: StringFilter
+  button_link: StringFilter
+  background_color: StringFilter
+}
+
+input Pages_taContent_sectionsStatistics_sectionStatsFilter {
+  number: StringFilter
+  label: StringFilter
+}
+
+input Pages_taContent_sectionsStatistics_sectionFilter {
+  section_title: StringFilter
+  stats: Pages_taContent_sectionsStatistics_sectionStatsFilter
+}
+
+input Pages_taContent_sectionsFilter {
+  text_section: Pages_taContent_sectionsText_sectionFilter
+  image_section: Pages_taContent_sectionsImage_sectionFilter
+  cards_section: Pages_taContent_sectionsCards_sectionFilter
+  cta_section: Pages_taContent_sectionsCta_sectionFilter
+  statistics_section: Pages_taContent_sectionsStatistics_sectionFilter
+}
+
+input Pages_taFilter {
+  title: StringFilter
+  slug: StringFilter
+  description: StringFilter
+  hero: Pages_taHeroFilter
+  content_sections: Pages_taContent_sectionsFilter
+}
+
+type Pages_taConnectionEdges {
+  cursor: String!
+  node: Pages_ta
+}
+
+type Pages_taConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Pages_taConnectionEdges]
+}
+
+type Pages_siHero {
+  title: String
+  subtitle: String
+  description: String
+  background_image: String
+}
+
+type Pages_siContent_sectionsText_section {
+  title: String
+  content: JSON!
+  background: String
+}
+
+type Pages_siContent_sectionsImage_section {
+  image: String!
+  caption: String
+  alt_text: String!
+}
+
+type Pages_siContent_sectionsCards_sectionCards {
+  title: String!
+  description: String
+  image: String
+  link: String
+}
+
+type Pages_siContent_sectionsCards_section {
+  section_title: String
+  cards: [Pages_siContent_sectionsCards_sectionCards]
+}
+
+type Pages_siContent_sectionsCta_section {
+  title: String
+  description: String
+  button_text: String!
+  button_link: String!
+  background_color: String
+}
+
+type Pages_siContent_sectionsStatistics_sectionStats {
+  number: String!
+  label: String!
+}
+
+type Pages_siContent_sectionsStatistics_section {
+  section_title: String
+  stats: [Pages_siContent_sectionsStatistics_sectionStats]
+}
+
+union Pages_siContent_sections = Pages_siContent_sectionsText_section | Pages_siContent_sectionsImage_section | Pages_siContent_sectionsCards_section | Pages_siContent_sectionsCta_section | Pages_siContent_sectionsStatistics_section
+
+type Pages_si implements Node & Document {
+  title: String!
+  slug: String!
+  description: String
+  hero: Pages_siHero
+  content_sections: [Pages_siContent_sections]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Pages_siHeroFilter {
+  title: StringFilter
+  subtitle: StringFilter
+  description: StringFilter
+  background_image: ImageFilter
+}
+
+input Pages_siContent_sectionsText_sectionFilter {
+  title: StringFilter
+  content: RichTextFilter
+  background: StringFilter
+}
+
+input Pages_siContent_sectionsImage_sectionFilter {
+  image: ImageFilter
+  caption: StringFilter
+  alt_text: StringFilter
+}
+
+input Pages_siContent_sectionsCards_sectionCardsFilter {
+  title: StringFilter
+  description: StringFilter
+  image: ImageFilter
+  link: StringFilter
+}
+
+input Pages_siContent_sectionsCards_sectionFilter {
+  section_title: StringFilter
+  cards: Pages_siContent_sectionsCards_sectionCardsFilter
+}
+
+input Pages_siContent_sectionsCta_sectionFilter {
+  title: StringFilter
+  description: StringFilter
+  button_text: StringFilter
+  button_link: StringFilter
+  background_color: StringFilter
+}
+
+input Pages_siContent_sectionsStatistics_sectionStatsFilter {
+  number: StringFilter
+  label: StringFilter
+}
+
+input Pages_siContent_sectionsStatistics_sectionFilter {
+  section_title: StringFilter
+  stats: Pages_siContent_sectionsStatistics_sectionStatsFilter
+}
+
+input Pages_siContent_sectionsFilter {
+  text_section: Pages_siContent_sectionsText_sectionFilter
+  image_section: Pages_siContent_sectionsImage_sectionFilter
+  cards_section: Pages_siContent_sectionsCards_sectionFilter
+  cta_section: Pages_siContent_sectionsCta_sectionFilter
+  statistics_section: Pages_siContent_sectionsStatistics_sectionFilter
+}
+
+input Pages_siFilter {
+  title: StringFilter
+  slug: StringFilter
+  description: StringFilter
+  hero: Pages_siHeroFilter
+  content_sections: Pages_siContent_sectionsFilter
+}
+
+type Pages_siConnectionEdges {
+  cursor: String!
+  node: Pages_si
+}
+
+type Pages_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Pages_siConnectionEdges]
+}
+
+type Blog_page_enHero {
+  title: String!
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+type Blog_page_enCategories_section {
+  title: String
+  title_tamil: String
+}
+
+type Blog_page_enFeatured_section {
+  title: String
+  title_tamil: String
+}
+
+type Blog_page_enAll_posts_section {
+  title: String
+  title_tamil: String
+  posts_per_page: Float
+}
+
+type Blog_page_en implements Node & Document {
+  hero: Blog_page_enHero
+  categories_section: Blog_page_enCategories_section
+  featured_section: Blog_page_enFeatured_section
+  all_posts_section: Blog_page_enAll_posts_section
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Blog_page_enHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  subtitle: StringFilter
+  subtitle_tamil: StringFilter
+  description: StringFilter
+}
+
+input Blog_page_enCategories_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+}
+
+input Blog_page_enFeatured_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+}
+
+input Blog_page_enAll_posts_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  posts_per_page: NumberFilter
+}
+
+input Blog_page_enFilter {
+  hero: Blog_page_enHeroFilter
+  categories_section: Blog_page_enCategories_sectionFilter
+  featured_section: Blog_page_enFeatured_sectionFilter
+  all_posts_section: Blog_page_enAll_posts_sectionFilter
+}
+
+type Blog_page_enConnectionEdges {
+  cursor: String!
+  node: Blog_page_en
+}
+
+type Blog_page_enConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Blog_page_enConnectionEdges]
+}
+
+type Blog_page_siHero {
+  title: String!
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+type Blog_page_siCategories_section {
+  title: String
+  title_tamil: String
+}
+
+type Blog_page_siFeatured_section {
+  title: String
+  title_tamil: String
+}
+
+type Blog_page_siAll_posts_section {
+  title: String
+  title_tamil: String
+  posts_per_page: Float
+}
+
+type Blog_page_si implements Node & Document {
+  hero: Blog_page_siHero
+  categories_section: Blog_page_siCategories_section
+  featured_section: Blog_page_siFeatured_section
+  all_posts_section: Blog_page_siAll_posts_section
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Blog_page_siHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  subtitle: StringFilter
+  subtitle_tamil: StringFilter
+  description: StringFilter
+}
+
+input Blog_page_siCategories_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+}
+
+input Blog_page_siFeatured_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+}
+
+input Blog_page_siAll_posts_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  posts_per_page: NumberFilter
+}
+
+input Blog_page_siFilter {
+  hero: Blog_page_siHeroFilter
+  categories_section: Blog_page_siCategories_sectionFilter
+  featured_section: Blog_page_siFeatured_sectionFilter
+  all_posts_section: Blog_page_siAll_posts_sectionFilter
+}
+
+type Blog_page_siConnectionEdges {
+  cursor: String!
+  node: Blog_page_si
+}
+
+type Blog_page_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Blog_page_siConnectionEdges]
+}
+
+type Blog_page_taHero {
+  title: String!
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+type Blog_page_taCategories_section {
+  title: String
+  title_tamil: String
+}
+
+type Blog_page_taFeatured_section {
+  title: String
+  title_tamil: String
+}
+
+type Blog_page_taAll_posts_section {
+  title: String
+  title_tamil: String
+  posts_per_page: Float
+}
+
+type Blog_page_ta implements Node & Document {
+  hero: Blog_page_taHero
+  categories_section: Blog_page_taCategories_section
+  featured_section: Blog_page_taFeatured_section
+  all_posts_section: Blog_page_taAll_posts_section
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Blog_page_taHeroFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  subtitle: StringFilter
+  subtitle_tamil: StringFilter
+  description: StringFilter
+}
+
+input Blog_page_taCategories_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+}
+
+input Blog_page_taFeatured_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+}
+
+input Blog_page_taAll_posts_sectionFilter {
+  title: StringFilter
+  title_tamil: StringFilter
+  posts_per_page: NumberFilter
+}
+
+input Blog_page_taFilter {
+  hero: Blog_page_taHeroFilter
+  categories_section: Blog_page_taCategories_sectionFilter
+  featured_section: Blog_page_taFeatured_sectionFilter
+  all_posts_section: Blog_page_taAll_posts_sectionFilter
+}
+
+type Blog_page_taConnectionEdges {
+  cursor: String!
+  node: Blog_page_ta
+}
+
+type Blog_page_taConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Blog_page_taConnectionEdges]
+}
+
+type Blog_en implements Node & Document {
+  title: String!
+  slug: String!
+  excerpt: String!
+  content: JSON!
+  featured_image: String!
+  author: String!
+  author_role: String
+  author_image: String
+  published_date: String!
+  category: String!
+  tags: [String]
+  featured: Boolean
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Blog_enFilter {
+  title: StringFilter
+  slug: StringFilter
+  excerpt: StringFilter
+  content: RichTextFilter
+  featured_image: ImageFilter
+  author: StringFilter
+  author_role: StringFilter
+  author_image: ImageFilter
+  published_date: DatetimeFilter
+  category: StringFilter
+  tags: StringFilter
+  featured: BooleanFilter
+}
+
+type Blog_enConnectionEdges {
+  cursor: String!
+  node: Blog_en
+}
+
+type Blog_enConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Blog_enConnectionEdges]
+}
+
+type Blog_ta implements Node & Document {
+  title: String!
+  slug: String!
+  excerpt: String!
+  content: JSON!
+  featured_image: String!
+  author: String!
+  author_role: String
+  author_image: String
+  published_date: String!
+  category: String!
+  tags: [String]
+  featured: Boolean
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Blog_taFilter {
+  title: StringFilter
+  slug: StringFilter
+  excerpt: StringFilter
+  content: RichTextFilter
+  featured_image: ImageFilter
+  author: StringFilter
+  author_role: StringFilter
+  author_image: ImageFilter
+  published_date: DatetimeFilter
+  category: StringFilter
+  tags: StringFilter
+  featured: BooleanFilter
+}
+
+type Blog_taConnectionEdges {
+  cursor: String!
+  node: Blog_ta
+}
+
+type Blog_taConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Blog_taConnectionEdges]
+}
+
+type Blog_si implements Node & Document {
+  title: String!
+  slug: String!
+  excerpt: String!
+  content: JSON!
+  featured_image: String!
+  author: String!
+  author_role: String
+  author_image: String
+  published_date: String!
+  category: String!
+  tags: [String]
+  featured: Boolean
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input Blog_siFilter {
+  title: StringFilter
+  slug: StringFilter
+  excerpt: StringFilter
+  content: RichTextFilter
+  featured_image: ImageFilter
+  author: StringFilter
+  author_role: StringFilter
+  author_image: ImageFilter
+  published_date: DatetimeFilter
+  category: StringFilter
+  tags: StringFilter
+  featured: BooleanFilter
+}
+
+type Blog_siConnectionEdges {
+  cursor: String!
+  node: Blog_si
+}
+
+type Blog_siConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [Blog_siConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   createFolder(collection: String, relativePath: String!): DocumentNode!
+  updateSite_config_en(relativePath: String!, params: Site_config_enMutation!): Site_config_en!
+  createSite_config_en(relativePath: String!, params: Site_config_enMutation!): Site_config_en!
+  updateSite_config_ta(relativePath: String!, params: Site_config_taMutation!): Site_config_ta!
+  createSite_config_ta(relativePath: String!, params: Site_config_taMutation!): Site_config_ta!
+  updateSite_config_si(relativePath: String!, params: Site_config_siMutation!): Site_config_si!
+  createSite_config_si(relativePath: String!, params: Site_config_siMutation!): Site_config_si!
   updateHome_en(relativePath: String!, params: Home_enMutation!): Home_en!
   createHome_en(relativePath: String!, params: Home_enMutation!): Home_en!
   updateHome_si(relativePath: String!, params: Home_siMutation!): Home_si!
@@ -5070,10 +6477,10 @@ type Mutation {
   createMembership_ta(relativePath: String!, params: Membership_taMutation!): Membership_ta!
   updatePublications_en(relativePath: String!, params: Publications_enMutation!): Publications_en!
   createPublications_en(relativePath: String!, params: Publications_enMutation!): Publications_en!
-  updatePublications_si(relativePath: String!, params: Publications_siMutation!): Publications_si!
-  createPublications_si(relativePath: String!, params: Publications_siMutation!): Publications_si!
   updatePublications_ta(relativePath: String!, params: Publications_taMutation!): Publications_ta!
   createPublications_ta(relativePath: String!, params: Publications_taMutation!): Publications_ta!
+  updatePublications_si(relativePath: String!, params: Publications_siMutation!): Publications_si!
+  createPublications_si(relativePath: String!, params: Publications_siMutation!): Publications_si!
   updateEvents_en(relativePath: String!, params: Events_enMutation!): Events_en!
   createEvents_en(relativePath: String!, params: Events_enMutation!): Events_en!
   updateEvents_si(relativePath: String!, params: Events_siMutation!): Events_si!
@@ -5082,13 +6489,40 @@ type Mutation {
   createEvents_ta(relativePath: String!, params: Events_taMutation!): Events_ta!
   updateGallery_en(relativePath: String!, params: Gallery_enMutation!): Gallery_en!
   createGallery_en(relativePath: String!, params: Gallery_enMutation!): Gallery_en!
-  updateGallery_si(relativePath: String!, params: Gallery_siMutation!): Gallery_si!
-  createGallery_si(relativePath: String!, params: Gallery_siMutation!): Gallery_si!
   updateGallery_ta(relativePath: String!, params: Gallery_taMutation!): Gallery_ta!
   createGallery_ta(relativePath: String!, params: Gallery_taMutation!): Gallery_ta!
+  updateGallery_si(relativePath: String!, params: Gallery_siMutation!): Gallery_si!
+  createGallery_si(relativePath: String!, params: Gallery_siMutation!): Gallery_si!
+  updateContact_en(relativePath: String!, params: Contact_enMutation!): Contact_en!
+  createContact_en(relativePath: String!, params: Contact_enMutation!): Contact_en!
+  updateContact_si(relativePath: String!, params: Contact_siMutation!): Contact_si!
+  createContact_si(relativePath: String!, params: Contact_siMutation!): Contact_si!
+  updateContact_ta(relativePath: String!, params: Contact_taMutation!): Contact_ta!
+  createContact_ta(relativePath: String!, params: Contact_taMutation!): Contact_ta!
+  updatePages_en(relativePath: String!, params: Pages_enMutation!): Pages_en!
+  createPages_en(relativePath: String!, params: Pages_enMutation!): Pages_en!
+  updatePages_ta(relativePath: String!, params: Pages_taMutation!): Pages_ta!
+  createPages_ta(relativePath: String!, params: Pages_taMutation!): Pages_ta!
+  updatePages_si(relativePath: String!, params: Pages_siMutation!): Pages_si!
+  createPages_si(relativePath: String!, params: Pages_siMutation!): Pages_si!
+  updateBlog_page_en(relativePath: String!, params: Blog_page_enMutation!): Blog_page_en!
+  createBlog_page_en(relativePath: String!, params: Blog_page_enMutation!): Blog_page_en!
+  updateBlog_page_si(relativePath: String!, params: Blog_page_siMutation!): Blog_page_si!
+  createBlog_page_si(relativePath: String!, params: Blog_page_siMutation!): Blog_page_si!
+  updateBlog_page_ta(relativePath: String!, params: Blog_page_taMutation!): Blog_page_ta!
+  createBlog_page_ta(relativePath: String!, params: Blog_page_taMutation!): Blog_page_ta!
+  updateBlog_en(relativePath: String!, params: Blog_enMutation!): Blog_en!
+  createBlog_en(relativePath: String!, params: Blog_enMutation!): Blog_en!
+  updateBlog_ta(relativePath: String!, params: Blog_taMutation!): Blog_ta!
+  createBlog_ta(relativePath: String!, params: Blog_taMutation!): Blog_ta!
+  updateBlog_si(relativePath: String!, params: Blog_siMutation!): Blog_si!
+  createBlog_si(relativePath: String!, params: Blog_siMutation!): Blog_si!
 }
 
 input DocumentUpdateMutation {
+  site_config_en: Site_config_enMutation
+  site_config_ta: Site_config_taMutation
+  site_config_si: Site_config_siMutation
   home_en: Home_enMutation
   home_si: Home_siMutation
   home_ta: Home_taMutation
@@ -5102,18 +6536,33 @@ input DocumentUpdateMutation {
   membership_si: Membership_siMutation
   membership_ta: Membership_taMutation
   publications_en: Publications_enMutation
-  publications_si: Publications_siMutation
   publications_ta: Publications_taMutation
+  publications_si: Publications_siMutation
   events_en: Events_enMutation
   events_si: Events_siMutation
   events_ta: Events_taMutation
   gallery_en: Gallery_enMutation
-  gallery_si: Gallery_siMutation
   gallery_ta: Gallery_taMutation
+  gallery_si: Gallery_siMutation
+  contact_en: Contact_enMutation
+  contact_si: Contact_siMutation
+  contact_ta: Contact_taMutation
+  pages_en: Pages_enMutation
+  pages_ta: Pages_taMutation
+  pages_si: Pages_siMutation
+  blog_page_en: Blog_page_enMutation
+  blog_page_si: Blog_page_siMutation
+  blog_page_ta: Blog_page_taMutation
+  blog_en: Blog_enMutation
+  blog_ta: Blog_taMutation
+  blog_si: Blog_siMutation
   relativePath: String
 }
 
 input DocumentMutation {
+  site_config_en: Site_config_enMutation
+  site_config_ta: Site_config_taMutation
+  site_config_si: Site_config_siMutation
   home_en: Home_enMutation
   home_si: Home_siMutation
   home_ta: Home_taMutation
@@ -5127,14 +6576,230 @@ input DocumentMutation {
   membership_si: Membership_siMutation
   membership_ta: Membership_taMutation
   publications_en: Publications_enMutation
-  publications_si: Publications_siMutation
   publications_ta: Publications_taMutation
+  publications_si: Publications_siMutation
   events_en: Events_enMutation
   events_si: Events_siMutation
   events_ta: Events_taMutation
   gallery_en: Gallery_enMutation
-  gallery_si: Gallery_siMutation
   gallery_ta: Gallery_taMutation
+  gallery_si: Gallery_siMutation
+  contact_en: Contact_enMutation
+  contact_si: Contact_siMutation
+  contact_ta: Contact_taMutation
+  pages_en: Pages_enMutation
+  pages_ta: Pages_taMutation
+  pages_si: Pages_siMutation
+  blog_page_en: Blog_page_enMutation
+  blog_page_si: Blog_page_siMutation
+  blog_page_ta: Blog_page_taMutation
+  blog_en: Blog_enMutation
+  blog_ta: Blog_taMutation
+  blog_si: Blog_siMutation
+}
+
+input Site_config_enOrganizationMutation {
+  name: String
+  name_local: String
+  tagline: String
+  description: String
+  mission: String
+  vision: String
+  founded: String
+  registration_number: String
+}
+
+input Site_config_enContactAddressMutation {
+  street: String
+  city: String
+  state: String
+  postal_code: String
+  country: String
+}
+
+input Site_config_enContactSocial_mediaMutation {
+  facebook: String
+  twitter: String
+  instagram: String
+  youtube: String
+}
+
+input Site_config_enContactMutation {
+  email: String
+  phone: String
+  address: Site_config_enContactAddressMutation
+  social_media: Site_config_enContactSocial_mediaMutation
+}
+
+input Site_config_enNavigationPrimaryMutation {
+  name: String
+  href: String
+}
+
+input Site_config_enNavigationFooterMutation {
+  name: String
+  href: String
+}
+
+input Site_config_enNavigationMutation {
+  primary: [Site_config_enNavigationPrimaryMutation]
+  footer: [Site_config_enNavigationFooterMutation]
+}
+
+input Site_config_enFooterMutation {
+  copyright: String
+  description: String
+}
+
+input Site_config_enMetaMutation {
+  title_suffix: String
+  description: String
+  keywords: String
+  author: String
+}
+
+input Site_config_enMutation {
+  organization: Site_config_enOrganizationMutation
+  contact: Site_config_enContactMutation
+  navigation: Site_config_enNavigationMutation
+  footer: Site_config_enFooterMutation
+  meta: Site_config_enMetaMutation
+}
+
+input Site_config_taOrganizationMutation {
+  name: String
+  name_local: String
+  tagline: String
+  description: String
+  mission: String
+  vision: String
+  founded: String
+  registration_number: String
+}
+
+input Site_config_taContactAddressMutation {
+  street: String
+  city: String
+  state: String
+  postal_code: String
+  country: String
+}
+
+input Site_config_taContactSocial_mediaMutation {
+  facebook: String
+  twitter: String
+  instagram: String
+  youtube: String
+}
+
+input Site_config_taContactMutation {
+  email: String
+  phone: String
+  address: Site_config_taContactAddressMutation
+  social_media: Site_config_taContactSocial_mediaMutation
+}
+
+input Site_config_taNavigationPrimaryMutation {
+  name: String
+  href: String
+}
+
+input Site_config_taNavigationFooterMutation {
+  name: String
+  href: String
+}
+
+input Site_config_taNavigationMutation {
+  primary: [Site_config_taNavigationPrimaryMutation]
+  footer: [Site_config_taNavigationFooterMutation]
+}
+
+input Site_config_taFooterMutation {
+  copyright: String
+  description: String
+}
+
+input Site_config_taMetaMutation {
+  title_suffix: String
+  description: String
+  keywords: String
+  author: String
+}
+
+input Site_config_taMutation {
+  organization: Site_config_taOrganizationMutation
+  contact: Site_config_taContactMutation
+  navigation: Site_config_taNavigationMutation
+  footer: Site_config_taFooterMutation
+  meta: Site_config_taMetaMutation
+}
+
+input Site_config_siOrganizationMutation {
+  name: String
+  name_local: String
+  tagline: String
+  description: String
+  mission: String
+  vision: String
+  founded: String
+  registration_number: String
+}
+
+input Site_config_siContactAddressMutation {
+  street: String
+  city: String
+  state: String
+  postal_code: String
+  country: String
+}
+
+input Site_config_siContactSocial_mediaMutation {
+  facebook: String
+  twitter: String
+  instagram: String
+  youtube: String
+}
+
+input Site_config_siContactMutation {
+  email: String
+  phone: String
+  address: Site_config_siContactAddressMutation
+  social_media: Site_config_siContactSocial_mediaMutation
+}
+
+input Site_config_siNavigationPrimaryMutation {
+  name: String
+  href: String
+}
+
+input Site_config_siNavigationFooterMutation {
+  name: String
+  href: String
+}
+
+input Site_config_siNavigationMutation {
+  primary: [Site_config_siNavigationPrimaryMutation]
+  footer: [Site_config_siNavigationFooterMutation]
+}
+
+input Site_config_siFooterMutation {
+  copyright: String
+  description: String
+}
+
+input Site_config_siMetaMutation {
+  title_suffix: String
+  description: String
+  keywords: String
+  author: String
+}
+
+input Site_config_siMutation {
+  organization: Site_config_siOrganizationMutation
+  contact: Site_config_siContactMutation
+  navigation: Site_config_siNavigationMutation
+  footer: Site_config_siFooterMutation
+  meta: Site_config_siMetaMutation
 }
 
 input Home_enHeroCta_primaryMutation {
@@ -5151,6 +6816,9 @@ input Home_enHeroMutation {
   title: String
   subtitle: String
   description: String
+  background_image: String
+  hero_video_url: String
+  hero_video_title: String
   cta_primary: Home_enHeroCta_primaryMutation
   cta_secondary: Home_enHeroCta_secondaryMutation
 }
@@ -5164,6 +6832,7 @@ input Home_enFeatured_departmentsMutation {
   name: String
   description: String
   icon: String
+  image: String
   href: String
 }
 
@@ -5198,12 +6867,42 @@ input Home_enQuick_actionsMutation {
   color: String
 }
 
+input Home_enFeatured_videoMutation {
+  title: String
+  video_title: String
+  video_description: String
+  youtube_url: String
+}
+
 input Home_enNewsletterMutation {
   title: String
   description: String
   placeholder: String
   button: String
   privacy: String
+}
+
+input Home_enRecent_articlesMutation {
+  section_title: String
+  section_description: String
+  view_all_text: String
+  view_all_href: String
+  posts_to_show: Float
+}
+
+input Home_enPhoto_highlightsPhotosMutation {
+  image: String
+  title: String
+  description: String
+  link: String
+}
+
+input Home_enPhoto_highlightsMutation {
+  section_title: String
+  section_description: String
+  photos: [Home_enPhoto_highlightsPhotosMutation]
+  view_gallery_text: String
+  view_gallery_href: String
 }
 
 input Home_enMutation {
@@ -5214,7 +6913,10 @@ input Home_enMutation {
   announcements: [Home_enAnnouncementsMutation]
   statistics: [Home_enStatisticsMutation]
   quick_actions: [Home_enQuick_actionsMutation]
+  featured_video: Home_enFeatured_videoMutation
   newsletter: Home_enNewsletterMutation
+  recent_articles: Home_enRecent_articlesMutation
+  photo_highlights: Home_enPhoto_highlightsMutation
 }
 
 input Home_siHeroCta_primaryMutation {
@@ -5231,6 +6933,9 @@ input Home_siHeroMutation {
   title: String
   subtitle: String
   description: String
+  background_image: String
+  hero_video_url: String
+  hero_video_title: String
   cta_primary: Home_siHeroCta_primaryMutation
   cta_secondary: Home_siHeroCta_secondaryMutation
 }
@@ -5244,6 +6949,7 @@ input Home_siFeatured_departmentsMutation {
   name: String
   description: String
   icon: String
+  image: String
   href: String
 }
 
@@ -5278,12 +6984,42 @@ input Home_siQuick_actionsMutation {
   color: String
 }
 
+input Home_siFeatured_videoMutation {
+  title: String
+  video_title: String
+  video_description: String
+  youtube_url: String
+}
+
 input Home_siNewsletterMutation {
   title: String
   description: String
   placeholder: String
   button: String
   privacy: String
+}
+
+input Home_siRecent_articlesMutation {
+  section_title: String
+  section_description: String
+  view_all_text: String
+  view_all_href: String
+  posts_to_show: Float
+}
+
+input Home_siPhoto_highlightsPhotosMutation {
+  image: String
+  title: String
+  description: String
+  link: String
+}
+
+input Home_siPhoto_highlightsMutation {
+  section_title: String
+  section_description: String
+  photos: [Home_siPhoto_highlightsPhotosMutation]
+  view_gallery_text: String
+  view_gallery_href: String
 }
 
 input Home_siMutation {
@@ -5294,7 +7030,10 @@ input Home_siMutation {
   announcements: [Home_siAnnouncementsMutation]
   statistics: [Home_siStatisticsMutation]
   quick_actions: [Home_siQuick_actionsMutation]
+  featured_video: Home_siFeatured_videoMutation
   newsletter: Home_siNewsletterMutation
+  recent_articles: Home_siRecent_articlesMutation
+  photo_highlights: Home_siPhoto_highlightsMutation
 }
 
 input Home_taHeroCta_primaryMutation {
@@ -5311,6 +7050,9 @@ input Home_taHeroMutation {
   title: String
   subtitle: String
   description: String
+  background_image: String
+  hero_video_url: String
+  hero_video_title: String
   cta_primary: Home_taHeroCta_primaryMutation
   cta_secondary: Home_taHeroCta_secondaryMutation
 }
@@ -5324,6 +7066,7 @@ input Home_taFeatured_departmentsMutation {
   name: String
   description: String
   icon: String
+  image: String
   href: String
 }
 
@@ -5358,12 +7101,42 @@ input Home_taQuick_actionsMutation {
   color: String
 }
 
+input Home_taFeatured_videoMutation {
+  title: String
+  video_title: String
+  video_description: String
+  youtube_url: String
+}
+
 input Home_taNewsletterMutation {
   title: String
   description: String
   placeholder: String
   button: String
   privacy: String
+}
+
+input Home_taRecent_articlesMutation {
+  section_title: String
+  section_description: String
+  view_all_text: String
+  view_all_href: String
+  posts_to_show: Float
+}
+
+input Home_taPhoto_highlightsPhotosMutation {
+  image: String
+  title: String
+  description: String
+  link: String
+}
+
+input Home_taPhoto_highlightsMutation {
+  section_title: String
+  section_description: String
+  photos: [Home_taPhoto_highlightsPhotosMutation]
+  view_gallery_text: String
+  view_gallery_href: String
 }
 
 input Home_taMutation {
@@ -5374,7 +7147,10 @@ input Home_taMutation {
   announcements: [Home_taAnnouncementsMutation]
   statistics: [Home_taStatisticsMutation]
   quick_actions: [Home_taQuick_actionsMutation]
+  featured_video: Home_taFeatured_videoMutation
   newsletter: Home_taNewsletterMutation
+  recent_articles: Home_taRecent_articlesMutation
+  photo_highlights: Home_taPhoto_highlightsMutation
 }
 
 input About_enHeroMutation {
@@ -6286,7 +8062,7 @@ input Publications_enCategoriesMutation {
   icon: String
 }
 
-input Publications_enFeatured_publicationsMutation {
+input Publications_enFeatured_resourcesMutation {
   id: String
   title: String
   title_tamil: String
@@ -6299,259 +8075,36 @@ input Publications_enFeatured_publicationsMutation {
   isbn: String
   description: String
   description_tamil: String
-  cover_color: String
-  available: Boolean
-  price: String
-  format: [String]
-  release_date: String
+  cover_image: String
+  file_url: String
+  file_type: String
+  file_size_mb: Float
+  language: String
+  tags: [String]
 }
 
-input Publications_enMagazinesMutation {
-  id: String
-  name: String
-  name_tamil: String
-  subtitle: String
-  subtitle_tamil: String
-  frequency: String
-  frequency_tamil: String
-  description: String
-  description_tamil: String
-  subscription_price: String
-  editor: String
-  editor_tamil: String
-}
-
-input Publications_enDigital_resourcesItemsMutation {
-  name: String
-  name_tamil: String
-  description: String
-  access: String
-}
-
-input Publications_enDigital_resourcesMutation {
+input Publications_enAbout_sectionMutation {
   title: String
   title_tamil: String
   description: String
   description_tamil: String
-  items: [Publications_enDigital_resourcesItemsMutation]
 }
 
-input Publications_enResearch_publicationsRecent_papersMutation {
-  title: String
-  title_tamil: String
-  author: String
-  journal: String
-  year: String
-  pages: String
-}
-
-input Publications_enResearch_publicationsMutation {
+input Publications_enSubmission_sectionMutation {
   title: String
   title_tamil: String
   description: String
   description_tamil: String
-  recent_papers: [Publications_enResearch_publicationsRecent_papersMutation]
-}
-
-input Publications_enSubmission_guidelinesRequirementsMutation {
-  category: String
-  category_tamil: String
-  items: [String]
-}
-
-input Publications_enSubmission_guidelinesMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  requirements: [Publications_enSubmission_guidelinesRequirementsMutation]
-}
-
-input Publications_enContactEditorial_officeMutation {
-  title: String
-  title_tamil: String
-  email: String
-  phone: String
-  editor_in_chief: String
-  editor_in_chief_tamil: String
-}
-
-input Publications_enContactDistributionMutation {
-  title: String
-  title_tamil: String
-  email: String
-  phone: String
-}
-
-input Publications_enContactSubmissionsMutation {
-  title: String
-  title_tamil: String
-  email: String
-  guidelines_url: String
-}
-
-input Publications_enContactMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  editorial_office: Publications_enContactEditorial_officeMutation
-  distribution: Publications_enContactDistributionMutation
-  submissions: Publications_enContactSubmissionsMutation
+  contact_email: String
+  guidelines: [String]
 }
 
 input Publications_enMutation {
   hero: Publications_enHeroMutation
   categories: [Publications_enCategoriesMutation]
-  featured_publications: [Publications_enFeatured_publicationsMutation]
-  magazines: [Publications_enMagazinesMutation]
-  digital_resources: Publications_enDigital_resourcesMutation
-  research_publications: Publications_enResearch_publicationsMutation
-  submission_guidelines: Publications_enSubmission_guidelinesMutation
-  contact: Publications_enContactMutation
-}
-
-input Publications_siHeroMutation {
-  title: String
-  title_tamil: String
-  subtitle: String
-  subtitle_tamil: String
-  description: String
-}
-
-input Publications_siCategoriesMutation {
-  id: String
-  name: String
-  name_tamil: String
-  description: String
-  description_tamil: String
-  count: Float
-  icon: String
-}
-
-input Publications_siFeatured_publicationsMutation {
-  id: String
-  title: String
-  title_tamil: String
-  author: String
-  author_tamil: String
-  category: String
-  category_tamil: String
-  year: String
-  pages: Float
-  isbn: String
-  description: String
-  description_tamil: String
-  cover_color: String
-  available: Boolean
-  price: String
-  format: [String]
-  release_date: String
-}
-
-input Publications_siMagazinesMutation {
-  id: String
-  name: String
-  name_tamil: String
-  subtitle: String
-  subtitle_tamil: String
-  frequency: String
-  frequency_tamil: String
-  description: String
-  description_tamil: String
-  subscription_price: String
-  editor: String
-  editor_tamil: String
-}
-
-input Publications_siDigital_resourcesItemsMutation {
-  name: String
-  name_tamil: String
-  description: String
-  access: String
-}
-
-input Publications_siDigital_resourcesMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  items: [Publications_siDigital_resourcesItemsMutation]
-}
-
-input Publications_siResearch_publicationsRecent_papersMutation {
-  title: String
-  title_tamil: String
-  author: String
-  journal: String
-  year: String
-  pages: String
-}
-
-input Publications_siResearch_publicationsMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  recent_papers: [Publications_siResearch_publicationsRecent_papersMutation]
-}
-
-input Publications_siSubmission_guidelinesRequirementsMutation {
-  category: String
-  category_tamil: String
-  items: [String]
-}
-
-input Publications_siSubmission_guidelinesMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  requirements: [Publications_siSubmission_guidelinesRequirementsMutation]
-}
-
-input Publications_siContactEditorial_officeMutation {
-  title: String
-  title_tamil: String
-  email: String
-  phone: String
-  editor_in_chief: String
-  editor_in_chief_tamil: String
-}
-
-input Publications_siContactDistributionMutation {
-  title: String
-  title_tamil: String
-  email: String
-  phone: String
-}
-
-input Publications_siContactSubmissionsMutation {
-  title: String
-  title_tamil: String
-  email: String
-  guidelines_url: String
-}
-
-input Publications_siContactMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  editorial_office: Publications_siContactEditorial_officeMutation
-  distribution: Publications_siContactDistributionMutation
-  submissions: Publications_siContactSubmissionsMutation
-}
-
-input Publications_siMutation {
-  hero: Publications_siHeroMutation
-  categories: [Publications_siCategoriesMutation]
-  featured_publications: [Publications_siFeatured_publicationsMutation]
-  magazines: [Publications_siMagazinesMutation]
-  digital_resources: Publications_siDigital_resourcesMutation
-  research_publications: Publications_siResearch_publicationsMutation
-  submission_guidelines: Publications_siSubmission_guidelinesMutation
-  contact: Publications_siContactMutation
+  featured_resources: [Publications_enFeatured_resourcesMutation]
+  about_section: Publications_enAbout_sectionMutation
+  submission_section: Publications_enSubmission_sectionMutation
 }
 
 input Publications_taHeroMutation {
@@ -6572,7 +8125,7 @@ input Publications_taCategoriesMutation {
   icon: String
 }
 
-input Publications_taFeatured_publicationsMutation {
+input Publications_taFeatured_resourcesMutation {
   id: String
   title: String
   title_tamil: String
@@ -6585,116 +8138,99 @@ input Publications_taFeatured_publicationsMutation {
   isbn: String
   description: String
   description_tamil: String
-  cover_color: String
-  available: Boolean
-  price: String
-  format: [String]
-  release_date: String
+  cover_image: String
+  file_url: String
+  file_type: String
+  file_size_mb: Float
+  language: String
+  tags: [String]
 }
 
-input Publications_taMagazinesMutation {
-  id: String
-  name: String
-  name_tamil: String
-  subtitle: String
-  subtitle_tamil: String
-  frequency: String
-  frequency_tamil: String
-  description: String
-  description_tamil: String
-  subscription_price: String
-  editor: String
-  editor_tamil: String
-}
-
-input Publications_taDigital_resourcesItemsMutation {
-  name: String
-  name_tamil: String
-  description: String
-  access: String
-}
-
-input Publications_taDigital_resourcesMutation {
+input Publications_taAbout_sectionMutation {
   title: String
   title_tamil: String
   description: String
   description_tamil: String
-  items: [Publications_taDigital_resourcesItemsMutation]
 }
 
-input Publications_taResearch_publicationsRecent_papersMutation {
-  title: String
-  title_tamil: String
-  author: String
-  journal: String
-  year: String
-  pages: String
-}
-
-input Publications_taResearch_publicationsMutation {
+input Publications_taSubmission_sectionMutation {
   title: String
   title_tamil: String
   description: String
   description_tamil: String
-  recent_papers: [Publications_taResearch_publicationsRecent_papersMutation]
-}
-
-input Publications_taSubmission_guidelinesRequirementsMutation {
-  category: String
-  category_tamil: String
-  items: [String]
-}
-
-input Publications_taSubmission_guidelinesMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  requirements: [Publications_taSubmission_guidelinesRequirementsMutation]
-}
-
-input Publications_taContactEditorial_officeMutation {
-  title: String
-  title_tamil: String
-  email: String
-  phone: String
-  editor_in_chief: String
-  editor_in_chief_tamil: String
-}
-
-input Publications_taContactDistributionMutation {
-  title: String
-  title_tamil: String
-  email: String
-  phone: String
-}
-
-input Publications_taContactSubmissionsMutation {
-  title: String
-  title_tamil: String
-  email: String
-  guidelines_url: String
-}
-
-input Publications_taContactMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  editorial_office: Publications_taContactEditorial_officeMutation
-  distribution: Publications_taContactDistributionMutation
-  submissions: Publications_taContactSubmissionsMutation
+  contact_email: String
+  guidelines: [String]
 }
 
 input Publications_taMutation {
   hero: Publications_taHeroMutation
   categories: [Publications_taCategoriesMutation]
-  featured_publications: [Publications_taFeatured_publicationsMutation]
-  magazines: [Publications_taMagazinesMutation]
-  digital_resources: Publications_taDigital_resourcesMutation
-  research_publications: Publications_taResearch_publicationsMutation
-  submission_guidelines: Publications_taSubmission_guidelinesMutation
-  contact: Publications_taContactMutation
+  featured_resources: [Publications_taFeatured_resourcesMutation]
+  about_section: Publications_taAbout_sectionMutation
+  submission_section: Publications_taSubmission_sectionMutation
+}
+
+input Publications_siHeroMutation {
+  title: String
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+input Publications_siCategoriesMutation {
+  id: String
+  name: String
+  name_tamil: String
+  description: String
+  description_tamil: String
+  count: Float
+  icon: String
+}
+
+input Publications_siFeatured_resourcesMutation {
+  id: String
+  title: String
+  title_tamil: String
+  author: String
+  author_tamil: String
+  category: String
+  category_tamil: String
+  year: String
+  pages: Float
+  isbn: String
+  description: String
+  description_tamil: String
+  cover_image: String
+  file_url: String
+  file_type: String
+  file_size_mb: Float
+  language: String
+  tags: [String]
+}
+
+input Publications_siAbout_sectionMutation {
+  title: String
+  title_tamil: String
+  description: String
+  description_tamil: String
+}
+
+input Publications_siSubmission_sectionMutation {
+  title: String
+  title_tamil: String
+  description: String
+  description_tamil: String
+  contact_email: String
+  guidelines: [String]
+}
+
+input Publications_siMutation {
+  hero: Publications_siHeroMutation
+  categories: [Publications_siCategoriesMutation]
+  featured_resources: [Publications_siFeatured_resourcesMutation]
+  about_section: Publications_siAbout_sectionMutation
+  submission_section: Publications_siSubmission_sectionMutation
 }
 
 input Events_enHeroMutation {
@@ -7134,6 +8670,14 @@ input Gallery_enCategoriesMutation {
   description_tamil: String
 }
 
+input Gallery_enFeatured_albumsImagesMutation {
+  url: String
+  title: String
+  title_tamil: String
+  caption: String
+  caption_tamil: String
+}
+
 input Gallery_enFeatured_albumsMutation {
   id: String
   title: String
@@ -7142,12 +8686,12 @@ input Gallery_enFeatured_albumsMutation {
   date_tamil: String
   location: String
   location_tamil: String
-  image_count: Float
   description: String
   description_tamil: String
-  cover_color: String
+  cover_image: String
+  images: [Gallery_enFeatured_albumsImagesMutation]
   photographer: String
-  highlights: [String]
+  photographer_tamil: String
 }
 
 input Gallery_enRecent_highlightsMutation {
@@ -7156,55 +8700,19 @@ input Gallery_enRecent_highlightsMutation {
   title_tamil: String
   description: String
   description_tamil: String
+  thumbnail: String
   date: String
   date_tamil: String
-  image_count: Float
+  album_link: String
 }
 
-input Gallery_enPhoto_contestCategoriesMutation {
-  name: String
-  name_tamil: String
-  prize: String
-}
-
-input Gallery_enPhoto_contestMutation {
+input Gallery_enSubmission_sectionMutation {
   title: String
   title_tamil: String
   description: String
   description_tamil: String
-  categories: [Gallery_enPhoto_contestCategoriesMutation]
-  deadline: String
-  rules: [String]
-}
-
-input Gallery_enSubmission_guidelinesRequirementsMutation {
-  title: String
-  title_tamil: String
-  items: [String]
-}
-
-input Gallery_enSubmission_guidelinesMutation {
-  title: String
-  title_tamil: String
-  description: String
-  requirements: [Gallery_enSubmission_guidelinesRequirementsMutation]
-}
-
-input Gallery_enContactGallery_coordinatorMutation {
-  name: String
-  name_tamil: String
-  position: String
-  position_tamil: String
-}
-
-input Gallery_enContactMutation {
-  title: String
-  title_tamil: String
-  description: String
-  email: String
-  phone: String
-  gallery_coordinator: Gallery_enContactGallery_coordinatorMutation
-  office_hours: [String]
+  contact_email: String
+  guidelines: [String]
 }
 
 input Gallery_enMutation {
@@ -7212,109 +8720,7 @@ input Gallery_enMutation {
   categories: [Gallery_enCategoriesMutation]
   featured_albums: [Gallery_enFeatured_albumsMutation]
   recent_highlights: [Gallery_enRecent_highlightsMutation]
-  photo_contest: Gallery_enPhoto_contestMutation
-  submission_guidelines: Gallery_enSubmission_guidelinesMutation
-  contact: Gallery_enContactMutation
-}
-
-input Gallery_siHeroMutation {
-  title: String
-  title_tamil: String
-  subtitle: String
-  subtitle_tamil: String
-  description: String
-}
-
-input Gallery_siCategoriesMutation {
-  id: String
-  name: String
-  name_tamil: String
-  count: Float
-  description: String
-  description_tamil: String
-}
-
-input Gallery_siFeatured_albumsMutation {
-  id: String
-  title: String
-  title_tamil: String
-  date: String
-  date_tamil: String
-  location: String
-  location_tamil: String
-  image_count: Float
-  description: String
-  description_tamil: String
-  cover_color: String
-  photographer: String
-  highlights: [String]
-}
-
-input Gallery_siRecent_highlightsMutation {
-  id: String
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  date: String
-  date_tamil: String
-  image_count: Float
-}
-
-input Gallery_siPhoto_contestCategoriesMutation {
-  name: String
-  name_tamil: String
-  prize: String
-}
-
-input Gallery_siPhoto_contestMutation {
-  title: String
-  title_tamil: String
-  description: String
-  description_tamil: String
-  categories: [Gallery_siPhoto_contestCategoriesMutation]
-  deadline: String
-  rules: [String]
-}
-
-input Gallery_siSubmission_guidelinesRequirementsMutation {
-  title: String
-  title_tamil: String
-  items: [String]
-}
-
-input Gallery_siSubmission_guidelinesMutation {
-  title: String
-  title_tamil: String
-  description: String
-  requirements: [Gallery_siSubmission_guidelinesRequirementsMutation]
-}
-
-input Gallery_siContactGallery_coordinatorMutation {
-  name: String
-  name_tamil: String
-  position: String
-  position_tamil: String
-}
-
-input Gallery_siContactMutation {
-  title: String
-  title_tamil: String
-  description: String
-  email: String
-  phone: String
-  gallery_coordinator: Gallery_siContactGallery_coordinatorMutation
-  office_hours: [String]
-}
-
-input Gallery_siMutation {
-  hero: Gallery_siHeroMutation
-  categories: [Gallery_siCategoriesMutation]
-  featured_albums: [Gallery_siFeatured_albumsMutation]
-  recent_highlights: [Gallery_siRecent_highlightsMutation]
-  photo_contest: Gallery_siPhoto_contestMutation
-  submission_guidelines: Gallery_siSubmission_guidelinesMutation
-  contact: Gallery_siContactMutation
+  submission_section: Gallery_enSubmission_sectionMutation
 }
 
 input Gallery_taHeroMutation {
@@ -7334,6 +8740,14 @@ input Gallery_taCategoriesMutation {
   description_tamil: String
 }
 
+input Gallery_taFeatured_albumsImagesMutation {
+  url: String
+  title: String
+  title_tamil: String
+  caption: String
+  caption_tamil: String
+}
+
 input Gallery_taFeatured_albumsMutation {
   id: String
   title: String
@@ -7342,12 +8756,12 @@ input Gallery_taFeatured_albumsMutation {
   date_tamil: String
   location: String
   location_tamil: String
-  image_count: Float
   description: String
   description_tamil: String
-  cover_color: String
+  cover_image: String
+  images: [Gallery_taFeatured_albumsImagesMutation]
   photographer: String
-  highlights: [String]
+  photographer_tamil: String
 }
 
 input Gallery_taRecent_highlightsMutation {
@@ -7356,55 +8770,19 @@ input Gallery_taRecent_highlightsMutation {
   title_tamil: String
   description: String
   description_tamil: String
+  thumbnail: String
   date: String
   date_tamil: String
-  image_count: Float
+  album_link: String
 }
 
-input Gallery_taPhoto_contestCategoriesMutation {
-  name: String
-  name_tamil: String
-  prize: String
-}
-
-input Gallery_taPhoto_contestMutation {
+input Gallery_taSubmission_sectionMutation {
   title: String
   title_tamil: String
   description: String
   description_tamil: String
-  categories: [Gallery_taPhoto_contestCategoriesMutation]
-  deadline: String
-  rules: [String]
-}
-
-input Gallery_taSubmission_guidelinesRequirementsMutation {
-  title: String
-  title_tamil: String
-  items: [String]
-}
-
-input Gallery_taSubmission_guidelinesMutation {
-  title: String
-  title_tamil: String
-  description: String
-  requirements: [Gallery_taSubmission_guidelinesRequirementsMutation]
-}
-
-input Gallery_taContactGallery_coordinatorMutation {
-  name: String
-  name_tamil: String
-  position: String
-  position_tamil: String
-}
-
-input Gallery_taContactMutation {
-  title: String
-  title_tamil: String
-  description: String
-  email: String
-  phone: String
-  gallery_coordinator: Gallery_taContactGallery_coordinatorMutation
-  office_hours: [String]
+  contact_email: String
+  guidelines: [String]
 }
 
 input Gallery_taMutation {
@@ -7412,9 +8790,671 @@ input Gallery_taMutation {
   categories: [Gallery_taCategoriesMutation]
   featured_albums: [Gallery_taFeatured_albumsMutation]
   recent_highlights: [Gallery_taRecent_highlightsMutation]
-  photo_contest: Gallery_taPhoto_contestMutation
-  submission_guidelines: Gallery_taSubmission_guidelinesMutation
-  contact: Gallery_taContactMutation
+  submission_section: Gallery_taSubmission_sectionMutation
+}
+
+input Gallery_siHeroMutation {
+  title: String
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+input Gallery_siCategoriesMutation {
+  id: String
+  name: String
+  name_tamil: String
+  count: Float
+  description: String
+  description_tamil: String
+}
+
+input Gallery_siFeatured_albumsImagesMutation {
+  url: String
+  title: String
+  title_tamil: String
+  caption: String
+  caption_tamil: String
+}
+
+input Gallery_siFeatured_albumsMutation {
+  id: String
+  title: String
+  title_tamil: String
+  date: String
+  date_tamil: String
+  location: String
+  location_tamil: String
+  description: String
+  description_tamil: String
+  cover_image: String
+  images: [Gallery_siFeatured_albumsImagesMutation]
+  photographer: String
+  photographer_tamil: String
+}
+
+input Gallery_siRecent_highlightsMutation {
+  id: String
+  title: String
+  title_tamil: String
+  description: String
+  description_tamil: String
+  thumbnail: String
+  date: String
+  date_tamil: String
+  album_link: String
+}
+
+input Gallery_siSubmission_sectionMutation {
+  title: String
+  title_tamil: String
+  description: String
+  description_tamil: String
+  contact_email: String
+  guidelines: [String]
+}
+
+input Gallery_siMutation {
+  hero: Gallery_siHeroMutation
+  categories: [Gallery_siCategoriesMutation]
+  featured_albums: [Gallery_siFeatured_albumsMutation]
+  recent_highlights: [Gallery_siRecent_highlightsMutation]
+  submission_section: Gallery_siSubmission_sectionMutation
+}
+
+input Contact_enHeroMutation {
+  title: String
+  description: String
+}
+
+input Contact_enContact_methodsMethodsMutation {
+  title: String
+  description: String
+  contact_info: String
+  hours: String
+  color: String
+}
+
+input Contact_enContact_methodsMutation {
+  title: String
+  description: String
+  methods: [Contact_enContact_methodsMethodsMutation]
+}
+
+input Contact_enContact_formMutation {
+  title: String
+  description: String
+}
+
+input Contact_enEmergency_contactMutation {
+  title: String
+  description: String
+  label: String
+  phone: String
+  availability: String
+}
+
+input Contact_enOffice_infoHoursScheduleMutation {
+  day: String
+  time: String
+}
+
+input Contact_enOffice_infoHoursMutation {
+  title: String
+  schedule: [Contact_enOffice_infoHoursScheduleMutation]
+  note: String
+}
+
+input Contact_enOffice_infoLocationAddressMutation {
+  label: String
+  lines: [String]
+}
+
+input Contact_enOffice_infoLocationParkingMutation {
+  title: String
+  description: String
+}
+
+input Contact_enOffice_infoLocationTransportMutation {
+  title: String
+  description: String
+}
+
+input Contact_enOffice_infoLocationMutation {
+  title: String
+  address: Contact_enOffice_infoLocationAddressMutation
+  parking: Contact_enOffice_infoLocationParkingMutation
+  transport: Contact_enOffice_infoLocationTransportMutation
+  security_notice: String
+}
+
+input Contact_enOffice_infoMutation {
+  hours: Contact_enOffice_infoHoursMutation
+  location: Contact_enOffice_infoLocationMutation
+}
+
+input Contact_enFaq_linkMutation {
+  title: String
+  description: String
+  button_text: String
+  link: String
+}
+
+input Contact_enMutation {
+  hero: Contact_enHeroMutation
+  contact_methods: Contact_enContact_methodsMutation
+  contact_form: Contact_enContact_formMutation
+  emergency_contact: Contact_enEmergency_contactMutation
+  office_info: Contact_enOffice_infoMutation
+  faq_link: Contact_enFaq_linkMutation
+}
+
+input Contact_siHeroMutation {
+  title: String
+  description: String
+}
+
+input Contact_siContact_methodsMethodsMutation {
+  title: String
+  description: String
+  contact_info: String
+  hours: String
+  color: String
+}
+
+input Contact_siContact_methodsMutation {
+  title: String
+  description: String
+  methods: [Contact_siContact_methodsMethodsMutation]
+}
+
+input Contact_siContact_formMutation {
+  title: String
+  description: String
+}
+
+input Contact_siEmergency_contactMutation {
+  title: String
+  description: String
+  label: String
+  phone: String
+  availability: String
+}
+
+input Contact_siOffice_infoHoursScheduleMutation {
+  day: String
+  time: String
+}
+
+input Contact_siOffice_infoHoursMutation {
+  title: String
+  schedule: [Contact_siOffice_infoHoursScheduleMutation]
+  note: String
+}
+
+input Contact_siOffice_infoLocationAddressMutation {
+  label: String
+  lines: [String]
+}
+
+input Contact_siOffice_infoLocationParkingMutation {
+  title: String
+  description: String
+}
+
+input Contact_siOffice_infoLocationTransportMutation {
+  title: String
+  description: String
+}
+
+input Contact_siOffice_infoLocationMutation {
+  title: String
+  address: Contact_siOffice_infoLocationAddressMutation
+  parking: Contact_siOffice_infoLocationParkingMutation
+  transport: Contact_siOffice_infoLocationTransportMutation
+  security_notice: String
+}
+
+input Contact_siOffice_infoMutation {
+  hours: Contact_siOffice_infoHoursMutation
+  location: Contact_siOffice_infoLocationMutation
+}
+
+input Contact_siFaq_linkMutation {
+  title: String
+  description: String
+  button_text: String
+  link: String
+}
+
+input Contact_siMutation {
+  hero: Contact_siHeroMutation
+  contact_methods: Contact_siContact_methodsMutation
+  contact_form: Contact_siContact_formMutation
+  emergency_contact: Contact_siEmergency_contactMutation
+  office_info: Contact_siOffice_infoMutation
+  faq_link: Contact_siFaq_linkMutation
+}
+
+input Contact_taHeroMutation {
+  title: String
+  description: String
+}
+
+input Contact_taContact_methodsMethodsMutation {
+  title: String
+  description: String
+  contact_info: String
+  hours: String
+  color: String
+}
+
+input Contact_taContact_methodsMutation {
+  title: String
+  description: String
+  methods: [Contact_taContact_methodsMethodsMutation]
+}
+
+input Contact_taContact_formMutation {
+  title: String
+  description: String
+}
+
+input Contact_taEmergency_contactMutation {
+  title: String
+  description: String
+  label: String
+  phone: String
+  availability: String
+}
+
+input Contact_taOffice_infoHoursScheduleMutation {
+  day: String
+  time: String
+}
+
+input Contact_taOffice_infoHoursMutation {
+  title: String
+  schedule: [Contact_taOffice_infoHoursScheduleMutation]
+  note: String
+}
+
+input Contact_taOffice_infoLocationAddressMutation {
+  label: String
+  lines: [String]
+}
+
+input Contact_taOffice_infoLocationParkingMutation {
+  title: String
+  description: String
+}
+
+input Contact_taOffice_infoLocationTransportMutation {
+  title: String
+  description: String
+}
+
+input Contact_taOffice_infoLocationMutation {
+  title: String
+  address: Contact_taOffice_infoLocationAddressMutation
+  parking: Contact_taOffice_infoLocationParkingMutation
+  transport: Contact_taOffice_infoLocationTransportMutation
+  security_notice: String
+}
+
+input Contact_taOffice_infoMutation {
+  hours: Contact_taOffice_infoHoursMutation
+  location: Contact_taOffice_infoLocationMutation
+}
+
+input Contact_taFaq_linkMutation {
+  title: String
+  description: String
+  button_text: String
+  link: String
+}
+
+input Contact_taMutation {
+  hero: Contact_taHeroMutation
+  contact_methods: Contact_taContact_methodsMutation
+  contact_form: Contact_taContact_formMutation
+  emergency_contact: Contact_taEmergency_contactMutation
+  office_info: Contact_taOffice_infoMutation
+  faq_link: Contact_taFaq_linkMutation
+}
+
+input Pages_enHeroMutation {
+  title: String
+  subtitle: String
+  description: String
+  background_image: String
+}
+
+input Pages_enContent_sectionsText_sectionMutation {
+  title: String
+  content: JSON
+  background: String
+}
+
+input Pages_enContent_sectionsImage_sectionMutation {
+  image: String
+  caption: String
+  alt_text: String
+}
+
+input Pages_enContent_sectionsCards_sectionCardsMutation {
+  title: String
+  description: String
+  image: String
+  link: String
+}
+
+input Pages_enContent_sectionsCards_sectionMutation {
+  section_title: String
+  cards: [Pages_enContent_sectionsCards_sectionCardsMutation]
+}
+
+input Pages_enContent_sectionsCta_sectionMutation {
+  title: String
+  description: String
+  button_text: String
+  button_link: String
+  background_color: String
+}
+
+input Pages_enContent_sectionsStatistics_sectionStatsMutation {
+  number: String
+  label: String
+}
+
+input Pages_enContent_sectionsStatistics_sectionMutation {
+  section_title: String
+  stats: [Pages_enContent_sectionsStatistics_sectionStatsMutation]
+}
+
+input Pages_enContent_sectionsMutation {
+  text_section: Pages_enContent_sectionsText_sectionMutation
+  image_section: Pages_enContent_sectionsImage_sectionMutation
+  cards_section: Pages_enContent_sectionsCards_sectionMutation
+  cta_section: Pages_enContent_sectionsCta_sectionMutation
+  statistics_section: Pages_enContent_sectionsStatistics_sectionMutation
+}
+
+input Pages_enMutation {
+  title: String
+  slug: String
+  description: String
+  hero: Pages_enHeroMutation
+  content_sections: [Pages_enContent_sectionsMutation]
+}
+
+input Pages_taHeroMutation {
+  title: String
+  subtitle: String
+  description: String
+  background_image: String
+}
+
+input Pages_taContent_sectionsText_sectionMutation {
+  title: String
+  content: JSON
+  background: String
+}
+
+input Pages_taContent_sectionsImage_sectionMutation {
+  image: String
+  caption: String
+  alt_text: String
+}
+
+input Pages_taContent_sectionsCards_sectionCardsMutation {
+  title: String
+  description: String
+  image: String
+  link: String
+}
+
+input Pages_taContent_sectionsCards_sectionMutation {
+  section_title: String
+  cards: [Pages_taContent_sectionsCards_sectionCardsMutation]
+}
+
+input Pages_taContent_sectionsCta_sectionMutation {
+  title: String
+  description: String
+  button_text: String
+  button_link: String
+  background_color: String
+}
+
+input Pages_taContent_sectionsStatistics_sectionStatsMutation {
+  number: String
+  label: String
+}
+
+input Pages_taContent_sectionsStatistics_sectionMutation {
+  section_title: String
+  stats: [Pages_taContent_sectionsStatistics_sectionStatsMutation]
+}
+
+input Pages_taContent_sectionsMutation {
+  text_section: Pages_taContent_sectionsText_sectionMutation
+  image_section: Pages_taContent_sectionsImage_sectionMutation
+  cards_section: Pages_taContent_sectionsCards_sectionMutation
+  cta_section: Pages_taContent_sectionsCta_sectionMutation
+  statistics_section: Pages_taContent_sectionsStatistics_sectionMutation
+}
+
+input Pages_taMutation {
+  title: String
+  slug: String
+  description: String
+  hero: Pages_taHeroMutation
+  content_sections: [Pages_taContent_sectionsMutation]
+}
+
+input Pages_siHeroMutation {
+  title: String
+  subtitle: String
+  description: String
+  background_image: String
+}
+
+input Pages_siContent_sectionsText_sectionMutation {
+  title: String
+  content: JSON
+  background: String
+}
+
+input Pages_siContent_sectionsImage_sectionMutation {
+  image: String
+  caption: String
+  alt_text: String
+}
+
+input Pages_siContent_sectionsCards_sectionCardsMutation {
+  title: String
+  description: String
+  image: String
+  link: String
+}
+
+input Pages_siContent_sectionsCards_sectionMutation {
+  section_title: String
+  cards: [Pages_siContent_sectionsCards_sectionCardsMutation]
+}
+
+input Pages_siContent_sectionsCta_sectionMutation {
+  title: String
+  description: String
+  button_text: String
+  button_link: String
+  background_color: String
+}
+
+input Pages_siContent_sectionsStatistics_sectionStatsMutation {
+  number: String
+  label: String
+}
+
+input Pages_siContent_sectionsStatistics_sectionMutation {
+  section_title: String
+  stats: [Pages_siContent_sectionsStatistics_sectionStatsMutation]
+}
+
+input Pages_siContent_sectionsMutation {
+  text_section: Pages_siContent_sectionsText_sectionMutation
+  image_section: Pages_siContent_sectionsImage_sectionMutation
+  cards_section: Pages_siContent_sectionsCards_sectionMutation
+  cta_section: Pages_siContent_sectionsCta_sectionMutation
+  statistics_section: Pages_siContent_sectionsStatistics_sectionMutation
+}
+
+input Pages_siMutation {
+  title: String
+  slug: String
+  description: String
+  hero: Pages_siHeroMutation
+  content_sections: [Pages_siContent_sectionsMutation]
+}
+
+input Blog_page_enHeroMutation {
+  title: String
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+input Blog_page_enCategories_sectionMutation {
+  title: String
+  title_tamil: String
+}
+
+input Blog_page_enFeatured_sectionMutation {
+  title: String
+  title_tamil: String
+}
+
+input Blog_page_enAll_posts_sectionMutation {
+  title: String
+  title_tamil: String
+  posts_per_page: Float
+}
+
+input Blog_page_enMutation {
+  hero: Blog_page_enHeroMutation
+  categories_section: Blog_page_enCategories_sectionMutation
+  featured_section: Blog_page_enFeatured_sectionMutation
+  all_posts_section: Blog_page_enAll_posts_sectionMutation
+}
+
+input Blog_page_siHeroMutation {
+  title: String
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+input Blog_page_siCategories_sectionMutation {
+  title: String
+  title_tamil: String
+}
+
+input Blog_page_siFeatured_sectionMutation {
+  title: String
+  title_tamil: String
+}
+
+input Blog_page_siAll_posts_sectionMutation {
+  title: String
+  title_tamil: String
+  posts_per_page: Float
+}
+
+input Blog_page_siMutation {
+  hero: Blog_page_siHeroMutation
+  categories_section: Blog_page_siCategories_sectionMutation
+  featured_section: Blog_page_siFeatured_sectionMutation
+  all_posts_section: Blog_page_siAll_posts_sectionMutation
+}
+
+input Blog_page_taHeroMutation {
+  title: String
+  title_tamil: String
+  subtitle: String
+  subtitle_tamil: String
+  description: String
+}
+
+input Blog_page_taCategories_sectionMutation {
+  title: String
+  title_tamil: String
+}
+
+input Blog_page_taFeatured_sectionMutation {
+  title: String
+  title_tamil: String
+}
+
+input Blog_page_taAll_posts_sectionMutation {
+  title: String
+  title_tamil: String
+  posts_per_page: Float
+}
+
+input Blog_page_taMutation {
+  hero: Blog_page_taHeroMutation
+  categories_section: Blog_page_taCategories_sectionMutation
+  featured_section: Blog_page_taFeatured_sectionMutation
+  all_posts_section: Blog_page_taAll_posts_sectionMutation
+}
+
+input Blog_enMutation {
+  title: String
+  slug: String
+  excerpt: String
+  content: JSON
+  featured_image: String
+  author: String
+  author_role: String
+  author_image: String
+  published_date: String
+  category: String
+  tags: [String]
+  featured: Boolean
+}
+
+input Blog_taMutation {
+  title: String
+  slug: String
+  excerpt: String
+  content: JSON
+  featured_image: String
+  author: String
+  author_role: String
+  author_image: String
+  published_date: String
+  category: String
+  tags: [String]
+  featured: Boolean
+}
+
+input Blog_siMutation {
+  title: String
+  slug: String
+  excerpt: String
+  content: JSON
+  featured_image: String
+  author: String
+  author_role: String
+  author_image: String
+  published_date: String
+  category: String
+  tags: [String]
+  featured: Boolean
 }
 
 schema {

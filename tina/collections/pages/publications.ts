@@ -49,11 +49,11 @@ const createPublicationsCollection = (lang: string): Collection => ({
     {
       type: "object",
       name: "categories",
-      label: "Publication Categories",
+      label: "Resource Categories",
       list: true,
       ui: {
         itemProps: (item) => ({
-          label: `${item?.name || "Category"} (${item?.count || 0} items)`,
+          label: `${item?.name || "Category"} (${item?.count || 0} resources)`,
         }),
         defaultItem: {
           id: "new_category",
@@ -99,7 +99,7 @@ const createPublicationsCollection = (lang: string): Collection => ({
         {
           type: "number",
           name: "count",
-          label: "Item Count",
+          label: "Resource Count",
           required: true,
         },
         {
@@ -112,37 +112,36 @@ const createPublicationsCollection = (lang: string): Collection => ({
     },
     {
       type: "object",
-      name: "featured_publications",
-      label: "Featured Publications",
+      name: "featured_resources",
+      label: "Featured Resources",
       list: true,
       ui: {
         itemProps: (item) => ({
-          label: `${item?.title || "Publication"} (${item?.year || "Year"})`,
+          label: `${item?.title || "Resource"} - ${item?.category || "Category"}`,
         }),
         defaultItem: {
-          id: "new_publication",
-          title: "New Publication",
+          id: "new_resource",
+          title: "New Resource",
           title_tamil: "",
           author: "Author Name",
           author_tamil: "",
-          category: "Category",
+          category: "Books",
           category_tamil: "",
           year: new Date().getFullYear().toString(),
           pages: 0,
-          isbn: "",
           description: "",
           description_tamil: "",
-          cover_color: "from-blue-500 to-blue-700",
-          available: true,
-          price: "$0.00",
-          format: ["Paperback"],
+          cover_image: "",
+          file_url: "",
+          file_type: "PDF",
+          file_size_mb: 0,
         },
       },
       fields: [
         {
           type: "string",
           name: "id",
-          label: "Publication ID",
+          label: "Resource ID",
           required: true,
         },
         {
@@ -159,18 +158,19 @@ const createPublicationsCollection = (lang: string): Collection => ({
         {
           type: "string",
           name: "author",
-          label: "Author",
+          label: "Author/Creator",
           required: true,
         },
         {
           type: "string",
           name: "author_tamil",
-          label: "Author (Tamil)",
+          label: "Author/Creator (Tamil)",
         },
         {
           type: "string",
           name: "category",
           label: "Category",
+          options: ["Books", "Magazines", "Research Papers", "Learning Materials", "Cultural Documents", "Other"],
           required: true,
         },
         {
@@ -188,12 +188,11 @@ const createPublicationsCollection = (lang: string): Collection => ({
           type: "number",
           name: "pages",
           label: "Number of Pages",
-          required: true,
         },
         {
           type: "string",
           name: "isbn",
-          label: "ISBN",
+          label: "ISBN (if applicable)",
         },
         {
           type: "string",
@@ -209,99 +208,61 @@ const createPublicationsCollection = (lang: string): Collection => ({
           ui: { component: "textarea" },
         },
         {
-          type: "string",
-          name: "cover_color",
-          label: "Cover Color (Tailwind gradient classes)",
-          required: true,
-        },
-        {
-          type: "boolean",
-          name: "available",
-          label: "Available",
+          type: "image",
+          name: "cover_image",
+          label: "Cover/Thumbnail Image",
+          description: "Upload cover image or leave empty for default",
         },
         {
           type: "string",
-          name: "price",
-          label: "Price",
+          name: "file_url",
+          label: "Resource File URL/Path",
+          description: "Upload file or paste URL to PDF/document",
           required: true,
         },
         {
           type: "string",
-          name: "format",
-          label: "Available Formats",
+          name: "file_type",
+          label: "File Type",
+          options: ["PDF", "DOC", "DOCX", "PPT", "PPTX", "MP3", "MP4", "ZIP", "Other"],
+          required: true,
+        },
+        {
+          type: "number",
+          name: "file_size_mb",
+          label: "File Size (MB)",
+          description: "Approximate size in megabytes",
+        },
+        {
+          type: "string",
+          name: "language",
+          label: "Content Language",
+          options: ["Tamil", "English", "Sinhala", "Mixed"],
+        },
+        {
+          type: "string",
+          name: "tags",
+          label: "Tags",
           list: true,
-          required: true,
-        },
-        {
-          type: "string",
-          name: "release_date",
-          label: "Release Date (if not available yet)",
+          description: "Keywords for searching (comma-separated)",
         },
       ],
     },
     {
       type: "object",
-      name: "magazines",
-      label: "Magazines",
-      list: true,
-      ui: {
-        itemProps: (item) => ({
-          label: `${item?.name || "Magazine"} (${item?.frequency || "Frequency"})`,
-        }),
-        defaultItem: {
-          id: "new_magazine",
-          name: "New Magazine",
-          name_tamil: "",
-          subtitle: "Subtitle",
-          subtitle_tamil: "",
-          frequency: "Monthly",
-          frequency_tamil: "",
-          description: "",
-          description_tamil: "",
-          subscription_price: "$0/year",
-          editor: "Editor Name",
-          editor_tamil: "",
-        },
-      },
+      name: "about_section",
+      label: "About Resources Section",
       fields: [
         {
           type: "string",
-          name: "id",
-          label: "Magazine ID",
+          name: "title",
+          label: "Section Title",
           required: true,
         },
         {
           type: "string",
-          name: "name",
-          label: "Magazine Name",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "name_tamil",
-          label: "Magazine Name (Tamil)",
-        },
-        {
-          type: "string",
-          name: "subtitle",
-          label: "Subtitle",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "subtitle_tamil",
-          label: "Subtitle (Tamil)",
-        },
-        {
-          type: "string",
-          name: "frequency",
-          label: "Publication Frequency",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "frequency_tamil",
-          label: "Publication Frequency (Tamil)",
+          name: "title_tamil",
+          label: "Section Title (Tamil)",
         },
         {
           type: "string",
@@ -316,29 +277,12 @@ const createPublicationsCollection = (lang: string): Collection => ({
           label: "Description (Tamil)",
           ui: { component: "textarea" },
         },
-        {
-          type: "string",
-          name: "subscription_price",
-          label: "Subscription Price",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "editor",
-          label: "Editor Name",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "editor_tamil",
-          label: "Editor Name (Tamil)",
-        },
       ],
     },
     {
       type: "object",
-      name: "digital_resources",
-      label: "Digital Resources Section",
+      name: "submission_section",
+      label: "Resource Submission Section",
       fields: [
         {
           type: "string",
@@ -365,347 +309,24 @@ const createPublicationsCollection = (lang: string): Collection => ({
           ui: { component: "textarea" },
         },
         {
-          type: "object",
-          name: "items",
-          label: "Digital Resource Items",
+          type: "string",
+          name: "contact_email",
+          label: "Contact Email",
+          required: true,
+        },
+        {
+          type: "string",
+          name: "guidelines",
+          label: "Submission Guidelines",
           list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: `${item?.name || "Resource"} (${item?.access || "Access"})`,
-            }),
-            defaultItem: {
-              name: "New Resource",
-              name_tamil: "",
-              description: "",
-              access: "Free",
-            },
-          },
-          fields: [
-            {
-              type: "string",
-              name: "name",
-              label: "Resource Name",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "name_tamil",
-              label: "Resource Name (Tamil)",
-            },
-            {
-              type: "string",
-              name: "description",
-              label: "Description",
-              ui: { component: "textarea" },
-              required: true,
-            },
-            {
-              type: "string",
-              name: "access",
-              label: "Access Type",
-              options: ["Free", "Members Only", "Premium"],
-              required: true,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "object",
-      name: "research_publications",
-      label: "Research Publications Section",
-      fields: [
-        {
-          type: "string",
-          name: "title",
-          label: "Title",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "title_tamil",
-          label: "Title (Tamil)",
-        },
-        {
-          type: "string",
-          name: "description",
-          label: "Description",
-          ui: { component: "textarea" },
-          required: true,
-        },
-        {
-          type: "string",
-          name: "description_tamil",
-          label: "Description (Tamil)",
-          ui: { component: "textarea" },
-        },
-        {
-          type: "object",
-          name: "recent_papers",
-          label: "Recent Research Papers",
-          list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: `${item?.title || "Paper"} (${item?.year || "Year"})`,
-            }),
-            defaultItem: {
-              title: "New Research Paper",
-              title_tamil: "",
-              author: "Author Name",
-              journal: "Journal Name",
-              year: new Date().getFullYear().toString(),
-              pages: "1-20",
-            },
-          },
-          fields: [
-            {
-              type: "string",
-              name: "title",
-              label: "Paper Title",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "title_tamil",
-              label: "Paper Title (Tamil)",
-            },
-            {
-              type: "string",
-              name: "author",
-              label: "Author",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "journal",
-              label: "Journal Name",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "year",
-              label: "Publication Year",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "pages",
-              label: "Page Range",
-              required: true,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "object",
-      name: "submission_guidelines",
-      label: "Submission Guidelines Section",
-      fields: [
-        {
-          type: "string",
-          name: "title",
-          label: "Title",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "title_tamil",
-          label: "Title (Tamil)",
-        },
-        {
-          type: "string",
-          name: "description",
-          label: "Description",
-          ui: { component: "textarea" },
-          required: true,
-        },
-        {
-          type: "string",
-          name: "description_tamil",
-          label: "Description (Tamil)",
-          ui: { component: "textarea" },
-        },
-        {
-          type: "object",
-          name: "requirements",
-          label: "Requirements Categories",
-          list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: item?.category || "Category",
-            }),
-            defaultItem: {
-              category: "New Category",
-              category_tamil: "",
-              items: ["New requirement"],
-            },
-          },
-          fields: [
-            {
-              type: "string",
-              name: "category",
-              label: "Category Name",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "category_tamil",
-              label: "Category Name (Tamil)",
-            },
-            {
-              type: "string",
-              name: "items",
-              label: "Requirements List",
-              list: true,
-              required: true,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      type: "object",
-      name: "contact",
-      label: "Contact Section",
-      fields: [
-        {
-          type: "string",
-          name: "title",
-          label: "Title",
-          required: true,
-        },
-        {
-          type: "string",
-          name: "title_tamil",
-          label: "Title (Tamil)",
-        },
-        {
-          type: "string",
-          name: "description",
-          label: "Description",
-          ui: { component: "textarea" },
-          required: true,
-        },
-        {
-          type: "string",
-          name: "description_tamil",
-          label: "Description (Tamil)",
-          ui: { component: "textarea" },
-        },
-        {
-          type: "object",
-          name: "editorial_office",
-          label: "Editorial Office",
-          fields: [
-            {
-              type: "string",
-              name: "title",
-              label: "Office Title",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "title_tamil",
-              label: "Office Title (Tamil)",
-            },
-            {
-              type: "string",
-              name: "email",
-              label: "Email",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "phone",
-              label: "Phone",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "editor_in_chief",
-              label: "Editor in Chief",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "editor_in_chief_tamil",
-              label: "Editor in Chief (Tamil)",
-            },
-          ],
-        },
-        {
-          type: "object",
-          name: "distribution",
-          label: "Distribution & Sales",
-          fields: [
-            {
-              type: "string",
-              name: "title",
-              label: "Department Title",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "title_tamil",
-              label: "Department Title (Tamil)",
-            },
-            {
-              type: "string",
-              name: "email",
-              label: "Email",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "phone",
-              label: "Phone",
-              required: true,
-            },
-          ],
-        },
-        {
-          type: "object",
-          name: "submissions",
-          label: "Manuscript Submissions",
-          fields: [
-            {
-              type: "string",
-              name: "title",
-              label: "Department Title",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "title_tamil",
-              label: "Department Title (Tamil)",
-            },
-            {
-              type: "string",
-              name: "email",
-              label: "Email",
-              required: true,
-            },
-            {
-              type: "string",
-              name: "guidelines_url",
-              label: "Guidelines URL",
-              required: true,
-            },
-          ],
+          description: "List of requirements/guidelines",
         },
       ],
     },
   ],
   ui: {
     router: ({ document }) => {
-      // Base path for production (GitHub Pages) vs local development
       const basePath = process.env.NODE_ENV === 'production' ? '/thamizhi-site' : '';
-      
-      // Return the path that matches your site's routing
-      if (lang === 'en') {
-        return `${basePath}/publications`;
-      }
       return `${basePath}/${lang}/publications`;
     }
   }
@@ -713,7 +334,6 @@ const createPublicationsCollection = (lang: string): Collection => ({
 
 export const publicationsCollections = [
   createPublicationsCollection("en"),
-  createPublicationsCollection("si"),
   createPublicationsCollection("ta"),
-  // Add more languages as needed
+  createPublicationsCollection("si"),
 ];

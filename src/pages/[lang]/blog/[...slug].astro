@@ -1,0 +1,75 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import BlogPost from "../../../components/BlogPost.jsx";
+import client from "../../../../tina/__generated__/client";
+import fs from "fs";
+import path from "path";
+
+export async function getStaticPaths() {
+  const supportedLangs = ["en", "ta", "si"];
+  const paths = [];
+
+  for (const lang of supportedLangs) {
+    const contentDir = path.join(process.cwd(), `src/content/blog/${lang}`);
+
+    // Check if directory exists
+    if (!fs.existsSync(contentDir)) {
+      console.warn(`Blog directory not found for language: ${lang}`);
+      continue;
+    }
+
+    const files = fs.readdirSync(contentDir);
+
+    for (const file of files) {
+      if (file.endsWith(".json")) {
+        const filePath = path.join(contentDir, file);
+        const fileContent = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+
+        if (fileContent.slug) {
+          paths.push({
+            params: { lang, slug: fileContent.slug },
+            props: { lang, filename: file.replace(".json", "") },
+          });
+        }
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { lang, slug } = Astro.params;
+const { filename } = Astro.props;
+
+const relativePath = `${filename}.json`;
+
+// Use the correct query based on language
+const queryName = `blog_${lang}`;
+let tinaData;
+
+try {
+  // Dynamically call the correct language query
+  // @ts-ignore - TypeScript doesn't recognize dynamic query names, but they exist at runtime
+  if (client.queries[queryName]) {
+    // @ts-ignore - Dynamic query access is safe here
+    tinaData = await client.queries[queryName]({
+      relativePath,
+    });
+  } else {
+    console.warn(`Query ${queryName} not found, falling back to blog_en`);
+    tinaData = await client.queries.blog_en({
+      relativePath,
+    });
+  }
+} catch (error) {
+  console.error(`Error loading blog post:`, error);
+  tinaData = { data: {} };
+}
+
+const blogPost = tinaData.data?.[`blog_${lang}`] || {};
+const pageTitle = blogPost.title || "Blog Post";
+---
+
+<Layout title={pageTitle} lang={lang}>
+  <BlogPost props={tinaData} lang={lang} client:load />
+</Layout>

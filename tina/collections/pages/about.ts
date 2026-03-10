@@ -491,12 +491,9 @@ const createAboutCollection = (lang: string): Collection => ({
   ui: {
     router: ({ document }) => {
       // Base path for production (GitHub Pages) vs local development
-      const basePath = '/thamizhi-site'
-      
-      // Return the path that matches your site's routing
-      if (lang === 'en') {
-        return `${basePath}/about`;
-      }
+      const basePath = process.env.NODE_ENV === 'production' ? '/thamizhi-site' : '';
+
+      // All languages now use prefix consistently (prefixDefaultLocale: true)
       return `${basePath}/${lang}/about`;
     }
   }

@@ -1,0 +1,71 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import BlogPageIndex from "../../../components/BlogPageIndex.jsx";
+import client from "../../../../tina/__generated__/client";
+import fs from "fs";
+import path from "path";
+
+export function getStaticPaths() {
+  const supportedLangs = ["en", "ta", "si"];
+  return supportedLangs.map(lang => ({
+    params: { lang }
+  }));
+}
+
+const { lang } = Astro.params;
+const supportedLangs = ["en", "ta", "si"];
+
+if (!supportedLangs.includes(lang)) {
+  return Astro.redirect("/en/blog");
+}
+
+// Get all blog posts for this language
+const contentDir = path.join(process.cwd(), `src/content/blog/${lang}`);
+let blogPosts = [];
+
+if (fs.existsSync(contentDir)) {
+  const files = fs.readdirSync(contentDir);
+
+  for (const file of files) {
+    if (file.endsWith(".json")) {
+      const filePath = path.join(contentDir, file);
+      const fileContent = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+      blogPosts.push(fileContent);
+    }
+  }
+}
+
+// Sort by published date (newest first)
+blogPosts.sort((a, b) => new Date(b.published_date) - new Date(a.published_date));
+
+// Load TinaCMS data for blog page content
+const queryName = `blog_page_${lang}`;
+let tinaData;
+
+try {
+  // @ts-ignore - Dynamic query access
+  if (client.queries[queryName]) {
+    // @ts-ignore
+    tinaData = await client.queries[queryName]({
+      relativePath: "blog_page.json",
+    });
+  } else {
+    console.warn(`Query ${queryName} not found, falling back to blog_page_en`);
+    tinaData = await client.queries.blog_page_en({
+      relativePath: "blog_page.json",
+    });
+  }
+} catch (error) {
+  console.error(`Error loading blog page content:`, error);
+  tinaData = { data: {} };
+}
+
+// Get page title from TinaCMS data or fallback
+const blogPageContent = tinaData.data?.[`blog_page_${lang}`] || {};
+const pageTitle = blogPageContent.hero?.title || (lang === 'ta' ? 'வலைப்பதிவு' : lang === 'si' ? 'බ්ලොග්' : 'Blog');
+
+---
+
+<Layout title={pageTitle} lang={lang}>
+  <BlogPageIndex props={tinaData} lang={lang} blogPosts={blogPosts} client:load />
+</Layout>

@@ -1,3 +1,183 @@
+fragment Site_config_enParts on Site_config_en {
+  __typename
+  organization {
+    __typename
+    name
+    name_local
+    tagline
+    description
+    mission
+    vision
+    founded
+    registration_number
+  }
+  contact {
+    __typename
+    email
+    phone
+    address {
+      __typename
+      street
+      city
+      state
+      postal_code
+      country
+    }
+    social_media {
+      __typename
+      facebook
+      twitter
+      instagram
+      youtube
+    }
+  }
+  navigation {
+    __typename
+    primary {
+      __typename
+      name
+      href
+    }
+    footer {
+      __typename
+      name
+      href
+    }
+  }
+  footer {
+    __typename
+    copyright
+    description
+  }
+  meta {
+    __typename
+    title_suffix
+    description
+    keywords
+    author
+  }
+}
+
+fragment Site_config_taParts on Site_config_ta {
+  __typename
+  organization {
+    __typename
+    name
+    name_local
+    tagline
+    description
+    mission
+    vision
+    founded
+    registration_number
+  }
+  contact {
+    __typename
+    email
+    phone
+    address {
+      __typename
+      street
+      city
+      state
+      postal_code
+      country
+    }
+    social_media {
+      __typename
+      facebook
+      twitter
+      instagram
+      youtube
+    }
+  }
+  navigation {
+    __typename
+    primary {
+      __typename
+      name
+      href
+    }
+    footer {
+      __typename
+      name
+      href
+    }
+  }
+  footer {
+    __typename
+    copyright
+    description
+  }
+  meta {
+    __typename
+    title_suffix
+    description
+    keywords
+    author
+  }
+}
+
+fragment Site_config_siParts on Site_config_si {
+  __typename
+  organization {
+    __typename
+    name
+    name_local
+    tagline
+    description
+    mission
+    vision
+    founded
+    registration_number
+  }
+  contact {
+    __typename
+    email
+    phone
+    address {
+      __typename
+      street
+      city
+      state
+      postal_code
+      country
+    }
+    social_media {
+      __typename
+      facebook
+      twitter
+      instagram
+      youtube
+    }
+  }
+  navigation {
+    __typename
+    primary {
+      __typename
+      name
+      href
+    }
+    footer {
+      __typename
+      name
+      href
+    }
+  }
+  footer {
+    __typename
+    copyright
+    description
+  }
+  meta {
+    __typename
+    title_suffix
+    description
+    keywords
+    author
+  }
+}
+
 fragment Home_enParts on Home_en {
   __typename
   hero {
@@ -5,6 +185,9 @@ fragment Home_enParts on Home_en {
     title
     subtitle
     description
+    background_image
+    hero_video_url
+    hero_video_title
     cta_primary {
       __typename
       text
@@ -26,6 +209,7 @@ fragment Home_enParts on Home_en {
     name
     description
     icon
+    image
     href
   }
   recent_events {
@@ -59,6 +243,13 @@ fragment Home_enParts on Home_en {
     href
     color
   }
+  featured_video {
+    __typename
+    title
+    video_title
+    video_description
+    youtube_url
+  }
   newsletter {
     __typename
     title
@@ -66,6 +257,28 @@ fragment Home_enParts on Home_en {
     placeholder
     button
     privacy
+  }
+  recent_articles {
+    __typename
+    section_title
+    section_description
+    view_all_text
+    view_all_href
+    posts_to_show
+  }
+  photo_highlights {
+    __typename
+    section_title
+    section_description
+    photos {
+      __typename
+      image
+      title
+      description
+      link
+    }
+    view_gallery_text
+    view_gallery_href
   }
 }
 
@@ -76,6 +289,9 @@ fragment Home_siParts on Home_si {
     title
     subtitle
     description
+    background_image
+    hero_video_url
+    hero_video_title
     cta_primary {
       __typename
       text
@@ -97,6 +313,7 @@ fragment Home_siParts on Home_si {
     name
     description
     icon
+    image
     href
   }
   recent_events {
@@ -130,6 +347,13 @@ fragment Home_siParts on Home_si {
     href
     color
   }
+  featured_video {
+    __typename
+    title
+    video_title
+    video_description
+    youtube_url
+  }
   newsletter {
     __typename
     title
@@ -137,6 +361,28 @@ fragment Home_siParts on Home_si {
     placeholder
     button
     privacy
+  }
+  recent_articles {
+    __typename
+    section_title
+    section_description
+    view_all_text
+    view_all_href
+    posts_to_show
+  }
+  photo_highlights {
+    __typename
+    section_title
+    section_description
+    photos {
+      __typename
+      image
+      title
+      description
+      link
+    }
+    view_gallery_text
+    view_gallery_href
   }
 }
 
@@ -147,6 +393,9 @@ fragment Home_taParts on Home_ta {
     title
     subtitle
     description
+    background_image
+    hero_video_url
+    hero_video_title
     cta_primary {
       __typename
       text
@@ -168,6 +417,7 @@ fragment Home_taParts on Home_ta {
     name
     description
     icon
+    image
     href
   }
   recent_events {
@@ -201,6 +451,13 @@ fragment Home_taParts on Home_ta {
     href
     color
   }
+  featured_video {
+    __typename
+    title
+    video_title
+    video_description
+    youtube_url
+  }
   newsletter {
     __typename
     title
@@ -208,6 +465,28 @@ fragment Home_taParts on Home_ta {
     placeholder
     button
     privacy
+  }
+  recent_articles {
+    __typename
+    section_title
+    section_description
+    view_all_text
+    view_all_href
+    posts_to_show
+  }
+  photo_highlights {
+    __typename
+    section_title
+    section_description
+    photos {
+      __typename
+      image
+      title
+      description
+      link
+    }
+    view_gallery_text
+    view_gallery_href
   }
 }
 
@@ -1017,7 +1296,7 @@ fragment Publications_enParts on Publications_en {
     count
     icon
   }
-  featured_publications {
+  featured_resources {
     __typename
     id
     title
@@ -1031,229 +1310,28 @@ fragment Publications_enParts on Publications_en {
     isbn
     description
     description_tamil
-    cover_color
-    available
-    price
-    format
-    release_date
+    cover_image
+    file_url
+    file_type
+    file_size_mb
+    language
+    tags
   }
-  magazines {
-    __typename
-    id
-    name
-    name_tamil
-    subtitle
-    subtitle_tamil
-    frequency
-    frequency_tamil
-    description
-    description_tamil
-    subscription_price
-    editor
-    editor_tamil
-  }
-  digital_resources {
+  about_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    items {
-      __typename
-      name
-      name_tamil
-      description
-      access
-    }
   }
-  research_publications {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    recent_papers {
-      __typename
-      title
-      title_tamil
-      author
-      journal
-      year
-      pages
-    }
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    requirements {
-      __typename
-      category
-      category_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    editorial_office {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-      editor_in_chief
-      editor_in_chief_tamil
-    }
-    distribution {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-    }
-    submissions {
-      __typename
-      title
-      title_tamil
-      email
-      guidelines_url
-    }
-  }
-}
-
-fragment Publications_siParts on Publications_si {
-  __typename
-  hero {
-    __typename
-    title
-    title_tamil
-    subtitle
-    subtitle_tamil
-    description
-  }
-  categories {
-    __typename
-    id
-    name
-    name_tamil
-    description
-    description_tamil
-    count
-    icon
-  }
-  featured_publications {
-    __typename
-    id
-    title
-    title_tamil
-    author
-    author_tamil
-    category
-    category_tamil
-    year
-    pages
-    isbn
-    description
-    description_tamil
-    cover_color
-    available
-    price
-    format
-    release_date
-  }
-  magazines {
-    __typename
-    id
-    name
-    name_tamil
-    subtitle
-    subtitle_tamil
-    frequency
-    frequency_tamil
-    description
-    description_tamil
-    subscription_price
-    editor
-    editor_tamil
-  }
-  digital_resources {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    items {
-      __typename
-      name
-      name_tamil
-      description
-      access
-    }
-  }
-  research_publications {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    recent_papers {
-      __typename
-      title
-      title_tamil
-      author
-      journal
-      year
-      pages
-    }
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    requirements {
-      __typename
-      category
-      category_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    editorial_office {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-      editor_in_chief
-      editor_in_chief_tamil
-    }
-    distribution {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-    }
-    submissions {
-      __typename
-      title
-      title_tamil
-      email
-      guidelines_url
-    }
+    contact_email
+    guidelines
   }
 }
 
@@ -1277,7 +1355,7 @@ fragment Publications_taParts on Publications_ta {
     count
     icon
   }
-  featured_publications {
+  featured_resources {
     __typename
     id
     title
@@ -1291,99 +1369,87 @@ fragment Publications_taParts on Publications_ta {
     isbn
     description
     description_tamil
-    cover_color
-    available
-    price
-    format
-    release_date
+    cover_image
+    file_url
+    file_type
+    file_size_mb
+    language
+    tags
   }
-  magazines {
+  about_section {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+  }
+  submission_section {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    contact_email
+    guidelines
+  }
+}
+
+fragment Publications_siParts on Publications_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
     __typename
     id
     name
     name_tamil
-    subtitle
-    subtitle_tamil
-    frequency
-    frequency_tamil
     description
     description_tamil
-    subscription_price
-    editor
-    editor_tamil
+    count
+    icon
   }
-  digital_resources {
+  featured_resources {
+    __typename
+    id
+    title
+    title_tamil
+    author
+    author_tamil
+    category
+    category_tamil
+    year
+    pages
+    isbn
+    description
+    description_tamil
+    cover_image
+    file_url
+    file_type
+    file_size_mb
+    language
+    tags
+  }
+  about_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    items {
-      __typename
-      name
-      name_tamil
-      description
-      access
-    }
   }
-  research_publications {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    recent_papers {
-      __typename
-      title
-      title_tamil
-      author
-      journal
-      year
-      pages
-    }
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    requirements {
-      __typename
-      category
-      category_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    editorial_office {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-      editor_in_chief
-      editor_in_chief_tamil
-    }
-    distribution {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-    }
-    submissions {
-      __typename
-      title
-      title_tamil
-      email
-      guidelines_url
-    }
+    contact_email
+    guidelines
   }
 }
 
@@ -1802,12 +1868,19 @@ fragment Gallery_enParts on Gallery_en {
     date_tamil
     location
     location_tamil
-    image_count
     description
     description_tamil
-    cover_color
+    cover_image
+    images {
+      __typename
+      url
+      title
+      title_tamil
+      caption
+      caption_tamil
+    }
     photographer
-    highlights
+    photographer_tamil
   }
   recent_highlights {
     __typename
@@ -1816,143 +1889,19 @@ fragment Gallery_enParts on Gallery_en {
     title_tamil
     description
     description_tamil
+    thumbnail
     date
     date_tamil
-    image_count
+    album_link
   }
-  photo_contest {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    categories {
-      __typename
-      name
-      name_tamil
-      prize
-    }
-    deadline
-    rules
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    requirements {
-      __typename
-      title
-      title_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    email
-    phone
-    gallery_coordinator {
-      __typename
-      name
-      name_tamil
-      position
-      position_tamil
-    }
-    office_hours
-  }
-}
-
-fragment Gallery_siParts on Gallery_si {
-  __typename
-  hero {
-    __typename
-    title
-    title_tamil
-    subtitle
-    subtitle_tamil
-    description
-  }
-  categories {
-    __typename
-    id
-    name
-    name_tamil
-    count
-    description
-    description_tamil
-  }
-  featured_albums {
-    __typename
-    id
-    title
-    title_tamil
-    date
-    date_tamil
-    location
-    location_tamil
-    image_count
-    description
-    description_tamil
-    cover_color
-    photographer
-    highlights
-  }
-  recent_highlights {
-    __typename
-    id
-    title
-    title_tamil
-    description
-    description_tamil
-    date
-    date_tamil
-    image_count
-  }
-  photo_contest {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    categories {
-      __typename
-      name
-      name_tamil
-      prize
-    }
-    deadline
-    rules
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    requirements {
-      __typename
-      title
-      title_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    email
-    phone
-    gallery_coordinator {
-      __typename
-      name
-      name_tamil
-      position
-      position_tamil
-    }
-    office_hours
+    contact_email
+    guidelines
   }
 }
 
@@ -1984,12 +1933,19 @@ fragment Gallery_taParts on Gallery_ta {
     date_tamil
     location
     location_tamil
-    image_count
     description
     description_tamil
-    cover_color
+    cover_image
+    images {
+      __typename
+      url
+      title
+      title_tamil
+      caption
+      caption_tamil
+    }
     photographer
-    highlights
+    photographer_tamil
   }
   recent_highlights {
     __typename
@@ -1998,51 +1954,596 @@ fragment Gallery_taParts on Gallery_ta {
     title_tamil
     description
     description_tamil
+    thumbnail
     date
     date_tamil
-    image_count
+    album_link
   }
-  photo_contest {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    categories {
-      __typename
-      name
-      name_tamil
-      prize
-    }
-    deadline
-    rules
+    contact_email
+    guidelines
   }
-  submission_guidelines {
+}
+
+fragment Gallery_siParts on Gallery_si {
+  __typename
+  hero {
     __typename
     title
     title_tamil
+    subtitle
+    subtitle_tamil
     description
-    requirements {
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    count
+    description
+    description_tamil
+  }
+  featured_albums {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    date_tamil
+    location
+    location_tamil
+    description
+    description_tamil
+    cover_image
+    images {
       __typename
+      url
       title
       title_tamil
-      items
+      caption
+      caption_tamil
     }
+    photographer
+    photographer_tamil
   }
-  contact {
+  recent_highlights {
+    __typename
+    id
+    title
+    title_tamil
+    description
+    description_tamil
+    thumbnail
+    date
+    date_tamil
+    album_link
+  }
+  submission_section {
     __typename
     title
     title_tamil
     description
-    email
-    phone
-    gallery_coordinator {
-      __typename
-      name
-      name_tamil
-      position
-      position_tamil
-    }
-    office_hours
+    description_tamil
+    contact_email
+    guidelines
   }
+}
+
+fragment Contact_enParts on Contact_en {
+  __typename
+  hero {
+    __typename
+    title
+    description
+  }
+  contact_methods {
+    __typename
+    title
+    description
+    methods {
+      __typename
+      title
+      description
+      contact_info
+      hours
+      color
+    }
+  }
+  contact_form {
+    __typename
+    title
+    description
+  }
+  emergency_contact {
+    __typename
+    title
+    description
+    label
+    phone
+    availability
+  }
+  office_info {
+    __typename
+    hours {
+      __typename
+      title
+      schedule {
+        __typename
+        day
+        time
+      }
+      note
+    }
+    location {
+      __typename
+      title
+      address {
+        __typename
+        label
+        lines
+      }
+      parking {
+        __typename
+        title
+        description
+      }
+      transport {
+        __typename
+        title
+        description
+      }
+      security_notice
+    }
+  }
+  faq_link {
+    __typename
+    title
+    description
+    button_text
+    link
+  }
+}
+
+fragment Contact_siParts on Contact_si {
+  __typename
+  hero {
+    __typename
+    title
+    description
+  }
+  contact_methods {
+    __typename
+    title
+    description
+    methods {
+      __typename
+      title
+      description
+      contact_info
+      hours
+      color
+    }
+  }
+  contact_form {
+    __typename
+    title
+    description
+  }
+  emergency_contact {
+    __typename
+    title
+    description
+    label
+    phone
+    availability
+  }
+  office_info {
+    __typename
+    hours {
+      __typename
+      title
+      schedule {
+        __typename
+        day
+        time
+      }
+      note
+    }
+    location {
+      __typename
+      title
+      address {
+        __typename
+        label
+        lines
+      }
+      parking {
+        __typename
+        title
+        description
+      }
+      transport {
+        __typename
+        title
+        description
+      }
+      security_notice
+    }
+  }
+  faq_link {
+    __typename
+    title
+    description
+    button_text
+    link
+  }
+}
+
+fragment Contact_taParts on Contact_ta {
+  __typename
+  hero {
+    __typename
+    title
+    description
+  }
+  contact_methods {
+    __typename
+    title
+    description
+    methods {
+      __typename
+      title
+      description
+      contact_info
+      hours
+      color
+    }
+  }
+  contact_form {
+    __typename
+    title
+    description
+  }
+  emergency_contact {
+    __typename
+    title
+    description
+    label
+    phone
+    availability
+  }
+  office_info {
+    __typename
+    hours {
+      __typename
+      title
+      schedule {
+        __typename
+        day
+        time
+      }
+      note
+    }
+    location {
+      __typename
+      title
+      address {
+        __typename
+        label
+        lines
+      }
+      parking {
+        __typename
+        title
+        description
+      }
+      transport {
+        __typename
+        title
+        description
+      }
+      security_notice
+    }
+  }
+  faq_link {
+    __typename
+    title
+    description
+    button_text
+    link
+  }
+}
+
+fragment Pages_enParts on Pages_en {
+  __typename
+  title
+  slug
+  description
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    background_image
+  }
+  content_sections {
+    __typename
+    ... on Pages_enContent_sectionsText_section {
+      title
+      content
+      background
+    }
+    ... on Pages_enContent_sectionsImage_section {
+      image
+      caption
+      alt_text
+    }
+    ... on Pages_enContent_sectionsCards_section {
+      section_title
+      cards {
+        __typename
+        title
+        description
+        image
+        link
+      }
+    }
+    ... on Pages_enContent_sectionsCta_section {
+      title
+      description
+      button_text
+      button_link
+      background_color
+    }
+    ... on Pages_enContent_sectionsStatistics_section {
+      section_title
+      stats {
+        __typename
+        number
+        label
+      }
+    }
+  }
+}
+
+fragment Pages_taParts on Pages_ta {
+  __typename
+  title
+  slug
+  description
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    background_image
+  }
+  content_sections {
+    __typename
+    ... on Pages_taContent_sectionsText_section {
+      title
+      content
+      background
+    }
+    ... on Pages_taContent_sectionsImage_section {
+      image
+      caption
+      alt_text
+    }
+    ... on Pages_taContent_sectionsCards_section {
+      section_title
+      cards {
+        __typename
+        title
+        description
+        image
+        link
+      }
+    }
+    ... on Pages_taContent_sectionsCta_section {
+      title
+      description
+      button_text
+      button_link
+      background_color
+    }
+    ... on Pages_taContent_sectionsStatistics_section {
+      section_title
+      stats {
+        __typename
+        number
+        label
+      }
+    }
+  }
+}
+
+fragment Pages_siParts on Pages_si {
+  __typename
+  title
+  slug
+  description
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    background_image
+  }
+  content_sections {
+    __typename
+    ... on Pages_siContent_sectionsText_section {
+      title
+      content
+      background
+    }
+    ... on Pages_siContent_sectionsImage_section {
+      image
+      caption
+      alt_text
+    }
+    ... on Pages_siContent_sectionsCards_section {
+      section_title
+      cards {
+        __typename
+        title
+        description
+        image
+        link
+      }
+    }
+    ... on Pages_siContent_sectionsCta_section {
+      title
+      description
+      button_text
+      button_link
+      background_color
+    }
+    ... on Pages_siContent_sectionsStatistics_section {
+      section_title
+      stats {
+        __typename
+        number
+        label
+      }
+    }
+  }
+}
+
+fragment Blog_page_enParts on Blog_page_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories_section {
+    __typename
+    title
+    title_tamil
+  }
+  featured_section {
+    __typename
+    title
+    title_tamil
+  }
+  all_posts_section {
+    __typename
+    title
+    title_tamil
+    posts_per_page
+  }
+}
+
+fragment Blog_page_siParts on Blog_page_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories_section {
+    __typename
+    title
+    title_tamil
+  }
+  featured_section {
+    __typename
+    title
+    title_tamil
+  }
+  all_posts_section {
+    __typename
+    title
+    title_tamil
+    posts_per_page
+  }
+}
+
+fragment Blog_page_taParts on Blog_page_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories_section {
+    __typename
+    title
+    title_tamil
+  }
+  featured_section {
+    __typename
+    title
+    title_tamil
+  }
+  all_posts_section {
+    __typename
+    title
+    title_tamil
+    posts_per_page
+  }
+}
+
+fragment Blog_enParts on Blog_en {
+  __typename
+  title
+  slug
+  excerpt
+  content
+  featured_image
+  author
+  author_role
+  author_image
+  published_date
+  category
+  tags
+  featured
+}
+
+fragment Blog_taParts on Blog_ta {
+  __typename
+  title
+  slug
+  excerpt
+  content
+  featured_image
+  author
+  author_role
+  author_image
+  published_date
+  category
+  tags
+  featured
+}
+
+fragment Blog_siParts on Blog_si {
+  __typename
+  title
+  slug
+  excerpt
+  content
+  featured_image
+  author
+  author_role
+  author_image
+  published_date
+  category
+  tags
+  featured
 }

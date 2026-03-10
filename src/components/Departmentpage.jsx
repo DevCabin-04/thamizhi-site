@@ -46,7 +46,7 @@ export default function DepartmentPage({ props, lang }) {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden">
+      <section className="bg-[#7a1315] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute top-0 left-0 w-full h-full"
@@ -61,10 +61,10 @@ export default function DepartmentPage({ props, lang }) {
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
               {departmentContent.hero?.title || "Our Departments"}
             </h1>
-            <h2 className="text-2xl lg:text-3xl font-medium text-orange-100 mb-6">
+            <h2 className="text-2xl lg:text-3xl font-medium text-blue-100 mb-6">
               {departmentContent.hero?.title_tamil || "எங்கள் துறைகள்"}
             </h2>
-            <p className="text-xl text-orange-100">
+            <p className="text-xl text-blue-100">
               {departmentContent.hero?.description || "Discover the various departments and programs that make Thamizhi a comprehensive cultural organization dedicated to preserving and promoting Tamil heritage."}
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function DepartmentPage({ props, lang }) {
             {departmentContent.departments?.map((department, index) => (
               <div key={department.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 {/* Department Header */}
-                <div className={`bg-gradient-to-r ${department.color} p-6 text-white`}>
+                <div className="bg-[#7a1315] p-6 text-white">
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center">
                       <svg
@@ -114,9 +114,9 @@ export default function DepartmentPage({ props, lang }) {
                         ? "துறைத் தலைவர்" 
                         : "අංශ ප්‍රධානි"}
                     </h4>
-                    <div className="bg-gray-50 rounded-lg p-4">
+                    <div className="bg-slate-50 rounded-lg p-4">
                       <div className="flex items-center space-x-3">
-                        <div className={`w-10 h-10 bg-gradient-to-br ${department.color} rounded-full flex items-center justify-center`}>
+                        <div className="w-10 h-10 bg-[#7a1315] rounded-full flex items-center justify-center">
                           <span className="text-white text-sm font-bold">
                             {department.head?.name
                               ?.split(" ")
@@ -131,7 +131,7 @@ export default function DepartmentPage({ props, lang }) {
                           <p className="text-sm text-gray-600">
                             {department.head?.name_tamil}
                           </p>
-                          <p className="text-sm text-orange-600 font-medium">
+                          <p className="text-sm text-blue-900 font-medium">
                             {department.head?.position}
                           </p>
                           <p className="text-xs text-gray-500">
@@ -153,11 +153,11 @@ export default function DepartmentPage({ props, lang }) {
                     </h4>
                     <div className="space-y-3">
                       {department.programs?.map((program, programIndex) => (
-                        <div key={programIndex} className="border-l-4 border-orange-500 pl-4 py-2">
+                        <div key={programIndex} className="border-l-4 border-blue-800 pl-4 py-2">
                           <h5 className="font-semibold text-gray-900">
                             {program.name}
                           </h5>
-                          <p className="text-sm text-orange-600 mb-1">
+                          <p className="text-sm text-blue-900 mb-1">
                             {program.name_tamil}
                           </p>
                           <p className="text-sm text-gray-600">
@@ -181,7 +181,7 @@ export default function DepartmentPage({ props, lang }) {
                       <div className="space-y-2">
                         {department.achievements.map((achievement, achievementIndex) => (
                           <div key={achievementIndex} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-slate-500 rounded-full mt-2 flex-shrink-0"></div>
                             <p className="text-sm text-gray-700">
                               {achievement}
                             </p>
@@ -222,13 +222,13 @@ export default function DepartmentPage({ props, lang }) {
 
       {/* Volunteer Opportunities */}
       {departmentContent.volunteer_opportunities && (
-        <section className="py-16 bg-orange-50">
+        <section className="py-16 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {departmentContent.volunteer_opportunities?.title || "Volunteer Opportunities"}
               </h2>
-              <h3 className="text-2xl font-medium text-orange-600 mb-6">
+              <h3 className="text-2xl font-medium text-blue-900 mb-6">
                 {departmentContent.volunteer_opportunities?.title_tamil || "தன்னார்வ வாய்ப்புகள்"}
               </h3>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -239,7 +239,7 @@ export default function DepartmentPage({ props, lang }) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {departmentContent.volunteer_opportunities?.positions?.map((position, index) => (
                 <div key={index} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-[#7a1315] rounded-lg flex items-center justify-center mb-4">
                     <svg
                       className="w-6 h-6 text-white"
                       fill="currentColor"
@@ -251,11 +251,11 @@ export default function DepartmentPage({ props, lang }) {
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {position.role}
                   </h3>
-                  <h4 className="text-md font-medium text-orange-600 mb-2">
+                  <h4 className="text-md font-medium text-blue-900 mb-2">
                     {position.role_tamil}
                   </h4>
                   <div className="mb-3">
-                    <span className="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full">
+                    <span className="inline-block bg-blue-100 text-blue-900 text-xs px-2 py-1 rounded-full">
                       {position.commitment}
                     </span>
                   </div>
@@ -277,7 +277,7 @@ export default function DepartmentPage({ props, lang }) {
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 {departmentContent.contact_info?.title || "Department Contact Information"}
               </h2>
-              <h3 className="text-2xl font-medium text-orange-600 mb-6">
+              <h3 className="text-2xl font-medium text-blue-900 mb-6">
                 {departmentContent.contact_info?.title_tamil || "துறை தொடர்பு தகவல்"}
               </h3>
             </div>
@@ -285,7 +285,7 @@ export default function DepartmentPage({ props, lang }) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* General Contact */}
               {departmentContent.contact_info?.general && (
-                <div className="bg-orange-50 rounded-lg p-8">
+                <div className="bg-slate-50 rounded-lg p-8">
                   <h3 className="text-xl font-semibold text-gray-900 mb-6">
                     {lang === "en" 
                       ? "General Contact" 
@@ -295,7 +295,7 @@ export default function DepartmentPage({ props, lang }) {
                   </h3>
                   <div className="space-y-4">
                     <div className="flex items-center space-x-3">
-                      <svg className="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
                       </svg>
@@ -304,7 +304,7 @@ export default function DepartmentPage({ props, lang }) {
                       </span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <svg className="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                       </svg>
                       <span className="text-gray-700">
@@ -312,7 +312,7 @@ export default function DepartmentPage({ props, lang }) {
                       </span>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <svg className="w-5 h-5 text-orange-600 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-blue-900 mt-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
                       </svg>
                       <div className="text-gray-700">
@@ -327,17 +327,17 @@ export default function DepartmentPage({ props, lang }) {
 
               {/* Office Hours */}
               {departmentContent.contact_info?.office_hours && (
-                <div className="bg-red-50 rounded-lg p-8">
+                <div className="bg-gov-gray-100 rounded-lg p-8">
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {departmentContent.contact_info.office_hours?.title || "Office Hours"}
                   </h3>
-                  <h4 className="text-lg font-medium text-red-600 mb-6">
+                  <h4 className="text-lg font-medium text-blue-900 mb-6">
                     {departmentContent.contact_info.office_hours?.title_tamil || "அலுவலக நேரங்கள்"}
                   </h4>
                   <div className="space-y-2">
                     {departmentContent.contact_info.office_hours?.schedule?.map((time, index) => (
                       <div key={index} className="flex items-center space-x-3">
-                        <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-5 h-5 text-blue-900" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                         </svg>
                         <span className="text-gray-700">{time}</span>
@@ -352,7 +352,7 @@ export default function DepartmentPage({ props, lang }) {
       )}
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-16 bg-[#7a1315] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             {lang === "en"
@@ -361,7 +361,7 @@ export default function DepartmentPage({ props, lang }) {
               ? "இன்றே பங்கு பெறுங்கள்"
               : "අද සම්බන්ධ වන්න"}
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             {lang === "en"
               ? "Connect with our departments and discover how you can contribute to preserving Tamil heritage."
               : lang === "ta"
@@ -371,7 +371,7 @@ export default function DepartmentPage({ props, lang }) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={lang === "en" ? "/volunteer" : `/${lang}/volunteer`}
-              className="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-orange-50 transition-colors"
+              className="bg-white text-blue-900 px-8 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors"
             >
               {lang === "en"
                 ? "Volunteer With Us"
@@ -381,7 +381,7 @@ export default function DepartmentPage({ props, lang }) {
             </a>
             <a
               href={lang === "en" ? "/contact" : `/${lang}/contact`}
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-800 transition-colors"
             >
               {lang === "en"
                 ? "Contact Us"

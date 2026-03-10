@@ -18,7 +18,7 @@ export default function MembershipPage({ props, lang }) {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden">
+      <section className="bg-[#7a1315] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute top-0 left-0 w-full h-full"
@@ -33,10 +33,10 @@ export default function MembershipPage({ props, lang }) {
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
               {membershipContent.hero?.title || "Become a Member"}
             </h1>
-            <h2 className="text-2xl lg:text-3xl font-medium text-orange-100 mb-6">
+            <h2 className="text-2xl lg:text-3xl font-medium text-blue-100 mb-6">
               {membershipContent.hero?.subtitle || "Join Our Tamil Community"}
             </h2>
-            <p className="text-xl text-orange-100">
+            <p className="text-xl text-blue-100">
               {membershipContent.hero?.description || ""}
             </p>
           </div>
@@ -44,7 +44,7 @@ export default function MembershipPage({ props, lang }) {
       </section>
 
       {/* Membership Types */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -71,11 +71,11 @@ export default function MembershipPage({ props, lang }) {
                     {membership.name}
                   </h3>
                   {membership.name_tamil && (
-                    <h4 className="text-lg font-medium text-orange-600 mb-3">
+                    <h4 className="text-lg font-medium text-blue-900 mb-3">
                       {membership.name_tamil}
                     </h4>
                   )}
-                  <div className="text-3xl font-bold text-orange-600 mb-1">
+                  <div className="text-3xl font-bold text-blue-900 mb-1">
                     {membership.price}
                   </div>
                   <div className="text-gray-500">
@@ -109,7 +109,7 @@ export default function MembershipPage({ props, lang }) {
                   ))}
                 </ul>
 
-                <button className="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors">
+                <button className="w-full bg-[#7a1315] text-white py-2 px-4 rounded-lg hover:bg-[#7a1315] transition-colors">
                   {lang === "en"
                     ? "Apply Now"
                     : lang === "ta"
@@ -136,12 +136,12 @@ export default function MembershipPage({ props, lang }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {membershipContent.general_benefits?.items?.map((benefit, index) => (
-              <div key={index} className="bg-orange-50 rounded-lg p-6">
+              <div key={index} className="bg-slate-50 rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {benefit.title}
                 </h3>
                 {benefit.title_tamil && (
-                  <h4 className="text-lg font-medium text-orange-600 mb-3">
+                  <h4 className="text-lg font-medium text-blue-900 mb-3">
                     {benefit.title_tamil}
                   </h4>
                 )}
@@ -153,7 +153,7 @@ export default function MembershipPage({ props, lang }) {
       </section>
 
       {/* Application Process */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -167,14 +167,14 @@ export default function MembershipPage({ props, lang }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {membershipContent.application_process?.steps?.map((step, index) => (
               <div key={index} className="text-center">
-                <div className="bg-orange-600 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="bg-[#7a1315] text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {step.step}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {step.title}
                 </h3>
                 {step.title_tamil && (
-                  <h4 className="text-md font-medium text-orange-600 mb-2">
+                  <h4 className="text-md font-medium text-blue-900 mb-2">
                     {step.title_tamil}
                   </h4>
                 )}
@@ -184,7 +184,7 @@ export default function MembershipPage({ props, lang }) {
           </div>
 
           <div className="text-center mt-12">
-            <button className="bg-orange-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-orange-700 transition-colors">
+            <button className="bg-[#7a1315] text-white px-8 py-3 rounded-lg text-lg hover:bg-[#7a1315] transition-colors">
               {lang === "en"
                 ? "Start Application"
                 : lang === "ta"
@@ -207,7 +207,7 @@ export default function MembershipPage({ props, lang }) {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {membershipContent.member_testimonials?.testimonials?.map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg p-6">
+                <div key={index} className="bg-slate-50 rounded-lg p-6">
                   <div className="flex items-center mb-4">
                     {Array.from({ length: testimonial.rating }, (_, i) => (
                       <svg
@@ -228,7 +228,7 @@ export default function MembershipPage({ props, lang }) {
                       {testimonial.name}
                     </p>
                     {testimonial.name_tamil && (
-                      <p className="text-sm text-orange-600">
+                      <p className="text-sm text-blue-900">
                         {testimonial.name_tamil}
                       </p>
                     )}
@@ -245,7 +245,7 @@ export default function MembershipPage({ props, lang }) {
 
       {/* FAQs */}
       {membershipContent.faqs && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-slate-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -255,12 +255,12 @@ export default function MembershipPage({ props, lang }) {
 
             <div className="space-y-6">
               {membershipContent.faqs?.items?.map((faq, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-6">
+                <div key={index} className="bg-white rounded-lg shadow-lg border-2 border-gray-300 p-6">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {faq.question}
                   </h3>
                   {faq.question_tamil && (
-                    <h4 className="text-md font-medium text-orange-600 mb-2">
+                    <h4 className="text-md font-medium text-blue-900 mb-2">
                       {faq.question_tamil}
                     </h4>
                   )}
@@ -285,7 +285,7 @@ export default function MembershipPage({ props, lang }) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`mailto:${membershipContent.contact?.email}`}
-                className="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors"
+                className="bg-[#7a1315] text-white px-6 py-3 rounded-lg hover:bg-[#7a1315] transition-colors"
               >
                 {lang === "en"
                   ? "Email Us"
@@ -307,7 +307,7 @@ export default function MembershipPage({ props, lang }) {
             
             {/* Office Hours */}
             {membershipContent.contact?.office_hours && (
-              <div className="mt-8 bg-gray-50 rounded-lg p-6">
+              <div className="mt-8 bg-slate-50 rounded-lg p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">
                   {lang === "en"
                     ? "Office Hours"
@@ -329,7 +329,7 @@ export default function MembershipPage({ props, lang }) {
       )}
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-orange-600 to-red-600 text-white">
+      <section className="py-16 bg-[#7a1315] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             {lang === "en"
@@ -338,7 +338,7 @@ export default function MembershipPage({ props, lang }) {
               ? "எங்கள் சமூகத்தில் சேர தயாரா?"
               : "අපගේ ප්‍රජාවට එකතු වීමට සූදානම්ද?"}
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-blue-100 mb-8">
             {lang === "en"
               ? "Become a member today and connect with the vibrant Tamil community around you."
               : lang === "ta"
@@ -346,7 +346,7 @@ export default function MembershipPage({ props, lang }) {
               : "අද සාමාජිකයෙකු වී ඔබ වටා ඇති විචිත්‍රවත් තමිළ ප්‍රජාව සමඟ සම්බන්ධ වන්න."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-orange-600 px-8 py-3 rounded-lg font-medium hover:bg-orange-50 transition-colors">
+            <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors">
               {lang === "en"
                 ? "Start Application"
                 : lang === "ta"
@@ -355,7 +355,7 @@ export default function MembershipPage({ props, lang }) {
             </button>
             <a
               href={lang === "en" ? "/about" : `/${lang}/about`}
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-orange-600 transition-colors"
+              className="border-2 border-white text-white px-8 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-800 transition-colors"
             >
               {lang === "en"
                 ? "Learn More About Us"

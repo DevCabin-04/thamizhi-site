@@ -1,0 +1,96 @@
+{
+  "title": "Cultural Programs",
+  "slug": "cultural-programs",
+  "description": "Explore our diverse cultural programs celebrating Tamil heritage through traditional dance, music, and arts.",
+  "hero": {
+    "title": "Cultural Programs",
+    "subtitle": "Celebrating Tamil Heritage Through Arts",
+    "description": "Join us in preserving and promoting traditional Tamil cultural arts through our comprehensive programs for all ages."
+  },
+  "content_sections": [
+    {
+      "_template": "text_section",
+      "title": "About Our Cultural Programs",
+      "content": {
+        "type": "root",
+        "children": [
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Our cultural programs are designed to preserve, promote, and celebrate the rich traditions of Tamil culture. We offer a wide range of activities including traditional dance, music, and arts programs for all age groups."
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "children": [
+              {
+                "type": "text",
+                "text": "Whether you're interested in learning Bharatanatyam, Carnatic music, or traditional Tamil arts and crafts, we have programs tailored to your interests and skill level."
+              }
+            ]
+          }
+        ]
+      },
+      "background": "white"
+    },
+    {
+      "_template": "cards_section",
+      "section_title": "Our Programs",
+      "cards": [
+        {
+          "title": "Bharatanatyam Dance",
+          "description": "Classical Tamil dance classes for beginners to advanced levels, taught by experienced instructors.",
+          "link": "/contact"
+        },
+        {
+          "title": "Carnatic Music",
+          "description": "Learn traditional South Indian classical music with our expert vocal and instrumental teachers.",
+          "link": "/contact"
+        },
+        {
+          "title": "Tamil Folk Arts",
+          "description": "Explore traditional Tamil folk dance, music, and cultural practices.",
+          "link": "/contact"
+        },
+        {
+          "title": "Arts & Crafts",
+          "description": "Traditional Tamil arts including Kolam, painting, and handicrafts workshops.",
+          "link": "/contact"
+        }
+      ]
+    },
+    {
+      "_template": "statistics_section",
+      "section_title": "Our Impact",
+      "stats": [
+        {
+          "number": "500+",
+          "label": "Students Enrolled"
+        },
+        {
+          "number": "15",
+          "label": "Expert Instructors"
+        },
+        {
+          "number": "20+",
+          "label": "Classes Per Week"
+        },
+        {
+          "number": "10",
+          "label": "Years of Excellence"
+        }
+      ]
+    },
+    {
+      "_template": "cta_section",
+      "title": "Join Our Cultural Programs Today",
+      "description": "Register now for our upcoming cultural programs and become part of our vibrant community.",
+      "button_text": "Register Now",
+      "button_link": "/membership",
+      "background_color": "blue"
+    }
+  ]
+}

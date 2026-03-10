@@ -51,14 +51,21 @@ const createGalleryCollection = (lang: string): Collection => ({
       list: true,
       ui: {
         itemProps: (item) => ({
-          label: item?.name || "New Category",
+          label: `${item?.name || "Category"} (${item?.count || 0} photos)`,
         }),
+        defaultItem: {
+          id: "new-category",
+          name: "New Category",
+          name_tamil: "",
+          count: 0,
+          description: "",
+        },
       },
       fields: [
         { type: "string", name: "id", label: "ID", required: true },
         { type: "string", name: "name", label: "Name", required: true },
         { type: "string", name: "name_tamil", label: "Name (Tamil)" },
-        { type: "number", name: "count", label: "Image Count" },
+        { type: "number", name: "count", label: "Image Count", required: true },
         {
           type: "string",
           name: "description",
@@ -80,18 +87,28 @@ const createGalleryCollection = (lang: string): Collection => ({
       list: true,
       ui: {
         itemProps: (item) => ({
-          label: item?.title || "New Album",
+          label: `${item?.title || "Album"} - ${item?.date || "Date"}`,
         }),
+        defaultItem: {
+          id: "new-album",
+          title: "New Album",
+          title_tamil: "",
+          date: new Date().toISOString().split('T')[0],
+          location: "Location",
+          image_count: 0,
+          description: "",
+          cover_image: "",
+          images: [],
+        },
       },
       fields: [
-        { type: "string", name: "id", label: "ID", required: true },
+        { type: "string", name: "id", label: "Album ID", required: true },
         { type: "string", name: "title", label: "Title", required: true },
         { type: "string", name: "title_tamil", label: "Title (Tamil)" },
-        { type: "string", name: "date", label: "Date" },
+        { type: "string", name: "date", label: "Date", required: true },
         { type: "string", name: "date_tamil", label: "Date (Tamil)" },
         { type: "string", name: "location", label: "Location" },
         { type: "string", name: "location_tamil", label: "Location (Tamil)" },
-        { type: "number", name: "image_count", label: "Image Count" },
         {
           type: "string",
           name: "description",
@@ -104,14 +121,61 @@ const createGalleryCollection = (lang: string): Collection => ({
           label: "Description (Tamil)",
           ui: { component: "textarea" },
         },
-        { type: "string", name: "cover_color", label: "Cover Color" },
-        { type: "string", name: "photographer", label: "Photographer" },
         {
-          type: "string",
-          name: "highlights",
-          label: "Highlights",
-          list: true,
+          type: "image",
+          name: "cover_image",
+          label: "Cover Image",
+          description: "Main album cover image",
+          required: true,
         },
+        {
+          type: "object",
+          name: "images",
+          label: "Album Images",
+          list: true,
+          ui: {
+            itemProps: (item) => ({
+              label: item?.caption || item?.title || "Image",
+            }),
+            defaultItem: {
+              url: "",
+              title: "",
+              caption: "",
+            },
+          },
+          fields: [
+            {
+              type: "image",
+              name: "url",
+              label: "Image",
+              required: true,
+            },
+            {
+              type: "string",
+              name: "title",
+              label: "Title",
+            },
+            {
+              type: "string",
+              name: "title_tamil",
+              label: "Title (Tamil)",
+            },
+            {
+              type: "string",
+              name: "caption",
+              label: "Caption",
+              ui: { component: "textarea" },
+            },
+            {
+              type: "string",
+              name: "caption_tamil",
+              label: "Caption (Tamil)",
+              ui: { component: "textarea" },
+            },
+          ],
+        },
+        { type: "string", name: "photographer", label: "Photographer" },
+        { type: "string", name: "photographer_tamil", label: "Photographer (Tamil)" },
       ],
     },
     {
@@ -121,8 +185,15 @@ const createGalleryCollection = (lang: string): Collection => ({
       list: true,
       ui: {
         itemProps: (item) => ({
-          label: item?.title || "New Highlight",
+          label: `${item?.title || "Highlight"} - ${item?.date || "Date"}`,
         }),
+        defaultItem: {
+          id: "new-highlight",
+          title: "New Highlight",
+          description: "",
+          date: new Date().toISOString().split('T')[0],
+          thumbnail: "",
+        },
       },
       fields: [
         { type: "string", name: "id", label: "ID", required: true },
@@ -140,15 +211,21 @@ const createGalleryCollection = (lang: string): Collection => ({
           label: "Description (Tamil)",
           ui: { component: "textarea" },
         },
-        { type: "string", name: "date", label: "Date" },
+        {
+          type: "image",
+          name: "thumbnail",
+          label: "Thumbnail Image",
+          required: true,
+        },
+        { type: "string", name: "date", label: "Date", required: true },
         { type: "string", name: "date_tamil", label: "Date (Tamil)" },
-        { type: "number", name: "image_count", label: "Image Count" },
+        { type: "string", name: "album_link", label: "Link to Full Album" },
       ],
     },
     {
       type: "object",
-      name: "photo_contest",
-      label: "Photo Contest Section",
+      name: "submission_section",
+      label: "Photo Submission Section",
       fields: [
         { type: "string", name: "title", label: "Title", required: true },
         { type: "string", name: "title_tamil", label: "Title (Tamil)" },
@@ -164,96 +241,20 @@ const createGalleryCollection = (lang: string): Collection => ({
           label: "Description (Tamil)",
           ui: { component: "textarea" },
         },
-        {
-          type: "object",
-          name: "categories",
-          label: "Contest Categories",
-          list: true,
-          fields: [
-            { type: "string", name: "name", label: "Category Name" },
-            { type: "string", name: "name_tamil", label: "Category Name (Tamil)" },
-            { type: "string", name: "prize", label: "Prize" },
-          ],
-        },
-        { type: "string", name: "deadline", label: "Deadline" },
-        { type: "string", name: "rules", label: "Rules", list: true, ui: { component: "textarea" } },
-      ],
-    },
-    {
-      type: "object",
-      name: "submission_guidelines",
-      label: "Submission Guidelines Section",
-      fields: [
-        { type: "string", name: "title", label: "Title", required: true },
-        { type: "string", name: "title_tamil", label: "Title (Tamil)" },
+        { type: "string", name: "contact_email", label: "Contact Email", required: true },
         {
           type: "string",
-          name: "description",
-          label: "Description",
-          ui: { component: "textarea" },
-        },
-        {
-          type: "object",
-          name: "requirements",
-          label: "Requirements",
+          name: "guidelines",
+          label: "Submission Guidelines",
           list: true,
-          ui: {
-            itemProps: (item) => ({
-              label: item?.title || "New Requirement Set",
-            }),
-          },
-          fields: [
-            { type: "string", name: "title", label: "Title", required: true },
-            { type: "string", name: "title_tamil", label: "Title (Tamil)" },
-            { type: "string", name: "items", label: "Items", list: true },
-          ],
-        },
-      ],
-    },
-    {
-      type: "object",
-      name: "contact",
-      label: "Contact Section",
-      fields: [
-        { type: "string", name: "title", label: "Title", required: true },
-        { type: "string", name: "title_tamil", label: "Title (Tamil)" },
-        {
-          type: "string",
-          name: "description",
-          label: "Description",
-          ui: { component: "textarea" },
-        },
-        { type: "string", name: "email", label: "Email" },
-        { type: "string", name: "phone", label: "Phone" },
-        {
-          type: "object",
-          name: "gallery_coordinator",
-          label: "Gallery Coordinator",
-          fields: [
-            { type: "string", name: "name", label: "Name" },
-            { type: "string", name: "name_tamil", label: "Name (Tamil)" },
-            { type: "string", name: "position", label: "Position" },
-            { type: "string", name: "position_tamil", label: "Position (Tamil)" },
-          ],
-        },
-        {
-          type: "string",
-          name: "office_hours",
-          label: "Office Hours",
-          list: true,
+          description: "List of photo submission guidelines",
         },
       ],
     },
   ],
   ui: {
     router: ({ document }) => {
-      // Base path for production (GitHub Pages) vs local development
       const basePath = process.env.NODE_ENV === 'production' ? '/thamizhi-site' : '';
-      
-      // Return the path that matches your site's routing
-      if (lang === 'en') {
-        return `${basePath}/gallery`;
-      }
       return `${basePath}/${lang}/gallery`;
     }
   }
@@ -261,7 +262,6 @@ const createGalleryCollection = (lang: string): Collection => ({
 
 export const galleryCollections = [
   createGalleryCollection("en"),
-  createGalleryCollection("si"),
   createGalleryCollection("ta"),
-  // Add more languages as needed
+  createGalleryCollection("si"),
 ];

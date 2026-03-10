@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title": "Blog",
+    "title_tamil": "",
+    "subtitle": "Read our latest articles, events, and community news",
+    "subtitle_tamil": "",
+    "description": "Stay updated with the latest happenings, cultural insights, and stories from the Thamizhi Club community."
+  },
+  "categories_section": {
+    "title": "Browse by Category",
+    "title_tamil": ""
+  },
+  "featured_section": {
+    "title": "Featured Posts",
+    "title_tamil": ""
+  },
+  "all_posts_section": {
+    "title": "All Posts",
+    "title_tamil": "",
+    "posts_per_page": 12
+  }
+}

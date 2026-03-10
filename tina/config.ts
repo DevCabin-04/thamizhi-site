@@ -6,6 +6,11 @@ import { membershipCollections } from "./collections/pages/membership";
 import { publicationsCollections } from "./collections/pages/publications";
 import { eventsCollections } from "./collections/pages/events";
 import { galleryCollections } from "./collections/pages/gallery";
+import { contactCollections } from "./collections/pages/contact";
+import { customPagesCollections } from "./collections/pages/custom-pages";
+import { blogPageCollections } from "./collections/pages/blog-page";
+import { siteConfigCollections } from "./collections/site/config";
+import { blogCollections } from "./collections/blog";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -13,6 +18,8 @@ const branch =
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
   "main";
+
+const isDev = process.env.NODE_ENV !== 'production';
 
 export default defineConfig({
   branch,
@@ -22,9 +29,8 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    // This is the corrected line.
-    // Setting a fixed basePath is more reliable for GitHub Pages.
-    basePath: "thamizhi-site",
+    // Use basePath only in production for GitHub Pages
+    basePath: isDev ? undefined : "thamizhi-site",
   },
   media: {
     tina: {
@@ -32,10 +38,10 @@ export default defineConfig({
       publicFolder: "public",
     },
   },
-  
- 
+
   schema: {
     collections: [
+      ...siteConfigCollections,
       ...homepageCollections,
       ...aboutCollections,
       ...departmentsCollections,
@@ -43,6 +49,10 @@ export default defineConfig({
       ...publicationsCollections,
       ...eventsCollections,
       ...galleryCollections,
+      ...contactCollections,
+      ...customPagesCollections,
+      ...blogPageCollections,
+      ...blogCollections,
     ],
   },
 });

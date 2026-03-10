@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title": "Blog",
+    "title_tamil": "வலைப்பதிவு",
+    "subtitle": "Read our latest articles, events, and community news",
+    "subtitle_tamil": "எங்கள் சமீபத்திய கட்டுரைகள், நிகழ்வுகள் மற்றும் சமூக செய்திகளை வாசியுங்கள்",
+    "description": "தமிழி கழக சமூகத்தின் சமீபத்திய நிகழ்வுகள், கலாச்சார நுண்ணறிவுகள் மற்றும் கதைகளுடன் புதுப்பித்த நிலையில் இருங்கள்."
+  },
+  "categories_section": {
+    "title": "Browse by Category",
+    "title_tamil": "வகை வாரியாக உலாவவும்"
+  },
+  "featured_section": {
+    "title": "Featured Posts",
+    "title_tamil": "சிறப்பு இடுகைகள்"
+  },
+  "all_posts_section": {
+    "title": "All Posts",
+    "title_tamil": "அனைத்து இடுகைகள்",
+    "posts_per_page": 12
+  }
+}

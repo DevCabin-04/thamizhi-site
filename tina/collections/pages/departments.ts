@@ -62,7 +62,7 @@ const createDepartmentsCollection = (lang: string): Collection => ({
           contact: {
             email: "",
             phone: ""
-          }
+          },
         },
       },
       fields: [
@@ -337,11 +337,8 @@ const createDepartmentsCollection = (lang: string): Collection => ({
     router: ({ document }) => {
       // Base path for production (GitHub Pages) vs local development
       const basePath = process.env.NODE_ENV === 'production' ? '/thamizhi-site' : '';
-      
-      // Return the path that matches your site's routing
-      if (lang === 'en') {
-        return `${basePath}/departments`;
-      }
+
+      // All languages use prefix consistently (prefixDefaultLocale: true)
       return `${basePath}/${lang}/departments`;
     }
   }

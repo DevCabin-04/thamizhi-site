@@ -2,10 +2,13 @@
   "hero": {
     "title": "Welcome to Thamizhi",
     "subtitle": "Preserving Tamil Heritage, Empowering Communities",
-    "description": "Join us in celebrating the rich culture, language, and traditions of Tamil heritage. We are dedicated to preserving our ancient wisdom while building bridges to the futureeee.dddddd",
+    "description": "Join us in celebrating the rich culture, language, and traditions of Tamil heritage. We are dedicated to preserving our ancient wisdom while building bridges to the future.",
+    "background_image": "",
+    "hero_video_url": "https://www.youtube.com/watch?v=V9LChBJ1-B0",
+    "hero_video_title": "Celebrating Tamil Heritage",
     "cta_primary": {
-      "text": "Become a Member",
-      "href": "/membership"
+      "text": "Contact Us",
+      "href": "/contact"
     },
     "cta_secondary": {
       "text": "Learn More",
@@ -16,32 +19,7 @@
     "title": "Our Mission",
     "content": "To preserve, promote, and celebrate Tamil culture and language through education, community programs, and cultural events that connect generations and strengthen our global Tamil community."
   },
-  "featured_departments": [
-    {
-      "name": "Cultural Programs",
-      "description": "Traditional dance, music, and arts programs for all ages",
-      "icon": "cultural",
-      "href": "/departments/cultural"
-    },
-    {
-      "name": "Language Education",
-      "description": "Tamil language classes and literary programs",
-      "icon": "education",
-      "href": "/departments/education"
-    },
-    {
-      "name": "Community Services",
-      "description": "Support services for Tamil families and individuals",
-      "icon": "community",
-      "href": "/departments/community"
-    },
-    {
-      "name": "Youth Programs",
-      "description": "Leadership development and cultural engagement for youth",
-      "icon": "youth",
-      "href": "/departments/youth"
-    }
-  ],
+  "featured_departments": [],
   "recent_events": [
     {
       "title": "Tamil New Year Celebration 2024",
@@ -78,13 +56,6 @@
       "content": "Registration is now open for beginner and intermediate Tamil language classes. Classes start February 1st.",
       "priority": "high",
       "category": "education"
-    },
-    {
-      "title": "Annual Membership Drive",
-      "date": "2024-01-10T00:00:00.000Z",
-      "content": "Join our growing community! Special membership rates available for new members through March 31st.",
-      "priority": "medium",
-      "category": "membership"
     }
   ],
   "statistics": [
@@ -107,39 +78,70 @@
   ],
   "quick_actions": [
     {
-      "title": "Join as Member",
-      "description": "Become part of our community",
-      "icon": "member",
-      "href": "/membership",
-      "color": "orange"
-    },
-    {
-      "title": "Donate",
-      "description": "Support our mission",
-      "icon": "donate",
-      "href": "/donate",
-      "color": "green"
-    },
-    {
-      "title": "Volunteer",
-      "description": "Get involved in our programs",
+      "title": "Contact Us",
+      "description": "Get in touch with our team",
       "icon": "volunteer",
-      "href": "/volunteer",
+      "href": "/contact",
       "color": "blue"
     },
     {
-      "title": "Subscribe Newsletter",
-      "description": "Stay updated with news",
+      "title": "View Events",
+      "description": "See our upcoming programs",
       "icon": "newsletter",
-      "href": "/newsletter",
+      "href": "/events",
       "color": "purple"
     }
   ],
+  "featured_video": {
+    "title": "Featured Video",
+    "video_title": "Celebrating Tamil Heritage",
+    "video_description": "Watch our latest video showcasing Tamil cultural traditions and community programs.",
+    "youtube_url": "https://www.youtube.com/watch?v=V9LChBJ1-B0"
+  },
   "newsletter": {
     "title": "Stay Connected",
     "description": "Subscribe to our newsletter to receive updates about events, programs, and Tamil cultural news.",
     "placeholder": "Enter your email address",
     "button": "Subscribe",
     "privacy": "We respect your privacy. Unsubscribe at any time."
+  },
+  "recent_articles": {
+    "section_title": "Latest from Our Blog",
+    "section_description": "Read about our recent events, cultural insights, and club activities.",
+    "view_all_text": "View All Articles",
+    "view_all_href": "/blog",
+    "posts_to_show": 3
+  },
+  "photo_highlights": {
+    "section_title": "Photo Highlights",
+    "section_description": "Moments from our recent events and activities.",
+    "photos": [
+      {
+        "image": "/uploads/logo.jpeg",
+        "title": "Tamil New Year 2024",
+        "description": "Celebrating Puthandu with traditional performances",
+        "link": "/gallery"
+      },
+      {
+        "image": "/uploads/literature-workshop.jpg",
+        "title": "Literature Workshop",
+        "description": "Students exploring classical Tamil poetry",
+        "link": "/gallery"
+      },
+      {
+        "image": "/uploads/health-fair.jpg",
+        "title": "Community Health Fair",
+        "description": "Serving our community with health resources",
+        "link": "/gallery"
+      },
+      {
+        "image": "/uploads/dance-performance.jpg",
+        "title": "Bharatanatyam Performance",
+        "description": "Traditional dance showcase by club members",
+        "link": "/gallery"
+      }
+    ],
+    "view_gallery_text": "View Full Gallery",
+    "view_gallery_href": "/gallery"
   }
 }

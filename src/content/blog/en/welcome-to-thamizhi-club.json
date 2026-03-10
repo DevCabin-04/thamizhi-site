@@ -1,0 +1,146 @@
+{
+  "title": "Welcome to Thamizhi University Club",
+  "slug": "welcome-to-thamizhi-club",
+  "excerpt": "Discover our mission to preserve Tamil heritage and empower students through cultural programs, language classes, and community events on campus.",
+  "content": {
+    "type": "root",
+    "children": [
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "We are thrilled to welcome you to the Thamizhi University Club! As a vibrant student-led organization, we are dedicated to celebrating and preserving Tamil culture, language, and heritage right here on campus."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Our Mission"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At Thamizhi, we believe in the power of community and cultural connection. Our club provides a welcoming space for students of all backgrounds to learn about Tamil culture, participate in exciting events, and build lasting friendships."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "What We Offer"
+          }
+        ]
+      },
+      {
+        "type": "ul",
+        "children": [
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Cultural events and festivals throughout the year"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Tamil language classes for beginners and advanced learners"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Traditional dance and music workshops"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Community service and volunteer opportunities"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "li",
+            "children": [
+              {
+                "type": "lic",
+                "children": [
+                  {
+                    "type": "text",
+                    "text": "Guest speakers and cultural presentations"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Join Us"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Whether you're Tamil or simply interested in learning about this rich culture, we welcome you with open arms. Stay tuned for upcoming events and activities. Follow us on social media and sign up for our newsletter to stay connected!"
+          }
+        ]
+      }
+    ]
+  },
+  "featured_image": "/uploads/thamizhi-welcome.jpg",
+  "author": "Club President",
+  "author_role": "Thamizhi Club President 2024",
+  "published_date": "2024-01-15T00:00:00.000Z",
+  "category": "announcements",
+  "tags": ["welcome", "club-info", "getting-started"],
+  "featured": true
+}

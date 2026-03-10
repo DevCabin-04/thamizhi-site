@@ -1,5 +1,5 @@
 // /components/pages/EventsPage.jsx
-import { useTina } from "tinacms/dist/react";
+import { useTina, tinaField } from "tinacms/dist/react";
 
 export default function EventsPage({ props, lang }) {
   // Log props for debugging
@@ -42,7 +42,7 @@ export default function EventsPage({ props, lang }) {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-orange-600 via-red-600 to-amber-600 text-white relative overflow-hidden">
+      <section className="bg-[#7a1315] text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute top-0 left-0 w-full h-full"
@@ -54,13 +54,22 @@ export default function EventsPage({ props, lang }) {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
           <div className="max-w-3xl">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+            <h1
+              className="text-4xl lg:text-5xl font-bold mb-4"
+              data-tina-field={tinaField(eventsContent, 'hero.title')}
+            >
               {eventsContent.hero?.title || "Events"}
             </h1>
-            <h2 className="text-2xl lg:text-3xl font-medium text-orange-100 mb-6">
+            <h2
+              className="text-2xl lg:text-3xl font-medium text-blue-100 mb-6"
+              data-tina-field={tinaField(eventsContent, 'hero.title_tamil')}
+            >
               {eventsContent.hero?.title_tamil || "நிகழ்வுகள்"}
             </h2>
-            <p className="text-xl text-orange-100">
+            <p
+              className="text-xl text-blue-100"
+              data-tina-field={tinaField(eventsContent, 'hero.description')}
+            >
               {eventsContent.hero?.description || ""}
             </p>
           </div>
@@ -69,24 +78,44 @@ export default function EventsPage({ props, lang }) {
 
       {/* Event Categories Section */}
       {eventsContent.event_categories && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Event Categories</h2>
               <p className="text-lg text-gray-600">Discover events that interest you</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {eventsContent.event_categories.map((category) => (
+              {eventsContent.event_categories.map((category, index) => (
                 <div key={category.id} className="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow cursor-pointer">
-                  <div className={`w-16 h-16 bg-${category.color}-100 rounded-full flex items-center justify-center mx-auto mb-4`}>
-                    <svg className={`w-8 h-8 text-${category.color}-600`} fill="currentColor" viewBox="0 0 24 24">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-blue-900" fill="currentColor" viewBox="0 0 24 24">
                       {renderIcon(category.icon)}
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{category.name}</h3>
-                  <h4 className="text-lg text-gray-700 mb-3">{category.name_tamil}</h4>
-                  <p className="text-gray-600 mb-4">{category.description}</p>
-                  <div className={`text-2xl font-bold text-${category.color}-600`}>{category.count}</div>
+                  <h3
+                    className="text-xl font-semibold text-gray-900 mb-2"
+                    data-tina-field={tinaField(eventsContent, `event_categories.${index}.name`)}
+                  >
+                    {category.name}
+                  </h3>
+                  <h4
+                    className="text-lg text-gray-700 mb-3"
+                    data-tina-field={tinaField(eventsContent, `event_categories.${index}.name_tamil`)}
+                  >
+                    {category.name_tamil}
+                  </h4>
+                  <p
+                    className="text-gray-600 mb-4"
+                    data-tina-field={tinaField(eventsContent, `event_categories.${index}.description`)}
+                  >
+                    {category.description}
+                  </p>
+                  <div
+                    className="text-2xl font-bold text-blue-900"
+                    data-tina-field={tinaField(eventsContent, `event_categories.${index}.count`)}
+                  >
+                    {category.count}
+                  </div>
                   <p className="text-sm text-gray-500">Annual Events</p>
                 </div>
               ))}
@@ -104,59 +133,101 @@ export default function EventsPage({ props, lang }) {
               <p className="text-lg text-gray-600">Don't miss these exciting upcoming events</p>
             </div>
             <div className="space-y-8">
-              {eventsContent.upcoming_events.map((event) => (
-                <div key={event.id} className="bg-gray-50 rounded-lg p-6 lg:p-8 flex flex-col lg:flex-row gap-6">
-                  <div className={`w-full lg:w-64 h-48 bg-gradient-to-br ${event.image_color} rounded-lg flex-shrink-0 flex items-center justify-center`}>
+              {eventsContent.upcoming_events.map((event, index) => (
+                <div key={event.id} className="bg-slate-50 rounded-lg p-6 lg:p-8 flex flex-col lg:flex-row gap-6">
+                  <div className="w-full lg:w-64 h-48 bg-[#7a1315] rounded-lg flex-shrink-0 flex items-center justify-center">
                     <div className="text-white text-center">
                       <svg className="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 24 24">
                           {renderIcon(event.category)}
                       </svg>
-                      <div className="text-sm font-medium capitalize">{event.category}</div>
+                      <div
+                        className="text-sm font-medium capitalize"
+                        data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.category`)}
+                      >
+                        {event.category}
+                      </div>
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 mb-1">{event.title}</h3>
-                        <h4 className="text-xl text-orange-600 mb-3">{event.title_tamil}</h4>
+                        <h3
+                          className="text-2xl font-bold text-gray-900 mb-1"
+                          data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.title`)}
+                        >
+                          {event.title}
+                        </h3>
+                        <h4
+                          className="text-xl text-blue-900 mb-3"
+                          data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.title_tamil`)}
+                        >
+                          {event.title_tamil}
+                        </h4>
                       </div>
                       <div className="text-right">
-                        <div className="text-lg font-semibold text-gray-900">{event.price} / {event.price_tamil}</div>
+                        <div className="text-lg font-semibold text-gray-900">
+                          <span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.price`)}>{event.price}</span> / <span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.price_tamil`)}>{event.price_tamil}</span>
+                        </div>
                         {event.registration_required && <div className="text-sm text-gray-500">Registration Required</div>}
                       </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                       <div className="flex items-center text-gray-600">
                         <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-                        <span>{new Date(event.date).toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })} • {event.time}</span>
+                        <span>
+                          <span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.date`)}>
+                            {new Date(event.date).toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
+                          </span> • <span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.time`)}>{event.time}</span>
+                        </span>
                       </div>
                       <div className="flex items-center text-gray-600">
                         <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         <div>
-                          <div>{event.location} / {event.location_tamil}</div>
-                          <div className="text-sm text-gray-500">{event.address}</div>
+                          <div>
+                            <span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.location`)}>{event.location}</span> / <span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.location_tamil`)}>{event.location_tamil}</span>
+                          </div>
+                          <div
+                            className="text-sm text-gray-500"
+                            data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.address`)}
+                          >
+                            {event.address}
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <p className="text-gray-700 mb-4">{event.description}</p>
-                    {event.description_tamil && <p className="text-gray-600 mb-4">{event.description_tamil}</p>}
+                    <p
+                      className="text-gray-700 mb-4"
+                      data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.description`)}
+                    >
+                      {event.description}
+                    </p>
+                    {event.description_tamil && (
+                      <p
+                        className="text-gray-600 mb-4"
+                        data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.description_tamil`)}
+                      >
+                        {event.description_tamil}
+                      </p>
+                    )}
                     {event.registration_required && event.capacity > 0 && (
                       <div className="mb-4">
                         <div className="flex justify-between text-sm text-gray-600 mb-1">
                           <span>Registration Progress</span>
-                          <span>{event.registered}/{event.capacity} registered</span>
+                          <span>
+                            <span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.registered`)}>{event.registered}</span>/<span data-tina-field={tinaField(eventsContent, `upcoming_events.${index}.capacity`)}>{event.capacity}</span> registered
+                          </span>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-2">
                           <div
-                            className="bg-orange-600 h-2 rounded-full"
+                            className="bg-[#7a1315] h-2 rounded-full"
                             style={{width: `${(event.registered / event.capacity) * 100}%`}}
                           ></div>
                         </div>
                       </div>
                     )}
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <button className="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors">Register Now</button>
-                      <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">More Details</button>
+                      <button className="bg-[#7a1315] text-white px-6 py-3 rounded-lg hover:bg-[#7a1315] transition-colors">Register Now</button>
+                      <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-slate-50 transition-colors">More Details</button>
                     </div>
                   </div>
                 </div>
@@ -168,26 +239,50 @@ export default function EventsPage({ props, lang }) {
 
       {/* Regular Programs Section */}
       {eventsContent.regular_programs && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">{eventsContent.regular_programs.title}</h2>
-              <p className="text-lg text-gray-600">{eventsContent.regular_programs.description}</p>
+              <h2
+                className="text-3xl font-bold text-gray-900 mb-4"
+                data-tina-field={tinaField(eventsContent, 'regular_programs.title')}
+              >
+                {eventsContent.regular_programs.title}
+              </h2>
+              <p
+                className="text-lg text-gray-600"
+                data-tina-field={tinaField(eventsContent, 'regular_programs.description')}
+              >
+                {eventsContent.regular_programs.description}
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {eventsContent.regular_programs.programs.map((program) => (
+              {eventsContent.regular_programs.programs.map((program, index) => (
                 <div key={program.id} className="bg-white rounded-lg shadow-lg p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">{program.name}</h3>
-                  <h4 className="text-lg font-medium text-orange-600 mb-3">{program.name_tamil}</h4>
+                  <h3
+                    className="text-xl font-semibold text-gray-900 mb-1"
+                    data-tina-field={tinaField(eventsContent, `regular_programs.programs.${index}.name`)}
+                  >
+                    {program.name}
+                  </h3>
+                  <h4
+                    className="text-lg font-medium text-blue-900 mb-3"
+                    data-tina-field={tinaField(eventsContent, `regular_programs.programs.${index}.name_tamil`)}
+                  >
+                    {program.name_tamil}
+                  </h4>
                   <div className="flex items-center text-gray-600 mb-2">
                     <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                    <span>{program.schedule} / {program.schedule_tamil}</span>
+                    <span>
+                      <span data-tina-field={tinaField(eventsContent, `regular_programs.programs.${index}.schedule`)}>{program.schedule}</span> / <span data-tina-field={tinaField(eventsContent, `regular_programs.programs.${index}.schedule_tamil`)}>{program.schedule_tamil}</span>
+                    </span>
                   </div>
                   <div className="flex items-center text-gray-600 mb-4">
                     <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <span>{program.location} / {program.location_tamil}</span>
+                    <span>
+                      <span data-tina-field={tinaField(eventsContent, `regular_programs.programs.${index}.location`)}>{program.location}</span> / <span data-tina-field={tinaField(eventsContent, `regular_programs.programs.${index}.location_tamil`)}>{program.location_tamil}</span>
+                    </span>
                   </div>
-                  <button className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors">Join Program</button>
+                  <button className="bg-[#7a1315] text-white px-4 py-2 rounded-lg hover:bg-[#7a1315] transition-colors">Join Program</button>
                 </div>
               ))}
             </div>
@@ -204,20 +299,40 @@ export default function EventsPage({ props, lang }) {
               <p className="text-lg text-gray-600">Take a look at our successful past events</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {eventsContent.past_events.map((event) => (
-                <div key={event.id} className="bg-gray-50 rounded-lg p-6 text-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              {eventsContent.past_events.map((event, index) => (
+                <div key={event.id} className="bg-slate-50 rounded-lg p-6 text-center">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-blue-900" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{event.title}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{event.location}</p>
-                  <p className="text-gray-500 text-sm mb-2">{new Date(event.date).toLocaleDateString(lang, { year: 'numeric', month: 'long' })}</p>
-                  <div className="text-orange-600 font-semibold">{event.attendees} attendees</div>
+                  <h3
+                    className="text-lg font-semibold text-gray-900 mb-2"
+                    data-tina-field={tinaField(eventsContent, `past_events.${index}.title`)}
+                  >
+                    {event.title}
+                  </h3>
+                  <p
+                    className="text-gray-600 text-sm mb-2"
+                    data-tina-field={tinaField(eventsContent, `past_events.${index}.location`)}
+                  >
+                    {event.location}
+                  </p>
+                  <p
+                    className="text-gray-500 text-sm mb-2"
+                    data-tina-field={tinaField(eventsContent, `past_events.${index}.date`)}
+                  >
+                    {new Date(event.date).toLocaleDateString(lang, { year: 'numeric', month: 'long' })}
+                  </p>
+                  <div
+                    className="text-blue-900 font-semibold"
+                    data-tina-field={tinaField(eventsContent, `past_events.${index}.attendees`)}
+                  >
+                    {event.attendees} attendees
+                  </div>
                 </div>
               ))}
             </div>
             <div className="text-center mt-12">
-              <button className="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors">View Event Gallery</button>
+              <button className="bg-[#7a1315] text-white px-8 py-3 rounded-lg hover:bg-[#7a1315] transition-colors">View Event Gallery</button>
             </div>
           </div>
         </section>
@@ -225,13 +340,28 @@ export default function EventsPage({ props, lang }) {
 
       {/* Event Hosting Section */}
       {eventsContent.event_hosting && (
-        <section className="py-16 bg-orange-50">
+        <section className="py-16 bg-slate-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{eventsContent.event_hosting.title}</h2>
-            <h3 className="text-2xl font-medium text-orange-600 mb-6">{eventsContent.event_hosting.title_tamil}</h3>
-            <p className="text-lg text-gray-600 mb-8">{eventsContent.event_hosting.description}</p>
+            <h2
+              className="text-3xl font-bold text-gray-900 mb-4"
+              data-tina-field={tinaField(eventsContent, 'event_hosting.title')}
+            >
+              {eventsContent.event_hosting.title}
+            </h2>
+            <h3
+              className="text-2xl font-medium text-blue-900 mb-6"
+              data-tina-field={tinaField(eventsContent, 'event_hosting.title_tamil')}
+            >
+              {eventsContent.event_hosting.title_tamil}
+            </h3>
+            <p
+              className="text-lg text-gray-600 mb-8"
+              data-tina-field={tinaField(eventsContent, 'event_hosting.description')}
+            >
+              {eventsContent.event_hosting.description}
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors">Submit Event Proposal</button>
+              <button className="bg-[#7a1315] text-white px-6 py-3 rounded-lg hover:bg-[#7a1315] transition-colors">Submit Event Proposal</button>
               <button className="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors">Event Guidelines</button>
             </div>
           </div>

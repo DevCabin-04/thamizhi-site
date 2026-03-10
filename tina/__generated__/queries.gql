@@ -1,3 +1,168 @@
+query site_config_en($relativePath: String!) {
+  site_config_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Site_config_enParts
+  }
+}
+
+query site_config_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Site_config_enFilter) {
+  site_config_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Site_config_enParts
+      }
+    }
+  }
+}
+
+query site_config_ta($relativePath: String!) {
+  site_config_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Site_config_taParts
+  }
+}
+
+query site_config_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Site_config_taFilter) {
+  site_config_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Site_config_taParts
+      }
+    }
+  }
+}
+
+query site_config_si($relativePath: String!) {
+  site_config_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Site_config_siParts
+  }
+}
+
+query site_config_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Site_config_siFilter) {
+  site_config_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Site_config_siParts
+      }
+    }
+  }
+}
+
 query home_en($relativePath: String!) {
   home_en(relativePath: $relativePath) {
     ... on Document {
@@ -713,61 +878,6 @@ query publications_enConnection($before: String, $after: String, $first: Float, 
   }
 }
 
-query publications_si($relativePath: String!) {
-  publications_si(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...Publications_siParts
-  }
-}
-
-query publications_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Publications_siFilter) {
-  publications_siConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...Publications_siParts
-      }
-    }
-  }
-}
-
 query publications_ta($relativePath: String!) {
   publications_ta(relativePath: $relativePath) {
     ... on Document {
@@ -818,6 +928,61 @@ query publications_taConnection($before: String, $after: String, $first: Float, 
           id
         }
         ...Publications_taParts
+      }
+    }
+  }
+}
+
+query publications_si($relativePath: String!) {
+  publications_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Publications_siParts
+  }
+}
+
+query publications_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Publications_siFilter) {
+  publications_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Publications_siParts
       }
     }
   }
@@ -1043,6 +1208,61 @@ query gallery_enConnection($before: String, $after: String, $first: Float, $last
   }
 }
 
+query gallery_ta($relativePath: String!) {
+  gallery_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Gallery_taParts
+  }
+}
+
+query gallery_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Gallery_taFilter) {
+  gallery_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Gallery_taParts
+      }
+    }
+  }
+}
+
 query gallery_si($relativePath: String!) {
   gallery_si(relativePath: $relativePath) {
     ... on Document {
@@ -1098,8 +1318,8 @@ query gallery_siConnection($before: String, $after: String, $first: Float, $last
   }
 }
 
-query gallery_ta($relativePath: String!) {
-  gallery_ta(relativePath: $relativePath) {
+query contact_en($relativePath: String!) {
+  contact_en(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -1112,12 +1332,12 @@ query gallery_ta($relativePath: String!) {
       }
       id
     }
-    ...Gallery_taParts
+    ...Contact_enParts
   }
 }
 
-query gallery_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Gallery_taFilter) {
-  gallery_taConnection(
+query contact_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Contact_enFilter) {
+  contact_enConnection(
     before: $before
     after: $after
     first: $first
@@ -1147,7 +1367,612 @@ query gallery_taConnection($before: String, $after: String, $first: Float, $last
           }
           id
         }
-        ...Gallery_taParts
+        ...Contact_enParts
+      }
+    }
+  }
+}
+
+query contact_si($relativePath: String!) {
+  contact_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Contact_siParts
+  }
+}
+
+query contact_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Contact_siFilter) {
+  contact_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Contact_siParts
+      }
+    }
+  }
+}
+
+query contact_ta($relativePath: String!) {
+  contact_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Contact_taParts
+  }
+}
+
+query contact_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Contact_taFilter) {
+  contact_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Contact_taParts
+      }
+    }
+  }
+}
+
+query pages_en($relativePath: String!) {
+  pages_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Pages_enParts
+  }
+}
+
+query pages_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Pages_enFilter) {
+  pages_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Pages_enParts
+      }
+    }
+  }
+}
+
+query pages_ta($relativePath: String!) {
+  pages_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Pages_taParts
+  }
+}
+
+query pages_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Pages_taFilter) {
+  pages_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Pages_taParts
+      }
+    }
+  }
+}
+
+query pages_si($relativePath: String!) {
+  pages_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Pages_siParts
+  }
+}
+
+query pages_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Pages_siFilter) {
+  pages_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Pages_siParts
+      }
+    }
+  }
+}
+
+query blog_page_en($relativePath: String!) {
+  blog_page_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_page_enParts
+  }
+}
+
+query blog_page_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_page_enFilter) {
+  blog_page_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_page_enParts
+      }
+    }
+  }
+}
+
+query blog_page_si($relativePath: String!) {
+  blog_page_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_page_siParts
+  }
+}
+
+query blog_page_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_page_siFilter) {
+  blog_page_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_page_siParts
+      }
+    }
+  }
+}
+
+query blog_page_ta($relativePath: String!) {
+  blog_page_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_page_taParts
+  }
+}
+
+query blog_page_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_page_taFilter) {
+  blog_page_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_page_taParts
+      }
+    }
+  }
+}
+
+query blog_en($relativePath: String!) {
+  blog_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_enParts
+  }
+}
+
+query blog_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_enFilter) {
+  blog_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_enParts
+      }
+    }
+  }
+}
+
+query blog_ta($relativePath: String!) {
+  blog_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_taParts
+  }
+}
+
+query blog_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_taFilter) {
+  blog_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_taParts
+      }
+    }
+  }
+}
+
+query blog_si($relativePath: String!) {
+  blog_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_siParts
+  }
+}
+
+query blog_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_siFilter) {
+  blog_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_siParts
       }
     }
   }

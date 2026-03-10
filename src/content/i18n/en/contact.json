@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "title": "Contact Us",
+    "description": "We're here to help. Reach out to us for assistance, information, or to share your feedback on our services and programs."
+  },
+  "contact_methods": {
+    "title": "How to Reach Us",
+    "description": "Choose the contact method that works best for you. We're committed to responding promptly to all inquiries.",
+    "methods": [
+      {
+        "title": "Phone Support",
+        "description": "Speak directly with our customer service representatives",
+        "contact_info": "(555) 123-4567",
+        "hours": "Mon-Fri: 8AM-6PM EST",
+        "color": "bg-blue-600"
+      },
+      {
+        "title": "Email Support",
+        "description": "Send us detailed questions or documentation",
+        "contact_info": "info@thamizhi.org",
+        "hours": "Response within 24 hours",
+        "color": "bg-green-600"
+      },
+      {
+        "title": "Live Chat",
+        "description": "Get instant help with quick questions",
+        "contact_info": "Click to start chat",
+        "hours": "Available during office hours",
+        "color": "bg-purple-600"
+      },
+      {
+        "title": "Visit Us",
+        "description": "Schedule an appointment for complex matters",
+        "contact_info": "123 Tamil Cultural Center",
+        "hours": "By appointment only",
+        "color": "bg-orange-600"
+      }
+    ]
+  },
+  "contact_form": {
+    "title": "Send Us a Message",
+    "description": "Fill out the form below and we'll get back to you as soon as possible."
+  },
+  "emergency_contact": {
+    "title": "Emergency Contact",
+    "description": "For urgent matters requiring immediate attention, please use our emergency contact line.",
+    "label": "Emergency Hotline",
+    "phone": "(555) 911-HELP",
+    "availability": "Available 24/7"
+  },
+  "office_info": {
+    "hours": {
+      "title": "Office Hours",
+      "schedule": [
+        {
+          "day": "Monday - Friday",
+          "time": "8:00 AM - 6:00 PM EST"
+        },
+        {
+          "day": "Saturday",
+          "time": "9:00 AM - 2:00 PM EST"
+        },
+        {
+          "day": "Sunday",
+          "time": "Closed"
+        },
+        {
+          "day": "Federal Holidays",
+          "time": "Closed"
+        }
+      ],
+      "note": "<strong>Note:</strong> Online services are available 24/7. Emergency services operate around the clock."
+    },
+    "location": {
+      "title": "Visit Our Office",
+      "address": {
+        "label": "Main Office",
+        "lines": [
+          "123 Tamil Cultural Center",
+          "Suite 400",
+          "Washington, DC 20001"
+        ]
+      },
+      "parking": {
+        "title": "Parking Information",
+        "description": "Visitor parking is available in the Cultural Center parking garage. Validation available for official business visits."
+      },
+      "transport": {
+        "title": "Public Transportation",
+        "description": "Metro: Federal Triangle Station (Blue/Orange/Silver Lines)<br>Bus routes: 32, 36, D6 stop directly in front of building"
+      },
+      "security_notice": "<strong>Security Notice:</strong> All visitors must pass through security screening. Please bring valid government-issued photo ID."
+    }
+  },
+  "faq_link": {
+    "title": "Frequently Asked Questions",
+    "description": "Before contacting us, you might find the answer to your question in our comprehensive FAQ section.",
+    "button_text": "Browse FAQ",
+    "link": "/help/faq"
+  }
+}

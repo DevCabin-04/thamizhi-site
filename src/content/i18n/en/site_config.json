@@ -29,18 +29,17 @@
   "navigation": {
     "primary": [
       { "name": "Home", "href": "" },
-      { "name": "About", "href": "/about" },
-      { "name": "Departments", "href": "/departments" },
-      { "name": "Membership", "href": "/membership" },
-      { "name": "Publications", "href": "/publications" },
-      { "name": "Gallery", "href": "/gallery" },
-      { "name": "Events", "href": "/events" }
+      { "name": "About", "href": "about" },
+      { "name": "Blog", "href": "blog" },
+      { "name": "Publications", "href": "publications" },
+      { "name": "Gallery", "href": "gallery" },
+      { "name": "Events", "href": "events" },
+      { "name": "Contact", "href": "contact" }
     ],
     "footer": [
-      { "name": "Privacy Policy", "href": "/privacy" },
-      { "name": "Terms of Service", "href": "/terms" },
-      { "name": "Donate", "href": "/donate" },
-      { "name": "Volunteer", "href": "/volunteer" }
+      { "name": "Privacy Policy", "href": "privacy" },
+      { "name": "Terms of Service", "href": "terms" },
+      { "name": "Contact Us", "href": "contact" }
     ]
   },
   "theme": {

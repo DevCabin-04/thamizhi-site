@@ -82,6 +82,12 @@ export type Query = {
   collections: Array<Collection>;
   node: Node;
   document: DocumentNode;
+  site_config_en: Site_Config_En;
+  site_config_enConnection: Site_Config_EnConnection;
+  site_config_ta: Site_Config_Ta;
+  site_config_taConnection: Site_Config_TaConnection;
+  site_config_si: Site_Config_Si;
+  site_config_siConnection: Site_Config_SiConnection;
   home_en: Home_En;
   home_enConnection: Home_EnConnection;
   home_si: Home_Si;
@@ -108,10 +114,10 @@ export type Query = {
   membership_taConnection: Membership_TaConnection;
   publications_en: Publications_En;
   publications_enConnection: Publications_EnConnection;
-  publications_si: Publications_Si;
-  publications_siConnection: Publications_SiConnection;
   publications_ta: Publications_Ta;
   publications_taConnection: Publications_TaConnection;
+  publications_si: Publications_Si;
+  publications_siConnection: Publications_SiConnection;
   events_en: Events_En;
   events_enConnection: Events_EnConnection;
   events_si: Events_Si;
@@ -120,10 +126,34 @@ export type Query = {
   events_taConnection: Events_TaConnection;
   gallery_en: Gallery_En;
   gallery_enConnection: Gallery_EnConnection;
-  gallery_si: Gallery_Si;
-  gallery_siConnection: Gallery_SiConnection;
   gallery_ta: Gallery_Ta;
   gallery_taConnection: Gallery_TaConnection;
+  gallery_si: Gallery_Si;
+  gallery_siConnection: Gallery_SiConnection;
+  contact_en: Contact_En;
+  contact_enConnection: Contact_EnConnection;
+  contact_si: Contact_Si;
+  contact_siConnection: Contact_SiConnection;
+  contact_ta: Contact_Ta;
+  contact_taConnection: Contact_TaConnection;
+  pages_en: Pages_En;
+  pages_enConnection: Pages_EnConnection;
+  pages_ta: Pages_Ta;
+  pages_taConnection: Pages_TaConnection;
+  pages_si: Pages_Si;
+  pages_siConnection: Pages_SiConnection;
+  blog_page_en: Blog_Page_En;
+  blog_page_enConnection: Blog_Page_EnConnection;
+  blog_page_si: Blog_Page_Si;
+  blog_page_siConnection: Blog_Page_SiConnection;
+  blog_page_ta: Blog_Page_Ta;
+  blog_page_taConnection: Blog_Page_TaConnection;
+  blog_en: Blog_En;
+  blog_enConnection: Blog_EnConnection;
+  blog_ta: Blog_Ta;
+  blog_taConnection: Blog_TaConnection;
+  blog_si: Blog_Si;
+  blog_siConnection: Blog_SiConnection;
 };
 
 
@@ -145,6 +175,51 @@ export type QueryNodeArgs = {
 export type QueryDocumentArgs = {
   collection?: InputMaybe<Scalars['String']['input']>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySite_Config_EnArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySite_Config_EnConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Site_Config_EnFilter>;
+};
+
+
+export type QuerySite_Config_TaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySite_Config_TaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Site_Config_TaFilter>;
+};
+
+
+export type QuerySite_Config_SiArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QuerySite_Config_SiConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Site_Config_SiFilter>;
 };
 
 
@@ -343,21 +418,6 @@ export type QueryPublications_EnConnectionArgs = {
 };
 
 
-export type QueryPublications_SiArgs = {
-  relativePath?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type QueryPublications_SiConnectionArgs = {
-  before?: InputMaybe<Scalars['String']['input']>;
-  after?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Float']['input']>;
-  last?: InputMaybe<Scalars['Float']['input']>;
-  sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<Publications_SiFilter>;
-};
-
-
 export type QueryPublications_TaArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -370,6 +430,21 @@ export type QueryPublications_TaConnectionArgs = {
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
   filter?: InputMaybe<Publications_TaFilter>;
+};
+
+
+export type QueryPublications_SiArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPublications_SiConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Publications_SiFilter>;
 };
 
 
@@ -433,6 +508,21 @@ export type QueryGallery_EnConnectionArgs = {
 };
 
 
+export type QueryGallery_TaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryGallery_TaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Gallery_TaFilter>;
+};
+
+
 export type QueryGallery_SiArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
@@ -448,21 +538,189 @@ export type QueryGallery_SiConnectionArgs = {
 };
 
 
-export type QueryGallery_TaArgs = {
+export type QueryContact_EnArgs = {
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 
-export type QueryGallery_TaConnectionArgs = {
+export type QueryContact_EnConnectionArgs = {
   before?: InputMaybe<Scalars['String']['input']>;
   after?: InputMaybe<Scalars['String']['input']>;
   first?: InputMaybe<Scalars['Float']['input']>;
   last?: InputMaybe<Scalars['Float']['input']>;
   sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<Gallery_TaFilter>;
+  filter?: InputMaybe<Contact_EnFilter>;
+};
+
+
+export type QueryContact_SiArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryContact_SiConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Contact_SiFilter>;
+};
+
+
+export type QueryContact_TaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryContact_TaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Contact_TaFilter>;
+};
+
+
+export type QueryPages_EnArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPages_EnConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Pages_EnFilter>;
+};
+
+
+export type QueryPages_TaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPages_TaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Pages_TaFilter>;
+};
+
+
+export type QueryPages_SiArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryPages_SiConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Pages_SiFilter>;
+};
+
+
+export type QueryBlog_Page_EnArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryBlog_Page_EnConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_Page_EnFilter>;
+};
+
+
+export type QueryBlog_Page_SiArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryBlog_Page_SiConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_Page_SiFilter>;
+};
+
+
+export type QueryBlog_Page_TaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryBlog_Page_TaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_Page_TaFilter>;
+};
+
+
+export type QueryBlog_EnArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryBlog_EnConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_EnFilter>;
+};
+
+
+export type QueryBlog_TaArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryBlog_TaConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_TaFilter>;
+};
+
+
+export type QueryBlog_SiArgs = {
+  relativePath?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QueryBlog_SiConnectionArgs = {
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_SiFilter>;
 };
 
 export type DocumentFilter = {
+  site_config_en?: InputMaybe<Site_Config_EnFilter>;
+  site_config_ta?: InputMaybe<Site_Config_TaFilter>;
+  site_config_si?: InputMaybe<Site_Config_SiFilter>;
   home_en?: InputMaybe<Home_EnFilter>;
   home_si?: InputMaybe<Home_SiFilter>;
   home_ta?: InputMaybe<Home_TaFilter>;
@@ -476,14 +734,26 @@ export type DocumentFilter = {
   membership_si?: InputMaybe<Membership_SiFilter>;
   membership_ta?: InputMaybe<Membership_TaFilter>;
   publications_en?: InputMaybe<Publications_EnFilter>;
-  publications_si?: InputMaybe<Publications_SiFilter>;
   publications_ta?: InputMaybe<Publications_TaFilter>;
+  publications_si?: InputMaybe<Publications_SiFilter>;
   events_en?: InputMaybe<Events_EnFilter>;
   events_si?: InputMaybe<Events_SiFilter>;
   events_ta?: InputMaybe<Events_TaFilter>;
   gallery_en?: InputMaybe<Gallery_EnFilter>;
-  gallery_si?: InputMaybe<Gallery_SiFilter>;
   gallery_ta?: InputMaybe<Gallery_TaFilter>;
+  gallery_si?: InputMaybe<Gallery_SiFilter>;
+  contact_en?: InputMaybe<Contact_EnFilter>;
+  contact_si?: InputMaybe<Contact_SiFilter>;
+  contact_ta?: InputMaybe<Contact_TaFilter>;
+  pages_en?: InputMaybe<Pages_EnFilter>;
+  pages_ta?: InputMaybe<Pages_TaFilter>;
+  pages_si?: InputMaybe<Pages_SiFilter>;
+  blog_page_en?: InputMaybe<Blog_Page_EnFilter>;
+  blog_page_si?: InputMaybe<Blog_Page_SiFilter>;
+  blog_page_ta?: InputMaybe<Blog_Page_TaFilter>;
+  blog_en?: InputMaybe<Blog_EnFilter>;
+  blog_ta?: InputMaybe<Blog_TaFilter>;
+  blog_si?: InputMaybe<Blog_SiFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -523,7 +793,500 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Home_En | Home_Si | Home_Ta | About_En | About_Si | About_Ta | Departments_En | Departments_Si | Departments_Ta | Membership_En | Membership_Si | Membership_Ta | Publications_En | Publications_Si | Publications_Ta | Events_En | Events_Si | Events_Ta | Gallery_En | Gallery_Si | Gallery_Ta | Folder;
+export type DocumentNode = Site_Config_En | Site_Config_Ta | Site_Config_Si | Home_En | Home_Si | Home_Ta | About_En | About_Si | About_Ta | Departments_En | Departments_Si | Departments_Ta | Membership_En | Membership_Si | Membership_Ta | Publications_En | Publications_Ta | Publications_Si | Events_En | Events_Si | Events_Ta | Gallery_En | Gallery_Ta | Gallery_Si | Contact_En | Contact_Si | Contact_Ta | Pages_En | Pages_Ta | Pages_Si | Blog_Page_En | Blog_Page_Si | Blog_Page_Ta | Blog_En | Blog_Ta | Blog_Si | Folder;
+
+export type Site_Config_EnOrganization = {
+  __typename?: 'Site_config_enOrganization';
+  name: Scalars['String']['output'];
+  name_local: Scalars['String']['output'];
+  tagline: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+  mission?: Maybe<Scalars['String']['output']>;
+  vision?: Maybe<Scalars['String']['output']>;
+  founded?: Maybe<Scalars['String']['output']>;
+  registration_number?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_EnContactAddress = {
+  __typename?: 'Site_config_enContactAddress';
+  street?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  postal_code?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_EnContactSocial_Media = {
+  __typename?: 'Site_config_enContactSocial_media';
+  facebook?: Maybe<Scalars['String']['output']>;
+  twitter?: Maybe<Scalars['String']['output']>;
+  instagram?: Maybe<Scalars['String']['output']>;
+  youtube?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_EnContact = {
+  __typename?: 'Site_config_enContact';
+  email: Scalars['String']['output'];
+  phone: Scalars['String']['output'];
+  address?: Maybe<Site_Config_EnContactAddress>;
+  social_media?: Maybe<Site_Config_EnContactSocial_Media>;
+};
+
+export type Site_Config_EnNavigationPrimary = {
+  __typename?: 'Site_config_enNavigationPrimary';
+  name: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
+export type Site_Config_EnNavigationFooter = {
+  __typename?: 'Site_config_enNavigationFooter';
+  name: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
+export type Site_Config_EnNavigation = {
+  __typename?: 'Site_config_enNavigation';
+  primary?: Maybe<Array<Maybe<Site_Config_EnNavigationPrimary>>>;
+  footer?: Maybe<Array<Maybe<Site_Config_EnNavigationFooter>>>;
+};
+
+export type Site_Config_EnFooter = {
+  __typename?: 'Site_config_enFooter';
+  copyright: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_EnMeta = {
+  __typename?: 'Site_config_enMeta';
+  title_suffix?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  keywords?: Maybe<Scalars['String']['output']>;
+  author?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_En = Node & Document & {
+  __typename?: 'Site_config_en';
+  organization?: Maybe<Site_Config_EnOrganization>;
+  contact?: Maybe<Site_Config_EnContact>;
+  navigation?: Maybe<Site_Config_EnNavigation>;
+  footer?: Maybe<Site_Config_EnFooter>;
+  meta?: Maybe<Site_Config_EnMeta>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type StringFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Site_Config_EnOrganizationFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_local?: InputMaybe<StringFilter>;
+  tagline?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  mission?: InputMaybe<StringFilter>;
+  vision?: InputMaybe<StringFilter>;
+  founded?: InputMaybe<StringFilter>;
+  registration_number?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_EnContactAddressFilter = {
+  street?: InputMaybe<StringFilter>;
+  city?: InputMaybe<StringFilter>;
+  state?: InputMaybe<StringFilter>;
+  postal_code?: InputMaybe<StringFilter>;
+  country?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_EnContactSocial_MediaFilter = {
+  facebook?: InputMaybe<StringFilter>;
+  twitter?: InputMaybe<StringFilter>;
+  instagram?: InputMaybe<StringFilter>;
+  youtube?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_EnContactFilter = {
+  email?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  address?: InputMaybe<Site_Config_EnContactAddressFilter>;
+  social_media?: InputMaybe<Site_Config_EnContactSocial_MediaFilter>;
+};
+
+export type Site_Config_EnNavigationPrimaryFilter = {
+  name?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_EnNavigationFooterFilter = {
+  name?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_EnNavigationFilter = {
+  primary?: InputMaybe<Site_Config_EnNavigationPrimaryFilter>;
+  footer?: InputMaybe<Site_Config_EnNavigationFooterFilter>;
+};
+
+export type Site_Config_EnFooterFilter = {
+  copyright?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_EnMetaFilter = {
+  title_suffix?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  keywords?: InputMaybe<StringFilter>;
+  author?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_EnFilter = {
+  organization?: InputMaybe<Site_Config_EnOrganizationFilter>;
+  contact?: InputMaybe<Site_Config_EnContactFilter>;
+  navigation?: InputMaybe<Site_Config_EnNavigationFilter>;
+  footer?: InputMaybe<Site_Config_EnFooterFilter>;
+  meta?: InputMaybe<Site_Config_EnMetaFilter>;
+};
+
+export type Site_Config_EnConnectionEdges = {
+  __typename?: 'Site_config_enConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Site_Config_En>;
+};
+
+export type Site_Config_EnConnection = Connection & {
+  __typename?: 'Site_config_enConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Site_Config_EnConnectionEdges>>>;
+};
+
+export type Site_Config_TaOrganization = {
+  __typename?: 'Site_config_taOrganization';
+  name: Scalars['String']['output'];
+  name_local: Scalars['String']['output'];
+  tagline: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+  mission?: Maybe<Scalars['String']['output']>;
+  vision?: Maybe<Scalars['String']['output']>;
+  founded?: Maybe<Scalars['String']['output']>;
+  registration_number?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_TaContactAddress = {
+  __typename?: 'Site_config_taContactAddress';
+  street?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  postal_code?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_TaContactSocial_Media = {
+  __typename?: 'Site_config_taContactSocial_media';
+  facebook?: Maybe<Scalars['String']['output']>;
+  twitter?: Maybe<Scalars['String']['output']>;
+  instagram?: Maybe<Scalars['String']['output']>;
+  youtube?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_TaContact = {
+  __typename?: 'Site_config_taContact';
+  email: Scalars['String']['output'];
+  phone: Scalars['String']['output'];
+  address?: Maybe<Site_Config_TaContactAddress>;
+  social_media?: Maybe<Site_Config_TaContactSocial_Media>;
+};
+
+export type Site_Config_TaNavigationPrimary = {
+  __typename?: 'Site_config_taNavigationPrimary';
+  name: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
+export type Site_Config_TaNavigationFooter = {
+  __typename?: 'Site_config_taNavigationFooter';
+  name: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
+export type Site_Config_TaNavigation = {
+  __typename?: 'Site_config_taNavigation';
+  primary?: Maybe<Array<Maybe<Site_Config_TaNavigationPrimary>>>;
+  footer?: Maybe<Array<Maybe<Site_Config_TaNavigationFooter>>>;
+};
+
+export type Site_Config_TaFooter = {
+  __typename?: 'Site_config_taFooter';
+  copyright: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_TaMeta = {
+  __typename?: 'Site_config_taMeta';
+  title_suffix?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  keywords?: Maybe<Scalars['String']['output']>;
+  author?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_Ta = Node & Document & {
+  __typename?: 'Site_config_ta';
+  organization?: Maybe<Site_Config_TaOrganization>;
+  contact?: Maybe<Site_Config_TaContact>;
+  navigation?: Maybe<Site_Config_TaNavigation>;
+  footer?: Maybe<Site_Config_TaFooter>;
+  meta?: Maybe<Site_Config_TaMeta>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Site_Config_TaOrganizationFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_local?: InputMaybe<StringFilter>;
+  tagline?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  mission?: InputMaybe<StringFilter>;
+  vision?: InputMaybe<StringFilter>;
+  founded?: InputMaybe<StringFilter>;
+  registration_number?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_TaContactAddressFilter = {
+  street?: InputMaybe<StringFilter>;
+  city?: InputMaybe<StringFilter>;
+  state?: InputMaybe<StringFilter>;
+  postal_code?: InputMaybe<StringFilter>;
+  country?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_TaContactSocial_MediaFilter = {
+  facebook?: InputMaybe<StringFilter>;
+  twitter?: InputMaybe<StringFilter>;
+  instagram?: InputMaybe<StringFilter>;
+  youtube?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_TaContactFilter = {
+  email?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  address?: InputMaybe<Site_Config_TaContactAddressFilter>;
+  social_media?: InputMaybe<Site_Config_TaContactSocial_MediaFilter>;
+};
+
+export type Site_Config_TaNavigationPrimaryFilter = {
+  name?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_TaNavigationFooterFilter = {
+  name?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_TaNavigationFilter = {
+  primary?: InputMaybe<Site_Config_TaNavigationPrimaryFilter>;
+  footer?: InputMaybe<Site_Config_TaNavigationFooterFilter>;
+};
+
+export type Site_Config_TaFooterFilter = {
+  copyright?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_TaMetaFilter = {
+  title_suffix?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  keywords?: InputMaybe<StringFilter>;
+  author?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_TaFilter = {
+  organization?: InputMaybe<Site_Config_TaOrganizationFilter>;
+  contact?: InputMaybe<Site_Config_TaContactFilter>;
+  navigation?: InputMaybe<Site_Config_TaNavigationFilter>;
+  footer?: InputMaybe<Site_Config_TaFooterFilter>;
+  meta?: InputMaybe<Site_Config_TaMetaFilter>;
+};
+
+export type Site_Config_TaConnectionEdges = {
+  __typename?: 'Site_config_taConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Site_Config_Ta>;
+};
+
+export type Site_Config_TaConnection = Connection & {
+  __typename?: 'Site_config_taConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Site_Config_TaConnectionEdges>>>;
+};
+
+export type Site_Config_SiOrganization = {
+  __typename?: 'Site_config_siOrganization';
+  name: Scalars['String']['output'];
+  name_local: Scalars['String']['output'];
+  tagline: Scalars['String']['output'];
+  description: Scalars['String']['output'];
+  mission?: Maybe<Scalars['String']['output']>;
+  vision?: Maybe<Scalars['String']['output']>;
+  founded?: Maybe<Scalars['String']['output']>;
+  registration_number?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_SiContactAddress = {
+  __typename?: 'Site_config_siContactAddress';
+  street?: Maybe<Scalars['String']['output']>;
+  city?: Maybe<Scalars['String']['output']>;
+  state?: Maybe<Scalars['String']['output']>;
+  postal_code?: Maybe<Scalars['String']['output']>;
+  country?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_SiContactSocial_Media = {
+  __typename?: 'Site_config_siContactSocial_media';
+  facebook?: Maybe<Scalars['String']['output']>;
+  twitter?: Maybe<Scalars['String']['output']>;
+  instagram?: Maybe<Scalars['String']['output']>;
+  youtube?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_SiContact = {
+  __typename?: 'Site_config_siContact';
+  email: Scalars['String']['output'];
+  phone: Scalars['String']['output'];
+  address?: Maybe<Site_Config_SiContactAddress>;
+  social_media?: Maybe<Site_Config_SiContactSocial_Media>;
+};
+
+export type Site_Config_SiNavigationPrimary = {
+  __typename?: 'Site_config_siNavigationPrimary';
+  name: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
+export type Site_Config_SiNavigationFooter = {
+  __typename?: 'Site_config_siNavigationFooter';
+  name: Scalars['String']['output'];
+  href: Scalars['String']['output'];
+};
+
+export type Site_Config_SiNavigation = {
+  __typename?: 'Site_config_siNavigation';
+  primary?: Maybe<Array<Maybe<Site_Config_SiNavigationPrimary>>>;
+  footer?: Maybe<Array<Maybe<Site_Config_SiNavigationFooter>>>;
+};
+
+export type Site_Config_SiFooter = {
+  __typename?: 'Site_config_siFooter';
+  copyright: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_SiMeta = {
+  __typename?: 'Site_config_siMeta';
+  title_suffix?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  keywords?: Maybe<Scalars['String']['output']>;
+  author?: Maybe<Scalars['String']['output']>;
+};
+
+export type Site_Config_Si = Node & Document & {
+  __typename?: 'Site_config_si';
+  organization?: Maybe<Site_Config_SiOrganization>;
+  contact?: Maybe<Site_Config_SiContact>;
+  navigation?: Maybe<Site_Config_SiNavigation>;
+  footer?: Maybe<Site_Config_SiFooter>;
+  meta?: Maybe<Site_Config_SiMeta>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Site_Config_SiOrganizationFilter = {
+  name?: InputMaybe<StringFilter>;
+  name_local?: InputMaybe<StringFilter>;
+  tagline?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  mission?: InputMaybe<StringFilter>;
+  vision?: InputMaybe<StringFilter>;
+  founded?: InputMaybe<StringFilter>;
+  registration_number?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_SiContactAddressFilter = {
+  street?: InputMaybe<StringFilter>;
+  city?: InputMaybe<StringFilter>;
+  state?: InputMaybe<StringFilter>;
+  postal_code?: InputMaybe<StringFilter>;
+  country?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_SiContactSocial_MediaFilter = {
+  facebook?: InputMaybe<StringFilter>;
+  twitter?: InputMaybe<StringFilter>;
+  instagram?: InputMaybe<StringFilter>;
+  youtube?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_SiContactFilter = {
+  email?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  address?: InputMaybe<Site_Config_SiContactAddressFilter>;
+  social_media?: InputMaybe<Site_Config_SiContactSocial_MediaFilter>;
+};
+
+export type Site_Config_SiNavigationPrimaryFilter = {
+  name?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_SiNavigationFooterFilter = {
+  name?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_SiNavigationFilter = {
+  primary?: InputMaybe<Site_Config_SiNavigationPrimaryFilter>;
+  footer?: InputMaybe<Site_Config_SiNavigationFooterFilter>;
+};
+
+export type Site_Config_SiFooterFilter = {
+  copyright?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_SiMetaFilter = {
+  title_suffix?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  keywords?: InputMaybe<StringFilter>;
+  author?: InputMaybe<StringFilter>;
+};
+
+export type Site_Config_SiFilter = {
+  organization?: InputMaybe<Site_Config_SiOrganizationFilter>;
+  contact?: InputMaybe<Site_Config_SiContactFilter>;
+  navigation?: InputMaybe<Site_Config_SiNavigationFilter>;
+  footer?: InputMaybe<Site_Config_SiFooterFilter>;
+  meta?: InputMaybe<Site_Config_SiMetaFilter>;
+};
+
+export type Site_Config_SiConnectionEdges = {
+  __typename?: 'Site_config_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Site_Config_Si>;
+};
+
+export type Site_Config_SiConnection = Connection & {
+  __typename?: 'Site_config_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Site_Config_SiConnectionEdges>>>;
+};
 
 export type Home_EnHeroCta_Primary = {
   __typename?: 'Home_enHeroCta_primary';
@@ -542,6 +1305,9 @@ export type Home_EnHero = {
   title: Scalars['String']['output'];
   subtitle?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
+  background_image?: Maybe<Scalars['String']['output']>;
+  hero_video_url?: Maybe<Scalars['String']['output']>;
+  hero_video_title?: Maybe<Scalars['String']['output']>;
   cta_primary?: Maybe<Home_EnHeroCta_Primary>;
   cta_secondary?: Maybe<Home_EnHeroCta_Secondary>;
 };
@@ -557,6 +1323,7 @@ export type Home_EnFeatured_Departments = {
   name: Scalars['String']['output'];
   description: Scalars['String']['output'];
   icon: Scalars['String']['output'];
+  image?: Maybe<Scalars['String']['output']>;
   href: Scalars['String']['output'];
 };
 
@@ -595,6 +1362,14 @@ export type Home_EnQuick_Actions = {
   color?: Maybe<Scalars['String']['output']>;
 };
 
+export type Home_EnFeatured_Video = {
+  __typename?: 'Home_enFeatured_video';
+  title?: Maybe<Scalars['String']['output']>;
+  video_title?: Maybe<Scalars['String']['output']>;
+  video_description?: Maybe<Scalars['String']['output']>;
+  youtube_url?: Maybe<Scalars['String']['output']>;
+};
+
 export type Home_EnNewsletter = {
   __typename?: 'Home_enNewsletter';
   title: Scalars['String']['output'];
@@ -602,6 +1377,32 @@ export type Home_EnNewsletter = {
   placeholder: Scalars['String']['output'];
   button: Scalars['String']['output'];
   privacy?: Maybe<Scalars['String']['output']>;
+};
+
+export type Home_EnRecent_Articles = {
+  __typename?: 'Home_enRecent_articles';
+  section_title: Scalars['String']['output'];
+  section_description?: Maybe<Scalars['String']['output']>;
+  view_all_text: Scalars['String']['output'];
+  view_all_href: Scalars['String']['output'];
+  posts_to_show: Scalars['Float']['output'];
+};
+
+export type Home_EnPhoto_HighlightsPhotos = {
+  __typename?: 'Home_enPhoto_highlightsPhotos';
+  image: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Home_EnPhoto_Highlights = {
+  __typename?: 'Home_enPhoto_highlights';
+  section_title: Scalars['String']['output'];
+  section_description?: Maybe<Scalars['String']['output']>;
+  photos?: Maybe<Array<Maybe<Home_EnPhoto_HighlightsPhotos>>>;
+  view_gallery_text?: Maybe<Scalars['String']['output']>;
+  view_gallery_href?: Maybe<Scalars['String']['output']>;
 };
 
 export type Home_En = Node & Document & {
@@ -613,13 +1414,16 @@ export type Home_En = Node & Document & {
   announcements?: Maybe<Array<Maybe<Home_EnAnnouncements>>>;
   statistics?: Maybe<Array<Maybe<Home_EnStatistics>>>;
   quick_actions?: Maybe<Array<Maybe<Home_EnQuick_Actions>>>;
+  featured_video?: Maybe<Home_EnFeatured_Video>;
   newsletter?: Maybe<Home_EnNewsletter>;
+  recent_articles?: Maybe<Home_EnRecent_Articles>;
+  photo_highlights?: Maybe<Home_EnPhoto_Highlights>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
 };
 
-export type StringFilter = {
+export type ImageFilter = {
   startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
@@ -640,6 +1444,9 @@ export type Home_EnHeroFilter = {
   title?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  background_image?: InputMaybe<ImageFilter>;
+  hero_video_url?: InputMaybe<StringFilter>;
+  hero_video_title?: InputMaybe<StringFilter>;
   cta_primary?: InputMaybe<Home_EnHeroCta_PrimaryFilter>;
   cta_secondary?: InputMaybe<Home_EnHeroCta_SecondaryFilter>;
 };
@@ -653,19 +1460,13 @@ export type Home_EnFeatured_DepartmentsFilter = {
   name?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   icon?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
   href?: InputMaybe<StringFilter>;
 };
 
 export type DatetimeFilter = {
   after?: InputMaybe<Scalars['String']['input']>;
   before?: InputMaybe<Scalars['String']['input']>;
-  eq?: InputMaybe<Scalars['String']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type ImageFilter = {
-  startsWith?: InputMaybe<Scalars['String']['input']>;
   eq?: InputMaybe<Scalars['String']['input']>;
   exists?: InputMaybe<Scalars['Boolean']['input']>;
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -702,12 +1503,52 @@ export type Home_EnQuick_ActionsFilter = {
   color?: InputMaybe<StringFilter>;
 };
 
+export type Home_EnFeatured_VideoFilter = {
+  title?: InputMaybe<StringFilter>;
+  video_title?: InputMaybe<StringFilter>;
+  video_description?: InputMaybe<StringFilter>;
+  youtube_url?: InputMaybe<StringFilter>;
+};
+
 export type Home_EnNewsletterFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   placeholder?: InputMaybe<StringFilter>;
   button?: InputMaybe<StringFilter>;
   privacy?: InputMaybe<StringFilter>;
+};
+
+export type NumberFilter = {
+  lt?: InputMaybe<Scalars['Float']['input']>;
+  lte?: InputMaybe<Scalars['Float']['input']>;
+  gte?: InputMaybe<Scalars['Float']['input']>;
+  gt?: InputMaybe<Scalars['Float']['input']>;
+  eq?: InputMaybe<Scalars['Float']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+};
+
+export type Home_EnRecent_ArticlesFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  section_description?: InputMaybe<StringFilter>;
+  view_all_text?: InputMaybe<StringFilter>;
+  view_all_href?: InputMaybe<StringFilter>;
+  posts_to_show?: InputMaybe<NumberFilter>;
+};
+
+export type Home_EnPhoto_HighlightsPhotosFilter = {
+  image?: InputMaybe<ImageFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Home_EnPhoto_HighlightsFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  section_description?: InputMaybe<StringFilter>;
+  photos?: InputMaybe<Home_EnPhoto_HighlightsPhotosFilter>;
+  view_gallery_text?: InputMaybe<StringFilter>;
+  view_gallery_href?: InputMaybe<StringFilter>;
 };
 
 export type Home_EnFilter = {
@@ -718,7 +1559,10 @@ export type Home_EnFilter = {
   announcements?: InputMaybe<Home_EnAnnouncementsFilter>;
   statistics?: InputMaybe<Home_EnStatisticsFilter>;
   quick_actions?: InputMaybe<Home_EnQuick_ActionsFilter>;
+  featured_video?: InputMaybe<Home_EnFeatured_VideoFilter>;
   newsletter?: InputMaybe<Home_EnNewsletterFilter>;
+  recent_articles?: InputMaybe<Home_EnRecent_ArticlesFilter>;
+  photo_highlights?: InputMaybe<Home_EnPhoto_HighlightsFilter>;
 };
 
 export type Home_EnConnectionEdges = {
@@ -751,6 +1595,9 @@ export type Home_SiHero = {
   title: Scalars['String']['output'];
   subtitle?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
+  background_image?: Maybe<Scalars['String']['output']>;
+  hero_video_url?: Maybe<Scalars['String']['output']>;
+  hero_video_title?: Maybe<Scalars['String']['output']>;
   cta_primary?: Maybe<Home_SiHeroCta_Primary>;
   cta_secondary?: Maybe<Home_SiHeroCta_Secondary>;
 };
@@ -766,6 +1613,7 @@ export type Home_SiFeatured_Departments = {
   name: Scalars['String']['output'];
   description: Scalars['String']['output'];
   icon: Scalars['String']['output'];
+  image?: Maybe<Scalars['String']['output']>;
   href: Scalars['String']['output'];
 };
 
@@ -804,6 +1652,14 @@ export type Home_SiQuick_Actions = {
   color?: Maybe<Scalars['String']['output']>;
 };
 
+export type Home_SiFeatured_Video = {
+  __typename?: 'Home_siFeatured_video';
+  title?: Maybe<Scalars['String']['output']>;
+  video_title?: Maybe<Scalars['String']['output']>;
+  video_description?: Maybe<Scalars['String']['output']>;
+  youtube_url?: Maybe<Scalars['String']['output']>;
+};
+
 export type Home_SiNewsletter = {
   __typename?: 'Home_siNewsletter';
   title: Scalars['String']['output'];
@@ -811,6 +1667,32 @@ export type Home_SiNewsletter = {
   placeholder: Scalars['String']['output'];
   button: Scalars['String']['output'];
   privacy?: Maybe<Scalars['String']['output']>;
+};
+
+export type Home_SiRecent_Articles = {
+  __typename?: 'Home_siRecent_articles';
+  section_title: Scalars['String']['output'];
+  section_description?: Maybe<Scalars['String']['output']>;
+  view_all_text: Scalars['String']['output'];
+  view_all_href: Scalars['String']['output'];
+  posts_to_show: Scalars['Float']['output'];
+};
+
+export type Home_SiPhoto_HighlightsPhotos = {
+  __typename?: 'Home_siPhoto_highlightsPhotos';
+  image: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Home_SiPhoto_Highlights = {
+  __typename?: 'Home_siPhoto_highlights';
+  section_title: Scalars['String']['output'];
+  section_description?: Maybe<Scalars['String']['output']>;
+  photos?: Maybe<Array<Maybe<Home_SiPhoto_HighlightsPhotos>>>;
+  view_gallery_text?: Maybe<Scalars['String']['output']>;
+  view_gallery_href?: Maybe<Scalars['String']['output']>;
 };
 
 export type Home_Si = Node & Document & {
@@ -822,7 +1704,10 @@ export type Home_Si = Node & Document & {
   announcements?: Maybe<Array<Maybe<Home_SiAnnouncements>>>;
   statistics?: Maybe<Array<Maybe<Home_SiStatistics>>>;
   quick_actions?: Maybe<Array<Maybe<Home_SiQuick_Actions>>>;
+  featured_video?: Maybe<Home_SiFeatured_Video>;
   newsletter?: Maybe<Home_SiNewsletter>;
+  recent_articles?: Maybe<Home_SiRecent_Articles>;
+  photo_highlights?: Maybe<Home_SiPhoto_Highlights>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -842,6 +1727,9 @@ export type Home_SiHeroFilter = {
   title?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  background_image?: InputMaybe<ImageFilter>;
+  hero_video_url?: InputMaybe<StringFilter>;
+  hero_video_title?: InputMaybe<StringFilter>;
   cta_primary?: InputMaybe<Home_SiHeroCta_PrimaryFilter>;
   cta_secondary?: InputMaybe<Home_SiHeroCta_SecondaryFilter>;
 };
@@ -855,6 +1743,7 @@ export type Home_SiFeatured_DepartmentsFilter = {
   name?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   icon?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
   href?: InputMaybe<StringFilter>;
 };
 
@@ -889,12 +1778,42 @@ export type Home_SiQuick_ActionsFilter = {
   color?: InputMaybe<StringFilter>;
 };
 
+export type Home_SiFeatured_VideoFilter = {
+  title?: InputMaybe<StringFilter>;
+  video_title?: InputMaybe<StringFilter>;
+  video_description?: InputMaybe<StringFilter>;
+  youtube_url?: InputMaybe<StringFilter>;
+};
+
 export type Home_SiNewsletterFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   placeholder?: InputMaybe<StringFilter>;
   button?: InputMaybe<StringFilter>;
   privacy?: InputMaybe<StringFilter>;
+};
+
+export type Home_SiRecent_ArticlesFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  section_description?: InputMaybe<StringFilter>;
+  view_all_text?: InputMaybe<StringFilter>;
+  view_all_href?: InputMaybe<StringFilter>;
+  posts_to_show?: InputMaybe<NumberFilter>;
+};
+
+export type Home_SiPhoto_HighlightsPhotosFilter = {
+  image?: InputMaybe<ImageFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Home_SiPhoto_HighlightsFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  section_description?: InputMaybe<StringFilter>;
+  photos?: InputMaybe<Home_SiPhoto_HighlightsPhotosFilter>;
+  view_gallery_text?: InputMaybe<StringFilter>;
+  view_gallery_href?: InputMaybe<StringFilter>;
 };
 
 export type Home_SiFilter = {
@@ -905,7 +1824,10 @@ export type Home_SiFilter = {
   announcements?: InputMaybe<Home_SiAnnouncementsFilter>;
   statistics?: InputMaybe<Home_SiStatisticsFilter>;
   quick_actions?: InputMaybe<Home_SiQuick_ActionsFilter>;
+  featured_video?: InputMaybe<Home_SiFeatured_VideoFilter>;
   newsletter?: InputMaybe<Home_SiNewsletterFilter>;
+  recent_articles?: InputMaybe<Home_SiRecent_ArticlesFilter>;
+  photo_highlights?: InputMaybe<Home_SiPhoto_HighlightsFilter>;
 };
 
 export type Home_SiConnectionEdges = {
@@ -938,6 +1860,9 @@ export type Home_TaHero = {
   title: Scalars['String']['output'];
   subtitle?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
+  background_image?: Maybe<Scalars['String']['output']>;
+  hero_video_url?: Maybe<Scalars['String']['output']>;
+  hero_video_title?: Maybe<Scalars['String']['output']>;
   cta_primary?: Maybe<Home_TaHeroCta_Primary>;
   cta_secondary?: Maybe<Home_TaHeroCta_Secondary>;
 };
@@ -953,6 +1878,7 @@ export type Home_TaFeatured_Departments = {
   name: Scalars['String']['output'];
   description: Scalars['String']['output'];
   icon: Scalars['String']['output'];
+  image?: Maybe<Scalars['String']['output']>;
   href: Scalars['String']['output'];
 };
 
@@ -991,6 +1917,14 @@ export type Home_TaQuick_Actions = {
   color?: Maybe<Scalars['String']['output']>;
 };
 
+export type Home_TaFeatured_Video = {
+  __typename?: 'Home_taFeatured_video';
+  title?: Maybe<Scalars['String']['output']>;
+  video_title?: Maybe<Scalars['String']['output']>;
+  video_description?: Maybe<Scalars['String']['output']>;
+  youtube_url?: Maybe<Scalars['String']['output']>;
+};
+
 export type Home_TaNewsletter = {
   __typename?: 'Home_taNewsletter';
   title: Scalars['String']['output'];
@@ -998,6 +1932,32 @@ export type Home_TaNewsletter = {
   placeholder: Scalars['String']['output'];
   button: Scalars['String']['output'];
   privacy?: Maybe<Scalars['String']['output']>;
+};
+
+export type Home_TaRecent_Articles = {
+  __typename?: 'Home_taRecent_articles';
+  section_title: Scalars['String']['output'];
+  section_description?: Maybe<Scalars['String']['output']>;
+  view_all_text: Scalars['String']['output'];
+  view_all_href: Scalars['String']['output'];
+  posts_to_show: Scalars['Float']['output'];
+};
+
+export type Home_TaPhoto_HighlightsPhotos = {
+  __typename?: 'Home_taPhoto_highlightsPhotos';
+  image: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Home_TaPhoto_Highlights = {
+  __typename?: 'Home_taPhoto_highlights';
+  section_title: Scalars['String']['output'];
+  section_description?: Maybe<Scalars['String']['output']>;
+  photos?: Maybe<Array<Maybe<Home_TaPhoto_HighlightsPhotos>>>;
+  view_gallery_text?: Maybe<Scalars['String']['output']>;
+  view_gallery_href?: Maybe<Scalars['String']['output']>;
 };
 
 export type Home_Ta = Node & Document & {
@@ -1009,7 +1969,10 @@ export type Home_Ta = Node & Document & {
   announcements?: Maybe<Array<Maybe<Home_TaAnnouncements>>>;
   statistics?: Maybe<Array<Maybe<Home_TaStatistics>>>;
   quick_actions?: Maybe<Array<Maybe<Home_TaQuick_Actions>>>;
+  featured_video?: Maybe<Home_TaFeatured_Video>;
   newsletter?: Maybe<Home_TaNewsletter>;
+  recent_articles?: Maybe<Home_TaRecent_Articles>;
+  photo_highlights?: Maybe<Home_TaPhoto_Highlights>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -1029,6 +1992,9 @@ export type Home_TaHeroFilter = {
   title?: InputMaybe<StringFilter>;
   subtitle?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  background_image?: InputMaybe<ImageFilter>;
+  hero_video_url?: InputMaybe<StringFilter>;
+  hero_video_title?: InputMaybe<StringFilter>;
   cta_primary?: InputMaybe<Home_TaHeroCta_PrimaryFilter>;
   cta_secondary?: InputMaybe<Home_TaHeroCta_SecondaryFilter>;
 };
@@ -1042,6 +2008,7 @@ export type Home_TaFeatured_DepartmentsFilter = {
   name?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   icon?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
   href?: InputMaybe<StringFilter>;
 };
 
@@ -1076,12 +2043,42 @@ export type Home_TaQuick_ActionsFilter = {
   color?: InputMaybe<StringFilter>;
 };
 
+export type Home_TaFeatured_VideoFilter = {
+  title?: InputMaybe<StringFilter>;
+  video_title?: InputMaybe<StringFilter>;
+  video_description?: InputMaybe<StringFilter>;
+  youtube_url?: InputMaybe<StringFilter>;
+};
+
 export type Home_TaNewsletterFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   placeholder?: InputMaybe<StringFilter>;
   button?: InputMaybe<StringFilter>;
   privacy?: InputMaybe<StringFilter>;
+};
+
+export type Home_TaRecent_ArticlesFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  section_description?: InputMaybe<StringFilter>;
+  view_all_text?: InputMaybe<StringFilter>;
+  view_all_href?: InputMaybe<StringFilter>;
+  posts_to_show?: InputMaybe<NumberFilter>;
+};
+
+export type Home_TaPhoto_HighlightsPhotosFilter = {
+  image?: InputMaybe<ImageFilter>;
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Home_TaPhoto_HighlightsFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  section_description?: InputMaybe<StringFilter>;
+  photos?: InputMaybe<Home_TaPhoto_HighlightsPhotosFilter>;
+  view_gallery_text?: InputMaybe<StringFilter>;
+  view_gallery_href?: InputMaybe<StringFilter>;
 };
 
 export type Home_TaFilter = {
@@ -1092,7 +2089,10 @@ export type Home_TaFilter = {
   announcements?: InputMaybe<Home_TaAnnouncementsFilter>;
   statistics?: InputMaybe<Home_TaStatisticsFilter>;
   quick_actions?: InputMaybe<Home_TaQuick_ActionsFilter>;
+  featured_video?: InputMaybe<Home_TaFeatured_VideoFilter>;
   newsletter?: InputMaybe<Home_TaNewsletterFilter>;
+  recent_articles?: InputMaybe<Home_TaRecent_ArticlesFilter>;
+  photo_highlights?: InputMaybe<Home_TaPhoto_HighlightsFilter>;
 };
 
 export type Home_TaConnectionEdges = {
@@ -2609,16 +3609,6 @@ export type Membership_EnGeneral_BenefitsFilter = {
   items?: InputMaybe<Membership_EnGeneral_BenefitsItemsFilter>;
 };
 
-export type NumberFilter = {
-  lt?: InputMaybe<Scalars['Float']['input']>;
-  lte?: InputMaybe<Scalars['Float']['input']>;
-  gte?: InputMaybe<Scalars['Float']['input']>;
-  gt?: InputMaybe<Scalars['Float']['input']>;
-  eq?: InputMaybe<Scalars['Float']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-  in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
-};
-
 export type Membership_EnApplication_ProcessStepsFilter = {
   step?: InputMaybe<NumberFilter>;
   title?: InputMaybe<StringFilter>;
@@ -3187,8 +4177,8 @@ export type Publications_EnCategories = {
   icon: Scalars['String']['output'];
 };
 
-export type Publications_EnFeatured_Publications = {
-  __typename?: 'Publications_enFeatured_publications';
+export type Publications_EnFeatured_Resources = {
+  __typename?: 'Publications_enFeatured_resources';
   id: Scalars['String']['output'];
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
@@ -3197,132 +4187,43 @@ export type Publications_EnFeatured_Publications = {
   category: Scalars['String']['output'];
   category_tamil?: Maybe<Scalars['String']['output']>;
   year: Scalars['String']['output'];
-  pages: Scalars['Float']['output'];
+  pages?: Maybe<Scalars['Float']['output']>;
   isbn?: Maybe<Scalars['String']['output']>;
   description: Scalars['String']['output'];
   description_tamil?: Maybe<Scalars['String']['output']>;
-  cover_color: Scalars['String']['output'];
-  available?: Maybe<Scalars['Boolean']['output']>;
-  price: Scalars['String']['output'];
-  format: Array<Scalars['String']['output']>;
-  release_date?: Maybe<Scalars['String']['output']>;
+  cover_image?: Maybe<Scalars['String']['output']>;
+  file_url: Scalars['String']['output'];
+  file_type: Scalars['String']['output'];
+  file_size_mb?: Maybe<Scalars['Float']['output']>;
+  language?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-export type Publications_EnMagazines = {
-  __typename?: 'Publications_enMagazines';
-  id: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  subtitle: Scalars['String']['output'];
-  subtitle_tamil?: Maybe<Scalars['String']['output']>;
-  frequency: Scalars['String']['output'];
-  frequency_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  subscription_price: Scalars['String']['output'];
-  editor: Scalars['String']['output'];
-  editor_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Publications_EnDigital_ResourcesItems = {
-  __typename?: 'Publications_enDigital_resourcesItems';
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  access: Scalars['String']['output'];
-};
-
-export type Publications_EnDigital_Resources = {
-  __typename?: 'Publications_enDigital_resources';
+export type Publications_EnAbout_Section = {
+  __typename?: 'Publications_enAbout_section';
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
   description: Scalars['String']['output'];
   description_tamil?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<Publications_EnDigital_ResourcesItems>>>;
 };
 
-export type Publications_EnResearch_PublicationsRecent_Papers = {
-  __typename?: 'Publications_enResearch_publicationsRecent_papers';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  author: Scalars['String']['output'];
-  journal: Scalars['String']['output'];
-  year: Scalars['String']['output'];
-  pages: Scalars['String']['output'];
-};
-
-export type Publications_EnResearch_Publications = {
-  __typename?: 'Publications_enResearch_publications';
+export type Publications_EnSubmission_Section = {
+  __typename?: 'Publications_enSubmission_section';
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
   description: Scalars['String']['output'];
   description_tamil?: Maybe<Scalars['String']['output']>;
-  recent_papers?: Maybe<Array<Maybe<Publications_EnResearch_PublicationsRecent_Papers>>>;
-};
-
-export type Publications_EnSubmission_GuidelinesRequirements = {
-  __typename?: 'Publications_enSubmission_guidelinesRequirements';
-  category: Scalars['String']['output'];
-  category_tamil?: Maybe<Scalars['String']['output']>;
-  items: Array<Scalars['String']['output']>;
-};
-
-export type Publications_EnSubmission_Guidelines = {
-  __typename?: 'Publications_enSubmission_guidelines';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  requirements?: Maybe<Array<Maybe<Publications_EnSubmission_GuidelinesRequirements>>>;
-};
-
-export type Publications_EnContactEditorial_Office = {
-  __typename?: 'Publications_enContactEditorial_office';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  phone: Scalars['String']['output'];
-  editor_in_chief: Scalars['String']['output'];
-  editor_in_chief_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Publications_EnContactDistribution = {
-  __typename?: 'Publications_enContactDistribution';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  phone: Scalars['String']['output'];
-};
-
-export type Publications_EnContactSubmissions = {
-  __typename?: 'Publications_enContactSubmissions';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  guidelines_url: Scalars['String']['output'];
-};
-
-export type Publications_EnContact = {
-  __typename?: 'Publications_enContact';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  editorial_office?: Maybe<Publications_EnContactEditorial_Office>;
-  distribution?: Maybe<Publications_EnContactDistribution>;
-  submissions?: Maybe<Publications_EnContactSubmissions>;
+  contact_email: Scalars['String']['output'];
+  guidelines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type Publications_En = Node & Document & {
   __typename?: 'Publications_en';
   hero?: Maybe<Publications_EnHero>;
   categories?: Maybe<Array<Maybe<Publications_EnCategories>>>;
-  featured_publications?: Maybe<Array<Maybe<Publications_EnFeatured_Publications>>>;
-  magazines?: Maybe<Array<Maybe<Publications_EnMagazines>>>;
-  digital_resources?: Maybe<Publications_EnDigital_Resources>;
-  research_publications?: Maybe<Publications_EnResearch_Publications>;
-  submission_guidelines?: Maybe<Publications_EnSubmission_Guidelines>;
-  contact?: Maybe<Publications_EnContact>;
+  featured_resources?: Maybe<Array<Maybe<Publications_EnFeatured_Resources>>>;
+  about_section?: Maybe<Publications_EnAbout_Section>;
+  submission_section?: Maybe<Publications_EnSubmission_Section>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -3346,12 +4247,7 @@ export type Publications_EnCategoriesFilter = {
   icon?: InputMaybe<StringFilter>;
 };
 
-export type BooleanFilter = {
-  eq?: InputMaybe<Scalars['Boolean']['input']>;
-  exists?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type Publications_EnFeatured_PublicationsFilter = {
+export type Publications_EnFeatured_ResourcesFilter = {
   id?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
@@ -3364,116 +4260,36 @@ export type Publications_EnFeatured_PublicationsFilter = {
   isbn?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  cover_color?: InputMaybe<StringFilter>;
-  available?: InputMaybe<BooleanFilter>;
-  price?: InputMaybe<StringFilter>;
-  format?: InputMaybe<StringFilter>;
-  release_date?: InputMaybe<StringFilter>;
+  cover_image?: InputMaybe<ImageFilter>;
+  file_url?: InputMaybe<StringFilter>;
+  file_type?: InputMaybe<StringFilter>;
+  file_size_mb?: InputMaybe<NumberFilter>;
+  language?: InputMaybe<StringFilter>;
+  tags?: InputMaybe<StringFilter>;
 };
 
-export type Publications_EnMagazinesFilter = {
-  id?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  subtitle_tamil?: InputMaybe<StringFilter>;
-  frequency?: InputMaybe<StringFilter>;
-  frequency_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  subscription_price?: InputMaybe<StringFilter>;
-  editor?: InputMaybe<StringFilter>;
-  editor_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Publications_EnDigital_ResourcesItemsFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  access?: InputMaybe<StringFilter>;
-};
-
-export type Publications_EnDigital_ResourcesFilter = {
+export type Publications_EnAbout_SectionFilter = {
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<Publications_EnDigital_ResourcesItemsFilter>;
 };
 
-export type Publications_EnResearch_PublicationsRecent_PapersFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  author?: InputMaybe<StringFilter>;
-  journal?: InputMaybe<StringFilter>;
-  year?: InputMaybe<StringFilter>;
-  pages?: InputMaybe<StringFilter>;
-};
-
-export type Publications_EnResearch_PublicationsFilter = {
+export type Publications_EnSubmission_SectionFilter = {
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  recent_papers?: InputMaybe<Publications_EnResearch_PublicationsRecent_PapersFilter>;
-};
-
-export type Publications_EnSubmission_GuidelinesRequirementsFilter = {
-  category?: InputMaybe<StringFilter>;
-  category_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<StringFilter>;
-};
-
-export type Publications_EnSubmission_GuidelinesFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  requirements?: InputMaybe<Publications_EnSubmission_GuidelinesRequirementsFilter>;
-};
-
-export type Publications_EnContactEditorial_OfficeFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-  editor_in_chief?: InputMaybe<StringFilter>;
-  editor_in_chief_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Publications_EnContactDistributionFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-};
-
-export type Publications_EnContactSubmissionsFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  guidelines_url?: InputMaybe<StringFilter>;
-};
-
-export type Publications_EnContactFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  editorial_office?: InputMaybe<Publications_EnContactEditorial_OfficeFilter>;
-  distribution?: InputMaybe<Publications_EnContactDistributionFilter>;
-  submissions?: InputMaybe<Publications_EnContactSubmissionsFilter>;
+  contact_email?: InputMaybe<StringFilter>;
+  guidelines?: InputMaybe<StringFilter>;
 };
 
 export type Publications_EnFilter = {
   hero?: InputMaybe<Publications_EnHeroFilter>;
   categories?: InputMaybe<Publications_EnCategoriesFilter>;
-  featured_publications?: InputMaybe<Publications_EnFeatured_PublicationsFilter>;
-  magazines?: InputMaybe<Publications_EnMagazinesFilter>;
-  digital_resources?: InputMaybe<Publications_EnDigital_ResourcesFilter>;
-  research_publications?: InputMaybe<Publications_EnResearch_PublicationsFilter>;
-  submission_guidelines?: InputMaybe<Publications_EnSubmission_GuidelinesFilter>;
-  contact?: InputMaybe<Publications_EnContactFilter>;
+  featured_resources?: InputMaybe<Publications_EnFeatured_ResourcesFilter>;
+  about_section?: InputMaybe<Publications_EnAbout_SectionFilter>;
+  submission_section?: InputMaybe<Publications_EnSubmission_SectionFilter>;
 };
 
 export type Publications_EnConnectionEdges = {
@@ -3487,323 +4303,6 @@ export type Publications_EnConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<Publications_EnConnectionEdges>>>;
-};
-
-export type Publications_SiHero = {
-  __typename?: 'Publications_siHero';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  subtitle: Scalars['String']['output'];
-  subtitle_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-};
-
-export type Publications_SiCategories = {
-  __typename?: 'Publications_siCategories';
-  id: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  count: Scalars['Float']['output'];
-  icon: Scalars['String']['output'];
-};
-
-export type Publications_SiFeatured_Publications = {
-  __typename?: 'Publications_siFeatured_publications';
-  id: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  author: Scalars['String']['output'];
-  author_tamil?: Maybe<Scalars['String']['output']>;
-  category: Scalars['String']['output'];
-  category_tamil?: Maybe<Scalars['String']['output']>;
-  year: Scalars['String']['output'];
-  pages: Scalars['Float']['output'];
-  isbn?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  cover_color: Scalars['String']['output'];
-  available?: Maybe<Scalars['Boolean']['output']>;
-  price: Scalars['String']['output'];
-  format: Array<Scalars['String']['output']>;
-  release_date?: Maybe<Scalars['String']['output']>;
-};
-
-export type Publications_SiMagazines = {
-  __typename?: 'Publications_siMagazines';
-  id: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  subtitle: Scalars['String']['output'];
-  subtitle_tamil?: Maybe<Scalars['String']['output']>;
-  frequency: Scalars['String']['output'];
-  frequency_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  subscription_price: Scalars['String']['output'];
-  editor: Scalars['String']['output'];
-  editor_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Publications_SiDigital_ResourcesItems = {
-  __typename?: 'Publications_siDigital_resourcesItems';
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  access: Scalars['String']['output'];
-};
-
-export type Publications_SiDigital_Resources = {
-  __typename?: 'Publications_siDigital_resources';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<Publications_SiDigital_ResourcesItems>>>;
-};
-
-export type Publications_SiResearch_PublicationsRecent_Papers = {
-  __typename?: 'Publications_siResearch_publicationsRecent_papers';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  author: Scalars['String']['output'];
-  journal: Scalars['String']['output'];
-  year: Scalars['String']['output'];
-  pages: Scalars['String']['output'];
-};
-
-export type Publications_SiResearch_Publications = {
-  __typename?: 'Publications_siResearch_publications';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  recent_papers?: Maybe<Array<Maybe<Publications_SiResearch_PublicationsRecent_Papers>>>;
-};
-
-export type Publications_SiSubmission_GuidelinesRequirements = {
-  __typename?: 'Publications_siSubmission_guidelinesRequirements';
-  category: Scalars['String']['output'];
-  category_tamil?: Maybe<Scalars['String']['output']>;
-  items: Array<Scalars['String']['output']>;
-};
-
-export type Publications_SiSubmission_Guidelines = {
-  __typename?: 'Publications_siSubmission_guidelines';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  requirements?: Maybe<Array<Maybe<Publications_SiSubmission_GuidelinesRequirements>>>;
-};
-
-export type Publications_SiContactEditorial_Office = {
-  __typename?: 'Publications_siContactEditorial_office';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  phone: Scalars['String']['output'];
-  editor_in_chief: Scalars['String']['output'];
-  editor_in_chief_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Publications_SiContactDistribution = {
-  __typename?: 'Publications_siContactDistribution';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  phone: Scalars['String']['output'];
-};
-
-export type Publications_SiContactSubmissions = {
-  __typename?: 'Publications_siContactSubmissions';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  guidelines_url: Scalars['String']['output'];
-};
-
-export type Publications_SiContact = {
-  __typename?: 'Publications_siContact';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  editorial_office?: Maybe<Publications_SiContactEditorial_Office>;
-  distribution?: Maybe<Publications_SiContactDistribution>;
-  submissions?: Maybe<Publications_SiContactSubmissions>;
-};
-
-export type Publications_Si = Node & Document & {
-  __typename?: 'Publications_si';
-  hero?: Maybe<Publications_SiHero>;
-  categories?: Maybe<Array<Maybe<Publications_SiCategories>>>;
-  featured_publications?: Maybe<Array<Maybe<Publications_SiFeatured_Publications>>>;
-  magazines?: Maybe<Array<Maybe<Publications_SiMagazines>>>;
-  digital_resources?: Maybe<Publications_SiDigital_Resources>;
-  research_publications?: Maybe<Publications_SiResearch_Publications>;
-  submission_guidelines?: Maybe<Publications_SiSubmission_Guidelines>;
-  contact?: Maybe<Publications_SiContact>;
-  id: Scalars['ID']['output'];
-  _sys: SystemInfo;
-  _values: Scalars['JSON']['output'];
-};
-
-export type Publications_SiHeroFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  subtitle_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiCategoriesFilter = {
-  id?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  count?: InputMaybe<NumberFilter>;
-  icon?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiFeatured_PublicationsFilter = {
-  id?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  author?: InputMaybe<StringFilter>;
-  author_tamil?: InputMaybe<StringFilter>;
-  category?: InputMaybe<StringFilter>;
-  category_tamil?: InputMaybe<StringFilter>;
-  year?: InputMaybe<StringFilter>;
-  pages?: InputMaybe<NumberFilter>;
-  isbn?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  cover_color?: InputMaybe<StringFilter>;
-  available?: InputMaybe<BooleanFilter>;
-  price?: InputMaybe<StringFilter>;
-  format?: InputMaybe<StringFilter>;
-  release_date?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiMagazinesFilter = {
-  id?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  subtitle_tamil?: InputMaybe<StringFilter>;
-  frequency?: InputMaybe<StringFilter>;
-  frequency_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  subscription_price?: InputMaybe<StringFilter>;
-  editor?: InputMaybe<StringFilter>;
-  editor_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiDigital_ResourcesItemsFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  access?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiDigital_ResourcesFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<Publications_SiDigital_ResourcesItemsFilter>;
-};
-
-export type Publications_SiResearch_PublicationsRecent_PapersFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  author?: InputMaybe<StringFilter>;
-  journal?: InputMaybe<StringFilter>;
-  year?: InputMaybe<StringFilter>;
-  pages?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiResearch_PublicationsFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  recent_papers?: InputMaybe<Publications_SiResearch_PublicationsRecent_PapersFilter>;
-};
-
-export type Publications_SiSubmission_GuidelinesRequirementsFilter = {
-  category?: InputMaybe<StringFilter>;
-  category_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiSubmission_GuidelinesFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  requirements?: InputMaybe<Publications_SiSubmission_GuidelinesRequirementsFilter>;
-};
-
-export type Publications_SiContactEditorial_OfficeFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-  editor_in_chief?: InputMaybe<StringFilter>;
-  editor_in_chief_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiContactDistributionFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiContactSubmissionsFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  guidelines_url?: InputMaybe<StringFilter>;
-};
-
-export type Publications_SiContactFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  editorial_office?: InputMaybe<Publications_SiContactEditorial_OfficeFilter>;
-  distribution?: InputMaybe<Publications_SiContactDistributionFilter>;
-  submissions?: InputMaybe<Publications_SiContactSubmissionsFilter>;
-};
-
-export type Publications_SiFilter = {
-  hero?: InputMaybe<Publications_SiHeroFilter>;
-  categories?: InputMaybe<Publications_SiCategoriesFilter>;
-  featured_publications?: InputMaybe<Publications_SiFeatured_PublicationsFilter>;
-  magazines?: InputMaybe<Publications_SiMagazinesFilter>;
-  digital_resources?: InputMaybe<Publications_SiDigital_ResourcesFilter>;
-  research_publications?: InputMaybe<Publications_SiResearch_PublicationsFilter>;
-  submission_guidelines?: InputMaybe<Publications_SiSubmission_GuidelinesFilter>;
-  contact?: InputMaybe<Publications_SiContactFilter>;
-};
-
-export type Publications_SiConnectionEdges = {
-  __typename?: 'Publications_siConnectionEdges';
-  cursor: Scalars['String']['output'];
-  node?: Maybe<Publications_Si>;
-};
-
-export type Publications_SiConnection = Connection & {
-  __typename?: 'Publications_siConnection';
-  pageInfo: PageInfo;
-  totalCount: Scalars['Float']['output'];
-  edges?: Maybe<Array<Maybe<Publications_SiConnectionEdges>>>;
 };
 
 export type Publications_TaHero = {
@@ -3826,8 +4325,8 @@ export type Publications_TaCategories = {
   icon: Scalars['String']['output'];
 };
 
-export type Publications_TaFeatured_Publications = {
-  __typename?: 'Publications_taFeatured_publications';
+export type Publications_TaFeatured_Resources = {
+  __typename?: 'Publications_taFeatured_resources';
   id: Scalars['String']['output'];
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
@@ -3836,132 +4335,43 @@ export type Publications_TaFeatured_Publications = {
   category: Scalars['String']['output'];
   category_tamil?: Maybe<Scalars['String']['output']>;
   year: Scalars['String']['output'];
-  pages: Scalars['Float']['output'];
+  pages?: Maybe<Scalars['Float']['output']>;
   isbn?: Maybe<Scalars['String']['output']>;
   description: Scalars['String']['output'];
   description_tamil?: Maybe<Scalars['String']['output']>;
-  cover_color: Scalars['String']['output'];
-  available?: Maybe<Scalars['Boolean']['output']>;
-  price: Scalars['String']['output'];
-  format: Array<Scalars['String']['output']>;
-  release_date?: Maybe<Scalars['String']['output']>;
+  cover_image?: Maybe<Scalars['String']['output']>;
+  file_url: Scalars['String']['output'];
+  file_type: Scalars['String']['output'];
+  file_size_mb?: Maybe<Scalars['Float']['output']>;
+  language?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-export type Publications_TaMagazines = {
-  __typename?: 'Publications_taMagazines';
-  id: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  subtitle: Scalars['String']['output'];
-  subtitle_tamil?: Maybe<Scalars['String']['output']>;
-  frequency: Scalars['String']['output'];
-  frequency_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  subscription_price: Scalars['String']['output'];
-  editor: Scalars['String']['output'];
-  editor_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Publications_TaDigital_ResourcesItems = {
-  __typename?: 'Publications_taDigital_resourcesItems';
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  access: Scalars['String']['output'];
-};
-
-export type Publications_TaDigital_Resources = {
-  __typename?: 'Publications_taDigital_resources';
+export type Publications_TaAbout_Section = {
+  __typename?: 'Publications_taAbout_section';
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
   description: Scalars['String']['output'];
   description_tamil?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<Publications_TaDigital_ResourcesItems>>>;
 };
 
-export type Publications_TaResearch_PublicationsRecent_Papers = {
-  __typename?: 'Publications_taResearch_publicationsRecent_papers';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  author: Scalars['String']['output'];
-  journal: Scalars['String']['output'];
-  year: Scalars['String']['output'];
-  pages: Scalars['String']['output'];
-};
-
-export type Publications_TaResearch_Publications = {
-  __typename?: 'Publications_taResearch_publications';
+export type Publications_TaSubmission_Section = {
+  __typename?: 'Publications_taSubmission_section';
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
   description: Scalars['String']['output'];
   description_tamil?: Maybe<Scalars['String']['output']>;
-  recent_papers?: Maybe<Array<Maybe<Publications_TaResearch_PublicationsRecent_Papers>>>;
-};
-
-export type Publications_TaSubmission_GuidelinesRequirements = {
-  __typename?: 'Publications_taSubmission_guidelinesRequirements';
-  category: Scalars['String']['output'];
-  category_tamil?: Maybe<Scalars['String']['output']>;
-  items: Array<Scalars['String']['output']>;
-};
-
-export type Publications_TaSubmission_Guidelines = {
-  __typename?: 'Publications_taSubmission_guidelines';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  requirements?: Maybe<Array<Maybe<Publications_TaSubmission_GuidelinesRequirements>>>;
-};
-
-export type Publications_TaContactEditorial_Office = {
-  __typename?: 'Publications_taContactEditorial_office';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  phone: Scalars['String']['output'];
-  editor_in_chief: Scalars['String']['output'];
-  editor_in_chief_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Publications_TaContactDistribution = {
-  __typename?: 'Publications_taContactDistribution';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  phone: Scalars['String']['output'];
-};
-
-export type Publications_TaContactSubmissions = {
-  __typename?: 'Publications_taContactSubmissions';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  email: Scalars['String']['output'];
-  guidelines_url: Scalars['String']['output'];
-};
-
-export type Publications_TaContact = {
-  __typename?: 'Publications_taContact';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description: Scalars['String']['output'];
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  editorial_office?: Maybe<Publications_TaContactEditorial_Office>;
-  distribution?: Maybe<Publications_TaContactDistribution>;
-  submissions?: Maybe<Publications_TaContactSubmissions>;
+  contact_email: Scalars['String']['output'];
+  guidelines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type Publications_Ta = Node & Document & {
   __typename?: 'Publications_ta';
   hero?: Maybe<Publications_TaHero>;
   categories?: Maybe<Array<Maybe<Publications_TaCategories>>>;
-  featured_publications?: Maybe<Array<Maybe<Publications_TaFeatured_Publications>>>;
-  magazines?: Maybe<Array<Maybe<Publications_TaMagazines>>>;
-  digital_resources?: Maybe<Publications_TaDigital_Resources>;
-  research_publications?: Maybe<Publications_TaResearch_Publications>;
-  submission_guidelines?: Maybe<Publications_TaSubmission_Guidelines>;
-  contact?: Maybe<Publications_TaContact>;
+  featured_resources?: Maybe<Array<Maybe<Publications_TaFeatured_Resources>>>;
+  about_section?: Maybe<Publications_TaAbout_Section>;
+  submission_section?: Maybe<Publications_TaSubmission_Section>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -3985,7 +4395,7 @@ export type Publications_TaCategoriesFilter = {
   icon?: InputMaybe<StringFilter>;
 };
 
-export type Publications_TaFeatured_PublicationsFilter = {
+export type Publications_TaFeatured_ResourcesFilter = {
   id?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
@@ -3998,116 +4408,36 @@ export type Publications_TaFeatured_PublicationsFilter = {
   isbn?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  cover_color?: InputMaybe<StringFilter>;
-  available?: InputMaybe<BooleanFilter>;
-  price?: InputMaybe<StringFilter>;
-  format?: InputMaybe<StringFilter>;
-  release_date?: InputMaybe<StringFilter>;
+  cover_image?: InputMaybe<ImageFilter>;
+  file_url?: InputMaybe<StringFilter>;
+  file_type?: InputMaybe<StringFilter>;
+  file_size_mb?: InputMaybe<NumberFilter>;
+  language?: InputMaybe<StringFilter>;
+  tags?: InputMaybe<StringFilter>;
 };
 
-export type Publications_TaMagazinesFilter = {
-  id?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  subtitle_tamil?: InputMaybe<StringFilter>;
-  frequency?: InputMaybe<StringFilter>;
-  frequency_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  subscription_price?: InputMaybe<StringFilter>;
-  editor?: InputMaybe<StringFilter>;
-  editor_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Publications_TaDigital_ResourcesItemsFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  access?: InputMaybe<StringFilter>;
-};
-
-export type Publications_TaDigital_ResourcesFilter = {
+export type Publications_TaAbout_SectionFilter = {
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<Publications_TaDigital_ResourcesItemsFilter>;
 };
 
-export type Publications_TaResearch_PublicationsRecent_PapersFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  author?: InputMaybe<StringFilter>;
-  journal?: InputMaybe<StringFilter>;
-  year?: InputMaybe<StringFilter>;
-  pages?: InputMaybe<StringFilter>;
-};
-
-export type Publications_TaResearch_PublicationsFilter = {
+export type Publications_TaSubmission_SectionFilter = {
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  recent_papers?: InputMaybe<Publications_TaResearch_PublicationsRecent_PapersFilter>;
-};
-
-export type Publications_TaSubmission_GuidelinesRequirementsFilter = {
-  category?: InputMaybe<StringFilter>;
-  category_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<StringFilter>;
-};
-
-export type Publications_TaSubmission_GuidelinesFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  requirements?: InputMaybe<Publications_TaSubmission_GuidelinesRequirementsFilter>;
-};
-
-export type Publications_TaContactEditorial_OfficeFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-  editor_in_chief?: InputMaybe<StringFilter>;
-  editor_in_chief_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Publications_TaContactDistributionFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-};
-
-export type Publications_TaContactSubmissionsFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  guidelines_url?: InputMaybe<StringFilter>;
-};
-
-export type Publications_TaContactFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  editorial_office?: InputMaybe<Publications_TaContactEditorial_OfficeFilter>;
-  distribution?: InputMaybe<Publications_TaContactDistributionFilter>;
-  submissions?: InputMaybe<Publications_TaContactSubmissionsFilter>;
+  contact_email?: InputMaybe<StringFilter>;
+  guidelines?: InputMaybe<StringFilter>;
 };
 
 export type Publications_TaFilter = {
   hero?: InputMaybe<Publications_TaHeroFilter>;
   categories?: InputMaybe<Publications_TaCategoriesFilter>;
-  featured_publications?: InputMaybe<Publications_TaFeatured_PublicationsFilter>;
-  magazines?: InputMaybe<Publications_TaMagazinesFilter>;
-  digital_resources?: InputMaybe<Publications_TaDigital_ResourcesFilter>;
-  research_publications?: InputMaybe<Publications_TaResearch_PublicationsFilter>;
-  submission_guidelines?: InputMaybe<Publications_TaSubmission_GuidelinesFilter>;
-  contact?: InputMaybe<Publications_TaContactFilter>;
+  featured_resources?: InputMaybe<Publications_TaFeatured_ResourcesFilter>;
+  about_section?: InputMaybe<Publications_TaAbout_SectionFilter>;
+  submission_section?: InputMaybe<Publications_TaSubmission_SectionFilter>;
 };
 
 export type Publications_TaConnectionEdges = {
@@ -4121,6 +4451,154 @@ export type Publications_TaConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<Publications_TaConnectionEdges>>>;
+};
+
+export type Publications_SiHero = {
+  __typename?: 'Publications_siHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  subtitle: Scalars['String']['output'];
+  subtitle_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+};
+
+export type Publications_SiCategories = {
+  __typename?: 'Publications_siCategories';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  description_tamil?: Maybe<Scalars['String']['output']>;
+  count: Scalars['Float']['output'];
+  icon: Scalars['String']['output'];
+};
+
+export type Publications_SiFeatured_Resources = {
+  __typename?: 'Publications_siFeatured_resources';
+  id: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  author: Scalars['String']['output'];
+  author_tamil?: Maybe<Scalars['String']['output']>;
+  category: Scalars['String']['output'];
+  category_tamil?: Maybe<Scalars['String']['output']>;
+  year: Scalars['String']['output'];
+  pages?: Maybe<Scalars['Float']['output']>;
+  isbn?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  description_tamil?: Maybe<Scalars['String']['output']>;
+  cover_image?: Maybe<Scalars['String']['output']>;
+  file_url: Scalars['String']['output'];
+  file_type: Scalars['String']['output'];
+  file_size_mb?: Maybe<Scalars['Float']['output']>;
+  language?: Maybe<Scalars['String']['output']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type Publications_SiAbout_Section = {
+  __typename?: 'Publications_siAbout_section';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  description_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Publications_SiSubmission_Section = {
+  __typename?: 'Publications_siSubmission_section';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description: Scalars['String']['output'];
+  description_tamil?: Maybe<Scalars['String']['output']>;
+  contact_email: Scalars['String']['output'];
+  guidelines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type Publications_Si = Node & Document & {
+  __typename?: 'Publications_si';
+  hero?: Maybe<Publications_SiHero>;
+  categories?: Maybe<Array<Maybe<Publications_SiCategories>>>;
+  featured_resources?: Maybe<Array<Maybe<Publications_SiFeatured_Resources>>>;
+  about_section?: Maybe<Publications_SiAbout_Section>;
+  submission_section?: Maybe<Publications_SiSubmission_Section>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Publications_SiHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  subtitle_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Publications_SiCategoriesFilter = {
+  id?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+  count?: InputMaybe<NumberFilter>;
+  icon?: InputMaybe<StringFilter>;
+};
+
+export type Publications_SiFeatured_ResourcesFilter = {
+  id?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  author?: InputMaybe<StringFilter>;
+  author_tamil?: InputMaybe<StringFilter>;
+  category?: InputMaybe<StringFilter>;
+  category_tamil?: InputMaybe<StringFilter>;
+  year?: InputMaybe<StringFilter>;
+  pages?: InputMaybe<NumberFilter>;
+  isbn?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+  cover_image?: InputMaybe<ImageFilter>;
+  file_url?: InputMaybe<StringFilter>;
+  file_type?: InputMaybe<StringFilter>;
+  file_size_mb?: InputMaybe<NumberFilter>;
+  language?: InputMaybe<StringFilter>;
+  tags?: InputMaybe<StringFilter>;
+};
+
+export type Publications_SiAbout_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Publications_SiSubmission_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+  contact_email?: InputMaybe<StringFilter>;
+  guidelines?: InputMaybe<StringFilter>;
+};
+
+export type Publications_SiFilter = {
+  hero?: InputMaybe<Publications_SiHeroFilter>;
+  categories?: InputMaybe<Publications_SiCategoriesFilter>;
+  featured_resources?: InputMaybe<Publications_SiFeatured_ResourcesFilter>;
+  about_section?: InputMaybe<Publications_SiAbout_SectionFilter>;
+  submission_section?: InputMaybe<Publications_SiSubmission_SectionFilter>;
+};
+
+export type Publications_SiConnectionEdges = {
+  __typename?: 'Publications_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Publications_Si>;
+};
+
+export type Publications_SiConnection = Connection & {
+  __typename?: 'Publications_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Publications_SiConnectionEdges>>>;
 };
 
 export type Events_EnHero = {
@@ -4285,6 +4763,11 @@ export type Events_EnHeroFilter = {
   subtitle?: InputMaybe<StringFilter>;
   subtitle_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+};
+
+export type BooleanFilter = {
+  eq?: InputMaybe<Scalars['Boolean']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type Events_EnUpcoming_EventsFilter = {
@@ -5064,9 +5547,18 @@ export type Gallery_EnCategories = {
   id: Scalars['String']['output'];
   name: Scalars['String']['output'];
   name_tamil?: Maybe<Scalars['String']['output']>;
-  count?: Maybe<Scalars['Float']['output']>;
+  count: Scalars['Float']['output'];
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery_EnFeatured_AlbumsImages = {
+  __typename?: 'Gallery_enFeatured_albumsImages';
+  url: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
+  caption_tamil?: Maybe<Scalars['String']['output']>;
 };
 
 export type Gallery_EnFeatured_Albums = {
@@ -5074,16 +5566,16 @@ export type Gallery_EnFeatured_Albums = {
   id: Scalars['String']['output'];
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
-  date?: Maybe<Scalars['String']['output']>;
+  date: Scalars['String']['output'];
   date_tamil?: Maybe<Scalars['String']['output']>;
   location?: Maybe<Scalars['String']['output']>;
   location_tamil?: Maybe<Scalars['String']['output']>;
-  image_count?: Maybe<Scalars['Float']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
-  cover_color?: Maybe<Scalars['String']['output']>;
+  cover_image: Scalars['String']['output'];
+  images?: Maybe<Array<Maybe<Gallery_EnFeatured_AlbumsImages>>>;
   photographer?: Maybe<Scalars['String']['output']>;
-  highlights?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  photographer_tamil?: Maybe<Scalars['String']['output']>;
 };
 
 export type Gallery_EnRecent_Highlights = {
@@ -5093,61 +5585,20 @@ export type Gallery_EnRecent_Highlights = {
   title_tamil?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
-  date?: Maybe<Scalars['String']['output']>;
+  thumbnail: Scalars['String']['output'];
+  date: Scalars['String']['output'];
   date_tamil?: Maybe<Scalars['String']['output']>;
-  image_count?: Maybe<Scalars['Float']['output']>;
+  album_link?: Maybe<Scalars['String']['output']>;
 };
 
-export type Gallery_EnPhoto_ContestCategories = {
-  __typename?: 'Gallery_enPhoto_contestCategories';
-  name?: Maybe<Scalars['String']['output']>;
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  prize?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_EnPhoto_Contest = {
-  __typename?: 'Gallery_enPhoto_contest';
+export type Gallery_EnSubmission_Section = {
+  __typename?: 'Gallery_enSubmission_section';
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
-  categories?: Maybe<Array<Maybe<Gallery_EnPhoto_ContestCategories>>>;
-  deadline?: Maybe<Scalars['String']['output']>;
-  rules?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_EnSubmission_GuidelinesRequirements = {
-  __typename?: 'Gallery_enSubmission_guidelinesRequirements';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_EnSubmission_Guidelines = {
-  __typename?: 'Gallery_enSubmission_guidelines';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  requirements?: Maybe<Array<Maybe<Gallery_EnSubmission_GuidelinesRequirements>>>;
-};
-
-export type Gallery_EnContactGallery_Coordinator = {
-  __typename?: 'Gallery_enContactGallery_coordinator';
-  name?: Maybe<Scalars['String']['output']>;
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  position?: Maybe<Scalars['String']['output']>;
-  position_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_EnContact = {
-  __typename?: 'Gallery_enContact';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  email?: Maybe<Scalars['String']['output']>;
-  phone?: Maybe<Scalars['String']['output']>;
-  gallery_coordinator?: Maybe<Gallery_EnContactGallery_Coordinator>;
-  office_hours?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  contact_email: Scalars['String']['output'];
+  guidelines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type Gallery_En = Node & Document & {
@@ -5156,9 +5607,7 @@ export type Gallery_En = Node & Document & {
   categories?: Maybe<Array<Maybe<Gallery_EnCategories>>>;
   featured_albums?: Maybe<Array<Maybe<Gallery_EnFeatured_Albums>>>;
   recent_highlights?: Maybe<Array<Maybe<Gallery_EnRecent_Highlights>>>;
-  photo_contest?: Maybe<Gallery_EnPhoto_Contest>;
-  submission_guidelines?: Maybe<Gallery_EnSubmission_Guidelines>;
-  contact?: Maybe<Gallery_EnContact>;
+  submission_section?: Maybe<Gallery_EnSubmission_Section>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -5181,6 +5630,14 @@ export type Gallery_EnCategoriesFilter = {
   description_tamil?: InputMaybe<StringFilter>;
 };
 
+export type Gallery_EnFeatured_AlbumsImagesFilter = {
+  url?: InputMaybe<ImageFilter>;
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  caption?: InputMaybe<StringFilter>;
+  caption_tamil?: InputMaybe<StringFilter>;
+};
+
 export type Gallery_EnFeatured_AlbumsFilter = {
   id?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
@@ -5189,12 +5646,12 @@ export type Gallery_EnFeatured_AlbumsFilter = {
   date_tamil?: InputMaybe<StringFilter>;
   location?: InputMaybe<StringFilter>;
   location_tamil?: InputMaybe<StringFilter>;
-  image_count?: InputMaybe<NumberFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  cover_color?: InputMaybe<StringFilter>;
+  cover_image?: InputMaybe<ImageFilter>;
+  images?: InputMaybe<Gallery_EnFeatured_AlbumsImagesFilter>;
   photographer?: InputMaybe<StringFilter>;
-  highlights?: InputMaybe<StringFilter>;
+  photographer_tamil?: InputMaybe<StringFilter>;
 };
 
 export type Gallery_EnRecent_HighlightsFilter = {
@@ -5203,55 +5660,19 @@ export type Gallery_EnRecent_HighlightsFilter = {
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
+  thumbnail?: InputMaybe<ImageFilter>;
   date?: InputMaybe<StringFilter>;
   date_tamil?: InputMaybe<StringFilter>;
-  image_count?: InputMaybe<NumberFilter>;
+  album_link?: InputMaybe<StringFilter>;
 };
 
-export type Gallery_EnPhoto_ContestCategoriesFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  prize?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_EnPhoto_ContestFilter = {
+export type Gallery_EnSubmission_SectionFilter = {
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  categories?: InputMaybe<Gallery_EnPhoto_ContestCategoriesFilter>;
-  deadline?: InputMaybe<StringFilter>;
-  rules?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_EnSubmission_GuidelinesRequirementsFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_EnSubmission_GuidelinesFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  requirements?: InputMaybe<Gallery_EnSubmission_GuidelinesRequirementsFilter>;
-};
-
-export type Gallery_EnContactGallery_CoordinatorFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  position?: InputMaybe<StringFilter>;
-  position_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_EnContactFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-  gallery_coordinator?: InputMaybe<Gallery_EnContactGallery_CoordinatorFilter>;
-  office_hours?: InputMaybe<StringFilter>;
+  contact_email?: InputMaybe<StringFilter>;
+  guidelines?: InputMaybe<StringFilter>;
 };
 
 export type Gallery_EnFilter = {
@@ -5259,9 +5680,7 @@ export type Gallery_EnFilter = {
   categories?: InputMaybe<Gallery_EnCategoriesFilter>;
   featured_albums?: InputMaybe<Gallery_EnFeatured_AlbumsFilter>;
   recent_highlights?: InputMaybe<Gallery_EnRecent_HighlightsFilter>;
-  photo_contest?: InputMaybe<Gallery_EnPhoto_ContestFilter>;
-  submission_guidelines?: InputMaybe<Gallery_EnSubmission_GuidelinesFilter>;
-  contact?: InputMaybe<Gallery_EnContactFilter>;
+  submission_section?: InputMaybe<Gallery_EnSubmission_SectionFilter>;
 };
 
 export type Gallery_EnConnectionEdges = {
@@ -5275,233 +5694,6 @@ export type Gallery_EnConnection = Connection & {
   pageInfo: PageInfo;
   totalCount: Scalars['Float']['output'];
   edges?: Maybe<Array<Maybe<Gallery_EnConnectionEdges>>>;
-};
-
-export type Gallery_SiHero = {
-  __typename?: 'Gallery_siHero';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  subtitle?: Maybe<Scalars['String']['output']>;
-  subtitle_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_SiCategories = {
-  __typename?: 'Gallery_siCategories';
-  id: Scalars['String']['output'];
-  name: Scalars['String']['output'];
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  count?: Maybe<Scalars['Float']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  description_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_SiFeatured_Albums = {
-  __typename?: 'Gallery_siFeatured_albums';
-  id: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  date?: Maybe<Scalars['String']['output']>;
-  date_tamil?: Maybe<Scalars['String']['output']>;
-  location?: Maybe<Scalars['String']['output']>;
-  location_tamil?: Maybe<Scalars['String']['output']>;
-  image_count?: Maybe<Scalars['Float']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  cover_color?: Maybe<Scalars['String']['output']>;
-  photographer?: Maybe<Scalars['String']['output']>;
-  highlights?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_SiRecent_Highlights = {
-  __typename?: 'Gallery_siRecent_highlights';
-  id: Scalars['String']['output'];
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  date?: Maybe<Scalars['String']['output']>;
-  date_tamil?: Maybe<Scalars['String']['output']>;
-  image_count?: Maybe<Scalars['Float']['output']>;
-};
-
-export type Gallery_SiPhoto_ContestCategories = {
-  __typename?: 'Gallery_siPhoto_contestCategories';
-  name?: Maybe<Scalars['String']['output']>;
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  prize?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_SiPhoto_Contest = {
-  __typename?: 'Gallery_siPhoto_contest';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  description_tamil?: Maybe<Scalars['String']['output']>;
-  categories?: Maybe<Array<Maybe<Gallery_SiPhoto_ContestCategories>>>;
-  deadline?: Maybe<Scalars['String']['output']>;
-  rules?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_SiSubmission_GuidelinesRequirements = {
-  __typename?: 'Gallery_siSubmission_guidelinesRequirements';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_SiSubmission_Guidelines = {
-  __typename?: 'Gallery_siSubmission_guidelines';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  requirements?: Maybe<Array<Maybe<Gallery_SiSubmission_GuidelinesRequirements>>>;
-};
-
-export type Gallery_SiContactGallery_Coordinator = {
-  __typename?: 'Gallery_siContactGallery_coordinator';
-  name?: Maybe<Scalars['String']['output']>;
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  position?: Maybe<Scalars['String']['output']>;
-  position_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_SiContact = {
-  __typename?: 'Gallery_siContact';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  email?: Maybe<Scalars['String']['output']>;
-  phone?: Maybe<Scalars['String']['output']>;
-  gallery_coordinator?: Maybe<Gallery_SiContactGallery_Coordinator>;
-  office_hours?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_Si = Node & Document & {
-  __typename?: 'Gallery_si';
-  hero?: Maybe<Gallery_SiHero>;
-  categories?: Maybe<Array<Maybe<Gallery_SiCategories>>>;
-  featured_albums?: Maybe<Array<Maybe<Gallery_SiFeatured_Albums>>>;
-  recent_highlights?: Maybe<Array<Maybe<Gallery_SiRecent_Highlights>>>;
-  photo_contest?: Maybe<Gallery_SiPhoto_Contest>;
-  submission_guidelines?: Maybe<Gallery_SiSubmission_Guidelines>;
-  contact?: Maybe<Gallery_SiContact>;
-  id: Scalars['ID']['output'];
-  _sys: SystemInfo;
-  _values: Scalars['JSON']['output'];
-};
-
-export type Gallery_SiHeroFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  subtitle?: InputMaybe<StringFilter>;
-  subtitle_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiCategoriesFilter = {
-  id?: InputMaybe<StringFilter>;
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  count?: InputMaybe<NumberFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiFeatured_AlbumsFilter = {
-  id?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  date?: InputMaybe<StringFilter>;
-  date_tamil?: InputMaybe<StringFilter>;
-  location?: InputMaybe<StringFilter>;
-  location_tamil?: InputMaybe<StringFilter>;
-  image_count?: InputMaybe<NumberFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  cover_color?: InputMaybe<StringFilter>;
-  photographer?: InputMaybe<StringFilter>;
-  highlights?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiRecent_HighlightsFilter = {
-  id?: InputMaybe<StringFilter>;
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  date?: InputMaybe<StringFilter>;
-  date_tamil?: InputMaybe<StringFilter>;
-  image_count?: InputMaybe<NumberFilter>;
-};
-
-export type Gallery_SiPhoto_ContestCategoriesFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  prize?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiPhoto_ContestFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  description_tamil?: InputMaybe<StringFilter>;
-  categories?: InputMaybe<Gallery_SiPhoto_ContestCategoriesFilter>;
-  deadline?: InputMaybe<StringFilter>;
-  rules?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiSubmission_GuidelinesRequirementsFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiSubmission_GuidelinesFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  requirements?: InputMaybe<Gallery_SiSubmission_GuidelinesRequirementsFilter>;
-};
-
-export type Gallery_SiContactGallery_CoordinatorFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  position?: InputMaybe<StringFilter>;
-  position_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiContactFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-  gallery_coordinator?: InputMaybe<Gallery_SiContactGallery_CoordinatorFilter>;
-  office_hours?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_SiFilter = {
-  hero?: InputMaybe<Gallery_SiHeroFilter>;
-  categories?: InputMaybe<Gallery_SiCategoriesFilter>;
-  featured_albums?: InputMaybe<Gallery_SiFeatured_AlbumsFilter>;
-  recent_highlights?: InputMaybe<Gallery_SiRecent_HighlightsFilter>;
-  photo_contest?: InputMaybe<Gallery_SiPhoto_ContestFilter>;
-  submission_guidelines?: InputMaybe<Gallery_SiSubmission_GuidelinesFilter>;
-  contact?: InputMaybe<Gallery_SiContactFilter>;
-};
-
-export type Gallery_SiConnectionEdges = {
-  __typename?: 'Gallery_siConnectionEdges';
-  cursor: Scalars['String']['output'];
-  node?: Maybe<Gallery_Si>;
-};
-
-export type Gallery_SiConnection = Connection & {
-  __typename?: 'Gallery_siConnection';
-  pageInfo: PageInfo;
-  totalCount: Scalars['Float']['output'];
-  edges?: Maybe<Array<Maybe<Gallery_SiConnectionEdges>>>;
 };
 
 export type Gallery_TaHero = {
@@ -5518,9 +5710,18 @@ export type Gallery_TaCategories = {
   id: Scalars['String']['output'];
   name: Scalars['String']['output'];
   name_tamil?: Maybe<Scalars['String']['output']>;
-  count?: Maybe<Scalars['Float']['output']>;
+  count: Scalars['Float']['output'];
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery_TaFeatured_AlbumsImages = {
+  __typename?: 'Gallery_taFeatured_albumsImages';
+  url: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
+  caption_tamil?: Maybe<Scalars['String']['output']>;
 };
 
 export type Gallery_TaFeatured_Albums = {
@@ -5528,16 +5729,16 @@ export type Gallery_TaFeatured_Albums = {
   id: Scalars['String']['output'];
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
-  date?: Maybe<Scalars['String']['output']>;
+  date: Scalars['String']['output'];
   date_tamil?: Maybe<Scalars['String']['output']>;
   location?: Maybe<Scalars['String']['output']>;
   location_tamil?: Maybe<Scalars['String']['output']>;
-  image_count?: Maybe<Scalars['Float']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
-  cover_color?: Maybe<Scalars['String']['output']>;
+  cover_image: Scalars['String']['output'];
+  images?: Maybe<Array<Maybe<Gallery_TaFeatured_AlbumsImages>>>;
   photographer?: Maybe<Scalars['String']['output']>;
-  highlights?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  photographer_tamil?: Maybe<Scalars['String']['output']>;
 };
 
 export type Gallery_TaRecent_Highlights = {
@@ -5547,61 +5748,20 @@ export type Gallery_TaRecent_Highlights = {
   title_tamil?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
-  date?: Maybe<Scalars['String']['output']>;
+  thumbnail: Scalars['String']['output'];
+  date: Scalars['String']['output'];
   date_tamil?: Maybe<Scalars['String']['output']>;
-  image_count?: Maybe<Scalars['Float']['output']>;
+  album_link?: Maybe<Scalars['String']['output']>;
 };
 
-export type Gallery_TaPhoto_ContestCategories = {
-  __typename?: 'Gallery_taPhoto_contestCategories';
-  name?: Maybe<Scalars['String']['output']>;
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  prize?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_TaPhoto_Contest = {
-  __typename?: 'Gallery_taPhoto_contest';
+export type Gallery_TaSubmission_Section = {
+  __typename?: 'Gallery_taSubmission_section';
   title: Scalars['String']['output'];
   title_tamil?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   description_tamil?: Maybe<Scalars['String']['output']>;
-  categories?: Maybe<Array<Maybe<Gallery_TaPhoto_ContestCategories>>>;
-  deadline?: Maybe<Scalars['String']['output']>;
-  rules?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_TaSubmission_GuidelinesRequirements = {
-  __typename?: 'Gallery_taSubmission_guidelinesRequirements';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  items?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
-};
-
-export type Gallery_TaSubmission_Guidelines = {
-  __typename?: 'Gallery_taSubmission_guidelines';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  requirements?: Maybe<Array<Maybe<Gallery_TaSubmission_GuidelinesRequirements>>>;
-};
-
-export type Gallery_TaContactGallery_Coordinator = {
-  __typename?: 'Gallery_taContactGallery_coordinator';
-  name?: Maybe<Scalars['String']['output']>;
-  name_tamil?: Maybe<Scalars['String']['output']>;
-  position?: Maybe<Scalars['String']['output']>;
-  position_tamil?: Maybe<Scalars['String']['output']>;
-};
-
-export type Gallery_TaContact = {
-  __typename?: 'Gallery_taContact';
-  title: Scalars['String']['output'];
-  title_tamil?: Maybe<Scalars['String']['output']>;
-  description?: Maybe<Scalars['String']['output']>;
-  email?: Maybe<Scalars['String']['output']>;
-  phone?: Maybe<Scalars['String']['output']>;
-  gallery_coordinator?: Maybe<Gallery_TaContactGallery_Coordinator>;
-  office_hours?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  contact_email: Scalars['String']['output'];
+  guidelines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
 export type Gallery_Ta = Node & Document & {
@@ -5610,9 +5770,7 @@ export type Gallery_Ta = Node & Document & {
   categories?: Maybe<Array<Maybe<Gallery_TaCategories>>>;
   featured_albums?: Maybe<Array<Maybe<Gallery_TaFeatured_Albums>>>;
   recent_highlights?: Maybe<Array<Maybe<Gallery_TaRecent_Highlights>>>;
-  photo_contest?: Maybe<Gallery_TaPhoto_Contest>;
-  submission_guidelines?: Maybe<Gallery_TaSubmission_Guidelines>;
-  contact?: Maybe<Gallery_TaContact>;
+  submission_section?: Maybe<Gallery_TaSubmission_Section>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
   _values: Scalars['JSON']['output'];
@@ -5635,6 +5793,14 @@ export type Gallery_TaCategoriesFilter = {
   description_tamil?: InputMaybe<StringFilter>;
 };
 
+export type Gallery_TaFeatured_AlbumsImagesFilter = {
+  url?: InputMaybe<ImageFilter>;
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  caption?: InputMaybe<StringFilter>;
+  caption_tamil?: InputMaybe<StringFilter>;
+};
+
 export type Gallery_TaFeatured_AlbumsFilter = {
   id?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
@@ -5643,12 +5809,12 @@ export type Gallery_TaFeatured_AlbumsFilter = {
   date_tamil?: InputMaybe<StringFilter>;
   location?: InputMaybe<StringFilter>;
   location_tamil?: InputMaybe<StringFilter>;
-  image_count?: InputMaybe<NumberFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  cover_color?: InputMaybe<StringFilter>;
+  cover_image?: InputMaybe<ImageFilter>;
+  images?: InputMaybe<Gallery_TaFeatured_AlbumsImagesFilter>;
   photographer?: InputMaybe<StringFilter>;
-  highlights?: InputMaybe<StringFilter>;
+  photographer_tamil?: InputMaybe<StringFilter>;
 };
 
 export type Gallery_TaRecent_HighlightsFilter = {
@@ -5657,55 +5823,19 @@ export type Gallery_TaRecent_HighlightsFilter = {
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
+  thumbnail?: InputMaybe<ImageFilter>;
   date?: InputMaybe<StringFilter>;
   date_tamil?: InputMaybe<StringFilter>;
-  image_count?: InputMaybe<NumberFilter>;
+  album_link?: InputMaybe<StringFilter>;
 };
 
-export type Gallery_TaPhoto_ContestCategoriesFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  prize?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_TaPhoto_ContestFilter = {
+export type Gallery_TaSubmission_SectionFilter = {
   title?: InputMaybe<StringFilter>;
   title_tamil?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   description_tamil?: InputMaybe<StringFilter>;
-  categories?: InputMaybe<Gallery_TaPhoto_ContestCategoriesFilter>;
-  deadline?: InputMaybe<StringFilter>;
-  rules?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_TaSubmission_GuidelinesRequirementsFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  items?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_TaSubmission_GuidelinesFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  requirements?: InputMaybe<Gallery_TaSubmission_GuidelinesRequirementsFilter>;
-};
-
-export type Gallery_TaContactGallery_CoordinatorFilter = {
-  name?: InputMaybe<StringFilter>;
-  name_tamil?: InputMaybe<StringFilter>;
-  position?: InputMaybe<StringFilter>;
-  position_tamil?: InputMaybe<StringFilter>;
-};
-
-export type Gallery_TaContactFilter = {
-  title?: InputMaybe<StringFilter>;
-  title_tamil?: InputMaybe<StringFilter>;
-  description?: InputMaybe<StringFilter>;
-  email?: InputMaybe<StringFilter>;
-  phone?: InputMaybe<StringFilter>;
-  gallery_coordinator?: InputMaybe<Gallery_TaContactGallery_CoordinatorFilter>;
-  office_hours?: InputMaybe<StringFilter>;
+  contact_email?: InputMaybe<StringFilter>;
+  guidelines?: InputMaybe<StringFilter>;
 };
 
 export type Gallery_TaFilter = {
@@ -5713,9 +5843,7 @@ export type Gallery_TaFilter = {
   categories?: InputMaybe<Gallery_TaCategoriesFilter>;
   featured_albums?: InputMaybe<Gallery_TaFeatured_AlbumsFilter>;
   recent_highlights?: InputMaybe<Gallery_TaRecent_HighlightsFilter>;
-  photo_contest?: InputMaybe<Gallery_TaPhoto_ContestFilter>;
-  submission_guidelines?: InputMaybe<Gallery_TaSubmission_GuidelinesFilter>;
-  contact?: InputMaybe<Gallery_TaContactFilter>;
+  submission_section?: InputMaybe<Gallery_TaSubmission_SectionFilter>;
 };
 
 export type Gallery_TaConnectionEdges = {
@@ -5731,6 +5859,1624 @@ export type Gallery_TaConnection = Connection & {
   edges?: Maybe<Array<Maybe<Gallery_TaConnectionEdges>>>;
 };
 
+export type Gallery_SiHero = {
+  __typename?: 'Gallery_siHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  subtitle_tamil?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery_SiCategories = {
+  __typename?: 'Gallery_siCategories';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+  name_tamil?: Maybe<Scalars['String']['output']>;
+  count: Scalars['Float']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  description_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery_SiFeatured_AlbumsImages = {
+  __typename?: 'Gallery_siFeatured_albumsImages';
+  url: Scalars['String']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  caption?: Maybe<Scalars['String']['output']>;
+  caption_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery_SiFeatured_Albums = {
+  __typename?: 'Gallery_siFeatured_albums';
+  id: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  date: Scalars['String']['output'];
+  date_tamil?: Maybe<Scalars['String']['output']>;
+  location?: Maybe<Scalars['String']['output']>;
+  location_tamil?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  description_tamil?: Maybe<Scalars['String']['output']>;
+  cover_image: Scalars['String']['output'];
+  images?: Maybe<Array<Maybe<Gallery_SiFeatured_AlbumsImages>>>;
+  photographer?: Maybe<Scalars['String']['output']>;
+  photographer_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery_SiRecent_Highlights = {
+  __typename?: 'Gallery_siRecent_highlights';
+  id: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  description_tamil?: Maybe<Scalars['String']['output']>;
+  thumbnail: Scalars['String']['output'];
+  date: Scalars['String']['output'];
+  date_tamil?: Maybe<Scalars['String']['output']>;
+  album_link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Gallery_SiSubmission_Section = {
+  __typename?: 'Gallery_siSubmission_section';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  description_tamil?: Maybe<Scalars['String']['output']>;
+  contact_email: Scalars['String']['output'];
+  guidelines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type Gallery_Si = Node & Document & {
+  __typename?: 'Gallery_si';
+  hero?: Maybe<Gallery_SiHero>;
+  categories?: Maybe<Array<Maybe<Gallery_SiCategories>>>;
+  featured_albums?: Maybe<Array<Maybe<Gallery_SiFeatured_Albums>>>;
+  recent_highlights?: Maybe<Array<Maybe<Gallery_SiRecent_Highlights>>>;
+  submission_section?: Maybe<Gallery_SiSubmission_Section>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Gallery_SiHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  subtitle_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Gallery_SiCategoriesFilter = {
+  id?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  name_tamil?: InputMaybe<StringFilter>;
+  count?: InputMaybe<NumberFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Gallery_SiFeatured_AlbumsImagesFilter = {
+  url?: InputMaybe<ImageFilter>;
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  caption?: InputMaybe<StringFilter>;
+  caption_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Gallery_SiFeatured_AlbumsFilter = {
+  id?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  date?: InputMaybe<StringFilter>;
+  date_tamil?: InputMaybe<StringFilter>;
+  location?: InputMaybe<StringFilter>;
+  location_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+  cover_image?: InputMaybe<ImageFilter>;
+  images?: InputMaybe<Gallery_SiFeatured_AlbumsImagesFilter>;
+  photographer?: InputMaybe<StringFilter>;
+  photographer_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Gallery_SiRecent_HighlightsFilter = {
+  id?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+  thumbnail?: InputMaybe<ImageFilter>;
+  date?: InputMaybe<StringFilter>;
+  date_tamil?: InputMaybe<StringFilter>;
+  album_link?: InputMaybe<StringFilter>;
+};
+
+export type Gallery_SiSubmission_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  description_tamil?: InputMaybe<StringFilter>;
+  contact_email?: InputMaybe<StringFilter>;
+  guidelines?: InputMaybe<StringFilter>;
+};
+
+export type Gallery_SiFilter = {
+  hero?: InputMaybe<Gallery_SiHeroFilter>;
+  categories?: InputMaybe<Gallery_SiCategoriesFilter>;
+  featured_albums?: InputMaybe<Gallery_SiFeatured_AlbumsFilter>;
+  recent_highlights?: InputMaybe<Gallery_SiRecent_HighlightsFilter>;
+  submission_section?: InputMaybe<Gallery_SiSubmission_SectionFilter>;
+};
+
+export type Gallery_SiConnectionEdges = {
+  __typename?: 'Gallery_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Gallery_Si>;
+};
+
+export type Gallery_SiConnection = Connection & {
+  __typename?: 'Gallery_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Gallery_SiConnectionEdges>>>;
+};
+
+export type Contact_EnHero = {
+  __typename?: 'Contact_enHero';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnContact_MethodsMethods = {
+  __typename?: 'Contact_enContact_methodsMethods';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  contact_info?: Maybe<Scalars['String']['output']>;
+  hours?: Maybe<Scalars['String']['output']>;
+  color?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnContact_Methods = {
+  __typename?: 'Contact_enContact_methods';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  methods?: Maybe<Array<Maybe<Contact_EnContact_MethodsMethods>>>;
+};
+
+export type Contact_EnContact_Form = {
+  __typename?: 'Contact_enContact_form';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnEmergency_Contact = {
+  __typename?: 'Contact_enEmergency_contact';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  availability?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnOffice_InfoHoursSchedule = {
+  __typename?: 'Contact_enOffice_infoHoursSchedule';
+  day: Scalars['String']['output'];
+  time: Scalars['String']['output'];
+};
+
+export type Contact_EnOffice_InfoHours = {
+  __typename?: 'Contact_enOffice_infoHours';
+  title: Scalars['String']['output'];
+  schedule?: Maybe<Array<Maybe<Contact_EnOffice_InfoHoursSchedule>>>;
+  note?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnOffice_InfoLocationAddress = {
+  __typename?: 'Contact_enOffice_infoLocationAddress';
+  label?: Maybe<Scalars['String']['output']>;
+  lines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type Contact_EnOffice_InfoLocationParking = {
+  __typename?: 'Contact_enOffice_infoLocationParking';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnOffice_InfoLocationTransport = {
+  __typename?: 'Contact_enOffice_infoLocationTransport';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnOffice_InfoLocation = {
+  __typename?: 'Contact_enOffice_infoLocation';
+  title: Scalars['String']['output'];
+  address?: Maybe<Contact_EnOffice_InfoLocationAddress>;
+  parking?: Maybe<Contact_EnOffice_InfoLocationParking>;
+  transport?: Maybe<Contact_EnOffice_InfoLocationTransport>;
+  security_notice?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_EnOffice_Info = {
+  __typename?: 'Contact_enOffice_info';
+  hours?: Maybe<Contact_EnOffice_InfoHours>;
+  location?: Maybe<Contact_EnOffice_InfoLocation>;
+};
+
+export type Contact_EnFaq_Link = {
+  __typename?: 'Contact_enFaq_link';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  button_text?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_En = Node & Document & {
+  __typename?: 'Contact_en';
+  hero?: Maybe<Contact_EnHero>;
+  contact_methods?: Maybe<Contact_EnContact_Methods>;
+  contact_form?: Maybe<Contact_EnContact_Form>;
+  emergency_contact?: Maybe<Contact_EnEmergency_Contact>;
+  office_info?: Maybe<Contact_EnOffice_Info>;
+  faq_link?: Maybe<Contact_EnFaq_Link>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Contact_EnHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnContact_MethodsMethodsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  contact_info?: InputMaybe<StringFilter>;
+  hours?: InputMaybe<StringFilter>;
+  color?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnContact_MethodsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  methods?: InputMaybe<Contact_EnContact_MethodsMethodsFilter>;
+};
+
+export type Contact_EnContact_FormFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnEmergency_ContactFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  availability?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnOffice_InfoHoursScheduleFilter = {
+  day?: InputMaybe<StringFilter>;
+  time?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnOffice_InfoHoursFilter = {
+  title?: InputMaybe<StringFilter>;
+  schedule?: InputMaybe<Contact_EnOffice_InfoHoursScheduleFilter>;
+  note?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnOffice_InfoLocationAddressFilter = {
+  label?: InputMaybe<StringFilter>;
+  lines?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnOffice_InfoLocationParkingFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnOffice_InfoLocationTransportFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnOffice_InfoLocationFilter = {
+  title?: InputMaybe<StringFilter>;
+  address?: InputMaybe<Contact_EnOffice_InfoLocationAddressFilter>;
+  parking?: InputMaybe<Contact_EnOffice_InfoLocationParkingFilter>;
+  transport?: InputMaybe<Contact_EnOffice_InfoLocationTransportFilter>;
+  security_notice?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnOffice_InfoFilter = {
+  hours?: InputMaybe<Contact_EnOffice_InfoHoursFilter>;
+  location?: InputMaybe<Contact_EnOffice_InfoLocationFilter>;
+};
+
+export type Contact_EnFaq_LinkFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  button_text?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Contact_EnFilter = {
+  hero?: InputMaybe<Contact_EnHeroFilter>;
+  contact_methods?: InputMaybe<Contact_EnContact_MethodsFilter>;
+  contact_form?: InputMaybe<Contact_EnContact_FormFilter>;
+  emergency_contact?: InputMaybe<Contact_EnEmergency_ContactFilter>;
+  office_info?: InputMaybe<Contact_EnOffice_InfoFilter>;
+  faq_link?: InputMaybe<Contact_EnFaq_LinkFilter>;
+};
+
+export type Contact_EnConnectionEdges = {
+  __typename?: 'Contact_enConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Contact_En>;
+};
+
+export type Contact_EnConnection = Connection & {
+  __typename?: 'Contact_enConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Contact_EnConnectionEdges>>>;
+};
+
+export type Contact_SiHero = {
+  __typename?: 'Contact_siHero';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiContact_MethodsMethods = {
+  __typename?: 'Contact_siContact_methodsMethods';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  contact_info?: Maybe<Scalars['String']['output']>;
+  hours?: Maybe<Scalars['String']['output']>;
+  color?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiContact_Methods = {
+  __typename?: 'Contact_siContact_methods';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  methods?: Maybe<Array<Maybe<Contact_SiContact_MethodsMethods>>>;
+};
+
+export type Contact_SiContact_Form = {
+  __typename?: 'Contact_siContact_form';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiEmergency_Contact = {
+  __typename?: 'Contact_siEmergency_contact';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  availability?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiOffice_InfoHoursSchedule = {
+  __typename?: 'Contact_siOffice_infoHoursSchedule';
+  day: Scalars['String']['output'];
+  time: Scalars['String']['output'];
+};
+
+export type Contact_SiOffice_InfoHours = {
+  __typename?: 'Contact_siOffice_infoHours';
+  title: Scalars['String']['output'];
+  schedule?: Maybe<Array<Maybe<Contact_SiOffice_InfoHoursSchedule>>>;
+  note?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiOffice_InfoLocationAddress = {
+  __typename?: 'Contact_siOffice_infoLocationAddress';
+  label?: Maybe<Scalars['String']['output']>;
+  lines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type Contact_SiOffice_InfoLocationParking = {
+  __typename?: 'Contact_siOffice_infoLocationParking';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiOffice_InfoLocationTransport = {
+  __typename?: 'Contact_siOffice_infoLocationTransport';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiOffice_InfoLocation = {
+  __typename?: 'Contact_siOffice_infoLocation';
+  title: Scalars['String']['output'];
+  address?: Maybe<Contact_SiOffice_InfoLocationAddress>;
+  parking?: Maybe<Contact_SiOffice_InfoLocationParking>;
+  transport?: Maybe<Contact_SiOffice_InfoLocationTransport>;
+  security_notice?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_SiOffice_Info = {
+  __typename?: 'Contact_siOffice_info';
+  hours?: Maybe<Contact_SiOffice_InfoHours>;
+  location?: Maybe<Contact_SiOffice_InfoLocation>;
+};
+
+export type Contact_SiFaq_Link = {
+  __typename?: 'Contact_siFaq_link';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  button_text?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_Si = Node & Document & {
+  __typename?: 'Contact_si';
+  hero?: Maybe<Contact_SiHero>;
+  contact_methods?: Maybe<Contact_SiContact_Methods>;
+  contact_form?: Maybe<Contact_SiContact_Form>;
+  emergency_contact?: Maybe<Contact_SiEmergency_Contact>;
+  office_info?: Maybe<Contact_SiOffice_Info>;
+  faq_link?: Maybe<Contact_SiFaq_Link>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Contact_SiHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiContact_MethodsMethodsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  contact_info?: InputMaybe<StringFilter>;
+  hours?: InputMaybe<StringFilter>;
+  color?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiContact_MethodsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  methods?: InputMaybe<Contact_SiContact_MethodsMethodsFilter>;
+};
+
+export type Contact_SiContact_FormFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiEmergency_ContactFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  availability?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiOffice_InfoHoursScheduleFilter = {
+  day?: InputMaybe<StringFilter>;
+  time?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiOffice_InfoHoursFilter = {
+  title?: InputMaybe<StringFilter>;
+  schedule?: InputMaybe<Contact_SiOffice_InfoHoursScheduleFilter>;
+  note?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiOffice_InfoLocationAddressFilter = {
+  label?: InputMaybe<StringFilter>;
+  lines?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiOffice_InfoLocationParkingFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiOffice_InfoLocationTransportFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiOffice_InfoLocationFilter = {
+  title?: InputMaybe<StringFilter>;
+  address?: InputMaybe<Contact_SiOffice_InfoLocationAddressFilter>;
+  parking?: InputMaybe<Contact_SiOffice_InfoLocationParkingFilter>;
+  transport?: InputMaybe<Contact_SiOffice_InfoLocationTransportFilter>;
+  security_notice?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiOffice_InfoFilter = {
+  hours?: InputMaybe<Contact_SiOffice_InfoHoursFilter>;
+  location?: InputMaybe<Contact_SiOffice_InfoLocationFilter>;
+};
+
+export type Contact_SiFaq_LinkFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  button_text?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Contact_SiFilter = {
+  hero?: InputMaybe<Contact_SiHeroFilter>;
+  contact_methods?: InputMaybe<Contact_SiContact_MethodsFilter>;
+  contact_form?: InputMaybe<Contact_SiContact_FormFilter>;
+  emergency_contact?: InputMaybe<Contact_SiEmergency_ContactFilter>;
+  office_info?: InputMaybe<Contact_SiOffice_InfoFilter>;
+  faq_link?: InputMaybe<Contact_SiFaq_LinkFilter>;
+};
+
+export type Contact_SiConnectionEdges = {
+  __typename?: 'Contact_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Contact_Si>;
+};
+
+export type Contact_SiConnection = Connection & {
+  __typename?: 'Contact_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Contact_SiConnectionEdges>>>;
+};
+
+export type Contact_TaHero = {
+  __typename?: 'Contact_taHero';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaContact_MethodsMethods = {
+  __typename?: 'Contact_taContact_methodsMethods';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  contact_info?: Maybe<Scalars['String']['output']>;
+  hours?: Maybe<Scalars['String']['output']>;
+  color?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaContact_Methods = {
+  __typename?: 'Contact_taContact_methods';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  methods?: Maybe<Array<Maybe<Contact_TaContact_MethodsMethods>>>;
+};
+
+export type Contact_TaContact_Form = {
+  __typename?: 'Contact_taContact_form';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaEmergency_Contact = {
+  __typename?: 'Contact_taEmergency_contact';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  label?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  availability?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaOffice_InfoHoursSchedule = {
+  __typename?: 'Contact_taOffice_infoHoursSchedule';
+  day: Scalars['String']['output'];
+  time: Scalars['String']['output'];
+};
+
+export type Contact_TaOffice_InfoHours = {
+  __typename?: 'Contact_taOffice_infoHours';
+  title: Scalars['String']['output'];
+  schedule?: Maybe<Array<Maybe<Contact_TaOffice_InfoHoursSchedule>>>;
+  note?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaOffice_InfoLocationAddress = {
+  __typename?: 'Contact_taOffice_infoLocationAddress';
+  label?: Maybe<Scalars['String']['output']>;
+  lines?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+export type Contact_TaOffice_InfoLocationParking = {
+  __typename?: 'Contact_taOffice_infoLocationParking';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaOffice_InfoLocationTransport = {
+  __typename?: 'Contact_taOffice_infoLocationTransport';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaOffice_InfoLocation = {
+  __typename?: 'Contact_taOffice_infoLocation';
+  title: Scalars['String']['output'];
+  address?: Maybe<Contact_TaOffice_InfoLocationAddress>;
+  parking?: Maybe<Contact_TaOffice_InfoLocationParking>;
+  transport?: Maybe<Contact_TaOffice_InfoLocationTransport>;
+  security_notice?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_TaOffice_Info = {
+  __typename?: 'Contact_taOffice_info';
+  hours?: Maybe<Contact_TaOffice_InfoHours>;
+  location?: Maybe<Contact_TaOffice_InfoLocation>;
+};
+
+export type Contact_TaFaq_Link = {
+  __typename?: 'Contact_taFaq_link';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  button_text?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Contact_Ta = Node & Document & {
+  __typename?: 'Contact_ta';
+  hero?: Maybe<Contact_TaHero>;
+  contact_methods?: Maybe<Contact_TaContact_Methods>;
+  contact_form?: Maybe<Contact_TaContact_Form>;
+  emergency_contact?: Maybe<Contact_TaEmergency_Contact>;
+  office_info?: Maybe<Contact_TaOffice_Info>;
+  faq_link?: Maybe<Contact_TaFaq_Link>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Contact_TaHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaContact_MethodsMethodsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  contact_info?: InputMaybe<StringFilter>;
+  hours?: InputMaybe<StringFilter>;
+  color?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaContact_MethodsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  methods?: InputMaybe<Contact_TaContact_MethodsMethodsFilter>;
+};
+
+export type Contact_TaContact_FormFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaEmergency_ContactFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+  availability?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaOffice_InfoHoursScheduleFilter = {
+  day?: InputMaybe<StringFilter>;
+  time?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaOffice_InfoHoursFilter = {
+  title?: InputMaybe<StringFilter>;
+  schedule?: InputMaybe<Contact_TaOffice_InfoHoursScheduleFilter>;
+  note?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaOffice_InfoLocationAddressFilter = {
+  label?: InputMaybe<StringFilter>;
+  lines?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaOffice_InfoLocationParkingFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaOffice_InfoLocationTransportFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaOffice_InfoLocationFilter = {
+  title?: InputMaybe<StringFilter>;
+  address?: InputMaybe<Contact_TaOffice_InfoLocationAddressFilter>;
+  parking?: InputMaybe<Contact_TaOffice_InfoLocationParkingFilter>;
+  transport?: InputMaybe<Contact_TaOffice_InfoLocationTransportFilter>;
+  security_notice?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaOffice_InfoFilter = {
+  hours?: InputMaybe<Contact_TaOffice_InfoHoursFilter>;
+  location?: InputMaybe<Contact_TaOffice_InfoLocationFilter>;
+};
+
+export type Contact_TaFaq_LinkFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  button_text?: InputMaybe<StringFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Contact_TaFilter = {
+  hero?: InputMaybe<Contact_TaHeroFilter>;
+  contact_methods?: InputMaybe<Contact_TaContact_MethodsFilter>;
+  contact_form?: InputMaybe<Contact_TaContact_FormFilter>;
+  emergency_contact?: InputMaybe<Contact_TaEmergency_ContactFilter>;
+  office_info?: InputMaybe<Contact_TaOffice_InfoFilter>;
+  faq_link?: InputMaybe<Contact_TaFaq_LinkFilter>;
+};
+
+export type Contact_TaConnectionEdges = {
+  __typename?: 'Contact_taConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Contact_Ta>;
+};
+
+export type Contact_TaConnection = Connection & {
+  __typename?: 'Contact_taConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Contact_TaConnectionEdges>>>;
+};
+
+export type Pages_EnHero = {
+  __typename?: 'Pages_enHero';
+  title?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  background_image?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_EnContent_SectionsText_Section = {
+  __typename?: 'Pages_enContent_sectionsText_section';
+  title?: Maybe<Scalars['String']['output']>;
+  content: Scalars['JSON']['output'];
+  background?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_EnContent_SectionsImage_Section = {
+  __typename?: 'Pages_enContent_sectionsImage_section';
+  image: Scalars['String']['output'];
+  caption?: Maybe<Scalars['String']['output']>;
+  alt_text: Scalars['String']['output'];
+};
+
+export type Pages_EnContent_SectionsCards_SectionCards = {
+  __typename?: 'Pages_enContent_sectionsCards_sectionCards';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_EnContent_SectionsCards_Section = {
+  __typename?: 'Pages_enContent_sectionsCards_section';
+  section_title?: Maybe<Scalars['String']['output']>;
+  cards?: Maybe<Array<Maybe<Pages_EnContent_SectionsCards_SectionCards>>>;
+};
+
+export type Pages_EnContent_SectionsCta_Section = {
+  __typename?: 'Pages_enContent_sectionsCta_section';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  button_text: Scalars['String']['output'];
+  button_link: Scalars['String']['output'];
+  background_color?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_EnContent_SectionsStatistics_SectionStats = {
+  __typename?: 'Pages_enContent_sectionsStatistics_sectionStats';
+  number: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type Pages_EnContent_SectionsStatistics_Section = {
+  __typename?: 'Pages_enContent_sectionsStatistics_section';
+  section_title?: Maybe<Scalars['String']['output']>;
+  stats?: Maybe<Array<Maybe<Pages_EnContent_SectionsStatistics_SectionStats>>>;
+};
+
+export type Pages_EnContent_Sections = Pages_EnContent_SectionsText_Section | Pages_EnContent_SectionsImage_Section | Pages_EnContent_SectionsCards_Section | Pages_EnContent_SectionsCta_Section | Pages_EnContent_SectionsStatistics_Section;
+
+export type Pages_En = Node & Document & {
+  __typename?: 'Pages_en';
+  title: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  hero?: Maybe<Pages_EnHero>;
+  content_sections?: Maybe<Array<Maybe<Pages_EnContent_Sections>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Pages_EnHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  background_image?: InputMaybe<ImageFilter>;
+};
+
+export type RichTextFilter = {
+  startsWith?: InputMaybe<Scalars['String']['input']>;
+  eq?: InputMaybe<Scalars['String']['input']>;
+  exists?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Pages_EnContent_SectionsText_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  content?: InputMaybe<RichTextFilter>;
+  background?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnContent_SectionsImage_SectionFilter = {
+  image?: InputMaybe<ImageFilter>;
+  caption?: InputMaybe<StringFilter>;
+  alt_text?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnContent_SectionsCards_SectionCardsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnContent_SectionsCards_SectionFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  cards?: InputMaybe<Pages_EnContent_SectionsCards_SectionCardsFilter>;
+};
+
+export type Pages_EnContent_SectionsCta_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  button_text?: InputMaybe<StringFilter>;
+  button_link?: InputMaybe<StringFilter>;
+  background_color?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnContent_SectionsStatistics_SectionStatsFilter = {
+  number?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+};
+
+export type Pages_EnContent_SectionsStatistics_SectionFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<Pages_EnContent_SectionsStatistics_SectionStatsFilter>;
+};
+
+export type Pages_EnContent_SectionsFilter = {
+  text_section?: InputMaybe<Pages_EnContent_SectionsText_SectionFilter>;
+  image_section?: InputMaybe<Pages_EnContent_SectionsImage_SectionFilter>;
+  cards_section?: InputMaybe<Pages_EnContent_SectionsCards_SectionFilter>;
+  cta_section?: InputMaybe<Pages_EnContent_SectionsCta_SectionFilter>;
+  statistics_section?: InputMaybe<Pages_EnContent_SectionsStatistics_SectionFilter>;
+};
+
+export type Pages_EnFilter = {
+  title?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  hero?: InputMaybe<Pages_EnHeroFilter>;
+  content_sections?: InputMaybe<Pages_EnContent_SectionsFilter>;
+};
+
+export type Pages_EnConnectionEdges = {
+  __typename?: 'Pages_enConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Pages_En>;
+};
+
+export type Pages_EnConnection = Connection & {
+  __typename?: 'Pages_enConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Pages_EnConnectionEdges>>>;
+};
+
+export type Pages_TaHero = {
+  __typename?: 'Pages_taHero';
+  title?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  background_image?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_TaContent_SectionsText_Section = {
+  __typename?: 'Pages_taContent_sectionsText_section';
+  title?: Maybe<Scalars['String']['output']>;
+  content: Scalars['JSON']['output'];
+  background?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_TaContent_SectionsImage_Section = {
+  __typename?: 'Pages_taContent_sectionsImage_section';
+  image: Scalars['String']['output'];
+  caption?: Maybe<Scalars['String']['output']>;
+  alt_text: Scalars['String']['output'];
+};
+
+export type Pages_TaContent_SectionsCards_SectionCards = {
+  __typename?: 'Pages_taContent_sectionsCards_sectionCards';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_TaContent_SectionsCards_Section = {
+  __typename?: 'Pages_taContent_sectionsCards_section';
+  section_title?: Maybe<Scalars['String']['output']>;
+  cards?: Maybe<Array<Maybe<Pages_TaContent_SectionsCards_SectionCards>>>;
+};
+
+export type Pages_TaContent_SectionsCta_Section = {
+  __typename?: 'Pages_taContent_sectionsCta_section';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  button_text: Scalars['String']['output'];
+  button_link: Scalars['String']['output'];
+  background_color?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_TaContent_SectionsStatistics_SectionStats = {
+  __typename?: 'Pages_taContent_sectionsStatistics_sectionStats';
+  number: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type Pages_TaContent_SectionsStatistics_Section = {
+  __typename?: 'Pages_taContent_sectionsStatistics_section';
+  section_title?: Maybe<Scalars['String']['output']>;
+  stats?: Maybe<Array<Maybe<Pages_TaContent_SectionsStatistics_SectionStats>>>;
+};
+
+export type Pages_TaContent_Sections = Pages_TaContent_SectionsText_Section | Pages_TaContent_SectionsImage_Section | Pages_TaContent_SectionsCards_Section | Pages_TaContent_SectionsCta_Section | Pages_TaContent_SectionsStatistics_Section;
+
+export type Pages_Ta = Node & Document & {
+  __typename?: 'Pages_ta';
+  title: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  hero?: Maybe<Pages_TaHero>;
+  content_sections?: Maybe<Array<Maybe<Pages_TaContent_Sections>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Pages_TaHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  background_image?: InputMaybe<ImageFilter>;
+};
+
+export type Pages_TaContent_SectionsText_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  content?: InputMaybe<RichTextFilter>;
+  background?: InputMaybe<StringFilter>;
+};
+
+export type Pages_TaContent_SectionsImage_SectionFilter = {
+  image?: InputMaybe<ImageFilter>;
+  caption?: InputMaybe<StringFilter>;
+  alt_text?: InputMaybe<StringFilter>;
+};
+
+export type Pages_TaContent_SectionsCards_SectionCardsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Pages_TaContent_SectionsCards_SectionFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  cards?: InputMaybe<Pages_TaContent_SectionsCards_SectionCardsFilter>;
+};
+
+export type Pages_TaContent_SectionsCta_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  button_text?: InputMaybe<StringFilter>;
+  button_link?: InputMaybe<StringFilter>;
+  background_color?: InputMaybe<StringFilter>;
+};
+
+export type Pages_TaContent_SectionsStatistics_SectionStatsFilter = {
+  number?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+};
+
+export type Pages_TaContent_SectionsStatistics_SectionFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<Pages_TaContent_SectionsStatistics_SectionStatsFilter>;
+};
+
+export type Pages_TaContent_SectionsFilter = {
+  text_section?: InputMaybe<Pages_TaContent_SectionsText_SectionFilter>;
+  image_section?: InputMaybe<Pages_TaContent_SectionsImage_SectionFilter>;
+  cards_section?: InputMaybe<Pages_TaContent_SectionsCards_SectionFilter>;
+  cta_section?: InputMaybe<Pages_TaContent_SectionsCta_SectionFilter>;
+  statistics_section?: InputMaybe<Pages_TaContent_SectionsStatistics_SectionFilter>;
+};
+
+export type Pages_TaFilter = {
+  title?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  hero?: InputMaybe<Pages_TaHeroFilter>;
+  content_sections?: InputMaybe<Pages_TaContent_SectionsFilter>;
+};
+
+export type Pages_TaConnectionEdges = {
+  __typename?: 'Pages_taConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Pages_Ta>;
+};
+
+export type Pages_TaConnection = Connection & {
+  __typename?: 'Pages_taConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Pages_TaConnectionEdges>>>;
+};
+
+export type Pages_SiHero = {
+  __typename?: 'Pages_siHero';
+  title?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  background_image?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_SiContent_SectionsText_Section = {
+  __typename?: 'Pages_siContent_sectionsText_section';
+  title?: Maybe<Scalars['String']['output']>;
+  content: Scalars['JSON']['output'];
+  background?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_SiContent_SectionsImage_Section = {
+  __typename?: 'Pages_siContent_sectionsImage_section';
+  image: Scalars['String']['output'];
+  caption?: Maybe<Scalars['String']['output']>;
+  alt_text: Scalars['String']['output'];
+};
+
+export type Pages_SiContent_SectionsCards_SectionCards = {
+  __typename?: 'Pages_siContent_sectionsCards_sectionCards';
+  title: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  image?: Maybe<Scalars['String']['output']>;
+  link?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_SiContent_SectionsCards_Section = {
+  __typename?: 'Pages_siContent_sectionsCards_section';
+  section_title?: Maybe<Scalars['String']['output']>;
+  cards?: Maybe<Array<Maybe<Pages_SiContent_SectionsCards_SectionCards>>>;
+};
+
+export type Pages_SiContent_SectionsCta_Section = {
+  __typename?: 'Pages_siContent_sectionsCta_section';
+  title?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+  button_text: Scalars['String']['output'];
+  button_link: Scalars['String']['output'];
+  background_color?: Maybe<Scalars['String']['output']>;
+};
+
+export type Pages_SiContent_SectionsStatistics_SectionStats = {
+  __typename?: 'Pages_siContent_sectionsStatistics_sectionStats';
+  number: Scalars['String']['output'];
+  label: Scalars['String']['output'];
+};
+
+export type Pages_SiContent_SectionsStatistics_Section = {
+  __typename?: 'Pages_siContent_sectionsStatistics_section';
+  section_title?: Maybe<Scalars['String']['output']>;
+  stats?: Maybe<Array<Maybe<Pages_SiContent_SectionsStatistics_SectionStats>>>;
+};
+
+export type Pages_SiContent_Sections = Pages_SiContent_SectionsText_Section | Pages_SiContent_SectionsImage_Section | Pages_SiContent_SectionsCards_Section | Pages_SiContent_SectionsCta_Section | Pages_SiContent_SectionsStatistics_Section;
+
+export type Pages_Si = Node & Document & {
+  __typename?: 'Pages_si';
+  title: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  hero?: Maybe<Pages_SiHero>;
+  content_sections?: Maybe<Array<Maybe<Pages_SiContent_Sections>>>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Pages_SiHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  background_image?: InputMaybe<ImageFilter>;
+};
+
+export type Pages_SiContent_SectionsText_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  content?: InputMaybe<RichTextFilter>;
+  background?: InputMaybe<StringFilter>;
+};
+
+export type Pages_SiContent_SectionsImage_SectionFilter = {
+  image?: InputMaybe<ImageFilter>;
+  caption?: InputMaybe<StringFilter>;
+  alt_text?: InputMaybe<StringFilter>;
+};
+
+export type Pages_SiContent_SectionsCards_SectionCardsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+  link?: InputMaybe<StringFilter>;
+};
+
+export type Pages_SiContent_SectionsCards_SectionFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  cards?: InputMaybe<Pages_SiContent_SectionsCards_SectionCardsFilter>;
+};
+
+export type Pages_SiContent_SectionsCta_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  button_text?: InputMaybe<StringFilter>;
+  button_link?: InputMaybe<StringFilter>;
+  background_color?: InputMaybe<StringFilter>;
+};
+
+export type Pages_SiContent_SectionsStatistics_SectionStatsFilter = {
+  number?: InputMaybe<StringFilter>;
+  label?: InputMaybe<StringFilter>;
+};
+
+export type Pages_SiContent_SectionsStatistics_SectionFilter = {
+  section_title?: InputMaybe<StringFilter>;
+  stats?: InputMaybe<Pages_SiContent_SectionsStatistics_SectionStatsFilter>;
+};
+
+export type Pages_SiContent_SectionsFilter = {
+  text_section?: InputMaybe<Pages_SiContent_SectionsText_SectionFilter>;
+  image_section?: InputMaybe<Pages_SiContent_SectionsImage_SectionFilter>;
+  cards_section?: InputMaybe<Pages_SiContent_SectionsCards_SectionFilter>;
+  cta_section?: InputMaybe<Pages_SiContent_SectionsCta_SectionFilter>;
+  statistics_section?: InputMaybe<Pages_SiContent_SectionsStatistics_SectionFilter>;
+};
+
+export type Pages_SiFilter = {
+  title?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  hero?: InputMaybe<Pages_SiHeroFilter>;
+  content_sections?: InputMaybe<Pages_SiContent_SectionsFilter>;
+};
+
+export type Pages_SiConnectionEdges = {
+  __typename?: 'Pages_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Pages_Si>;
+};
+
+export type Pages_SiConnection = Connection & {
+  __typename?: 'Pages_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Pages_SiConnectionEdges>>>;
+};
+
+export type Blog_Page_EnHero = {
+  __typename?: 'Blog_page_enHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  subtitle_tamil?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_EnCategories_Section = {
+  __typename?: 'Blog_page_enCategories_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_EnFeatured_Section = {
+  __typename?: 'Blog_page_enFeatured_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_EnAll_Posts_Section = {
+  __typename?: 'Blog_page_enAll_posts_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  posts_per_page?: Maybe<Scalars['Float']['output']>;
+};
+
+export type Blog_Page_En = Node & Document & {
+  __typename?: 'Blog_page_en';
+  hero?: Maybe<Blog_Page_EnHero>;
+  categories_section?: Maybe<Blog_Page_EnCategories_Section>;
+  featured_section?: Maybe<Blog_Page_EnFeatured_Section>;
+  all_posts_section?: Maybe<Blog_Page_EnAll_Posts_Section>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Blog_Page_EnHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  subtitle_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_EnCategories_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_EnFeatured_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_EnAll_Posts_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  posts_per_page?: InputMaybe<NumberFilter>;
+};
+
+export type Blog_Page_EnFilter = {
+  hero?: InputMaybe<Blog_Page_EnHeroFilter>;
+  categories_section?: InputMaybe<Blog_Page_EnCategories_SectionFilter>;
+  featured_section?: InputMaybe<Blog_Page_EnFeatured_SectionFilter>;
+  all_posts_section?: InputMaybe<Blog_Page_EnAll_Posts_SectionFilter>;
+};
+
+export type Blog_Page_EnConnectionEdges = {
+  __typename?: 'Blog_page_enConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Blog_Page_En>;
+};
+
+export type Blog_Page_EnConnection = Connection & {
+  __typename?: 'Blog_page_enConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Blog_Page_EnConnectionEdges>>>;
+};
+
+export type Blog_Page_SiHero = {
+  __typename?: 'Blog_page_siHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  subtitle_tamil?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_SiCategories_Section = {
+  __typename?: 'Blog_page_siCategories_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_SiFeatured_Section = {
+  __typename?: 'Blog_page_siFeatured_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_SiAll_Posts_Section = {
+  __typename?: 'Blog_page_siAll_posts_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  posts_per_page?: Maybe<Scalars['Float']['output']>;
+};
+
+export type Blog_Page_Si = Node & Document & {
+  __typename?: 'Blog_page_si';
+  hero?: Maybe<Blog_Page_SiHero>;
+  categories_section?: Maybe<Blog_Page_SiCategories_Section>;
+  featured_section?: Maybe<Blog_Page_SiFeatured_Section>;
+  all_posts_section?: Maybe<Blog_Page_SiAll_Posts_Section>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Blog_Page_SiHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  subtitle_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_SiCategories_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_SiFeatured_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_SiAll_Posts_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  posts_per_page?: InputMaybe<NumberFilter>;
+};
+
+export type Blog_Page_SiFilter = {
+  hero?: InputMaybe<Blog_Page_SiHeroFilter>;
+  categories_section?: InputMaybe<Blog_Page_SiCategories_SectionFilter>;
+  featured_section?: InputMaybe<Blog_Page_SiFeatured_SectionFilter>;
+  all_posts_section?: InputMaybe<Blog_Page_SiAll_Posts_SectionFilter>;
+};
+
+export type Blog_Page_SiConnectionEdges = {
+  __typename?: 'Blog_page_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Blog_Page_Si>;
+};
+
+export type Blog_Page_SiConnection = Connection & {
+  __typename?: 'Blog_page_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Blog_Page_SiConnectionEdges>>>;
+};
+
+export type Blog_Page_TaHero = {
+  __typename?: 'Blog_page_taHero';
+  title: Scalars['String']['output'];
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  subtitle?: Maybe<Scalars['String']['output']>;
+  subtitle_tamil?: Maybe<Scalars['String']['output']>;
+  description?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_TaCategories_Section = {
+  __typename?: 'Blog_page_taCategories_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_TaFeatured_Section = {
+  __typename?: 'Blog_page_taFeatured_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+};
+
+export type Blog_Page_TaAll_Posts_Section = {
+  __typename?: 'Blog_page_taAll_posts_section';
+  title?: Maybe<Scalars['String']['output']>;
+  title_tamil?: Maybe<Scalars['String']['output']>;
+  posts_per_page?: Maybe<Scalars['Float']['output']>;
+};
+
+export type Blog_Page_Ta = Node & Document & {
+  __typename?: 'Blog_page_ta';
+  hero?: Maybe<Blog_Page_TaHero>;
+  categories_section?: Maybe<Blog_Page_TaCategories_Section>;
+  featured_section?: Maybe<Blog_Page_TaFeatured_Section>;
+  all_posts_section?: Maybe<Blog_Page_TaAll_Posts_Section>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Blog_Page_TaHeroFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  subtitle_tamil?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_TaCategories_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_TaFeatured_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+};
+
+export type Blog_Page_TaAll_Posts_SectionFilter = {
+  title?: InputMaybe<StringFilter>;
+  title_tamil?: InputMaybe<StringFilter>;
+  posts_per_page?: InputMaybe<NumberFilter>;
+};
+
+export type Blog_Page_TaFilter = {
+  hero?: InputMaybe<Blog_Page_TaHeroFilter>;
+  categories_section?: InputMaybe<Blog_Page_TaCategories_SectionFilter>;
+  featured_section?: InputMaybe<Blog_Page_TaFeatured_SectionFilter>;
+  all_posts_section?: InputMaybe<Blog_Page_TaAll_Posts_SectionFilter>;
+};
+
+export type Blog_Page_TaConnectionEdges = {
+  __typename?: 'Blog_page_taConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Blog_Page_Ta>;
+};
+
+export type Blog_Page_TaConnection = Connection & {
+  __typename?: 'Blog_page_taConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Blog_Page_TaConnectionEdges>>>;
+};
+
+export type Blog_En = Node & Document & {
+  __typename?: 'Blog_en';
+  title: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  excerpt: Scalars['String']['output'];
+  content: Scalars['JSON']['output'];
+  featured_image: Scalars['String']['output'];
+  author: Scalars['String']['output'];
+  author_role?: Maybe<Scalars['String']['output']>;
+  author_image?: Maybe<Scalars['String']['output']>;
+  published_date: Scalars['String']['output'];
+  category: Scalars['String']['output'];
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  featured?: Maybe<Scalars['Boolean']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Blog_EnFilter = {
+  title?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<StringFilter>;
+  excerpt?: InputMaybe<StringFilter>;
+  content?: InputMaybe<RichTextFilter>;
+  featured_image?: InputMaybe<ImageFilter>;
+  author?: InputMaybe<StringFilter>;
+  author_role?: InputMaybe<StringFilter>;
+  author_image?: InputMaybe<ImageFilter>;
+  published_date?: InputMaybe<DatetimeFilter>;
+  category?: InputMaybe<StringFilter>;
+  tags?: InputMaybe<StringFilter>;
+  featured?: InputMaybe<BooleanFilter>;
+};
+
+export type Blog_EnConnectionEdges = {
+  __typename?: 'Blog_enConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Blog_En>;
+};
+
+export type Blog_EnConnection = Connection & {
+  __typename?: 'Blog_enConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Blog_EnConnectionEdges>>>;
+};
+
+export type Blog_Ta = Node & Document & {
+  __typename?: 'Blog_ta';
+  title: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  excerpt: Scalars['String']['output'];
+  content: Scalars['JSON']['output'];
+  featured_image: Scalars['String']['output'];
+  author: Scalars['String']['output'];
+  author_role?: Maybe<Scalars['String']['output']>;
+  author_image?: Maybe<Scalars['String']['output']>;
+  published_date: Scalars['String']['output'];
+  category: Scalars['String']['output'];
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  featured?: Maybe<Scalars['Boolean']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Blog_TaFilter = {
+  title?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<StringFilter>;
+  excerpt?: InputMaybe<StringFilter>;
+  content?: InputMaybe<RichTextFilter>;
+  featured_image?: InputMaybe<ImageFilter>;
+  author?: InputMaybe<StringFilter>;
+  author_role?: InputMaybe<StringFilter>;
+  author_image?: InputMaybe<ImageFilter>;
+  published_date?: InputMaybe<DatetimeFilter>;
+  category?: InputMaybe<StringFilter>;
+  tags?: InputMaybe<StringFilter>;
+  featured?: InputMaybe<BooleanFilter>;
+};
+
+export type Blog_TaConnectionEdges = {
+  __typename?: 'Blog_taConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Blog_Ta>;
+};
+
+export type Blog_TaConnection = Connection & {
+  __typename?: 'Blog_taConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Blog_TaConnectionEdges>>>;
+};
+
+export type Blog_Si = Node & Document & {
+  __typename?: 'Blog_si';
+  title: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  excerpt: Scalars['String']['output'];
+  content: Scalars['JSON']['output'];
+  featured_image: Scalars['String']['output'];
+  author: Scalars['String']['output'];
+  author_role?: Maybe<Scalars['String']['output']>;
+  author_image?: Maybe<Scalars['String']['output']>;
+  published_date: Scalars['String']['output'];
+  category: Scalars['String']['output'];
+  tags?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  featured?: Maybe<Scalars['Boolean']['output']>;
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Blog_SiFilter = {
+  title?: InputMaybe<StringFilter>;
+  slug?: InputMaybe<StringFilter>;
+  excerpt?: InputMaybe<StringFilter>;
+  content?: InputMaybe<RichTextFilter>;
+  featured_image?: InputMaybe<ImageFilter>;
+  author?: InputMaybe<StringFilter>;
+  author_role?: InputMaybe<StringFilter>;
+  author_image?: InputMaybe<ImageFilter>;
+  published_date?: InputMaybe<DatetimeFilter>;
+  category?: InputMaybe<StringFilter>;
+  tags?: InputMaybe<StringFilter>;
+  featured?: InputMaybe<BooleanFilter>;
+};
+
+export type Blog_SiConnectionEdges = {
+  __typename?: 'Blog_siConnectionEdges';
+  cursor: Scalars['String']['output'];
+  node?: Maybe<Blog_Si>;
+};
+
+export type Blog_SiConnection = Connection & {
+  __typename?: 'Blog_siConnection';
+  pageInfo: PageInfo;
+  totalCount: Scalars['Float']['output'];
+  edges?: Maybe<Array<Maybe<Blog_SiConnectionEdges>>>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -5738,6 +7484,12 @@ export type Mutation = {
   deleteDocument: DocumentNode;
   createDocument: DocumentNode;
   createFolder: DocumentNode;
+  updateSite_config_en: Site_Config_En;
+  createSite_config_en: Site_Config_En;
+  updateSite_config_ta: Site_Config_Ta;
+  createSite_config_ta: Site_Config_Ta;
+  updateSite_config_si: Site_Config_Si;
+  createSite_config_si: Site_Config_Si;
   updateHome_en: Home_En;
   createHome_en: Home_En;
   updateHome_si: Home_Si;
@@ -5764,10 +7516,10 @@ export type Mutation = {
   createMembership_ta: Membership_Ta;
   updatePublications_en: Publications_En;
   createPublications_en: Publications_En;
-  updatePublications_si: Publications_Si;
-  createPublications_si: Publications_Si;
   updatePublications_ta: Publications_Ta;
   createPublications_ta: Publications_Ta;
+  updatePublications_si: Publications_Si;
+  createPublications_si: Publications_Si;
   updateEvents_en: Events_En;
   createEvents_en: Events_En;
   updateEvents_si: Events_Si;
@@ -5776,10 +7528,34 @@ export type Mutation = {
   createEvents_ta: Events_Ta;
   updateGallery_en: Gallery_En;
   createGallery_en: Gallery_En;
-  updateGallery_si: Gallery_Si;
-  createGallery_si: Gallery_Si;
   updateGallery_ta: Gallery_Ta;
   createGallery_ta: Gallery_Ta;
+  updateGallery_si: Gallery_Si;
+  createGallery_si: Gallery_Si;
+  updateContact_en: Contact_En;
+  createContact_en: Contact_En;
+  updateContact_si: Contact_Si;
+  createContact_si: Contact_Si;
+  updateContact_ta: Contact_Ta;
+  createContact_ta: Contact_Ta;
+  updatePages_en: Pages_En;
+  createPages_en: Pages_En;
+  updatePages_ta: Pages_Ta;
+  createPages_ta: Pages_Ta;
+  updatePages_si: Pages_Si;
+  createPages_si: Pages_Si;
+  updateBlog_page_en: Blog_Page_En;
+  createBlog_page_en: Blog_Page_En;
+  updateBlog_page_si: Blog_Page_Si;
+  createBlog_page_si: Blog_Page_Si;
+  updateBlog_page_ta: Blog_Page_Ta;
+  createBlog_page_ta: Blog_Page_Ta;
+  updateBlog_en: Blog_En;
+  createBlog_en: Blog_En;
+  updateBlog_ta: Blog_Ta;
+  createBlog_ta: Blog_Ta;
+  updateBlog_si: Blog_Si;
+  createBlog_si: Blog_Si;
 };
 
 
@@ -5813,6 +7589,42 @@ export type MutationCreateDocumentArgs = {
 export type MutationCreateFolderArgs = {
   collection?: InputMaybe<Scalars['String']['input']>;
   relativePath: Scalars['String']['input'];
+};
+
+
+export type MutationUpdateSite_Config_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Site_Config_EnMutation;
+};
+
+
+export type MutationCreateSite_Config_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Site_Config_EnMutation;
+};
+
+
+export type MutationUpdateSite_Config_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Site_Config_TaMutation;
+};
+
+
+export type MutationCreateSite_Config_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Site_Config_TaMutation;
+};
+
+
+export type MutationUpdateSite_Config_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Site_Config_SiMutation;
+};
+
+
+export type MutationCreateSite_Config_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Site_Config_SiMutation;
 };
 
 
@@ -5972,18 +7784,6 @@ export type MutationCreatePublications_EnArgs = {
 };
 
 
-export type MutationUpdatePublications_SiArgs = {
-  relativePath: Scalars['String']['input'];
-  params: Publications_SiMutation;
-};
-
-
-export type MutationCreatePublications_SiArgs = {
-  relativePath: Scalars['String']['input'];
-  params: Publications_SiMutation;
-};
-
-
 export type MutationUpdatePublications_TaArgs = {
   relativePath: Scalars['String']['input'];
   params: Publications_TaMutation;
@@ -5993,6 +7793,18 @@ export type MutationUpdatePublications_TaArgs = {
 export type MutationCreatePublications_TaArgs = {
   relativePath: Scalars['String']['input'];
   params: Publications_TaMutation;
+};
+
+
+export type MutationUpdatePublications_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Publications_SiMutation;
+};
+
+
+export type MutationCreatePublications_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Publications_SiMutation;
 };
 
 
@@ -6044,6 +7856,18 @@ export type MutationCreateGallery_EnArgs = {
 };
 
 
+export type MutationUpdateGallery_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Gallery_TaMutation;
+};
+
+
+export type MutationCreateGallery_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Gallery_TaMutation;
+};
+
+
 export type MutationUpdateGallery_SiArgs = {
   relativePath: Scalars['String']['input'];
   params: Gallery_SiMutation;
@@ -6056,18 +7880,153 @@ export type MutationCreateGallery_SiArgs = {
 };
 
 
-export type MutationUpdateGallery_TaArgs = {
+export type MutationUpdateContact_EnArgs = {
   relativePath: Scalars['String']['input'];
-  params: Gallery_TaMutation;
+  params: Contact_EnMutation;
 };
 
 
-export type MutationCreateGallery_TaArgs = {
+export type MutationCreateContact_EnArgs = {
   relativePath: Scalars['String']['input'];
-  params: Gallery_TaMutation;
+  params: Contact_EnMutation;
+};
+
+
+export type MutationUpdateContact_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Contact_SiMutation;
+};
+
+
+export type MutationCreateContact_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Contact_SiMutation;
+};
+
+
+export type MutationUpdateContact_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Contact_TaMutation;
+};
+
+
+export type MutationCreateContact_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Contact_TaMutation;
+};
+
+
+export type MutationUpdatePages_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Pages_EnMutation;
+};
+
+
+export type MutationCreatePages_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Pages_EnMutation;
+};
+
+
+export type MutationUpdatePages_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Pages_TaMutation;
+};
+
+
+export type MutationCreatePages_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Pages_TaMutation;
+};
+
+
+export type MutationUpdatePages_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Pages_SiMutation;
+};
+
+
+export type MutationCreatePages_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Pages_SiMutation;
+};
+
+
+export type MutationUpdateBlog_Page_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_Page_EnMutation;
+};
+
+
+export type MutationCreateBlog_Page_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_Page_EnMutation;
+};
+
+
+export type MutationUpdateBlog_Page_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_Page_SiMutation;
+};
+
+
+export type MutationCreateBlog_Page_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_Page_SiMutation;
+};
+
+
+export type MutationUpdateBlog_Page_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_Page_TaMutation;
+};
+
+
+export type MutationCreateBlog_Page_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_Page_TaMutation;
+};
+
+
+export type MutationUpdateBlog_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_EnMutation;
+};
+
+
+export type MutationCreateBlog_EnArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_EnMutation;
+};
+
+
+export type MutationUpdateBlog_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_TaMutation;
+};
+
+
+export type MutationCreateBlog_TaArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_TaMutation;
+};
+
+
+export type MutationUpdateBlog_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_SiMutation;
+};
+
+
+export type MutationCreateBlog_SiArgs = {
+  relativePath: Scalars['String']['input'];
+  params: Blog_SiMutation;
 };
 
 export type DocumentUpdateMutation = {
+  site_config_en?: InputMaybe<Site_Config_EnMutation>;
+  site_config_ta?: InputMaybe<Site_Config_TaMutation>;
+  site_config_si?: InputMaybe<Site_Config_SiMutation>;
   home_en?: InputMaybe<Home_EnMutation>;
   home_si?: InputMaybe<Home_SiMutation>;
   home_ta?: InputMaybe<Home_TaMutation>;
@@ -6081,18 +8040,33 @@ export type DocumentUpdateMutation = {
   membership_si?: InputMaybe<Membership_SiMutation>;
   membership_ta?: InputMaybe<Membership_TaMutation>;
   publications_en?: InputMaybe<Publications_EnMutation>;
-  publications_si?: InputMaybe<Publications_SiMutation>;
   publications_ta?: InputMaybe<Publications_TaMutation>;
+  publications_si?: InputMaybe<Publications_SiMutation>;
   events_en?: InputMaybe<Events_EnMutation>;
   events_si?: InputMaybe<Events_SiMutation>;
   events_ta?: InputMaybe<Events_TaMutation>;
   gallery_en?: InputMaybe<Gallery_EnMutation>;
-  gallery_si?: InputMaybe<Gallery_SiMutation>;
   gallery_ta?: InputMaybe<Gallery_TaMutation>;
+  gallery_si?: InputMaybe<Gallery_SiMutation>;
+  contact_en?: InputMaybe<Contact_EnMutation>;
+  contact_si?: InputMaybe<Contact_SiMutation>;
+  contact_ta?: InputMaybe<Contact_TaMutation>;
+  pages_en?: InputMaybe<Pages_EnMutation>;
+  pages_ta?: InputMaybe<Pages_TaMutation>;
+  pages_si?: InputMaybe<Pages_SiMutation>;
+  blog_page_en?: InputMaybe<Blog_Page_EnMutation>;
+  blog_page_si?: InputMaybe<Blog_Page_SiMutation>;
+  blog_page_ta?: InputMaybe<Blog_Page_TaMutation>;
+  blog_en?: InputMaybe<Blog_EnMutation>;
+  blog_ta?: InputMaybe<Blog_TaMutation>;
+  blog_si?: InputMaybe<Blog_SiMutation>;
   relativePath?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentMutation = {
+  site_config_en?: InputMaybe<Site_Config_EnMutation>;
+  site_config_ta?: InputMaybe<Site_Config_TaMutation>;
+  site_config_si?: InputMaybe<Site_Config_SiMutation>;
   home_en?: InputMaybe<Home_EnMutation>;
   home_si?: InputMaybe<Home_SiMutation>;
   home_ta?: InputMaybe<Home_TaMutation>;
@@ -6106,14 +8080,230 @@ export type DocumentMutation = {
   membership_si?: InputMaybe<Membership_SiMutation>;
   membership_ta?: InputMaybe<Membership_TaMutation>;
   publications_en?: InputMaybe<Publications_EnMutation>;
-  publications_si?: InputMaybe<Publications_SiMutation>;
   publications_ta?: InputMaybe<Publications_TaMutation>;
+  publications_si?: InputMaybe<Publications_SiMutation>;
   events_en?: InputMaybe<Events_EnMutation>;
   events_si?: InputMaybe<Events_SiMutation>;
   events_ta?: InputMaybe<Events_TaMutation>;
   gallery_en?: InputMaybe<Gallery_EnMutation>;
-  gallery_si?: InputMaybe<Gallery_SiMutation>;
   gallery_ta?: InputMaybe<Gallery_TaMutation>;
+  gallery_si?: InputMaybe<Gallery_SiMutation>;
+  contact_en?: InputMaybe<Contact_EnMutation>;
+  contact_si?: InputMaybe<Contact_SiMutation>;
+  contact_ta?: InputMaybe<Contact_TaMutation>;
+  pages_en?: InputMaybe<Pages_EnMutation>;
+  pages_ta?: InputMaybe<Pages_TaMutation>;
+  pages_si?: InputMaybe<Pages_SiMutation>;
+  blog_page_en?: InputMaybe<Blog_Page_EnMutation>;
+  blog_page_si?: InputMaybe<Blog_Page_SiMutation>;
+  blog_page_ta?: InputMaybe<Blog_Page_TaMutation>;
+  blog_en?: InputMaybe<Blog_EnMutation>;
+  blog_ta?: InputMaybe<Blog_TaMutation>;
+  blog_si?: InputMaybe<Blog_SiMutation>;
+};
+
+export type Site_Config_EnOrganizationMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_local?: InputMaybe<Scalars['String']['input']>;
+  tagline?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  mission?: InputMaybe<Scalars['String']['input']>;
+  vision?: InputMaybe<Scalars['String']['input']>;
+  founded?: InputMaybe<Scalars['String']['input']>;
+  registration_number?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_EnContactAddressMutation = {
+  street?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  postal_code?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_EnContactSocial_MediaMutation = {
+  facebook?: InputMaybe<Scalars['String']['input']>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
+  instagram?: InputMaybe<Scalars['String']['input']>;
+  youtube?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_EnContactMutation = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Site_Config_EnContactAddressMutation>;
+  social_media?: InputMaybe<Site_Config_EnContactSocial_MediaMutation>;
+};
+
+export type Site_Config_EnNavigationPrimaryMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_EnNavigationFooterMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_EnNavigationMutation = {
+  primary?: InputMaybe<Array<InputMaybe<Site_Config_EnNavigationPrimaryMutation>>>;
+  footer?: InputMaybe<Array<InputMaybe<Site_Config_EnNavigationFooterMutation>>>;
+};
+
+export type Site_Config_EnFooterMutation = {
+  copyright?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_EnMetaMutation = {
+  title_suffix?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  keywords?: InputMaybe<Scalars['String']['input']>;
+  author?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_EnMutation = {
+  organization?: InputMaybe<Site_Config_EnOrganizationMutation>;
+  contact?: InputMaybe<Site_Config_EnContactMutation>;
+  navigation?: InputMaybe<Site_Config_EnNavigationMutation>;
+  footer?: InputMaybe<Site_Config_EnFooterMutation>;
+  meta?: InputMaybe<Site_Config_EnMetaMutation>;
+};
+
+export type Site_Config_TaOrganizationMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_local?: InputMaybe<Scalars['String']['input']>;
+  tagline?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  mission?: InputMaybe<Scalars['String']['input']>;
+  vision?: InputMaybe<Scalars['String']['input']>;
+  founded?: InputMaybe<Scalars['String']['input']>;
+  registration_number?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_TaContactAddressMutation = {
+  street?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  postal_code?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_TaContactSocial_MediaMutation = {
+  facebook?: InputMaybe<Scalars['String']['input']>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
+  instagram?: InputMaybe<Scalars['String']['input']>;
+  youtube?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_TaContactMutation = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Site_Config_TaContactAddressMutation>;
+  social_media?: InputMaybe<Site_Config_TaContactSocial_MediaMutation>;
+};
+
+export type Site_Config_TaNavigationPrimaryMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_TaNavigationFooterMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_TaNavigationMutation = {
+  primary?: InputMaybe<Array<InputMaybe<Site_Config_TaNavigationPrimaryMutation>>>;
+  footer?: InputMaybe<Array<InputMaybe<Site_Config_TaNavigationFooterMutation>>>;
+};
+
+export type Site_Config_TaFooterMutation = {
+  copyright?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_TaMetaMutation = {
+  title_suffix?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  keywords?: InputMaybe<Scalars['String']['input']>;
+  author?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_TaMutation = {
+  organization?: InputMaybe<Site_Config_TaOrganizationMutation>;
+  contact?: InputMaybe<Site_Config_TaContactMutation>;
+  navigation?: InputMaybe<Site_Config_TaNavigationMutation>;
+  footer?: InputMaybe<Site_Config_TaFooterMutation>;
+  meta?: InputMaybe<Site_Config_TaMetaMutation>;
+};
+
+export type Site_Config_SiOrganizationMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_local?: InputMaybe<Scalars['String']['input']>;
+  tagline?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  mission?: InputMaybe<Scalars['String']['input']>;
+  vision?: InputMaybe<Scalars['String']['input']>;
+  founded?: InputMaybe<Scalars['String']['input']>;
+  registration_number?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_SiContactAddressMutation = {
+  street?: InputMaybe<Scalars['String']['input']>;
+  city?: InputMaybe<Scalars['String']['input']>;
+  state?: InputMaybe<Scalars['String']['input']>;
+  postal_code?: InputMaybe<Scalars['String']['input']>;
+  country?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_SiContactSocial_MediaMutation = {
+  facebook?: InputMaybe<Scalars['String']['input']>;
+  twitter?: InputMaybe<Scalars['String']['input']>;
+  instagram?: InputMaybe<Scalars['String']['input']>;
+  youtube?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_SiContactMutation = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Site_Config_SiContactAddressMutation>;
+  social_media?: InputMaybe<Site_Config_SiContactSocial_MediaMutation>;
+};
+
+export type Site_Config_SiNavigationPrimaryMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_SiNavigationFooterMutation = {
+  name?: InputMaybe<Scalars['String']['input']>;
+  href?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_SiNavigationMutation = {
+  primary?: InputMaybe<Array<InputMaybe<Site_Config_SiNavigationPrimaryMutation>>>;
+  footer?: InputMaybe<Array<InputMaybe<Site_Config_SiNavigationFooterMutation>>>;
+};
+
+export type Site_Config_SiFooterMutation = {
+  copyright?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_SiMetaMutation = {
+  title_suffix?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  keywords?: InputMaybe<Scalars['String']['input']>;
+  author?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Site_Config_SiMutation = {
+  organization?: InputMaybe<Site_Config_SiOrganizationMutation>;
+  contact?: InputMaybe<Site_Config_SiContactMutation>;
+  navigation?: InputMaybe<Site_Config_SiNavigationMutation>;
+  footer?: InputMaybe<Site_Config_SiFooterMutation>;
+  meta?: InputMaybe<Site_Config_SiMetaMutation>;
 };
 
 export type Home_EnHeroCta_PrimaryMutation = {
@@ -6130,6 +8320,9 @@ export type Home_EnHeroMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  background_image?: InputMaybe<Scalars['String']['input']>;
+  hero_video_url?: InputMaybe<Scalars['String']['input']>;
+  hero_video_title?: InputMaybe<Scalars['String']['input']>;
   cta_primary?: InputMaybe<Home_EnHeroCta_PrimaryMutation>;
   cta_secondary?: InputMaybe<Home_EnHeroCta_SecondaryMutation>;
 };
@@ -6143,6 +8336,7 @@ export type Home_EnFeatured_DepartmentsMutation = {
   name?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
   href?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -6177,12 +8371,42 @@ export type Home_EnQuick_ActionsMutation = {
   color?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Home_EnFeatured_VideoMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  video_title?: InputMaybe<Scalars['String']['input']>;
+  video_description?: InputMaybe<Scalars['String']['input']>;
+  youtube_url?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Home_EnNewsletterMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   placeholder?: InputMaybe<Scalars['String']['input']>;
   button?: InputMaybe<Scalars['String']['input']>;
   privacy?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Home_EnRecent_ArticlesMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  section_description?: InputMaybe<Scalars['String']['input']>;
+  view_all_text?: InputMaybe<Scalars['String']['input']>;
+  view_all_href?: InputMaybe<Scalars['String']['input']>;
+  posts_to_show?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type Home_EnPhoto_HighlightsPhotosMutation = {
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Home_EnPhoto_HighlightsMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  section_description?: InputMaybe<Scalars['String']['input']>;
+  photos?: InputMaybe<Array<InputMaybe<Home_EnPhoto_HighlightsPhotosMutation>>>;
+  view_gallery_text?: InputMaybe<Scalars['String']['input']>;
+  view_gallery_href?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Home_EnMutation = {
@@ -6193,7 +8417,10 @@ export type Home_EnMutation = {
   announcements?: InputMaybe<Array<InputMaybe<Home_EnAnnouncementsMutation>>>;
   statistics?: InputMaybe<Array<InputMaybe<Home_EnStatisticsMutation>>>;
   quick_actions?: InputMaybe<Array<InputMaybe<Home_EnQuick_ActionsMutation>>>;
+  featured_video?: InputMaybe<Home_EnFeatured_VideoMutation>;
   newsletter?: InputMaybe<Home_EnNewsletterMutation>;
+  recent_articles?: InputMaybe<Home_EnRecent_ArticlesMutation>;
+  photo_highlights?: InputMaybe<Home_EnPhoto_HighlightsMutation>;
 };
 
 export type Home_SiHeroCta_PrimaryMutation = {
@@ -6210,6 +8437,9 @@ export type Home_SiHeroMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  background_image?: InputMaybe<Scalars['String']['input']>;
+  hero_video_url?: InputMaybe<Scalars['String']['input']>;
+  hero_video_title?: InputMaybe<Scalars['String']['input']>;
   cta_primary?: InputMaybe<Home_SiHeroCta_PrimaryMutation>;
   cta_secondary?: InputMaybe<Home_SiHeroCta_SecondaryMutation>;
 };
@@ -6223,6 +8453,7 @@ export type Home_SiFeatured_DepartmentsMutation = {
   name?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
   href?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -6257,12 +8488,42 @@ export type Home_SiQuick_ActionsMutation = {
   color?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Home_SiFeatured_VideoMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  video_title?: InputMaybe<Scalars['String']['input']>;
+  video_description?: InputMaybe<Scalars['String']['input']>;
+  youtube_url?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Home_SiNewsletterMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   placeholder?: InputMaybe<Scalars['String']['input']>;
   button?: InputMaybe<Scalars['String']['input']>;
   privacy?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Home_SiRecent_ArticlesMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  section_description?: InputMaybe<Scalars['String']['input']>;
+  view_all_text?: InputMaybe<Scalars['String']['input']>;
+  view_all_href?: InputMaybe<Scalars['String']['input']>;
+  posts_to_show?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type Home_SiPhoto_HighlightsPhotosMutation = {
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Home_SiPhoto_HighlightsMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  section_description?: InputMaybe<Scalars['String']['input']>;
+  photos?: InputMaybe<Array<InputMaybe<Home_SiPhoto_HighlightsPhotosMutation>>>;
+  view_gallery_text?: InputMaybe<Scalars['String']['input']>;
+  view_gallery_href?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Home_SiMutation = {
@@ -6273,7 +8534,10 @@ export type Home_SiMutation = {
   announcements?: InputMaybe<Array<InputMaybe<Home_SiAnnouncementsMutation>>>;
   statistics?: InputMaybe<Array<InputMaybe<Home_SiStatisticsMutation>>>;
   quick_actions?: InputMaybe<Array<InputMaybe<Home_SiQuick_ActionsMutation>>>;
+  featured_video?: InputMaybe<Home_SiFeatured_VideoMutation>;
   newsletter?: InputMaybe<Home_SiNewsletterMutation>;
+  recent_articles?: InputMaybe<Home_SiRecent_ArticlesMutation>;
+  photo_highlights?: InputMaybe<Home_SiPhoto_HighlightsMutation>;
 };
 
 export type Home_TaHeroCta_PrimaryMutation = {
@@ -6290,6 +8554,9 @@ export type Home_TaHeroMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   subtitle?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  background_image?: InputMaybe<Scalars['String']['input']>;
+  hero_video_url?: InputMaybe<Scalars['String']['input']>;
+  hero_video_title?: InputMaybe<Scalars['String']['input']>;
   cta_primary?: InputMaybe<Home_TaHeroCta_PrimaryMutation>;
   cta_secondary?: InputMaybe<Home_TaHeroCta_SecondaryMutation>;
 };
@@ -6303,6 +8570,7 @@ export type Home_TaFeatured_DepartmentsMutation = {
   name?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   icon?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
   href?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -6337,12 +8605,42 @@ export type Home_TaQuick_ActionsMutation = {
   color?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Home_TaFeatured_VideoMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  video_title?: InputMaybe<Scalars['String']['input']>;
+  video_description?: InputMaybe<Scalars['String']['input']>;
+  youtube_url?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Home_TaNewsletterMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   placeholder?: InputMaybe<Scalars['String']['input']>;
   button?: InputMaybe<Scalars['String']['input']>;
   privacy?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Home_TaRecent_ArticlesMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  section_description?: InputMaybe<Scalars['String']['input']>;
+  view_all_text?: InputMaybe<Scalars['String']['input']>;
+  view_all_href?: InputMaybe<Scalars['String']['input']>;
+  posts_to_show?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type Home_TaPhoto_HighlightsPhotosMutation = {
+  image?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Home_TaPhoto_HighlightsMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  section_description?: InputMaybe<Scalars['String']['input']>;
+  photos?: InputMaybe<Array<InputMaybe<Home_TaPhoto_HighlightsPhotosMutation>>>;
+  view_gallery_text?: InputMaybe<Scalars['String']['input']>;
+  view_gallery_href?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Home_TaMutation = {
@@ -6353,7 +8651,10 @@ export type Home_TaMutation = {
   announcements?: InputMaybe<Array<InputMaybe<Home_TaAnnouncementsMutation>>>;
   statistics?: InputMaybe<Array<InputMaybe<Home_TaStatisticsMutation>>>;
   quick_actions?: InputMaybe<Array<InputMaybe<Home_TaQuick_ActionsMutation>>>;
+  featured_video?: InputMaybe<Home_TaFeatured_VideoMutation>;
   newsletter?: InputMaybe<Home_TaNewsletterMutation>;
+  recent_articles?: InputMaybe<Home_TaRecent_ArticlesMutation>;
+  photo_highlights?: InputMaybe<Home_TaPhoto_HighlightsMutation>;
 };
 
 export type About_EnHeroMutation = {
@@ -7265,7 +9566,7 @@ export type Publications_EnCategoriesMutation = {
   icon?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type Publications_EnFeatured_PublicationsMutation = {
+export type Publications_EnFeatured_ResourcesMutation = {
   id?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
@@ -7278,259 +9579,36 @@ export type Publications_EnFeatured_PublicationsMutation = {
   isbn?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  cover_color?: InputMaybe<Scalars['String']['input']>;
-  available?: InputMaybe<Scalars['Boolean']['input']>;
-  price?: InputMaybe<Scalars['String']['input']>;
-  format?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  release_date?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['String']['input']>;
+  file_url?: InputMaybe<Scalars['String']['input']>;
+  file_type?: InputMaybe<Scalars['String']['input']>;
+  file_size_mb?: InputMaybe<Scalars['Float']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type Publications_EnMagazinesMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
-  frequency?: InputMaybe<Scalars['String']['input']>;
-  frequency_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  subscription_price?: InputMaybe<Scalars['String']['input']>;
-  editor?: InputMaybe<Scalars['String']['input']>;
-  editor_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_EnDigital_ResourcesItemsMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  access?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_EnDigital_ResourcesMutation = {
+export type Publications_EnAbout_SectionMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Publications_EnDigital_ResourcesItemsMutation>>>;
 };
 
-export type Publications_EnResearch_PublicationsRecent_PapersMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  author?: InputMaybe<Scalars['String']['input']>;
-  journal?: InputMaybe<Scalars['String']['input']>;
-  year?: InputMaybe<Scalars['String']['input']>;
-  pages?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_EnResearch_PublicationsMutation = {
+export type Publications_EnSubmission_SectionMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  recent_papers?: InputMaybe<Array<InputMaybe<Publications_EnResearch_PublicationsRecent_PapersMutation>>>;
-};
-
-export type Publications_EnSubmission_GuidelinesRequirementsMutation = {
-  category?: InputMaybe<Scalars['String']['input']>;
-  category_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Publications_EnSubmission_GuidelinesMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  requirements?: InputMaybe<Array<InputMaybe<Publications_EnSubmission_GuidelinesRequirementsMutation>>>;
-};
-
-export type Publications_EnContactEditorial_OfficeMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-  editor_in_chief?: InputMaybe<Scalars['String']['input']>;
-  editor_in_chief_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_EnContactDistributionMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_EnContactSubmissionsMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  guidelines_url?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_EnContactMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  editorial_office?: InputMaybe<Publications_EnContactEditorial_OfficeMutation>;
-  distribution?: InputMaybe<Publications_EnContactDistributionMutation>;
-  submissions?: InputMaybe<Publications_EnContactSubmissionsMutation>;
+  contact_email?: InputMaybe<Scalars['String']['input']>;
+  guidelines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type Publications_EnMutation = {
   hero?: InputMaybe<Publications_EnHeroMutation>;
   categories?: InputMaybe<Array<InputMaybe<Publications_EnCategoriesMutation>>>;
-  featured_publications?: InputMaybe<Array<InputMaybe<Publications_EnFeatured_PublicationsMutation>>>;
-  magazines?: InputMaybe<Array<InputMaybe<Publications_EnMagazinesMutation>>>;
-  digital_resources?: InputMaybe<Publications_EnDigital_ResourcesMutation>;
-  research_publications?: InputMaybe<Publications_EnResearch_PublicationsMutation>;
-  submission_guidelines?: InputMaybe<Publications_EnSubmission_GuidelinesMutation>;
-  contact?: InputMaybe<Publications_EnContactMutation>;
-};
-
-export type Publications_SiHeroMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiCategoriesMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  count?: InputMaybe<Scalars['Float']['input']>;
-  icon?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiFeatured_PublicationsMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  author?: InputMaybe<Scalars['String']['input']>;
-  author_tamil?: InputMaybe<Scalars['String']['input']>;
-  category?: InputMaybe<Scalars['String']['input']>;
-  category_tamil?: InputMaybe<Scalars['String']['input']>;
-  year?: InputMaybe<Scalars['String']['input']>;
-  pages?: InputMaybe<Scalars['Float']['input']>;
-  isbn?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  cover_color?: InputMaybe<Scalars['String']['input']>;
-  available?: InputMaybe<Scalars['Boolean']['input']>;
-  price?: InputMaybe<Scalars['String']['input']>;
-  format?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  release_date?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiMagazinesMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
-  frequency?: InputMaybe<Scalars['String']['input']>;
-  frequency_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  subscription_price?: InputMaybe<Scalars['String']['input']>;
-  editor?: InputMaybe<Scalars['String']['input']>;
-  editor_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiDigital_ResourcesItemsMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  access?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiDigital_ResourcesMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Publications_SiDigital_ResourcesItemsMutation>>>;
-};
-
-export type Publications_SiResearch_PublicationsRecent_PapersMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  author?: InputMaybe<Scalars['String']['input']>;
-  journal?: InputMaybe<Scalars['String']['input']>;
-  year?: InputMaybe<Scalars['String']['input']>;
-  pages?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiResearch_PublicationsMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  recent_papers?: InputMaybe<Array<InputMaybe<Publications_SiResearch_PublicationsRecent_PapersMutation>>>;
-};
-
-export type Publications_SiSubmission_GuidelinesRequirementsMutation = {
-  category?: InputMaybe<Scalars['String']['input']>;
-  category_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Publications_SiSubmission_GuidelinesMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  requirements?: InputMaybe<Array<InputMaybe<Publications_SiSubmission_GuidelinesRequirementsMutation>>>;
-};
-
-export type Publications_SiContactEditorial_OfficeMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-  editor_in_chief?: InputMaybe<Scalars['String']['input']>;
-  editor_in_chief_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiContactDistributionMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiContactSubmissionsMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  guidelines_url?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_SiContactMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  editorial_office?: InputMaybe<Publications_SiContactEditorial_OfficeMutation>;
-  distribution?: InputMaybe<Publications_SiContactDistributionMutation>;
-  submissions?: InputMaybe<Publications_SiContactSubmissionsMutation>;
-};
-
-export type Publications_SiMutation = {
-  hero?: InputMaybe<Publications_SiHeroMutation>;
-  categories?: InputMaybe<Array<InputMaybe<Publications_SiCategoriesMutation>>>;
-  featured_publications?: InputMaybe<Array<InputMaybe<Publications_SiFeatured_PublicationsMutation>>>;
-  magazines?: InputMaybe<Array<InputMaybe<Publications_SiMagazinesMutation>>>;
-  digital_resources?: InputMaybe<Publications_SiDigital_ResourcesMutation>;
-  research_publications?: InputMaybe<Publications_SiResearch_PublicationsMutation>;
-  submission_guidelines?: InputMaybe<Publications_SiSubmission_GuidelinesMutation>;
-  contact?: InputMaybe<Publications_SiContactMutation>;
+  featured_resources?: InputMaybe<Array<InputMaybe<Publications_EnFeatured_ResourcesMutation>>>;
+  about_section?: InputMaybe<Publications_EnAbout_SectionMutation>;
+  submission_section?: InputMaybe<Publications_EnSubmission_SectionMutation>;
 };
 
 export type Publications_TaHeroMutation = {
@@ -7551,7 +9629,7 @@ export type Publications_TaCategoriesMutation = {
   icon?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type Publications_TaFeatured_PublicationsMutation = {
+export type Publications_TaFeatured_ResourcesMutation = {
   id?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
@@ -7564,116 +9642,99 @@ export type Publications_TaFeatured_PublicationsMutation = {
   isbn?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  cover_color?: InputMaybe<Scalars['String']['input']>;
-  available?: InputMaybe<Scalars['Boolean']['input']>;
-  price?: InputMaybe<Scalars['String']['input']>;
-  format?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  release_date?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['String']['input']>;
+  file_url?: InputMaybe<Scalars['String']['input']>;
+  file_type?: InputMaybe<Scalars['String']['input']>;
+  file_size_mb?: InputMaybe<Scalars['Float']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type Publications_TaMagazinesMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
-  frequency?: InputMaybe<Scalars['String']['input']>;
-  frequency_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  subscription_price?: InputMaybe<Scalars['String']['input']>;
-  editor?: InputMaybe<Scalars['String']['input']>;
-  editor_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_TaDigital_ResourcesItemsMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  access?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_TaDigital_ResourcesMutation = {
+export type Publications_TaAbout_SectionMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Publications_TaDigital_ResourcesItemsMutation>>>;
 };
 
-export type Publications_TaResearch_PublicationsRecent_PapersMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  author?: InputMaybe<Scalars['String']['input']>;
-  journal?: InputMaybe<Scalars['String']['input']>;
-  year?: InputMaybe<Scalars['String']['input']>;
-  pages?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_TaResearch_PublicationsMutation = {
+export type Publications_TaSubmission_SectionMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  recent_papers?: InputMaybe<Array<InputMaybe<Publications_TaResearch_PublicationsRecent_PapersMutation>>>;
-};
-
-export type Publications_TaSubmission_GuidelinesRequirementsMutation = {
-  category?: InputMaybe<Scalars['String']['input']>;
-  category_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Publications_TaSubmission_GuidelinesMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  requirements?: InputMaybe<Array<InputMaybe<Publications_TaSubmission_GuidelinesRequirementsMutation>>>;
-};
-
-export type Publications_TaContactEditorial_OfficeMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-  editor_in_chief?: InputMaybe<Scalars['String']['input']>;
-  editor_in_chief_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_TaContactDistributionMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_TaContactSubmissionsMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  guidelines_url?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Publications_TaContactMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  editorial_office?: InputMaybe<Publications_TaContactEditorial_OfficeMutation>;
-  distribution?: InputMaybe<Publications_TaContactDistributionMutation>;
-  submissions?: InputMaybe<Publications_TaContactSubmissionsMutation>;
+  contact_email?: InputMaybe<Scalars['String']['input']>;
+  guidelines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type Publications_TaMutation = {
   hero?: InputMaybe<Publications_TaHeroMutation>;
   categories?: InputMaybe<Array<InputMaybe<Publications_TaCategoriesMutation>>>;
-  featured_publications?: InputMaybe<Array<InputMaybe<Publications_TaFeatured_PublicationsMutation>>>;
-  magazines?: InputMaybe<Array<InputMaybe<Publications_TaMagazinesMutation>>>;
-  digital_resources?: InputMaybe<Publications_TaDigital_ResourcesMutation>;
-  research_publications?: InputMaybe<Publications_TaResearch_PublicationsMutation>;
-  submission_guidelines?: InputMaybe<Publications_TaSubmission_GuidelinesMutation>;
-  contact?: InputMaybe<Publications_TaContactMutation>;
+  featured_resources?: InputMaybe<Array<InputMaybe<Publications_TaFeatured_ResourcesMutation>>>;
+  about_section?: InputMaybe<Publications_TaAbout_SectionMutation>;
+  submission_section?: InputMaybe<Publications_TaSubmission_SectionMutation>;
+};
+
+export type Publications_SiHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Publications_SiCategoriesMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+  count?: InputMaybe<Scalars['Float']['input']>;
+  icon?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Publications_SiFeatured_ResourcesMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  author?: InputMaybe<Scalars['String']['input']>;
+  author_tamil?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  category_tamil?: InputMaybe<Scalars['String']['input']>;
+  year?: InputMaybe<Scalars['String']['input']>;
+  pages?: InputMaybe<Scalars['Float']['input']>;
+  isbn?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['String']['input']>;
+  file_url?: InputMaybe<Scalars['String']['input']>;
+  file_type?: InputMaybe<Scalars['String']['input']>;
+  file_size_mb?: InputMaybe<Scalars['Float']['input']>;
+  language?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Publications_SiAbout_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Publications_SiSubmission_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+  contact_email?: InputMaybe<Scalars['String']['input']>;
+  guidelines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Publications_SiMutation = {
+  hero?: InputMaybe<Publications_SiHeroMutation>;
+  categories?: InputMaybe<Array<InputMaybe<Publications_SiCategoriesMutation>>>;
+  featured_resources?: InputMaybe<Array<InputMaybe<Publications_SiFeatured_ResourcesMutation>>>;
+  about_section?: InputMaybe<Publications_SiAbout_SectionMutation>;
+  submission_section?: InputMaybe<Publications_SiSubmission_SectionMutation>;
 };
 
 export type Events_EnHeroMutation = {
@@ -8113,6 +10174,14 @@ export type Gallery_EnCategoriesMutation = {
   description_tamil?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Gallery_EnFeatured_AlbumsImagesMutation = {
+  url?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  caption_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Gallery_EnFeatured_AlbumsMutation = {
   id?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -8121,12 +10190,12 @@ export type Gallery_EnFeatured_AlbumsMutation = {
   date_tamil?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<Scalars['String']['input']>;
   location_tamil?: InputMaybe<Scalars['String']['input']>;
-  image_count?: InputMaybe<Scalars['Float']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  cover_color?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<Array<InputMaybe<Gallery_EnFeatured_AlbumsImagesMutation>>>;
   photographer?: InputMaybe<Scalars['String']['input']>;
-  highlights?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  photographer_tamil?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Gallery_EnRecent_HighlightsMutation = {
@@ -8135,55 +10204,19 @@ export type Gallery_EnRecent_HighlightsMutation = {
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
+  thumbnail?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['String']['input']>;
   date_tamil?: InputMaybe<Scalars['String']['input']>;
-  image_count?: InputMaybe<Scalars['Float']['input']>;
+  album_link?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type Gallery_EnPhoto_ContestCategoriesMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  prize?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_EnPhoto_ContestMutation = {
+export type Gallery_EnSubmission_SectionMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  categories?: InputMaybe<Array<InputMaybe<Gallery_EnPhoto_ContestCategoriesMutation>>>;
-  deadline?: InputMaybe<Scalars['String']['input']>;
-  rules?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_EnSubmission_GuidelinesRequirementsMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_EnSubmission_GuidelinesMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  requirements?: InputMaybe<Array<InputMaybe<Gallery_EnSubmission_GuidelinesRequirementsMutation>>>;
-};
-
-export type Gallery_EnContactGallery_CoordinatorMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  position?: InputMaybe<Scalars['String']['input']>;
-  position_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_EnContactMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-  gallery_coordinator?: InputMaybe<Gallery_EnContactGallery_CoordinatorMutation>;
-  office_hours?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contact_email?: InputMaybe<Scalars['String']['input']>;
+  guidelines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type Gallery_EnMutation = {
@@ -8191,109 +10224,7 @@ export type Gallery_EnMutation = {
   categories?: InputMaybe<Array<InputMaybe<Gallery_EnCategoriesMutation>>>;
   featured_albums?: InputMaybe<Array<InputMaybe<Gallery_EnFeatured_AlbumsMutation>>>;
   recent_highlights?: InputMaybe<Array<InputMaybe<Gallery_EnRecent_HighlightsMutation>>>;
-  photo_contest?: InputMaybe<Gallery_EnPhoto_ContestMutation>;
-  submission_guidelines?: InputMaybe<Gallery_EnSubmission_GuidelinesMutation>;
-  contact?: InputMaybe<Gallery_EnContactMutation>;
-};
-
-export type Gallery_SiHeroMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  subtitle?: InputMaybe<Scalars['String']['input']>;
-  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_SiCategoriesMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  count?: InputMaybe<Scalars['Float']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_SiFeatured_AlbumsMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  date?: InputMaybe<Scalars['String']['input']>;
-  date_tamil?: InputMaybe<Scalars['String']['input']>;
-  location?: InputMaybe<Scalars['String']['input']>;
-  location_tamil?: InputMaybe<Scalars['String']['input']>;
-  image_count?: InputMaybe<Scalars['Float']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  cover_color?: InputMaybe<Scalars['String']['input']>;
-  photographer?: InputMaybe<Scalars['String']['input']>;
-  highlights?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_SiRecent_HighlightsMutation = {
-  id?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  date?: InputMaybe<Scalars['String']['input']>;
-  date_tamil?: InputMaybe<Scalars['String']['input']>;
-  image_count?: InputMaybe<Scalars['Float']['input']>;
-};
-
-export type Gallery_SiPhoto_ContestCategoriesMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  prize?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_SiPhoto_ContestMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  description_tamil?: InputMaybe<Scalars['String']['input']>;
-  categories?: InputMaybe<Array<InputMaybe<Gallery_SiPhoto_ContestCategoriesMutation>>>;
-  deadline?: InputMaybe<Scalars['String']['input']>;
-  rules?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_SiSubmission_GuidelinesRequirementsMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_SiSubmission_GuidelinesMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  requirements?: InputMaybe<Array<InputMaybe<Gallery_SiSubmission_GuidelinesRequirementsMutation>>>;
-};
-
-export type Gallery_SiContactGallery_CoordinatorMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  position?: InputMaybe<Scalars['String']['input']>;
-  position_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_SiContactMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-  gallery_coordinator?: InputMaybe<Gallery_SiContactGallery_CoordinatorMutation>;
-  office_hours?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_SiMutation = {
-  hero?: InputMaybe<Gallery_SiHeroMutation>;
-  categories?: InputMaybe<Array<InputMaybe<Gallery_SiCategoriesMutation>>>;
-  featured_albums?: InputMaybe<Array<InputMaybe<Gallery_SiFeatured_AlbumsMutation>>>;
-  recent_highlights?: InputMaybe<Array<InputMaybe<Gallery_SiRecent_HighlightsMutation>>>;
-  photo_contest?: InputMaybe<Gallery_SiPhoto_ContestMutation>;
-  submission_guidelines?: InputMaybe<Gallery_SiSubmission_GuidelinesMutation>;
-  contact?: InputMaybe<Gallery_SiContactMutation>;
+  submission_section?: InputMaybe<Gallery_EnSubmission_SectionMutation>;
 };
 
 export type Gallery_TaHeroMutation = {
@@ -8313,6 +10244,14 @@ export type Gallery_TaCategoriesMutation = {
   description_tamil?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Gallery_TaFeatured_AlbumsImagesMutation = {
+  url?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  caption_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type Gallery_TaFeatured_AlbumsMutation = {
   id?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -8321,12 +10260,12 @@ export type Gallery_TaFeatured_AlbumsMutation = {
   date_tamil?: InputMaybe<Scalars['String']['input']>;
   location?: InputMaybe<Scalars['String']['input']>;
   location_tamil?: InputMaybe<Scalars['String']['input']>;
-  image_count?: InputMaybe<Scalars['Float']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  cover_color?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<Array<InputMaybe<Gallery_TaFeatured_AlbumsImagesMutation>>>;
   photographer?: InputMaybe<Scalars['String']['input']>;
-  highlights?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  photographer_tamil?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Gallery_TaRecent_HighlightsMutation = {
@@ -8335,55 +10274,19 @@ export type Gallery_TaRecent_HighlightsMutation = {
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
+  thumbnail?: InputMaybe<Scalars['String']['input']>;
   date?: InputMaybe<Scalars['String']['input']>;
   date_tamil?: InputMaybe<Scalars['String']['input']>;
-  image_count?: InputMaybe<Scalars['Float']['input']>;
+  album_link?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type Gallery_TaPhoto_ContestCategoriesMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  prize?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_TaPhoto_ContestMutation = {
+export type Gallery_TaSubmission_SectionMutation = {
   title?: InputMaybe<Scalars['String']['input']>;
   title_tamil?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   description_tamil?: InputMaybe<Scalars['String']['input']>;
-  categories?: InputMaybe<Array<InputMaybe<Gallery_TaPhoto_ContestCategoriesMutation>>>;
-  deadline?: InputMaybe<Scalars['String']['input']>;
-  rules?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_TaSubmission_GuidelinesRequirementsMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  items?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type Gallery_TaSubmission_GuidelinesMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  requirements?: InputMaybe<Array<InputMaybe<Gallery_TaSubmission_GuidelinesRequirementsMutation>>>;
-};
-
-export type Gallery_TaContactGallery_CoordinatorMutation = {
-  name?: InputMaybe<Scalars['String']['input']>;
-  name_tamil?: InputMaybe<Scalars['String']['input']>;
-  position?: InputMaybe<Scalars['String']['input']>;
-  position_tamil?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type Gallery_TaContactMutation = {
-  title?: InputMaybe<Scalars['String']['input']>;
-  title_tamil?: InputMaybe<Scalars['String']['input']>;
-  description?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-  gallery_coordinator?: InputMaybe<Gallery_TaContactGallery_CoordinatorMutation>;
-  office_hours?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contact_email?: InputMaybe<Scalars['String']['input']>;
+  guidelines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type Gallery_TaMutation = {
@@ -8391,16 +10294,684 @@ export type Gallery_TaMutation = {
   categories?: InputMaybe<Array<InputMaybe<Gallery_TaCategoriesMutation>>>;
   featured_albums?: InputMaybe<Array<InputMaybe<Gallery_TaFeatured_AlbumsMutation>>>;
   recent_highlights?: InputMaybe<Array<InputMaybe<Gallery_TaRecent_HighlightsMutation>>>;
-  photo_contest?: InputMaybe<Gallery_TaPhoto_ContestMutation>;
-  submission_guidelines?: InputMaybe<Gallery_TaSubmission_GuidelinesMutation>;
-  contact?: InputMaybe<Gallery_TaContactMutation>;
+  submission_section?: InputMaybe<Gallery_TaSubmission_SectionMutation>;
 };
 
-export type Home_EnPartsFragment = { __typename: 'Home_en', hero?: { __typename: 'Home_enHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_enHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_enHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_enMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_enFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_enRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_enAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_enStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_enQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_enNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null };
+export type Gallery_SiHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
 
-export type Home_SiPartsFragment = { __typename: 'Home_si', hero?: { __typename: 'Home_siHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_siHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_siHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_siMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_siFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_siRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_siAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_siStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_siQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_siNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null };
+export type Gallery_SiCategoriesMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  name_tamil?: InputMaybe<Scalars['String']['input']>;
+  count?: InputMaybe<Scalars['Float']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+};
 
-export type Home_TaPartsFragment = { __typename: 'Home_ta', hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null };
+export type Gallery_SiFeatured_AlbumsImagesMutation = {
+  url?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  caption_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Gallery_SiFeatured_AlbumsMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  date?: InputMaybe<Scalars['String']['input']>;
+  date_tamil?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  location_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+  cover_image?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<Array<InputMaybe<Gallery_SiFeatured_AlbumsImagesMutation>>>;
+  photographer?: InputMaybe<Scalars['String']['input']>;
+  photographer_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Gallery_SiRecent_HighlightsMutation = {
+  id?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+  thumbnail?: InputMaybe<Scalars['String']['input']>;
+  date?: InputMaybe<Scalars['String']['input']>;
+  date_tamil?: InputMaybe<Scalars['String']['input']>;
+  album_link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Gallery_SiSubmission_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  description_tamil?: InputMaybe<Scalars['String']['input']>;
+  contact_email?: InputMaybe<Scalars['String']['input']>;
+  guidelines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Gallery_SiMutation = {
+  hero?: InputMaybe<Gallery_SiHeroMutation>;
+  categories?: InputMaybe<Array<InputMaybe<Gallery_SiCategoriesMutation>>>;
+  featured_albums?: InputMaybe<Array<InputMaybe<Gallery_SiFeatured_AlbumsMutation>>>;
+  recent_highlights?: InputMaybe<Array<InputMaybe<Gallery_SiRecent_HighlightsMutation>>>;
+  submission_section?: InputMaybe<Gallery_SiSubmission_SectionMutation>;
+};
+
+export type Contact_EnHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnContact_MethodsMethodsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  contact_info?: InputMaybe<Scalars['String']['input']>;
+  hours?: InputMaybe<Scalars['String']['input']>;
+  color?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnContact_MethodsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  methods?: InputMaybe<Array<InputMaybe<Contact_EnContact_MethodsMethodsMutation>>>;
+};
+
+export type Contact_EnContact_FormMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnEmergency_ContactMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  availability?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnOffice_InfoHoursScheduleMutation = {
+  day?: InputMaybe<Scalars['String']['input']>;
+  time?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnOffice_InfoHoursMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  schedule?: InputMaybe<Array<InputMaybe<Contact_EnOffice_InfoHoursScheduleMutation>>>;
+  note?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnOffice_InfoLocationAddressMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  lines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Contact_EnOffice_InfoLocationParkingMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnOffice_InfoLocationTransportMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnOffice_InfoLocationMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Contact_EnOffice_InfoLocationAddressMutation>;
+  parking?: InputMaybe<Contact_EnOffice_InfoLocationParkingMutation>;
+  transport?: InputMaybe<Contact_EnOffice_InfoLocationTransportMutation>;
+  security_notice?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnOffice_InfoMutation = {
+  hours?: InputMaybe<Contact_EnOffice_InfoHoursMutation>;
+  location?: InputMaybe<Contact_EnOffice_InfoLocationMutation>;
+};
+
+export type Contact_EnFaq_LinkMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  button_text?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_EnMutation = {
+  hero?: InputMaybe<Contact_EnHeroMutation>;
+  contact_methods?: InputMaybe<Contact_EnContact_MethodsMutation>;
+  contact_form?: InputMaybe<Contact_EnContact_FormMutation>;
+  emergency_contact?: InputMaybe<Contact_EnEmergency_ContactMutation>;
+  office_info?: InputMaybe<Contact_EnOffice_InfoMutation>;
+  faq_link?: InputMaybe<Contact_EnFaq_LinkMutation>;
+};
+
+export type Contact_SiHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiContact_MethodsMethodsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  contact_info?: InputMaybe<Scalars['String']['input']>;
+  hours?: InputMaybe<Scalars['String']['input']>;
+  color?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiContact_MethodsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  methods?: InputMaybe<Array<InputMaybe<Contact_SiContact_MethodsMethodsMutation>>>;
+};
+
+export type Contact_SiContact_FormMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiEmergency_ContactMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  availability?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiOffice_InfoHoursScheduleMutation = {
+  day?: InputMaybe<Scalars['String']['input']>;
+  time?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiOffice_InfoHoursMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  schedule?: InputMaybe<Array<InputMaybe<Contact_SiOffice_InfoHoursScheduleMutation>>>;
+  note?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiOffice_InfoLocationAddressMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  lines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Contact_SiOffice_InfoLocationParkingMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiOffice_InfoLocationTransportMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiOffice_InfoLocationMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Contact_SiOffice_InfoLocationAddressMutation>;
+  parking?: InputMaybe<Contact_SiOffice_InfoLocationParkingMutation>;
+  transport?: InputMaybe<Contact_SiOffice_InfoLocationTransportMutation>;
+  security_notice?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiOffice_InfoMutation = {
+  hours?: InputMaybe<Contact_SiOffice_InfoHoursMutation>;
+  location?: InputMaybe<Contact_SiOffice_InfoLocationMutation>;
+};
+
+export type Contact_SiFaq_LinkMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  button_text?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_SiMutation = {
+  hero?: InputMaybe<Contact_SiHeroMutation>;
+  contact_methods?: InputMaybe<Contact_SiContact_MethodsMutation>;
+  contact_form?: InputMaybe<Contact_SiContact_FormMutation>;
+  emergency_contact?: InputMaybe<Contact_SiEmergency_ContactMutation>;
+  office_info?: InputMaybe<Contact_SiOffice_InfoMutation>;
+  faq_link?: InputMaybe<Contact_SiFaq_LinkMutation>;
+};
+
+export type Contact_TaHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaContact_MethodsMethodsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  contact_info?: InputMaybe<Scalars['String']['input']>;
+  hours?: InputMaybe<Scalars['String']['input']>;
+  color?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaContact_MethodsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  methods?: InputMaybe<Array<InputMaybe<Contact_TaContact_MethodsMethodsMutation>>>;
+};
+
+export type Contact_TaContact_FormMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaEmergency_ContactMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  availability?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaOffice_InfoHoursScheduleMutation = {
+  day?: InputMaybe<Scalars['String']['input']>;
+  time?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaOffice_InfoHoursMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  schedule?: InputMaybe<Array<InputMaybe<Contact_TaOffice_InfoHoursScheduleMutation>>>;
+  note?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaOffice_InfoLocationAddressMutation = {
+  label?: InputMaybe<Scalars['String']['input']>;
+  lines?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type Contact_TaOffice_InfoLocationParkingMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaOffice_InfoLocationTransportMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaOffice_InfoLocationMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  address?: InputMaybe<Contact_TaOffice_InfoLocationAddressMutation>;
+  parking?: InputMaybe<Contact_TaOffice_InfoLocationParkingMutation>;
+  transport?: InputMaybe<Contact_TaOffice_InfoLocationTransportMutation>;
+  security_notice?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaOffice_InfoMutation = {
+  hours?: InputMaybe<Contact_TaOffice_InfoHoursMutation>;
+  location?: InputMaybe<Contact_TaOffice_InfoLocationMutation>;
+};
+
+export type Contact_TaFaq_LinkMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  button_text?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Contact_TaMutation = {
+  hero?: InputMaybe<Contact_TaHeroMutation>;
+  contact_methods?: InputMaybe<Contact_TaContact_MethodsMutation>;
+  contact_form?: InputMaybe<Contact_TaContact_FormMutation>;
+  emergency_contact?: InputMaybe<Contact_TaEmergency_ContactMutation>;
+  office_info?: InputMaybe<Contact_TaOffice_InfoMutation>;
+  faq_link?: InputMaybe<Contact_TaFaq_LinkMutation>;
+};
+
+export type Pages_EnHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  background_image?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_EnContent_SectionsText_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  background?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_EnContent_SectionsImage_SectionMutation = {
+  image?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  alt_text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_EnContent_SectionsCards_SectionCardsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_EnContent_SectionsCards_SectionMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  cards?: InputMaybe<Array<InputMaybe<Pages_EnContent_SectionsCards_SectionCardsMutation>>>;
+};
+
+export type Pages_EnContent_SectionsCta_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  button_text?: InputMaybe<Scalars['String']['input']>;
+  button_link?: InputMaybe<Scalars['String']['input']>;
+  background_color?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_EnContent_SectionsStatistics_SectionStatsMutation = {
+  number?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_EnContent_SectionsStatistics_SectionMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  stats?: InputMaybe<Array<InputMaybe<Pages_EnContent_SectionsStatistics_SectionStatsMutation>>>;
+};
+
+export type Pages_EnContent_SectionsMutation = {
+  text_section?: InputMaybe<Pages_EnContent_SectionsText_SectionMutation>;
+  image_section?: InputMaybe<Pages_EnContent_SectionsImage_SectionMutation>;
+  cards_section?: InputMaybe<Pages_EnContent_SectionsCards_SectionMutation>;
+  cta_section?: InputMaybe<Pages_EnContent_SectionsCta_SectionMutation>;
+  statistics_section?: InputMaybe<Pages_EnContent_SectionsStatistics_SectionMutation>;
+};
+
+export type Pages_EnMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  hero?: InputMaybe<Pages_EnHeroMutation>;
+  content_sections?: InputMaybe<Array<InputMaybe<Pages_EnContent_SectionsMutation>>>;
+};
+
+export type Pages_TaHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  background_image?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_TaContent_SectionsText_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  background?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_TaContent_SectionsImage_SectionMutation = {
+  image?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  alt_text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_TaContent_SectionsCards_SectionCardsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_TaContent_SectionsCards_SectionMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  cards?: InputMaybe<Array<InputMaybe<Pages_TaContent_SectionsCards_SectionCardsMutation>>>;
+};
+
+export type Pages_TaContent_SectionsCta_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  button_text?: InputMaybe<Scalars['String']['input']>;
+  button_link?: InputMaybe<Scalars['String']['input']>;
+  background_color?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_TaContent_SectionsStatistics_SectionStatsMutation = {
+  number?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_TaContent_SectionsStatistics_SectionMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  stats?: InputMaybe<Array<InputMaybe<Pages_TaContent_SectionsStatistics_SectionStatsMutation>>>;
+};
+
+export type Pages_TaContent_SectionsMutation = {
+  text_section?: InputMaybe<Pages_TaContent_SectionsText_SectionMutation>;
+  image_section?: InputMaybe<Pages_TaContent_SectionsImage_SectionMutation>;
+  cards_section?: InputMaybe<Pages_TaContent_SectionsCards_SectionMutation>;
+  cta_section?: InputMaybe<Pages_TaContent_SectionsCta_SectionMutation>;
+  statistics_section?: InputMaybe<Pages_TaContent_SectionsStatistics_SectionMutation>;
+};
+
+export type Pages_TaMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  hero?: InputMaybe<Pages_TaHeroMutation>;
+  content_sections?: InputMaybe<Array<InputMaybe<Pages_TaContent_SectionsMutation>>>;
+};
+
+export type Pages_SiHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  background_image?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_SiContent_SectionsText_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  background?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_SiContent_SectionsImage_SectionMutation = {
+  image?: InputMaybe<Scalars['String']['input']>;
+  caption?: InputMaybe<Scalars['String']['input']>;
+  alt_text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_SiContent_SectionsCards_SectionCardsMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  image?: InputMaybe<Scalars['String']['input']>;
+  link?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_SiContent_SectionsCards_SectionMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  cards?: InputMaybe<Array<InputMaybe<Pages_SiContent_SectionsCards_SectionCardsMutation>>>;
+};
+
+export type Pages_SiContent_SectionsCta_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  button_text?: InputMaybe<Scalars['String']['input']>;
+  button_link?: InputMaybe<Scalars['String']['input']>;
+  background_color?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_SiContent_SectionsStatistics_SectionStatsMutation = {
+  number?: InputMaybe<Scalars['String']['input']>;
+  label?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Pages_SiContent_SectionsStatistics_SectionMutation = {
+  section_title?: InputMaybe<Scalars['String']['input']>;
+  stats?: InputMaybe<Array<InputMaybe<Pages_SiContent_SectionsStatistics_SectionStatsMutation>>>;
+};
+
+export type Pages_SiContent_SectionsMutation = {
+  text_section?: InputMaybe<Pages_SiContent_SectionsText_SectionMutation>;
+  image_section?: InputMaybe<Pages_SiContent_SectionsImage_SectionMutation>;
+  cards_section?: InputMaybe<Pages_SiContent_SectionsCards_SectionMutation>;
+  cta_section?: InputMaybe<Pages_SiContent_SectionsCta_SectionMutation>;
+  statistics_section?: InputMaybe<Pages_SiContent_SectionsStatistics_SectionMutation>;
+};
+
+export type Pages_SiMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+  hero?: InputMaybe<Pages_SiHeroMutation>;
+  content_sections?: InputMaybe<Array<InputMaybe<Pages_SiContent_SectionsMutation>>>;
+};
+
+export type Blog_Page_EnHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_EnCategories_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_EnFeatured_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_EnAll_Posts_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  posts_per_page?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type Blog_Page_EnMutation = {
+  hero?: InputMaybe<Blog_Page_EnHeroMutation>;
+  categories_section?: InputMaybe<Blog_Page_EnCategories_SectionMutation>;
+  featured_section?: InputMaybe<Blog_Page_EnFeatured_SectionMutation>;
+  all_posts_section?: InputMaybe<Blog_Page_EnAll_Posts_SectionMutation>;
+};
+
+export type Blog_Page_SiHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_SiCategories_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_SiFeatured_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_SiAll_Posts_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  posts_per_page?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type Blog_Page_SiMutation = {
+  hero?: InputMaybe<Blog_Page_SiHeroMutation>;
+  categories_section?: InputMaybe<Blog_Page_SiCategories_SectionMutation>;
+  featured_section?: InputMaybe<Blog_Page_SiFeatured_SectionMutation>;
+  all_posts_section?: InputMaybe<Blog_Page_SiAll_Posts_SectionMutation>;
+};
+
+export type Blog_Page_TaHeroMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  subtitle?: InputMaybe<Scalars['String']['input']>;
+  subtitle_tamil?: InputMaybe<Scalars['String']['input']>;
+  description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_TaCategories_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_TaFeatured_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type Blog_Page_TaAll_Posts_SectionMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_tamil?: InputMaybe<Scalars['String']['input']>;
+  posts_per_page?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type Blog_Page_TaMutation = {
+  hero?: InputMaybe<Blog_Page_TaHeroMutation>;
+  categories_section?: InputMaybe<Blog_Page_TaCategories_SectionMutation>;
+  featured_section?: InputMaybe<Blog_Page_TaFeatured_SectionMutation>;
+  all_posts_section?: InputMaybe<Blog_Page_TaAll_Posts_SectionMutation>;
+};
+
+export type Blog_EnMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  excerpt?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  featured_image?: InputMaybe<Scalars['String']['input']>;
+  author?: InputMaybe<Scalars['String']['input']>;
+  author_role?: InputMaybe<Scalars['String']['input']>;
+  author_image?: InputMaybe<Scalars['String']['input']>;
+  published_date?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  featured?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Blog_TaMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  excerpt?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  featured_image?: InputMaybe<Scalars['String']['input']>;
+  author?: InputMaybe<Scalars['String']['input']>;
+  author_role?: InputMaybe<Scalars['String']['input']>;
+  author_image?: InputMaybe<Scalars['String']['input']>;
+  published_date?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  featured?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Blog_SiMutation = {
+  title?: InputMaybe<Scalars['String']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  excerpt?: InputMaybe<Scalars['String']['input']>;
+  content?: InputMaybe<Scalars['JSON']['input']>;
+  featured_image?: InputMaybe<Scalars['String']['input']>;
+  author?: InputMaybe<Scalars['String']['input']>;
+  author_role?: InputMaybe<Scalars['String']['input']>;
+  author_image?: InputMaybe<Scalars['String']['input']>;
+  published_date?: InputMaybe<Scalars['String']['input']>;
+  category?: InputMaybe<Scalars['String']['input']>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  featured?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type Site_Config_EnPartsFragment = { __typename: 'Site_config_en', organization?: { __typename: 'Site_config_enOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_enContact', email: string, phone: string, address?: { __typename: 'Site_config_enContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_enContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_enNavigation', primary?: Array<{ __typename: 'Site_config_enNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_enNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_enFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_enMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null };
+
+export type Site_Config_TaPartsFragment = { __typename: 'Site_config_ta', organization?: { __typename: 'Site_config_taOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_taContact', email: string, phone: string, address?: { __typename: 'Site_config_taContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_taContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_taNavigation', primary?: Array<{ __typename: 'Site_config_taNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_taNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_taFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_taMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null };
+
+export type Site_Config_SiPartsFragment = { __typename: 'Site_config_si', organization?: { __typename: 'Site_config_siOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_siContact', email: string, phone: string, address?: { __typename: 'Site_config_siContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_siContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_siNavigation', primary?: Array<{ __typename: 'Site_config_siNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_siNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_siFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_siMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null };
+
+export type Home_EnPartsFragment = { __typename: 'Home_en', hero?: { __typename: 'Home_enHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_enHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_enHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_enMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_enFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_enRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_enAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_enStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_enQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_enFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_enNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_enRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_enPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_enPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null };
+
+export type Home_SiPartsFragment = { __typename: 'Home_si', hero?: { __typename: 'Home_siHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_siHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_siHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_siMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_siFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_siRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_siAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_siStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_siQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_siFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_siNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_siRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_siPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_siPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null };
+
+export type Home_TaPartsFragment = { __typename: 'Home_ta', hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_taFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_taRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_taPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_taPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null };
 
 export type About_EnPartsFragment = { __typename: 'About_en', hero?: { __typename: 'About_enHero', title: string, title_tamil?: string | null, description: string } | null, mission?: { __typename: 'About_enMission', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, vision?: { __typename: 'About_enVision', title: string, title_tamil?: string | null, content: string, content_tamil?: string | null } | null, valuess?: Array<{ __typename: 'About_enValuess', title: string, title_tamil?: string | null, description: string } | null> | null, history?: { __typename: 'About_enHistory', title: string, title_tamil?: string | null, content: string, milestones?: Array<{ __typename: 'About_enHistoryMilestones', year: string, title: string, description: string } | null> | null } | null, leadership?: { __typename: 'About_enLeadership', title: string, title_tamil?: string | null, board_members?: Array<{ __typename: 'About_enLeadershipBoard_members', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, bio: string, photo?: string | null } | null> | null } | null, programs?: { __typename: 'About_enPrograms', title: string, title_tamil?: string | null, list?: Array<{ __typename: 'About_enProgramsList', name: string, name_tamil?: string | null, description: string, icon?: string | null, image?: string | null } | null> | null } | null, achievements?: { __typename: 'About_enAchievements', title: string, title_tamil?: string | null, stats?: Array<{ __typename: 'About_enAchievementsStats', number: string, label: string, label_tamil?: string | null } | null> | null, awards?: Array<{ __typename: 'About_enAchievementsAwards', title: string, year: string, organization: string, description?: string | null } | null> | null } | null, contact?: { __typename: 'About_enContact', title: string, title_tamil?: string | null, description: string, address?: { __typename: 'About_enContactAddress', title: string, lines: Array<string> } | null, hours?: { __typename: 'About_enContactHours', title: string, schedule: Array<string> } | null } | null };
 
@@ -8420,11 +10991,11 @@ export type Membership_SiPartsFragment = { __typename: 'Membership_si', hero?: {
 
 export type Membership_TaPartsFragment = { __typename: 'Membership_ta', hero?: { __typename: 'Membership_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, membership_types?: Array<{ __typename: 'Membership_taMembership_types', id: string, name: string, name_tamil?: string | null, price: string, duration: string, duration_tamil?: string | null, benefits: Array<string>, benefits_tamil?: Array<string | null> | null } | null> | null, general_benefits?: { __typename: 'Membership_taGeneral_benefits', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Membership_taGeneral_benefitsItems', title: string, title_tamil?: string | null, description: string } | null> | null } | null, application_process?: { __typename: 'Membership_taApplication_process', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, steps?: Array<{ __typename: 'Membership_taApplication_processSteps', step: number, title: string, title_tamil?: string | null, description: string } | null> | null } | null, requirements?: { __typename: 'Membership_taRequirements', title: string, title_tamil?: string | null, general: Array<string>, documents: Array<string> } | null, member_testimonials?: { __typename: 'Membership_taMember_testimonials', title: string, title_tamil?: string | null, testimonials?: Array<{ __typename: 'Membership_taMember_testimonialsTestimonials', name: string, name_tamil?: string | null, membership_type: string, quote: string, rating: number } | null> | null } | null, faqs?: { __typename: 'Membership_taFaqs', title: string, title_tamil?: string | null, items?: Array<{ __typename: 'Membership_taFaqsItems', question: string, question_tamil?: string | null, answer: string } | null> | null } | null, contact?: { __typename: 'Membership_taContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, email: string, phone: string, office_hours: Array<string> } | null };
 
-export type Publications_EnPartsFragment = { __typename: 'Publications_en', hero?: { __typename: 'Publications_enHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_enCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_enFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_enMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_enDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_enDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_enResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_enResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_enSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_enSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_enContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_enContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_enContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_enContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null };
+export type Publications_EnPartsFragment = { __typename: 'Publications_en', hero?: { __typename: 'Publications_enHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_enCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_enFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_enAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_enSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null };
 
-export type Publications_SiPartsFragment = { __typename: 'Publications_si', hero?: { __typename: 'Publications_siHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_siCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_siFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_siMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_siDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_siDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_siResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_siResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_siSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_siSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_siContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_siContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_siContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_siContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null };
+export type Publications_TaPartsFragment = { __typename: 'Publications_ta', hero?: { __typename: 'Publications_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_taCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_taFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_taAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_taSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null };
 
-export type Publications_TaPartsFragment = { __typename: 'Publications_ta', hero?: { __typename: 'Publications_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_taCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_taFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_taMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_taDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_taDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_taResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_taResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_taSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_taSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_taContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_taContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_taContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_taContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null };
+export type Publications_SiPartsFragment = { __typename: 'Publications_si', hero?: { __typename: 'Publications_siHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_siCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_siFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_siAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_siSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null };
 
 export type Events_EnPartsFragment = { __typename: 'Events_en', hero?: { __typename: 'Events_enHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, upcoming_events?: Array<{ __typename: 'Events_enUpcoming_events', id: string, title: string, title_tamil?: string | null, date: string, time: string, time_tamil?: string | null, location: string, location_tamil?: string | null, address: string, category: string, category_tamil?: string | null, description: string, description_tamil?: string | null, image_color?: string | null, price: string, price_tamil?: string | null, registration_required?: boolean | null, capacity?: number | null, registered?: number | null, age_limit?: string | null, includes?: string | null, organizer: string, contact_email: string } | null> | null, past_events?: Array<{ __typename: 'Events_enPast_events', id: string, title: string, title_tamil?: string | null, date: string, location: string, location_tamil?: string | null, attendees: number, category: string, category_tamil?: string | null, highlights?: Array<string | null> | null } | null> | null, event_categories?: Array<{ __typename: 'Events_enEvent_categories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, icon: string, count: number, color: string } | null> | null, regular_programs?: { __typename: 'Events_enRegular_programs', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, programs?: Array<{ __typename: 'Events_enRegular_programsPrograms', id: string, name: string, name_tamil?: string | null, schedule: string, schedule_tamil?: string | null, location: string, location_tamil?: string | null, instructor?: string | null, coordinator?: string | null, fee: string } | null> | null } | null, event_calendar?: { __typename: 'Events_enEvent_calendar', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, subscription?: { __typename: 'Events_enEvent_calendarSubscription', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null } | null, event_hosting?: { __typename: 'Events_enEvent_hosting', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements: Array<string>, requirements_tamil?: Array<string | null> | null, contact_email: string } | null, contact?: { __typename: 'Events_enContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, events_coordinator?: { __typename: 'Events_enContactEvents_coordinator', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, email: string, phone?: string | null } | null, office_hours?: { __typename: 'Events_enContactOffice_hours', title: string, title_tamil?: string | null, schedule: Array<string>, schedule_tamil?: Array<string | null> | null } | null } | null };
 
@@ -8432,18 +11003,99 @@ export type Events_SiPartsFragment = { __typename: 'Events_si', hero?: { __typen
 
 export type Events_TaPartsFragment = { __typename: 'Events_ta', hero?: { __typename: 'Events_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, upcoming_events?: Array<{ __typename: 'Events_taUpcoming_events', id: string, title: string, title_tamil?: string | null, date: string, time: string, time_tamil?: string | null, location: string, location_tamil?: string | null, address: string, category: string, category_tamil?: string | null, description: string, description_tamil?: string | null, image_color?: string | null, price: string, price_tamil?: string | null, registration_required?: boolean | null, capacity?: number | null, registered?: number | null, age_limit?: string | null, includes?: string | null, organizer: string, contact_email: string } | null> | null, past_events?: Array<{ __typename: 'Events_taPast_events', id: string, title: string, title_tamil?: string | null, date: string, location: string, location_tamil?: string | null, attendees: number, category: string, category_tamil?: string | null, highlights?: Array<string | null> | null } | null> | null, event_categories?: Array<{ __typename: 'Events_taEvent_categories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, icon: string, count: number, color: string } | null> | null, regular_programs?: { __typename: 'Events_taRegular_programs', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, programs?: Array<{ __typename: 'Events_taRegular_programsPrograms', id: string, name: string, name_tamil?: string | null, schedule: string, schedule_tamil?: string | null, location: string, location_tamil?: string | null, instructor?: string | null, coordinator?: string | null, fee: string } | null> | null } | null, event_calendar?: { __typename: 'Events_taEvent_calendar', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, subscription?: { __typename: 'Events_taEvent_calendarSubscription', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null } | null, event_hosting?: { __typename: 'Events_taEvent_hosting', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements: Array<string>, requirements_tamil?: Array<string | null> | null, contact_email: string } | null, contact?: { __typename: 'Events_taContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, events_coordinator?: { __typename: 'Events_taContactEvents_coordinator', name: string, name_tamil?: string | null, position: string, position_tamil?: string | null, email: string, phone?: string | null } | null, office_hours?: { __typename: 'Events_taContactOffice_hours', title: string, title_tamil?: string | null, schedule: Array<string>, schedule_tamil?: Array<string | null> | null } | null } | null };
 
-export type Gallery_EnPartsFragment = { __typename: 'Gallery_en', hero?: { __typename: 'Gallery_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_enCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_enFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_enRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_enPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_enPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_enSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_enSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_enContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_enContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null };
+export type Gallery_EnPartsFragment = { __typename: 'Gallery_en', hero?: { __typename: 'Gallery_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_enCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_enFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_enFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_enRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_enSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null };
 
-export type Gallery_SiPartsFragment = { __typename: 'Gallery_si', hero?: { __typename: 'Gallery_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_siCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_siFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_siRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_siPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_siPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_siSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_siSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_siContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_siContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null };
+export type Gallery_TaPartsFragment = { __typename: 'Gallery_ta', hero?: { __typename: 'Gallery_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_taCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_taFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_taFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_taRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_taSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null };
 
-export type Gallery_TaPartsFragment = { __typename: 'Gallery_ta', hero?: { __typename: 'Gallery_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_taCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_taFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_taRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_taPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_taPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_taSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_taSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_taContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_taContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null };
+export type Gallery_SiPartsFragment = { __typename: 'Gallery_si', hero?: { __typename: 'Gallery_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_siCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_siFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_siFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_siRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_siSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null };
+
+export type Contact_EnPartsFragment = { __typename: 'Contact_en', hero?: { __typename: 'Contact_enHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_enContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_enContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_enContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_enEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_enOffice_info', hours?: { __typename: 'Contact_enOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_enOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_enOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_enOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_enOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_enOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_enFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null };
+
+export type Contact_SiPartsFragment = { __typename: 'Contact_si', hero?: { __typename: 'Contact_siHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_siContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_siContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_siContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_siEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_siOffice_info', hours?: { __typename: 'Contact_siOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_siOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_siOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_siOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_siOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_siOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_siFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null };
+
+export type Contact_TaPartsFragment = { __typename: 'Contact_ta', hero?: { __typename: 'Contact_taHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_taContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_taContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_taContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_taEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_taOffice_info', hours?: { __typename: 'Contact_taOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_taOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_taOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_taOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_taOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_taOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_taFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null };
+
+export type Pages_EnPartsFragment = { __typename: 'Pages_en', title: string, slug: string, description?: string | null, hero?: { __typename: 'Pages_enHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_enContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_enContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_enContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_enContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_enContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_enContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_enContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null };
+
+export type Pages_TaPartsFragment = { __typename: 'Pages_ta', title: string, slug: string, description?: string | null, hero?: { __typename: 'Pages_taHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_taContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_taContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_taContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_taContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_taContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_taContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_taContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null };
+
+export type Pages_SiPartsFragment = { __typename: 'Pages_si', title: string, slug: string, description?: string | null, hero?: { __typename: 'Pages_siHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_siContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_siContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_siContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_siContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_siContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_siContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_siContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null };
+
+export type Blog_Page_EnPartsFragment = { __typename: 'Blog_page_en', hero?: { __typename: 'Blog_page_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_enCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_enFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_enAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null };
+
+export type Blog_Page_SiPartsFragment = { __typename: 'Blog_page_si', hero?: { __typename: 'Blog_page_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_siCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_siFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_siAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null };
+
+export type Blog_Page_TaPartsFragment = { __typename: 'Blog_page_ta', hero?: { __typename: 'Blog_page_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_taCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_taFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_taAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null };
+
+export type Blog_EnPartsFragment = { __typename: 'Blog_en', title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null };
+
+export type Blog_TaPartsFragment = { __typename: 'Blog_ta', title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null };
+
+export type Blog_SiPartsFragment = { __typename: 'Blog_si', title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null };
+
+export type Site_Config_EnQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Site_Config_EnQuery = { __typename?: 'Query', site_config_en: { __typename: 'Site_config_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, organization?: { __typename: 'Site_config_enOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_enContact', email: string, phone: string, address?: { __typename: 'Site_config_enContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_enContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_enNavigation', primary?: Array<{ __typename: 'Site_config_enNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_enNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_enFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_enMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null } };
+
+export type Site_Config_EnConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Site_Config_EnFilter>;
+}>;
+
+
+export type Site_Config_EnConnectionQuery = { __typename?: 'Query', site_config_enConnection: { __typename?: 'Site_config_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Site_config_enConnectionEdges', cursor: string, node?: { __typename: 'Site_config_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, organization?: { __typename: 'Site_config_enOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_enContact', email: string, phone: string, address?: { __typename: 'Site_config_enContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_enContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_enNavigation', primary?: Array<{ __typename: 'Site_config_enNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_enNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_enFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_enMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null } | null } | null> | null } };
+
+export type Site_Config_TaQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Site_Config_TaQuery = { __typename?: 'Query', site_config_ta: { __typename: 'Site_config_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, organization?: { __typename: 'Site_config_taOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_taContact', email: string, phone: string, address?: { __typename: 'Site_config_taContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_taContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_taNavigation', primary?: Array<{ __typename: 'Site_config_taNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_taNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_taFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_taMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null } };
+
+export type Site_Config_TaConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Site_Config_TaFilter>;
+}>;
+
+
+export type Site_Config_TaConnectionQuery = { __typename?: 'Query', site_config_taConnection: { __typename?: 'Site_config_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Site_config_taConnectionEdges', cursor: string, node?: { __typename: 'Site_config_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, organization?: { __typename: 'Site_config_taOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_taContact', email: string, phone: string, address?: { __typename: 'Site_config_taContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_taContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_taNavigation', primary?: Array<{ __typename: 'Site_config_taNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_taNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_taFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_taMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null } | null } | null> | null } };
+
+export type Site_Config_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Site_Config_SiQuery = { __typename?: 'Query', site_config_si: { __typename: 'Site_config_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, organization?: { __typename: 'Site_config_siOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_siContact', email: string, phone: string, address?: { __typename: 'Site_config_siContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_siContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_siNavigation', primary?: Array<{ __typename: 'Site_config_siNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_siNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_siFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_siMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null } };
+
+export type Site_Config_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Site_Config_SiFilter>;
+}>;
+
+
+export type Site_Config_SiConnectionQuery = { __typename?: 'Query', site_config_siConnection: { __typename?: 'Site_config_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Site_config_siConnectionEdges', cursor: string, node?: { __typename: 'Site_config_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, organization?: { __typename: 'Site_config_siOrganization', name: string, name_local: string, tagline: string, description: string, mission?: string | null, vision?: string | null, founded?: string | null, registration_number?: string | null } | null, contact?: { __typename: 'Site_config_siContact', email: string, phone: string, address?: { __typename: 'Site_config_siContactAddress', street?: string | null, city?: string | null, state?: string | null, postal_code?: string | null, country?: string | null } | null, social_media?: { __typename: 'Site_config_siContactSocial_media', facebook?: string | null, twitter?: string | null, instagram?: string | null, youtube?: string | null } | null } | null, navigation?: { __typename: 'Site_config_siNavigation', primary?: Array<{ __typename: 'Site_config_siNavigationPrimary', name: string, href: string } | null> | null, footer?: Array<{ __typename: 'Site_config_siNavigationFooter', name: string, href: string } | null> | null } | null, footer?: { __typename: 'Site_config_siFooter', copyright: string, description?: string | null } | null, meta?: { __typename: 'Site_config_siMeta', title_suffix?: string | null, description?: string | null, keywords?: string | null, author?: string | null } | null } | null } | null> | null } };
 
 export type Home_EnQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type Home_EnQuery = { __typename?: 'Query', home_en: { __typename: 'Home_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_enHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_enHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_enHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_enMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_enFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_enRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_enAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_enStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_enQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_enNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null } };
+export type Home_EnQuery = { __typename?: 'Query', home_en: { __typename: 'Home_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_enHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_enHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_enHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_enMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_enFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_enRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_enAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_enStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_enQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_enFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_enNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_enRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_enPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_enPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null } };
 
 export type Home_EnConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -8455,14 +11107,14 @@ export type Home_EnConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Home_EnConnectionQuery = { __typename?: 'Query', home_enConnection: { __typename?: 'Home_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Home_enConnectionEdges', cursor: string, node?: { __typename: 'Home_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_enHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_enHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_enHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_enMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_enFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_enRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_enAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_enStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_enQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_enNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null } | null } | null> | null } };
+export type Home_EnConnectionQuery = { __typename?: 'Query', home_enConnection: { __typename?: 'Home_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Home_enConnectionEdges', cursor: string, node?: { __typename: 'Home_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_enHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_enHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_enHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_enMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_enFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_enRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_enAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_enStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_enQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_enFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_enNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_enRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_enPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_enPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export type Home_SiQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type Home_SiQuery = { __typename?: 'Query', home_si: { __typename: 'Home_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_siHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_siHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_siHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_siMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_siFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_siRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_siAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_siStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_siQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_siNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null } };
+export type Home_SiQuery = { __typename?: 'Query', home_si: { __typename: 'Home_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_siHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_siHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_siHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_siMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_siFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_siRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_siAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_siStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_siQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_siFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_siNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_siRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_siPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_siPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null } };
 
 export type Home_SiConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -8474,14 +11126,14 @@ export type Home_SiConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Home_SiConnectionQuery = { __typename?: 'Query', home_siConnection: { __typename?: 'Home_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Home_siConnectionEdges', cursor: string, node?: { __typename: 'Home_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_siHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_siHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_siHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_siMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_siFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_siRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_siAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_siStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_siQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_siNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null } | null } | null> | null } };
+export type Home_SiConnectionQuery = { __typename?: 'Query', home_siConnection: { __typename?: 'Home_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Home_siConnectionEdges', cursor: string, node?: { __typename: 'Home_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_siHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_siHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_siHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_siMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_siFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_siRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_siAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_siStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_siQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_siFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_siNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_siRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_siPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_siPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export type Home_TaQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type Home_TaQuery = { __typename?: 'Query', home_ta: { __typename: 'Home_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null } };
+export type Home_TaQuery = { __typename?: 'Query', home_ta: { __typename: 'Home_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_taFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_taRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_taPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_taPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null } };
 
 export type Home_TaConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -8493,7 +11145,7 @@ export type Home_TaConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Home_TaConnectionQuery = { __typename?: 'Query', home_taConnection: { __typename?: 'Home_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Home_taConnectionEdges', cursor: string, node?: { __typename: 'Home_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null } | null } | null> | null } };
+export type Home_TaConnectionQuery = { __typename?: 'Query', home_taConnection: { __typename?: 'Home_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Home_taConnectionEdges', cursor: string, node?: { __typename: 'Home_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Home_taHero', title: string, subtitle?: string | null, description?: string | null, background_image?: string | null, hero_video_url?: string | null, hero_video_title?: string | null, cta_primary?: { __typename: 'Home_taHeroCta_primary', text: string, href: string } | null, cta_secondary?: { __typename: 'Home_taHeroCta_secondary', text: string, href: string } | null } | null, mission_statement?: { __typename: 'Home_taMission_statement', title: string, content: string } | null, featured_departments?: Array<{ __typename: 'Home_taFeatured_departments', name: string, description: string, icon: string, image?: string | null, href: string } | null> | null, recent_events?: Array<{ __typename: 'Home_taRecent_events', title: string, date: string, time: string, location: string, description: string, image?: string | null, category?: string | null } | null> | null, announcements?: Array<{ __typename: 'Home_taAnnouncements', title: string, date: string, content: string, priority?: string | null, category?: string | null } | null> | null, statistics?: Array<{ __typename: 'Home_taStatistics', number: string, label: string } | null> | null, quick_actions?: Array<{ __typename: 'Home_taQuick_actions', title: string, description: string, icon: string, href: string, color?: string | null } | null> | null, featured_video?: { __typename: 'Home_taFeatured_video', title?: string | null, video_title?: string | null, video_description?: string | null, youtube_url?: string | null } | null, newsletter?: { __typename: 'Home_taNewsletter', title: string, description: string, placeholder: string, button: string, privacy?: string | null } | null, recent_articles?: { __typename: 'Home_taRecent_articles', section_title: string, section_description?: string | null, view_all_text: string, view_all_href: string, posts_to_show: number } | null, photo_highlights?: { __typename: 'Home_taPhoto_highlights', section_title: string, section_description?: string | null, view_gallery_text?: string | null, view_gallery_href?: string | null, photos?: Array<{ __typename: 'Home_taPhoto_highlightsPhotos', image: string, title: string, description?: string | null, link?: string | null } | null> | null } | null } | null } | null> | null } };
 
 export type About_EnQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -8671,7 +11323,7 @@ export type Publications_EnQueryVariables = Exact<{
 }>;
 
 
-export type Publications_EnQuery = { __typename?: 'Query', publications_en: { __typename: 'Publications_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_enHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_enCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_enFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_enMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_enDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_enDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_enResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_enResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_enSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_enSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_enContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_enContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_enContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_enContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null } };
+export type Publications_EnQuery = { __typename?: 'Query', publications_en: { __typename: 'Publications_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_enHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_enCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_enFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_enAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_enSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } };
 
 export type Publications_EnConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -8683,33 +11335,14 @@ export type Publications_EnConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Publications_EnConnectionQuery = { __typename?: 'Query', publications_enConnection: { __typename?: 'Publications_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Publications_enConnectionEdges', cursor: string, node?: { __typename: 'Publications_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_enHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_enCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_enFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_enMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_enDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_enDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_enResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_enResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_enSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_enSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_enContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_enContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_enContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_enContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null } | null } | null> | null } };
-
-export type Publications_SiQueryVariables = Exact<{
-  relativePath: Scalars['String']['input'];
-}>;
-
-
-export type Publications_SiQuery = { __typename?: 'Query', publications_si: { __typename: 'Publications_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_siHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_siCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_siFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_siMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_siDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_siDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_siResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_siResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_siSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_siSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_siContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_siContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_siContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_siContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null } };
-
-export type Publications_SiConnectionQueryVariables = Exact<{
-  before?: InputMaybe<Scalars['String']['input']>;
-  after?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Float']['input']>;
-  last?: InputMaybe<Scalars['Float']['input']>;
-  sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<Publications_SiFilter>;
-}>;
-
-
-export type Publications_SiConnectionQuery = { __typename?: 'Query', publications_siConnection: { __typename?: 'Publications_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Publications_siConnectionEdges', cursor: string, node?: { __typename: 'Publications_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_siHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_siCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_siFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_siMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_siDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_siDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_siResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_siResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_siSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_siSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_siContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_siContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_siContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_siContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null } | null } | null> | null } };
+export type Publications_EnConnectionQuery = { __typename?: 'Query', publications_enConnection: { __typename?: 'Publications_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Publications_enConnectionEdges', cursor: string, node?: { __typename: 'Publications_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_enHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_enCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_enFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_enAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_enSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } | null } | null> | null } };
 
 export type Publications_TaQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type Publications_TaQuery = { __typename?: 'Query', publications_ta: { __typename: 'Publications_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_taCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_taFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_taMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_taDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_taDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_taResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_taResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_taSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_taSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_taContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_taContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_taContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_taContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null } };
+export type Publications_TaQuery = { __typename?: 'Query', publications_ta: { __typename: 'Publications_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_taCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_taFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_taAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_taSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } };
 
 export type Publications_TaConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -8721,7 +11354,26 @@ export type Publications_TaConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Publications_TaConnectionQuery = { __typename?: 'Query', publications_taConnection: { __typename?: 'Publications_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Publications_taConnectionEdges', cursor: string, node?: { __typename: 'Publications_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_taCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_publications?: Array<{ __typename: 'Publications_taFeatured_publications', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages: number, isbn?: string | null, description: string, description_tamil?: string | null, cover_color: string, available?: boolean | null, price: string, format: Array<string>, release_date?: string | null } | null> | null, magazines?: Array<{ __typename: 'Publications_taMagazines', id: string, name: string, name_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, frequency: string, frequency_tamil?: string | null, description: string, description_tamil?: string | null, subscription_price: string, editor: string, editor_tamil?: string | null } | null> | null, digital_resources?: { __typename: 'Publications_taDigital_resources', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, items?: Array<{ __typename: 'Publications_taDigital_resourcesItems', name: string, name_tamil?: string | null, description: string, access: string } | null> | null } | null, research_publications?: { __typename: 'Publications_taResearch_publications', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, recent_papers?: Array<{ __typename: 'Publications_taResearch_publicationsRecent_papers', title: string, title_tamil?: string | null, author: string, journal: string, year: string, pages: string } | null> | null } | null, submission_guidelines?: { __typename: 'Publications_taSubmission_guidelines', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, requirements?: Array<{ __typename: 'Publications_taSubmission_guidelinesRequirements', category: string, category_tamil?: string | null, items: Array<string> } | null> | null } | null, contact?: { __typename: 'Publications_taContact', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, editorial_office?: { __typename: 'Publications_taContactEditorial_office', title: string, title_tamil?: string | null, email: string, phone: string, editor_in_chief: string, editor_in_chief_tamil?: string | null } | null, distribution?: { __typename: 'Publications_taContactDistribution', title: string, title_tamil?: string | null, email: string, phone: string } | null, submissions?: { __typename: 'Publications_taContactSubmissions', title: string, title_tamil?: string | null, email: string, guidelines_url: string } | null } | null } | null } | null> | null } };
+export type Publications_TaConnectionQuery = { __typename?: 'Query', publications_taConnection: { __typename?: 'Publications_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Publications_taConnectionEdges', cursor: string, node?: { __typename: 'Publications_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_taHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_taCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_taFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_taAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_taSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } | null } | null> | null } };
+
+export type Publications_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Publications_SiQuery = { __typename?: 'Query', publications_si: { __typename: 'Publications_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_siHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_siCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_siFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_siAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_siSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } };
+
+export type Publications_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Publications_SiFilter>;
+}>;
+
+
+export type Publications_SiConnectionQuery = { __typename?: 'Query', publications_siConnection: { __typename?: 'Publications_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Publications_siConnectionEdges', cursor: string, node?: { __typename: 'Publications_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Publications_siHero', title: string, title_tamil?: string | null, subtitle: string, subtitle_tamil?: string | null, description: string } | null, categories?: Array<{ __typename: 'Publications_siCategories', id: string, name: string, name_tamil?: string | null, description: string, description_tamil?: string | null, count: number, icon: string } | null> | null, featured_resources?: Array<{ __typename: 'Publications_siFeatured_resources', id: string, title: string, title_tamil?: string | null, author: string, author_tamil?: string | null, category: string, category_tamil?: string | null, year: string, pages?: number | null, isbn?: string | null, description: string, description_tamil?: string | null, cover_image?: string | null, file_url: string, file_type: string, file_size_mb?: number | null, language?: string | null, tags?: Array<string | null> | null } | null> | null, about_section?: { __typename: 'Publications_siAbout_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null } | null, submission_section?: { __typename: 'Publications_siSubmission_section', title: string, title_tamil?: string | null, description: string, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } | null } | null> | null } };
 
 export type Events_EnQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -8785,7 +11437,7 @@ export type Gallery_EnQueryVariables = Exact<{
 }>;
 
 
-export type Gallery_EnQuery = { __typename?: 'Query', gallery_en: { __typename: 'Gallery_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_enCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_enFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_enRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_enPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_enPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_enSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_enSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_enContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_enContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null } };
+export type Gallery_EnQuery = { __typename?: 'Query', gallery_en: { __typename: 'Gallery_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_enCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_enFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_enFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_enRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_enSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } };
 
 export type Gallery_EnConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -8797,33 +11449,14 @@ export type Gallery_EnConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Gallery_EnConnectionQuery = { __typename?: 'Query', gallery_enConnection: { __typename?: 'Gallery_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Gallery_enConnectionEdges', cursor: string, node?: { __typename: 'Gallery_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_enCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_enFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_enRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_enPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_enPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_enSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_enSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_enContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_enContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null } | null } | null> | null } };
-
-export type Gallery_SiQueryVariables = Exact<{
-  relativePath: Scalars['String']['input'];
-}>;
-
-
-export type Gallery_SiQuery = { __typename?: 'Query', gallery_si: { __typename: 'Gallery_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_siCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_siFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_siRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_siPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_siPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_siSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_siSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_siContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_siContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null } };
-
-export type Gallery_SiConnectionQueryVariables = Exact<{
-  before?: InputMaybe<Scalars['String']['input']>;
-  after?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Float']['input']>;
-  last?: InputMaybe<Scalars['Float']['input']>;
-  sort?: InputMaybe<Scalars['String']['input']>;
-  filter?: InputMaybe<Gallery_SiFilter>;
-}>;
-
-
-export type Gallery_SiConnectionQuery = { __typename?: 'Query', gallery_siConnection: { __typename?: 'Gallery_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Gallery_siConnectionEdges', cursor: string, node?: { __typename: 'Gallery_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_siCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_siFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_siRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_siPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_siPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_siSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_siSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_siContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_siContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null } | null } | null> | null } };
+export type Gallery_EnConnectionQuery = { __typename?: 'Query', gallery_enConnection: { __typename?: 'Gallery_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Gallery_enConnectionEdges', cursor: string, node?: { __typename: 'Gallery_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_enCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_enFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_enFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_enRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_enSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } | null } | null> | null } };
 
 export type Gallery_TaQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type Gallery_TaQuery = { __typename?: 'Query', gallery_ta: { __typename: 'Gallery_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_taCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_taFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_taRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_taPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_taPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_taSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_taSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_taContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_taContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null } };
+export type Gallery_TaQuery = { __typename?: 'Query', gallery_ta: { __typename: 'Gallery_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_taCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_taFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_taFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_taRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_taSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } };
 
 export type Gallery_TaConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -8835,8 +11468,438 @@ export type Gallery_TaConnectionQueryVariables = Exact<{
 }>;
 
 
-export type Gallery_TaConnectionQuery = { __typename?: 'Query', gallery_taConnection: { __typename?: 'Gallery_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Gallery_taConnectionEdges', cursor: string, node?: { __typename: 'Gallery_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_taCategories', id: string, name: string, name_tamil?: string | null, count?: number | null, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_taFeatured_albums', id: string, title: string, title_tamil?: string | null, date?: string | null, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, image_count?: number | null, description?: string | null, description_tamil?: string | null, cover_color?: string | null, photographer?: string | null, highlights?: Array<string | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_taRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, date?: string | null, date_tamil?: string | null, image_count?: number | null } | null> | null, photo_contest?: { __typename: 'Gallery_taPhoto_contest', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, deadline?: string | null, rules?: Array<string | null> | null, categories?: Array<{ __typename: 'Gallery_taPhoto_contestCategories', name?: string | null, name_tamil?: string | null, prize?: string | null } | null> | null } | null, submission_guidelines?: { __typename: 'Gallery_taSubmission_guidelines', title: string, title_tamil?: string | null, description?: string | null, requirements?: Array<{ __typename: 'Gallery_taSubmission_guidelinesRequirements', title: string, title_tamil?: string | null, items?: Array<string | null> | null } | null> | null } | null, contact?: { __typename: 'Gallery_taContact', title: string, title_tamil?: string | null, description?: string | null, email?: string | null, phone?: string | null, office_hours?: Array<string | null> | null, gallery_coordinator?: { __typename: 'Gallery_taContactGallery_coordinator', name?: string | null, name_tamil?: string | null, position?: string | null, position_tamil?: string | null } | null } | null } | null } | null> | null } };
+export type Gallery_TaConnectionQuery = { __typename?: 'Query', gallery_taConnection: { __typename?: 'Gallery_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Gallery_taConnectionEdges', cursor: string, node?: { __typename: 'Gallery_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_taCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_taFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_taFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_taRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_taSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } | null } | null> | null } };
 
+export type Gallery_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Gallery_SiQuery = { __typename?: 'Query', gallery_si: { __typename: 'Gallery_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_siCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_siFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_siFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_siRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_siSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } };
+
+export type Gallery_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Gallery_SiFilter>;
+}>;
+
+
+export type Gallery_SiConnectionQuery = { __typename?: 'Query', gallery_siConnection: { __typename?: 'Gallery_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Gallery_siConnectionEdges', cursor: string, node?: { __typename: 'Gallery_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Gallery_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories?: Array<{ __typename: 'Gallery_siCategories', id: string, name: string, name_tamil?: string | null, count: number, description?: string | null, description_tamil?: string | null } | null> | null, featured_albums?: Array<{ __typename: 'Gallery_siFeatured_albums', id: string, title: string, title_tamil?: string | null, date: string, date_tamil?: string | null, location?: string | null, location_tamil?: string | null, description?: string | null, description_tamil?: string | null, cover_image: string, photographer?: string | null, photographer_tamil?: string | null, images?: Array<{ __typename: 'Gallery_siFeatured_albumsImages', url: string, title?: string | null, title_tamil?: string | null, caption?: string | null, caption_tamil?: string | null } | null> | null } | null> | null, recent_highlights?: Array<{ __typename: 'Gallery_siRecent_highlights', id: string, title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, thumbnail: string, date: string, date_tamil?: string | null, album_link?: string | null } | null> | null, submission_section?: { __typename: 'Gallery_siSubmission_section', title: string, title_tamil?: string | null, description?: string | null, description_tamil?: string | null, contact_email: string, guidelines?: Array<string | null> | null } | null } | null } | null> | null } };
+
+export type Contact_EnQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Contact_EnQuery = { __typename?: 'Query', contact_en: { __typename: 'Contact_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Contact_enHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_enContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_enContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_enContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_enEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_enOffice_info', hours?: { __typename: 'Contact_enOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_enOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_enOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_enOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_enOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_enOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_enFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null } };
+
+export type Contact_EnConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Contact_EnFilter>;
+}>;
+
+
+export type Contact_EnConnectionQuery = { __typename?: 'Query', contact_enConnection: { __typename?: 'Contact_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Contact_enConnectionEdges', cursor: string, node?: { __typename: 'Contact_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Contact_enHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_enContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_enContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_enContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_enEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_enOffice_info', hours?: { __typename: 'Contact_enOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_enOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_enOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_enOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_enOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_enOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_enFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null } | null } | null> | null } };
+
+export type Contact_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Contact_SiQuery = { __typename?: 'Query', contact_si: { __typename: 'Contact_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Contact_siHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_siContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_siContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_siContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_siEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_siOffice_info', hours?: { __typename: 'Contact_siOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_siOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_siOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_siOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_siOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_siOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_siFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null } };
+
+export type Contact_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Contact_SiFilter>;
+}>;
+
+
+export type Contact_SiConnectionQuery = { __typename?: 'Query', contact_siConnection: { __typename?: 'Contact_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Contact_siConnectionEdges', cursor: string, node?: { __typename: 'Contact_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Contact_siHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_siContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_siContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_siContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_siEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_siOffice_info', hours?: { __typename: 'Contact_siOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_siOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_siOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_siOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_siOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_siOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_siFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null } | null } | null> | null } };
+
+export type Contact_TaQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Contact_TaQuery = { __typename?: 'Query', contact_ta: { __typename: 'Contact_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Contact_taHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_taContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_taContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_taContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_taEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_taOffice_info', hours?: { __typename: 'Contact_taOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_taOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_taOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_taOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_taOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_taOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_taFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null } };
+
+export type Contact_TaConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Contact_TaFilter>;
+}>;
+
+
+export type Contact_TaConnectionQuery = { __typename?: 'Query', contact_taConnection: { __typename?: 'Contact_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Contact_taConnectionEdges', cursor: string, node?: { __typename: 'Contact_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Contact_taHero', title: string, description?: string | null } | null, contact_methods?: { __typename: 'Contact_taContact_methods', title: string, description?: string | null, methods?: Array<{ __typename: 'Contact_taContact_methodsMethods', title: string, description?: string | null, contact_info?: string | null, hours?: string | null, color?: string | null } | null> | null } | null, contact_form?: { __typename: 'Contact_taContact_form', title: string, description?: string | null } | null, emergency_contact?: { __typename: 'Contact_taEmergency_contact', title: string, description?: string | null, label?: string | null, phone?: string | null, availability?: string | null } | null, office_info?: { __typename: 'Contact_taOffice_info', hours?: { __typename: 'Contact_taOffice_infoHours', title: string, note?: string | null, schedule?: Array<{ __typename: 'Contact_taOffice_infoHoursSchedule', day: string, time: string } | null> | null } | null, location?: { __typename: 'Contact_taOffice_infoLocation', title: string, security_notice?: string | null, address?: { __typename: 'Contact_taOffice_infoLocationAddress', label?: string | null, lines?: Array<string | null> | null } | null, parking?: { __typename: 'Contact_taOffice_infoLocationParking', title?: string | null, description?: string | null } | null, transport?: { __typename: 'Contact_taOffice_infoLocationTransport', title?: string | null, description?: string | null } | null } | null } | null, faq_link?: { __typename: 'Contact_taFaq_link', title: string, description?: string | null, button_text?: string | null, link?: string | null } | null } | null } | null> | null } };
+
+export type Pages_EnQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Pages_EnQuery = { __typename?: 'Query', pages_en: { __typename: 'Pages_en', id: string, title: string, slug: string, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Pages_enHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_enContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_enContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_enContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_enContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_enContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_enContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_enContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null } };
+
+export type Pages_EnConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Pages_EnFilter>;
+}>;
+
+
+export type Pages_EnConnectionQuery = { __typename?: 'Query', pages_enConnection: { __typename?: 'Pages_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Pages_enConnectionEdges', cursor: string, node?: { __typename: 'Pages_en', id: string, title: string, slug: string, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Pages_enHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_enContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_enContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_enContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_enContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_enContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_enContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_enContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null } | null } | null> | null } };
+
+export type Pages_TaQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Pages_TaQuery = { __typename?: 'Query', pages_ta: { __typename: 'Pages_ta', id: string, title: string, slug: string, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Pages_taHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_taContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_taContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_taContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_taContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_taContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_taContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_taContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null } };
+
+export type Pages_TaConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Pages_TaFilter>;
+}>;
+
+
+export type Pages_TaConnectionQuery = { __typename?: 'Query', pages_taConnection: { __typename?: 'Pages_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Pages_taConnectionEdges', cursor: string, node?: { __typename: 'Pages_ta', id: string, title: string, slug: string, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Pages_taHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_taContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_taContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_taContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_taContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_taContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_taContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_taContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null } | null } | null> | null } };
+
+export type Pages_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Pages_SiQuery = { __typename?: 'Query', pages_si: { __typename: 'Pages_si', id: string, title: string, slug: string, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Pages_siHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_siContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_siContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_siContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_siContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_siContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_siContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_siContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null } };
+
+export type Pages_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Pages_SiFilter>;
+}>;
+
+
+export type Pages_SiConnectionQuery = { __typename?: 'Query', pages_siConnection: { __typename?: 'Pages_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Pages_siConnectionEdges', cursor: string, node?: { __typename: 'Pages_si', id: string, title: string, slug: string, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Pages_siHero', title?: string | null, subtitle?: string | null, description?: string | null, background_image?: string | null } | null, content_sections?: Array<{ __typename: 'Pages_siContent_sectionsText_section', title?: string | null, content: any, background?: string | null } | { __typename: 'Pages_siContent_sectionsImage_section', image: string, caption?: string | null, alt_text: string } | { __typename: 'Pages_siContent_sectionsCards_section', section_title?: string | null, cards?: Array<{ __typename: 'Pages_siContent_sectionsCards_sectionCards', title: string, description?: string | null, image?: string | null, link?: string | null } | null> | null } | { __typename: 'Pages_siContent_sectionsCta_section', title?: string | null, description?: string | null, button_text: string, button_link: string, background_color?: string | null } | { __typename: 'Pages_siContent_sectionsStatistics_section', section_title?: string | null, stats?: Array<{ __typename: 'Pages_siContent_sectionsStatistics_sectionStats', number: string, label: string } | null> | null } | null> | null } | null } | null> | null } };
+
+export type Blog_Page_EnQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Blog_Page_EnQuery = { __typename?: 'Query', blog_page_en: { __typename: 'Blog_page_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Blog_page_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_enCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_enFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_enAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null } };
+
+export type Blog_Page_EnConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_Page_EnFilter>;
+}>;
+
+
+export type Blog_Page_EnConnectionQuery = { __typename?: 'Query', blog_page_enConnection: { __typename?: 'Blog_page_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Blog_page_enConnectionEdges', cursor: string, node?: { __typename: 'Blog_page_en', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Blog_page_enHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_enCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_enFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_enAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null } | null } | null> | null } };
+
+export type Blog_Page_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Blog_Page_SiQuery = { __typename?: 'Query', blog_page_si: { __typename: 'Blog_page_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Blog_page_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_siCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_siFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_siAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null } };
+
+export type Blog_Page_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_Page_SiFilter>;
+}>;
+
+
+export type Blog_Page_SiConnectionQuery = { __typename?: 'Query', blog_page_siConnection: { __typename?: 'Blog_page_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Blog_page_siConnectionEdges', cursor: string, node?: { __typename: 'Blog_page_si', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Blog_page_siHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_siCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_siFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_siAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null } | null } | null> | null } };
+
+export type Blog_Page_TaQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Blog_Page_TaQuery = { __typename?: 'Query', blog_page_ta: { __typename: 'Blog_page_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Blog_page_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_taCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_taFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_taAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null } };
+
+export type Blog_Page_TaConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_Page_TaFilter>;
+}>;
+
+
+export type Blog_Page_TaConnectionQuery = { __typename?: 'Query', blog_page_taConnection: { __typename?: 'Blog_page_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Blog_page_taConnectionEdges', cursor: string, node?: { __typename: 'Blog_page_ta', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, hero?: { __typename: 'Blog_page_taHero', title: string, title_tamil?: string | null, subtitle?: string | null, subtitle_tamil?: string | null, description?: string | null } | null, categories_section?: { __typename: 'Blog_page_taCategories_section', title?: string | null, title_tamil?: string | null } | null, featured_section?: { __typename: 'Blog_page_taFeatured_section', title?: string | null, title_tamil?: string | null } | null, all_posts_section?: { __typename: 'Blog_page_taAll_posts_section', title?: string | null, title_tamil?: string | null, posts_per_page?: number | null } | null } | null } | null> | null } };
+
+export type Blog_EnQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Blog_EnQuery = { __typename?: 'Query', blog_en: { __typename: 'Blog_en', id: string, title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type Blog_EnConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_EnFilter>;
+}>;
+
+
+export type Blog_EnConnectionQuery = { __typename?: 'Query', blog_enConnection: { __typename?: 'Blog_enConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Blog_enConnectionEdges', cursor: string, node?: { __typename: 'Blog_en', id: string, title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type Blog_TaQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Blog_TaQuery = { __typename?: 'Query', blog_ta: { __typename: 'Blog_ta', id: string, title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type Blog_TaConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_TaFilter>;
+}>;
+
+
+export type Blog_TaConnectionQuery = { __typename?: 'Query', blog_taConnection: { __typename?: 'Blog_taConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Blog_taConnectionEdges', cursor: string, node?: { __typename: 'Blog_ta', id: string, title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export type Blog_SiQueryVariables = Exact<{
+  relativePath: Scalars['String']['input'];
+}>;
+
+
+export type Blog_SiQuery = { __typename?: 'Query', blog_si: { __typename: 'Blog_si', id: string, title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+
+export type Blog_SiConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']['input']>;
+  after?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Float']['input']>;
+  last?: InputMaybe<Scalars['Float']['input']>;
+  sort?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<Blog_SiFilter>;
+}>;
+
+
+export type Blog_SiConnectionQuery = { __typename?: 'Query', blog_siConnection: { __typename?: 'Blog_siConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'Blog_siConnectionEdges', cursor: string, node?: { __typename: 'Blog_si', id: string, title: string, slug: string, excerpt: string, content: any, featured_image: string, author: string, author_role?: string | null, author_image?: string | null, published_date: string, category: string, tags?: Array<string | null> | null, featured?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+
+export const Site_Config_EnPartsFragmentDoc = gql`
+    fragment Site_config_enParts on Site_config_en {
+  __typename
+  organization {
+    __typename
+    name
+    name_local
+    tagline
+    description
+    mission
+    vision
+    founded
+    registration_number
+  }
+  contact {
+    __typename
+    email
+    phone
+    address {
+      __typename
+      street
+      city
+      state
+      postal_code
+      country
+    }
+    social_media {
+      __typename
+      facebook
+      twitter
+      instagram
+      youtube
+    }
+  }
+  navigation {
+    __typename
+    primary {
+      __typename
+      name
+      href
+    }
+    footer {
+      __typename
+      name
+      href
+    }
+  }
+  footer {
+    __typename
+    copyright
+    description
+  }
+  meta {
+    __typename
+    title_suffix
+    description
+    keywords
+    author
+  }
+}
+    `;
+export const Site_Config_TaPartsFragmentDoc = gql`
+    fragment Site_config_taParts on Site_config_ta {
+  __typename
+  organization {
+    __typename
+    name
+    name_local
+    tagline
+    description
+    mission
+    vision
+    founded
+    registration_number
+  }
+  contact {
+    __typename
+    email
+    phone
+    address {
+      __typename
+      street
+      city
+      state
+      postal_code
+      country
+    }
+    social_media {
+      __typename
+      facebook
+      twitter
+      instagram
+      youtube
+    }
+  }
+  navigation {
+    __typename
+    primary {
+      __typename
+      name
+      href
+    }
+    footer {
+      __typename
+      name
+      href
+    }
+  }
+  footer {
+    __typename
+    copyright
+    description
+  }
+  meta {
+    __typename
+    title_suffix
+    description
+    keywords
+    author
+  }
+}
+    `;
+export const Site_Config_SiPartsFragmentDoc = gql`
+    fragment Site_config_siParts on Site_config_si {
+  __typename
+  organization {
+    __typename
+    name
+    name_local
+    tagline
+    description
+    mission
+    vision
+    founded
+    registration_number
+  }
+  contact {
+    __typename
+    email
+    phone
+    address {
+      __typename
+      street
+      city
+      state
+      postal_code
+      country
+    }
+    social_media {
+      __typename
+      facebook
+      twitter
+      instagram
+      youtube
+    }
+  }
+  navigation {
+    __typename
+    primary {
+      __typename
+      name
+      href
+    }
+    footer {
+      __typename
+      name
+      href
+    }
+  }
+  footer {
+    __typename
+    copyright
+    description
+  }
+  meta {
+    __typename
+    title_suffix
+    description
+    keywords
+    author
+  }
+}
+    `;
 export const Home_EnPartsFragmentDoc = gql`
     fragment Home_enParts on Home_en {
   __typename
@@ -8845,6 +11908,9 @@ export const Home_EnPartsFragmentDoc = gql`
     title
     subtitle
     description
+    background_image
+    hero_video_url
+    hero_video_title
     cta_primary {
       __typename
       text
@@ -8866,6 +11932,7 @@ export const Home_EnPartsFragmentDoc = gql`
     name
     description
     icon
+    image
     href
   }
   recent_events {
@@ -8899,6 +11966,13 @@ export const Home_EnPartsFragmentDoc = gql`
     href
     color
   }
+  featured_video {
+    __typename
+    title
+    video_title
+    video_description
+    youtube_url
+  }
   newsletter {
     __typename
     title
@@ -8906,6 +11980,28 @@ export const Home_EnPartsFragmentDoc = gql`
     placeholder
     button
     privacy
+  }
+  recent_articles {
+    __typename
+    section_title
+    section_description
+    view_all_text
+    view_all_href
+    posts_to_show
+  }
+  photo_highlights {
+    __typename
+    section_title
+    section_description
+    photos {
+      __typename
+      image
+      title
+      description
+      link
+    }
+    view_gallery_text
+    view_gallery_href
   }
 }
     `;
@@ -8917,6 +12013,9 @@ export const Home_SiPartsFragmentDoc = gql`
     title
     subtitle
     description
+    background_image
+    hero_video_url
+    hero_video_title
     cta_primary {
       __typename
       text
@@ -8938,6 +12037,7 @@ export const Home_SiPartsFragmentDoc = gql`
     name
     description
     icon
+    image
     href
   }
   recent_events {
@@ -8971,6 +12071,13 @@ export const Home_SiPartsFragmentDoc = gql`
     href
     color
   }
+  featured_video {
+    __typename
+    title
+    video_title
+    video_description
+    youtube_url
+  }
   newsletter {
     __typename
     title
@@ -8978,6 +12085,28 @@ export const Home_SiPartsFragmentDoc = gql`
     placeholder
     button
     privacy
+  }
+  recent_articles {
+    __typename
+    section_title
+    section_description
+    view_all_text
+    view_all_href
+    posts_to_show
+  }
+  photo_highlights {
+    __typename
+    section_title
+    section_description
+    photos {
+      __typename
+      image
+      title
+      description
+      link
+    }
+    view_gallery_text
+    view_gallery_href
   }
 }
     `;
@@ -8989,6 +12118,9 @@ export const Home_TaPartsFragmentDoc = gql`
     title
     subtitle
     description
+    background_image
+    hero_video_url
+    hero_video_title
     cta_primary {
       __typename
       text
@@ -9010,6 +12142,7 @@ export const Home_TaPartsFragmentDoc = gql`
     name
     description
     icon
+    image
     href
   }
   recent_events {
@@ -9043,6 +12176,13 @@ export const Home_TaPartsFragmentDoc = gql`
     href
     color
   }
+  featured_video {
+    __typename
+    title
+    video_title
+    video_description
+    youtube_url
+  }
   newsletter {
     __typename
     title
@@ -9050,6 +12190,28 @@ export const Home_TaPartsFragmentDoc = gql`
     placeholder
     button
     privacy
+  }
+  recent_articles {
+    __typename
+    section_title
+    section_description
+    view_all_text
+    view_all_href
+    posts_to_show
+  }
+  photo_highlights {
+    __typename
+    section_title
+    section_description
+    photos {
+      __typename
+      image
+      title
+      description
+      link
+    }
+    view_gallery_text
+    view_gallery_href
   }
 }
     `;
@@ -9869,7 +13031,7 @@ export const Publications_EnPartsFragmentDoc = gql`
     count
     icon
   }
-  featured_publications {
+  featured_resources {
     __typename
     id
     title
@@ -9883,230 +13045,28 @@ export const Publications_EnPartsFragmentDoc = gql`
     isbn
     description
     description_tamil
-    cover_color
-    available
-    price
-    format
-    release_date
+    cover_image
+    file_url
+    file_type
+    file_size_mb
+    language
+    tags
   }
-  magazines {
-    __typename
-    id
-    name
-    name_tamil
-    subtitle
-    subtitle_tamil
-    frequency
-    frequency_tamil
-    description
-    description_tamil
-    subscription_price
-    editor
-    editor_tamil
-  }
-  digital_resources {
+  about_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    items {
-      __typename
-      name
-      name_tamil
-      description
-      access
-    }
   }
-  research_publications {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    recent_papers {
-      __typename
-      title
-      title_tamil
-      author
-      journal
-      year
-      pages
-    }
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    requirements {
-      __typename
-      category
-      category_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    editorial_office {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-      editor_in_chief
-      editor_in_chief_tamil
-    }
-    distribution {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-    }
-    submissions {
-      __typename
-      title
-      title_tamil
-      email
-      guidelines_url
-    }
-  }
-}
-    `;
-export const Publications_SiPartsFragmentDoc = gql`
-    fragment Publications_siParts on Publications_si {
-  __typename
-  hero {
-    __typename
-    title
-    title_tamil
-    subtitle
-    subtitle_tamil
-    description
-  }
-  categories {
-    __typename
-    id
-    name
-    name_tamil
-    description
-    description_tamil
-    count
-    icon
-  }
-  featured_publications {
-    __typename
-    id
-    title
-    title_tamil
-    author
-    author_tamil
-    category
-    category_tamil
-    year
-    pages
-    isbn
-    description
-    description_tamil
-    cover_color
-    available
-    price
-    format
-    release_date
-  }
-  magazines {
-    __typename
-    id
-    name
-    name_tamil
-    subtitle
-    subtitle_tamil
-    frequency
-    frequency_tamil
-    description
-    description_tamil
-    subscription_price
-    editor
-    editor_tamil
-  }
-  digital_resources {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    items {
-      __typename
-      name
-      name_tamil
-      description
-      access
-    }
-  }
-  research_publications {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    recent_papers {
-      __typename
-      title
-      title_tamil
-      author
-      journal
-      year
-      pages
-    }
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    requirements {
-      __typename
-      category
-      category_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    editorial_office {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-      editor_in_chief
-      editor_in_chief_tamil
-    }
-    distribution {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-    }
-    submissions {
-      __typename
-      title
-      title_tamil
-      email
-      guidelines_url
-    }
+    contact_email
+    guidelines
   }
 }
     `;
@@ -10131,7 +13091,7 @@ export const Publications_TaPartsFragmentDoc = gql`
     count
     icon
   }
-  featured_publications {
+  featured_resources {
     __typename
     id
     title
@@ -10145,99 +13105,88 @@ export const Publications_TaPartsFragmentDoc = gql`
     isbn
     description
     description_tamil
-    cover_color
-    available
-    price
-    format
-    release_date
+    cover_image
+    file_url
+    file_type
+    file_size_mb
+    language
+    tags
   }
-  magazines {
+  about_section {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+  }
+  submission_section {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    contact_email
+    guidelines
+  }
+}
+    `;
+export const Publications_SiPartsFragmentDoc = gql`
+    fragment Publications_siParts on Publications_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
     __typename
     id
     name
     name_tamil
-    subtitle
-    subtitle_tamil
-    frequency
-    frequency_tamil
     description
     description_tamil
-    subscription_price
-    editor
-    editor_tamil
+    count
+    icon
   }
-  digital_resources {
+  featured_resources {
+    __typename
+    id
+    title
+    title_tamil
+    author
+    author_tamil
+    category
+    category_tamil
+    year
+    pages
+    isbn
+    description
+    description_tamil
+    cover_image
+    file_url
+    file_type
+    file_size_mb
+    language
+    tags
+  }
+  about_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    items {
-      __typename
-      name
-      name_tamil
-      description
-      access
-    }
   }
-  research_publications {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    recent_papers {
-      __typename
-      title
-      title_tamil
-      author
-      journal
-      year
-      pages
-    }
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    requirements {
-      __typename
-      category
-      category_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    editorial_office {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-      editor_in_chief
-      editor_in_chief_tamil
-    }
-    distribution {
-      __typename
-      title
-      title_tamil
-      email
-      phone
-    }
-    submissions {
-      __typename
-      title
-      title_tamil
-      email
-      guidelines_url
-    }
+    contact_email
+    guidelines
   }
 }
     `;
@@ -10660,12 +13609,19 @@ export const Gallery_EnPartsFragmentDoc = gql`
     date_tamil
     location
     location_tamil
-    image_count
     description
     description_tamil
-    cover_color
+    cover_image
+    images {
+      __typename
+      url
+      title
+      title_tamil
+      caption
+      caption_tamil
+    }
     photographer
-    highlights
+    photographer_tamil
   }
   recent_highlights {
     __typename
@@ -10674,144 +13630,19 @@ export const Gallery_EnPartsFragmentDoc = gql`
     title_tamil
     description
     description_tamil
+    thumbnail
     date
     date_tamil
-    image_count
+    album_link
   }
-  photo_contest {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    categories {
-      __typename
-      name
-      name_tamil
-      prize
-    }
-    deadline
-    rules
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    requirements {
-      __typename
-      title
-      title_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    email
-    phone
-    gallery_coordinator {
-      __typename
-      name
-      name_tamil
-      position
-      position_tamil
-    }
-    office_hours
-  }
-}
-    `;
-export const Gallery_SiPartsFragmentDoc = gql`
-    fragment Gallery_siParts on Gallery_si {
-  __typename
-  hero {
-    __typename
-    title
-    title_tamil
-    subtitle
-    subtitle_tamil
-    description
-  }
-  categories {
-    __typename
-    id
-    name
-    name_tamil
-    count
-    description
-    description_tamil
-  }
-  featured_albums {
-    __typename
-    id
-    title
-    title_tamil
-    date
-    date_tamil
-    location
-    location_tamil
-    image_count
-    description
-    description_tamil
-    cover_color
-    photographer
-    highlights
-  }
-  recent_highlights {
-    __typename
-    id
-    title
-    title_tamil
-    description
-    description_tamil
-    date
-    date_tamil
-    image_count
-  }
-  photo_contest {
-    __typename
-    title
-    title_tamil
-    description
-    description_tamil
-    categories {
-      __typename
-      name
-      name_tamil
-      prize
-    }
-    deadline
-    rules
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    requirements {
-      __typename
-      title
-      title_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    email
-    phone
-    gallery_coordinator {
-      __typename
-      name
-      name_tamil
-      position
-      position_tamil
-    }
-    office_hours
+    contact_email
+    guidelines
   }
 }
     `;
@@ -10844,12 +13675,19 @@ export const Gallery_TaPartsFragmentDoc = gql`
     date_tamil
     location
     location_tamil
-    image_count
     description
     description_tamil
-    cover_color
+    cover_image
+    images {
+      __typename
+      url
+      title
+      title_tamil
+      caption
+      caption_tamil
+    }
     photographer
-    highlights
+    photographer_tamil
   }
   recent_highlights {
     __typename
@@ -10858,55 +13696,784 @@ export const Gallery_TaPartsFragmentDoc = gql`
     title_tamil
     description
     description_tamil
+    thumbnail
     date
     date_tamil
-    image_count
+    album_link
   }
-  photo_contest {
+  submission_section {
     __typename
     title
     title_tamil
     description
     description_tamil
-    categories {
-      __typename
-      name
-      name_tamil
-      prize
-    }
-    deadline
-    rules
-  }
-  submission_guidelines {
-    __typename
-    title
-    title_tamil
-    description
-    requirements {
-      __typename
-      title
-      title_tamil
-      items
-    }
-  }
-  contact {
-    __typename
-    title
-    title_tamil
-    description
-    email
-    phone
-    gallery_coordinator {
-      __typename
-      name
-      name_tamil
-      position
-      position_tamil
-    }
-    office_hours
+    contact_email
+    guidelines
   }
 }
     `;
+export const Gallery_SiPartsFragmentDoc = gql`
+    fragment Gallery_siParts on Gallery_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories {
+    __typename
+    id
+    name
+    name_tamil
+    count
+    description
+    description_tamil
+  }
+  featured_albums {
+    __typename
+    id
+    title
+    title_tamil
+    date
+    date_tamil
+    location
+    location_tamil
+    description
+    description_tamil
+    cover_image
+    images {
+      __typename
+      url
+      title
+      title_tamil
+      caption
+      caption_tamil
+    }
+    photographer
+    photographer_tamil
+  }
+  recent_highlights {
+    __typename
+    id
+    title
+    title_tamil
+    description
+    description_tamil
+    thumbnail
+    date
+    date_tamil
+    album_link
+  }
+  submission_section {
+    __typename
+    title
+    title_tamil
+    description
+    description_tamil
+    contact_email
+    guidelines
+  }
+}
+    `;
+export const Contact_EnPartsFragmentDoc = gql`
+    fragment Contact_enParts on Contact_en {
+  __typename
+  hero {
+    __typename
+    title
+    description
+  }
+  contact_methods {
+    __typename
+    title
+    description
+    methods {
+      __typename
+      title
+      description
+      contact_info
+      hours
+      color
+    }
+  }
+  contact_form {
+    __typename
+    title
+    description
+  }
+  emergency_contact {
+    __typename
+    title
+    description
+    label
+    phone
+    availability
+  }
+  office_info {
+    __typename
+    hours {
+      __typename
+      title
+      schedule {
+        __typename
+        day
+        time
+      }
+      note
+    }
+    location {
+      __typename
+      title
+      address {
+        __typename
+        label
+        lines
+      }
+      parking {
+        __typename
+        title
+        description
+      }
+      transport {
+        __typename
+        title
+        description
+      }
+      security_notice
+    }
+  }
+  faq_link {
+    __typename
+    title
+    description
+    button_text
+    link
+  }
+}
+    `;
+export const Contact_SiPartsFragmentDoc = gql`
+    fragment Contact_siParts on Contact_si {
+  __typename
+  hero {
+    __typename
+    title
+    description
+  }
+  contact_methods {
+    __typename
+    title
+    description
+    methods {
+      __typename
+      title
+      description
+      contact_info
+      hours
+      color
+    }
+  }
+  contact_form {
+    __typename
+    title
+    description
+  }
+  emergency_contact {
+    __typename
+    title
+    description
+    label
+    phone
+    availability
+  }
+  office_info {
+    __typename
+    hours {
+      __typename
+      title
+      schedule {
+        __typename
+        day
+        time
+      }
+      note
+    }
+    location {
+      __typename
+      title
+      address {
+        __typename
+        label
+        lines
+      }
+      parking {
+        __typename
+        title
+        description
+      }
+      transport {
+        __typename
+        title
+        description
+      }
+      security_notice
+    }
+  }
+  faq_link {
+    __typename
+    title
+    description
+    button_text
+    link
+  }
+}
+    `;
+export const Contact_TaPartsFragmentDoc = gql`
+    fragment Contact_taParts on Contact_ta {
+  __typename
+  hero {
+    __typename
+    title
+    description
+  }
+  contact_methods {
+    __typename
+    title
+    description
+    methods {
+      __typename
+      title
+      description
+      contact_info
+      hours
+      color
+    }
+  }
+  contact_form {
+    __typename
+    title
+    description
+  }
+  emergency_contact {
+    __typename
+    title
+    description
+    label
+    phone
+    availability
+  }
+  office_info {
+    __typename
+    hours {
+      __typename
+      title
+      schedule {
+        __typename
+        day
+        time
+      }
+      note
+    }
+    location {
+      __typename
+      title
+      address {
+        __typename
+        label
+        lines
+      }
+      parking {
+        __typename
+        title
+        description
+      }
+      transport {
+        __typename
+        title
+        description
+      }
+      security_notice
+    }
+  }
+  faq_link {
+    __typename
+    title
+    description
+    button_text
+    link
+  }
+}
+    `;
+export const Pages_EnPartsFragmentDoc = gql`
+    fragment Pages_enParts on Pages_en {
+  __typename
+  title
+  slug
+  description
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    background_image
+  }
+  content_sections {
+    __typename
+    ... on Pages_enContent_sectionsText_section {
+      title
+      content
+      background
+    }
+    ... on Pages_enContent_sectionsImage_section {
+      image
+      caption
+      alt_text
+    }
+    ... on Pages_enContent_sectionsCards_section {
+      section_title
+      cards {
+        __typename
+        title
+        description
+        image
+        link
+      }
+    }
+    ... on Pages_enContent_sectionsCta_section {
+      title
+      description
+      button_text
+      button_link
+      background_color
+    }
+    ... on Pages_enContent_sectionsStatistics_section {
+      section_title
+      stats {
+        __typename
+        number
+        label
+      }
+    }
+  }
+}
+    `;
+export const Pages_TaPartsFragmentDoc = gql`
+    fragment Pages_taParts on Pages_ta {
+  __typename
+  title
+  slug
+  description
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    background_image
+  }
+  content_sections {
+    __typename
+    ... on Pages_taContent_sectionsText_section {
+      title
+      content
+      background
+    }
+    ... on Pages_taContent_sectionsImage_section {
+      image
+      caption
+      alt_text
+    }
+    ... on Pages_taContent_sectionsCards_section {
+      section_title
+      cards {
+        __typename
+        title
+        description
+        image
+        link
+      }
+    }
+    ... on Pages_taContent_sectionsCta_section {
+      title
+      description
+      button_text
+      button_link
+      background_color
+    }
+    ... on Pages_taContent_sectionsStatistics_section {
+      section_title
+      stats {
+        __typename
+        number
+        label
+      }
+    }
+  }
+}
+    `;
+export const Pages_SiPartsFragmentDoc = gql`
+    fragment Pages_siParts on Pages_si {
+  __typename
+  title
+  slug
+  description
+  hero {
+    __typename
+    title
+    subtitle
+    description
+    background_image
+  }
+  content_sections {
+    __typename
+    ... on Pages_siContent_sectionsText_section {
+      title
+      content
+      background
+    }
+    ... on Pages_siContent_sectionsImage_section {
+      image
+      caption
+      alt_text
+    }
+    ... on Pages_siContent_sectionsCards_section {
+      section_title
+      cards {
+        __typename
+        title
+        description
+        image
+        link
+      }
+    }
+    ... on Pages_siContent_sectionsCta_section {
+      title
+      description
+      button_text
+      button_link
+      background_color
+    }
+    ... on Pages_siContent_sectionsStatistics_section {
+      section_title
+      stats {
+        __typename
+        number
+        label
+      }
+    }
+  }
+}
+    `;
+export const Blog_Page_EnPartsFragmentDoc = gql`
+    fragment Blog_page_enParts on Blog_page_en {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories_section {
+    __typename
+    title
+    title_tamil
+  }
+  featured_section {
+    __typename
+    title
+    title_tamil
+  }
+  all_posts_section {
+    __typename
+    title
+    title_tamil
+    posts_per_page
+  }
+}
+    `;
+export const Blog_Page_SiPartsFragmentDoc = gql`
+    fragment Blog_page_siParts on Blog_page_si {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories_section {
+    __typename
+    title
+    title_tamil
+  }
+  featured_section {
+    __typename
+    title
+    title_tamil
+  }
+  all_posts_section {
+    __typename
+    title
+    title_tamil
+    posts_per_page
+  }
+}
+    `;
+export const Blog_Page_TaPartsFragmentDoc = gql`
+    fragment Blog_page_taParts on Blog_page_ta {
+  __typename
+  hero {
+    __typename
+    title
+    title_tamil
+    subtitle
+    subtitle_tamil
+    description
+  }
+  categories_section {
+    __typename
+    title
+    title_tamil
+  }
+  featured_section {
+    __typename
+    title
+    title_tamil
+  }
+  all_posts_section {
+    __typename
+    title
+    title_tamil
+    posts_per_page
+  }
+}
+    `;
+export const Blog_EnPartsFragmentDoc = gql`
+    fragment Blog_enParts on Blog_en {
+  __typename
+  title
+  slug
+  excerpt
+  content
+  featured_image
+  author
+  author_role
+  author_image
+  published_date
+  category
+  tags
+  featured
+}
+    `;
+export const Blog_TaPartsFragmentDoc = gql`
+    fragment Blog_taParts on Blog_ta {
+  __typename
+  title
+  slug
+  excerpt
+  content
+  featured_image
+  author
+  author_role
+  author_image
+  published_date
+  category
+  tags
+  featured
+}
+    `;
+export const Blog_SiPartsFragmentDoc = gql`
+    fragment Blog_siParts on Blog_si {
+  __typename
+  title
+  slug
+  excerpt
+  content
+  featured_image
+  author
+  author_role
+  author_image
+  published_date
+  category
+  tags
+  featured
+}
+    `;
+export const Site_Config_EnDocument = gql`
+    query site_config_en($relativePath: String!) {
+  site_config_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Site_config_enParts
+  }
+}
+    ${Site_Config_EnPartsFragmentDoc}`;
+export const Site_Config_EnConnectionDocument = gql`
+    query site_config_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Site_config_enFilter) {
+  site_config_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Site_config_enParts
+      }
+    }
+  }
+}
+    ${Site_Config_EnPartsFragmentDoc}`;
+export const Site_Config_TaDocument = gql`
+    query site_config_ta($relativePath: String!) {
+  site_config_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Site_config_taParts
+  }
+}
+    ${Site_Config_TaPartsFragmentDoc}`;
+export const Site_Config_TaConnectionDocument = gql`
+    query site_config_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Site_config_taFilter) {
+  site_config_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Site_config_taParts
+      }
+    }
+  }
+}
+    ${Site_Config_TaPartsFragmentDoc}`;
+export const Site_Config_SiDocument = gql`
+    query site_config_si($relativePath: String!) {
+  site_config_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Site_config_siParts
+  }
+}
+    ${Site_Config_SiPartsFragmentDoc}`;
+export const Site_Config_SiConnectionDocument = gql`
+    query site_config_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Site_config_siFilter) {
+  site_config_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Site_config_siParts
+      }
+    }
+  }
+}
+    ${Site_Config_SiPartsFragmentDoc}`;
 export const Home_EnDocument = gql`
     query home_en($relativePath: String!) {
   home_en(relativePath: $relativePath) {
@@ -11648,63 +15215,6 @@ export const Publications_EnConnectionDocument = gql`
   }
 }
     ${Publications_EnPartsFragmentDoc}`;
-export const Publications_SiDocument = gql`
-    query publications_si($relativePath: String!) {
-  publications_si(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...Publications_siParts
-  }
-}
-    ${Publications_SiPartsFragmentDoc}`;
-export const Publications_SiConnectionDocument = gql`
-    query publications_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Publications_siFilter) {
-  publications_siConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...Publications_siParts
-      }
-    }
-  }
-}
-    ${Publications_SiPartsFragmentDoc}`;
 export const Publications_TaDocument = gql`
     query publications_ta($relativePath: String!) {
   publications_ta(relativePath: $relativePath) {
@@ -11762,6 +15272,63 @@ export const Publications_TaConnectionDocument = gql`
   }
 }
     ${Publications_TaPartsFragmentDoc}`;
+export const Publications_SiDocument = gql`
+    query publications_si($relativePath: String!) {
+  publications_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Publications_siParts
+  }
+}
+    ${Publications_SiPartsFragmentDoc}`;
+export const Publications_SiConnectionDocument = gql`
+    query publications_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Publications_siFilter) {
+  publications_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Publications_siParts
+      }
+    }
+  }
+}
+    ${Publications_SiPartsFragmentDoc}`;
 export const Events_EnDocument = gql`
     query events_en($relativePath: String!) {
   events_en(relativePath: $relativePath) {
@@ -11990,63 +15557,6 @@ export const Gallery_EnConnectionDocument = gql`
   }
 }
     ${Gallery_EnPartsFragmentDoc}`;
-export const Gallery_SiDocument = gql`
-    query gallery_si($relativePath: String!) {
-  gallery_si(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        hasReferences
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...Gallery_siParts
-  }
-}
-    ${Gallery_SiPartsFragmentDoc}`;
-export const Gallery_SiConnectionDocument = gql`
-    query gallery_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Gallery_siFilter) {
-  gallery_siConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            hasReferences
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...Gallery_siParts
-      }
-    }
-  }
-}
-    ${Gallery_SiPartsFragmentDoc}`;
 export const Gallery_TaDocument = gql`
     query gallery_ta($relativePath: String!) {
   gallery_ta(relativePath: $relativePath) {
@@ -12104,10 +15614,769 @@ export const Gallery_TaConnectionDocument = gql`
   }
 }
     ${Gallery_TaPartsFragmentDoc}`;
+export const Gallery_SiDocument = gql`
+    query gallery_si($relativePath: String!) {
+  gallery_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Gallery_siParts
+  }
+}
+    ${Gallery_SiPartsFragmentDoc}`;
+export const Gallery_SiConnectionDocument = gql`
+    query gallery_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Gallery_siFilter) {
+  gallery_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Gallery_siParts
+      }
+    }
+  }
+}
+    ${Gallery_SiPartsFragmentDoc}`;
+export const Contact_EnDocument = gql`
+    query contact_en($relativePath: String!) {
+  contact_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Contact_enParts
+  }
+}
+    ${Contact_EnPartsFragmentDoc}`;
+export const Contact_EnConnectionDocument = gql`
+    query contact_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Contact_enFilter) {
+  contact_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Contact_enParts
+      }
+    }
+  }
+}
+    ${Contact_EnPartsFragmentDoc}`;
+export const Contact_SiDocument = gql`
+    query contact_si($relativePath: String!) {
+  contact_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Contact_siParts
+  }
+}
+    ${Contact_SiPartsFragmentDoc}`;
+export const Contact_SiConnectionDocument = gql`
+    query contact_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Contact_siFilter) {
+  contact_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Contact_siParts
+      }
+    }
+  }
+}
+    ${Contact_SiPartsFragmentDoc}`;
+export const Contact_TaDocument = gql`
+    query contact_ta($relativePath: String!) {
+  contact_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Contact_taParts
+  }
+}
+    ${Contact_TaPartsFragmentDoc}`;
+export const Contact_TaConnectionDocument = gql`
+    query contact_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Contact_taFilter) {
+  contact_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Contact_taParts
+      }
+    }
+  }
+}
+    ${Contact_TaPartsFragmentDoc}`;
+export const Pages_EnDocument = gql`
+    query pages_en($relativePath: String!) {
+  pages_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Pages_enParts
+  }
+}
+    ${Pages_EnPartsFragmentDoc}`;
+export const Pages_EnConnectionDocument = gql`
+    query pages_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Pages_enFilter) {
+  pages_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Pages_enParts
+      }
+    }
+  }
+}
+    ${Pages_EnPartsFragmentDoc}`;
+export const Pages_TaDocument = gql`
+    query pages_ta($relativePath: String!) {
+  pages_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Pages_taParts
+  }
+}
+    ${Pages_TaPartsFragmentDoc}`;
+export const Pages_TaConnectionDocument = gql`
+    query pages_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Pages_taFilter) {
+  pages_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Pages_taParts
+      }
+    }
+  }
+}
+    ${Pages_TaPartsFragmentDoc}`;
+export const Pages_SiDocument = gql`
+    query pages_si($relativePath: String!) {
+  pages_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Pages_siParts
+  }
+}
+    ${Pages_SiPartsFragmentDoc}`;
+export const Pages_SiConnectionDocument = gql`
+    query pages_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Pages_siFilter) {
+  pages_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Pages_siParts
+      }
+    }
+  }
+}
+    ${Pages_SiPartsFragmentDoc}`;
+export const Blog_Page_EnDocument = gql`
+    query blog_page_en($relativePath: String!) {
+  blog_page_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_page_enParts
+  }
+}
+    ${Blog_Page_EnPartsFragmentDoc}`;
+export const Blog_Page_EnConnectionDocument = gql`
+    query blog_page_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_page_enFilter) {
+  blog_page_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_page_enParts
+      }
+    }
+  }
+}
+    ${Blog_Page_EnPartsFragmentDoc}`;
+export const Blog_Page_SiDocument = gql`
+    query blog_page_si($relativePath: String!) {
+  blog_page_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_page_siParts
+  }
+}
+    ${Blog_Page_SiPartsFragmentDoc}`;
+export const Blog_Page_SiConnectionDocument = gql`
+    query blog_page_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_page_siFilter) {
+  blog_page_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_page_siParts
+      }
+    }
+  }
+}
+    ${Blog_Page_SiPartsFragmentDoc}`;
+export const Blog_Page_TaDocument = gql`
+    query blog_page_ta($relativePath: String!) {
+  blog_page_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_page_taParts
+  }
+}
+    ${Blog_Page_TaPartsFragmentDoc}`;
+export const Blog_Page_TaConnectionDocument = gql`
+    query blog_page_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_page_taFilter) {
+  blog_page_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_page_taParts
+      }
+    }
+  }
+}
+    ${Blog_Page_TaPartsFragmentDoc}`;
+export const Blog_EnDocument = gql`
+    query blog_en($relativePath: String!) {
+  blog_en(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_enParts
+  }
+}
+    ${Blog_EnPartsFragmentDoc}`;
+export const Blog_EnConnectionDocument = gql`
+    query blog_enConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_enFilter) {
+  blog_enConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_enParts
+      }
+    }
+  }
+}
+    ${Blog_EnPartsFragmentDoc}`;
+export const Blog_TaDocument = gql`
+    query blog_ta($relativePath: String!) {
+  blog_ta(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_taParts
+  }
+}
+    ${Blog_TaPartsFragmentDoc}`;
+export const Blog_TaConnectionDocument = gql`
+    query blog_taConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_taFilter) {
+  blog_taConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_taParts
+      }
+    }
+  }
+}
+    ${Blog_TaPartsFragmentDoc}`;
+export const Blog_SiDocument = gql`
+    query blog_si($relativePath: String!) {
+  blog_si(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        hasReferences
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...Blog_siParts
+  }
+}
+    ${Blog_SiPartsFragmentDoc}`;
+export const Blog_SiConnectionDocument = gql`
+    query blog_siConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: Blog_siFilter) {
+  blog_siConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            hasReferences
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...Blog_siParts
+      }
+    }
+  }
+}
+    ${Blog_SiPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      home_en(variables: Home_EnQueryVariables, options?: C): Promise<{data: Home_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Home_EnQueryVariables, query: string}> {
+      site_config_en(variables: Site_Config_EnQueryVariables, options?: C): Promise<{data: Site_Config_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_EnQueryVariables, query: string}> {
+        return requester<{data: Site_Config_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_EnQueryVariables, query: string}, Site_Config_EnQueryVariables>(Site_Config_EnDocument, variables, options);
+      },
+    site_config_enConnection(variables?: Site_Config_EnConnectionQueryVariables, options?: C): Promise<{data: Site_Config_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_EnConnectionQueryVariables, query: string}> {
+        return requester<{data: Site_Config_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_EnConnectionQueryVariables, query: string}, Site_Config_EnConnectionQueryVariables>(Site_Config_EnConnectionDocument, variables, options);
+      },
+    site_config_ta(variables: Site_Config_TaQueryVariables, options?: C): Promise<{data: Site_Config_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_TaQueryVariables, query: string}> {
+        return requester<{data: Site_Config_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_TaQueryVariables, query: string}, Site_Config_TaQueryVariables>(Site_Config_TaDocument, variables, options);
+      },
+    site_config_taConnection(variables?: Site_Config_TaConnectionQueryVariables, options?: C): Promise<{data: Site_Config_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_TaConnectionQueryVariables, query: string}> {
+        return requester<{data: Site_Config_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_TaConnectionQueryVariables, query: string}, Site_Config_TaConnectionQueryVariables>(Site_Config_TaConnectionDocument, variables, options);
+      },
+    site_config_si(variables: Site_Config_SiQueryVariables, options?: C): Promise<{data: Site_Config_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_SiQueryVariables, query: string}> {
+        return requester<{data: Site_Config_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_SiQueryVariables, query: string}, Site_Config_SiQueryVariables>(Site_Config_SiDocument, variables, options);
+      },
+    site_config_siConnection(variables?: Site_Config_SiConnectionQueryVariables, options?: C): Promise<{data: Site_Config_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_SiConnectionQueryVariables, query: string}> {
+        return requester<{data: Site_Config_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Site_Config_SiConnectionQueryVariables, query: string}, Site_Config_SiConnectionQueryVariables>(Site_Config_SiConnectionDocument, variables, options);
+      },
+    home_en(variables: Home_EnQueryVariables, options?: C): Promise<{data: Home_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Home_EnQueryVariables, query: string}> {
         return requester<{data: Home_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Home_EnQueryVariables, query: string}, Home_EnQueryVariables>(Home_EnDocument, variables, options);
       },
     home_enConnection(variables?: Home_EnConnectionQueryVariables, options?: C): Promise<{data: Home_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Home_EnConnectionQueryVariables, query: string}> {
@@ -12185,17 +16454,17 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
     publications_enConnection(variables?: Publications_EnConnectionQueryVariables, options?: C): Promise<{data: Publications_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_EnConnectionQueryVariables, query: string}> {
         return requester<{data: Publications_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_EnConnectionQueryVariables, query: string}, Publications_EnConnectionQueryVariables>(Publications_EnConnectionDocument, variables, options);
       },
-    publications_si(variables: Publications_SiQueryVariables, options?: C): Promise<{data: Publications_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiQueryVariables, query: string}> {
-        return requester<{data: Publications_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiQueryVariables, query: string}, Publications_SiQueryVariables>(Publications_SiDocument, variables, options);
-      },
-    publications_siConnection(variables?: Publications_SiConnectionQueryVariables, options?: C): Promise<{data: Publications_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiConnectionQueryVariables, query: string}> {
-        return requester<{data: Publications_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiConnectionQueryVariables, query: string}, Publications_SiConnectionQueryVariables>(Publications_SiConnectionDocument, variables, options);
-      },
     publications_ta(variables: Publications_TaQueryVariables, options?: C): Promise<{data: Publications_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_TaQueryVariables, query: string}> {
         return requester<{data: Publications_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_TaQueryVariables, query: string}, Publications_TaQueryVariables>(Publications_TaDocument, variables, options);
       },
     publications_taConnection(variables?: Publications_TaConnectionQueryVariables, options?: C): Promise<{data: Publications_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_TaConnectionQueryVariables, query: string}> {
         return requester<{data: Publications_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_TaConnectionQueryVariables, query: string}, Publications_TaConnectionQueryVariables>(Publications_TaConnectionDocument, variables, options);
+      },
+    publications_si(variables: Publications_SiQueryVariables, options?: C): Promise<{data: Publications_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiQueryVariables, query: string}> {
+        return requester<{data: Publications_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiQueryVariables, query: string}, Publications_SiQueryVariables>(Publications_SiDocument, variables, options);
+      },
+    publications_siConnection(variables?: Publications_SiConnectionQueryVariables, options?: C): Promise<{data: Publications_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiConnectionQueryVariables, query: string}> {
+        return requester<{data: Publications_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Publications_SiConnectionQueryVariables, query: string}, Publications_SiConnectionQueryVariables>(Publications_SiConnectionDocument, variables, options);
       },
     events_en(variables: Events_EnQueryVariables, options?: C): Promise<{data: Events_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Events_EnQueryVariables, query: string}> {
         return requester<{data: Events_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Events_EnQueryVariables, query: string}, Events_EnQueryVariables>(Events_EnDocument, variables, options);
@@ -12221,17 +16490,89 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
     gallery_enConnection(variables?: Gallery_EnConnectionQueryVariables, options?: C): Promise<{data: Gallery_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_EnConnectionQueryVariables, query: string}> {
         return requester<{data: Gallery_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_EnConnectionQueryVariables, query: string}, Gallery_EnConnectionQueryVariables>(Gallery_EnConnectionDocument, variables, options);
       },
+    gallery_ta(variables: Gallery_TaQueryVariables, options?: C): Promise<{data: Gallery_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaQueryVariables, query: string}> {
+        return requester<{data: Gallery_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaQueryVariables, query: string}, Gallery_TaQueryVariables>(Gallery_TaDocument, variables, options);
+      },
+    gallery_taConnection(variables?: Gallery_TaConnectionQueryVariables, options?: C): Promise<{data: Gallery_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaConnectionQueryVariables, query: string}> {
+        return requester<{data: Gallery_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaConnectionQueryVariables, query: string}, Gallery_TaConnectionQueryVariables>(Gallery_TaConnectionDocument, variables, options);
+      },
     gallery_si(variables: Gallery_SiQueryVariables, options?: C): Promise<{data: Gallery_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_SiQueryVariables, query: string}> {
         return requester<{data: Gallery_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_SiQueryVariables, query: string}, Gallery_SiQueryVariables>(Gallery_SiDocument, variables, options);
       },
     gallery_siConnection(variables?: Gallery_SiConnectionQueryVariables, options?: C): Promise<{data: Gallery_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_SiConnectionQueryVariables, query: string}> {
         return requester<{data: Gallery_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_SiConnectionQueryVariables, query: string}, Gallery_SiConnectionQueryVariables>(Gallery_SiConnectionDocument, variables, options);
       },
-    gallery_ta(variables: Gallery_TaQueryVariables, options?: C): Promise<{data: Gallery_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaQueryVariables, query: string}> {
-        return requester<{data: Gallery_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaQueryVariables, query: string}, Gallery_TaQueryVariables>(Gallery_TaDocument, variables, options);
+    contact_en(variables: Contact_EnQueryVariables, options?: C): Promise<{data: Contact_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_EnQueryVariables, query: string}> {
+        return requester<{data: Contact_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_EnQueryVariables, query: string}, Contact_EnQueryVariables>(Contact_EnDocument, variables, options);
       },
-    gallery_taConnection(variables?: Gallery_TaConnectionQueryVariables, options?: C): Promise<{data: Gallery_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaConnectionQueryVariables, query: string}> {
-        return requester<{data: Gallery_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Gallery_TaConnectionQueryVariables, query: string}, Gallery_TaConnectionQueryVariables>(Gallery_TaConnectionDocument, variables, options);
+    contact_enConnection(variables?: Contact_EnConnectionQueryVariables, options?: C): Promise<{data: Contact_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_EnConnectionQueryVariables, query: string}> {
+        return requester<{data: Contact_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_EnConnectionQueryVariables, query: string}, Contact_EnConnectionQueryVariables>(Contact_EnConnectionDocument, variables, options);
+      },
+    contact_si(variables: Contact_SiQueryVariables, options?: C): Promise<{data: Contact_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_SiQueryVariables, query: string}> {
+        return requester<{data: Contact_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_SiQueryVariables, query: string}, Contact_SiQueryVariables>(Contact_SiDocument, variables, options);
+      },
+    contact_siConnection(variables?: Contact_SiConnectionQueryVariables, options?: C): Promise<{data: Contact_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_SiConnectionQueryVariables, query: string}> {
+        return requester<{data: Contact_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_SiConnectionQueryVariables, query: string}, Contact_SiConnectionQueryVariables>(Contact_SiConnectionDocument, variables, options);
+      },
+    contact_ta(variables: Contact_TaQueryVariables, options?: C): Promise<{data: Contact_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_TaQueryVariables, query: string}> {
+        return requester<{data: Contact_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_TaQueryVariables, query: string}, Contact_TaQueryVariables>(Contact_TaDocument, variables, options);
+      },
+    contact_taConnection(variables?: Contact_TaConnectionQueryVariables, options?: C): Promise<{data: Contact_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_TaConnectionQueryVariables, query: string}> {
+        return requester<{data: Contact_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Contact_TaConnectionQueryVariables, query: string}, Contact_TaConnectionQueryVariables>(Contact_TaConnectionDocument, variables, options);
+      },
+    pages_en(variables: Pages_EnQueryVariables, options?: C): Promise<{data: Pages_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_EnQueryVariables, query: string}> {
+        return requester<{data: Pages_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_EnQueryVariables, query: string}, Pages_EnQueryVariables>(Pages_EnDocument, variables, options);
+      },
+    pages_enConnection(variables?: Pages_EnConnectionQueryVariables, options?: C): Promise<{data: Pages_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_EnConnectionQueryVariables, query: string}> {
+        return requester<{data: Pages_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_EnConnectionQueryVariables, query: string}, Pages_EnConnectionQueryVariables>(Pages_EnConnectionDocument, variables, options);
+      },
+    pages_ta(variables: Pages_TaQueryVariables, options?: C): Promise<{data: Pages_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_TaQueryVariables, query: string}> {
+        return requester<{data: Pages_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_TaQueryVariables, query: string}, Pages_TaQueryVariables>(Pages_TaDocument, variables, options);
+      },
+    pages_taConnection(variables?: Pages_TaConnectionQueryVariables, options?: C): Promise<{data: Pages_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_TaConnectionQueryVariables, query: string}> {
+        return requester<{data: Pages_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_TaConnectionQueryVariables, query: string}, Pages_TaConnectionQueryVariables>(Pages_TaConnectionDocument, variables, options);
+      },
+    pages_si(variables: Pages_SiQueryVariables, options?: C): Promise<{data: Pages_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_SiQueryVariables, query: string}> {
+        return requester<{data: Pages_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_SiQueryVariables, query: string}, Pages_SiQueryVariables>(Pages_SiDocument, variables, options);
+      },
+    pages_siConnection(variables?: Pages_SiConnectionQueryVariables, options?: C): Promise<{data: Pages_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_SiConnectionQueryVariables, query: string}> {
+        return requester<{data: Pages_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Pages_SiConnectionQueryVariables, query: string}, Pages_SiConnectionQueryVariables>(Pages_SiConnectionDocument, variables, options);
+      },
+    blog_page_en(variables: Blog_Page_EnQueryVariables, options?: C): Promise<{data: Blog_Page_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_EnQueryVariables, query: string}> {
+        return requester<{data: Blog_Page_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_EnQueryVariables, query: string}, Blog_Page_EnQueryVariables>(Blog_Page_EnDocument, variables, options);
+      },
+    blog_page_enConnection(variables?: Blog_Page_EnConnectionQueryVariables, options?: C): Promise<{data: Blog_Page_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_EnConnectionQueryVariables, query: string}> {
+        return requester<{data: Blog_Page_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_EnConnectionQueryVariables, query: string}, Blog_Page_EnConnectionQueryVariables>(Blog_Page_EnConnectionDocument, variables, options);
+      },
+    blog_page_si(variables: Blog_Page_SiQueryVariables, options?: C): Promise<{data: Blog_Page_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_SiQueryVariables, query: string}> {
+        return requester<{data: Blog_Page_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_SiQueryVariables, query: string}, Blog_Page_SiQueryVariables>(Blog_Page_SiDocument, variables, options);
+      },
+    blog_page_siConnection(variables?: Blog_Page_SiConnectionQueryVariables, options?: C): Promise<{data: Blog_Page_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_SiConnectionQueryVariables, query: string}> {
+        return requester<{data: Blog_Page_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_SiConnectionQueryVariables, query: string}, Blog_Page_SiConnectionQueryVariables>(Blog_Page_SiConnectionDocument, variables, options);
+      },
+    blog_page_ta(variables: Blog_Page_TaQueryVariables, options?: C): Promise<{data: Blog_Page_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_TaQueryVariables, query: string}> {
+        return requester<{data: Blog_Page_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_TaQueryVariables, query: string}, Blog_Page_TaQueryVariables>(Blog_Page_TaDocument, variables, options);
+      },
+    blog_page_taConnection(variables?: Blog_Page_TaConnectionQueryVariables, options?: C): Promise<{data: Blog_Page_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_TaConnectionQueryVariables, query: string}> {
+        return requester<{data: Blog_Page_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_Page_TaConnectionQueryVariables, query: string}, Blog_Page_TaConnectionQueryVariables>(Blog_Page_TaConnectionDocument, variables, options);
+      },
+    blog_en(variables: Blog_EnQueryVariables, options?: C): Promise<{data: Blog_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_EnQueryVariables, query: string}> {
+        return requester<{data: Blog_EnQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_EnQueryVariables, query: string}, Blog_EnQueryVariables>(Blog_EnDocument, variables, options);
+      },
+    blog_enConnection(variables?: Blog_EnConnectionQueryVariables, options?: C): Promise<{data: Blog_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_EnConnectionQueryVariables, query: string}> {
+        return requester<{data: Blog_EnConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_EnConnectionQueryVariables, query: string}, Blog_EnConnectionQueryVariables>(Blog_EnConnectionDocument, variables, options);
+      },
+    blog_ta(variables: Blog_TaQueryVariables, options?: C): Promise<{data: Blog_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_TaQueryVariables, query: string}> {
+        return requester<{data: Blog_TaQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_TaQueryVariables, query: string}, Blog_TaQueryVariables>(Blog_TaDocument, variables, options);
+      },
+    blog_taConnection(variables?: Blog_TaConnectionQueryVariables, options?: C): Promise<{data: Blog_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_TaConnectionQueryVariables, query: string}> {
+        return requester<{data: Blog_TaConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_TaConnectionQueryVariables, query: string}, Blog_TaConnectionQueryVariables>(Blog_TaConnectionDocument, variables, options);
+      },
+    blog_si(variables: Blog_SiQueryVariables, options?: C): Promise<{data: Blog_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_SiQueryVariables, query: string}> {
+        return requester<{data: Blog_SiQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_SiQueryVariables, query: string}, Blog_SiQueryVariables>(Blog_SiDocument, variables, options);
+      },
+    blog_siConnection(variables?: Blog_SiConnectionQueryVariables, options?: C): Promise<{data: Blog_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_SiConnectionQueryVariables, query: string}> {
+        return requester<{data: Blog_SiConnectionQuery, errors?: { message: string, locations: { line: number, column: number }[], path: string[] }[], variables: Blog_SiConnectionQueryVariables, query: string}, Blog_SiConnectionQueryVariables>(Blog_SiConnectionDocument, variables, options);
       }
     };
   }

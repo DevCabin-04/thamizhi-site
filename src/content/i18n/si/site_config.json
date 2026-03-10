@@ -30,17 +30,16 @@
     "primary": [
       { "name": "මුල් පිටුව", "href": "" },
       { "name": "අප ගැන", "href": "about" },
-      { "name": "දෙපාර්තමේන්තු", "href": "departments" },
-      { "name": "සාමාජිකත්වය", "href": "membership" },
+      { "name": "බ්ලොග්", "href": "blog" },
       { "name": "ප්‍රකාශන", "href": "publications" },
       { "name": "ගැලරිය", "href": "gallery" },
-      { "name": "සිදුවීම්", "href": "events" }
+      { "name": "සිදුවීම්", "href": "events" },
+      { "name": "සම්බන්ධ කරගන්න", "href": "contact" }
     ],
     "footer": [
       { "name": "රහස්‍යතා ප්‍රතිපත්තිය", "href": "privacy" },
       { "name": "සේවා නියමයන්", "href": "terms" },
-      { "name": "පරිත්‍යාගය", "href": "donate" },
-      { "name": "ස්වේච්ඡා සේවකයා", "href": "volunteer" }
+      { "name": "සම්බන්ධ කරගන්න", "href": "contact" }
     ]
   },
   "theme": {
