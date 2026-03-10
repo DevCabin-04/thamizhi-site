@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "build": "tinacms build && astro build",
+    "build:static": "astro build",
     "preview": "astro preview",
-    "predeploy": "bun run build", 
+    "predeploy": "bun run build",
     "deploy": "gh-pages -d dist",
     "tinacms": "tinacms"
   },

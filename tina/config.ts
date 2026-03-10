@@ -29,8 +29,8 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    // Use basePath only in production for GitHub Pages
-    basePath: isDev ? undefined : "thamizhi-site",
+    // basePath only needed for GitHub Pages, not Vercel
+    // basePath: isDev ? undefined : "thamizhi-site",
   },
   media: {
     tina: {
