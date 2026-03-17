@@ -1,0 +1,59 @@
+{
+  "hero": {
+    "title": "Volunteer With Us",
+    "description": "Join our team of dedicated volunteers and make a meaningful impact in preserving and promoting Tamil culture and heritage."
+  },
+  "intro": {
+    "title": "Why Volunteer?",
+    "content": "Volunteering with Thamizhi is a rewarding way to give back to the Tamil community while developing new skills and building lasting connections. Whether you have a few hours a month or can commit to regular involvement, there is a place for you in our organization."
+  },
+  "opportunities": [
+    {
+      "title": "Event Coordination",
+      "description": "Help plan, organize, and manage cultural events, festivals, and community gatherings.",
+      "commitment": "5-10 hours per event"
+    },
+    {
+      "title": "Language Teaching",
+      "description": "Assist in Tamil language classes for children and adults at various skill levels.",
+      "commitment": "2-4 hours per week"
+    },
+    {
+      "title": "Cultural Programs",
+      "description": "Support traditional arts, music, and dance programs by mentoring students or assisting instructors.",
+      "commitment": "3-5 hours per week"
+    },
+    {
+      "title": "Community Outreach",
+      "description": "Help connect with Tamil families in the area and spread awareness about our programs and services.",
+      "commitment": "Flexible schedule"
+    },
+    {
+      "title": "Digital and Media",
+      "description": "Contribute to our website, social media presence, photography, or video documentation of events.",
+      "commitment": "Flexible schedule"
+    },
+    {
+      "title": "Youth Mentorship",
+      "description": "Guide young community members through leadership development and cultural education programs.",
+      "commitment": "2-3 hours per week"
+    }
+  ],
+  "benefits": {
+    "title": "Volunteer Benefits",
+    "items": [
+      "Build meaningful connections within the Tamil community",
+      "Develop leadership and organizational skills",
+      "Contribute to cultural preservation for future generations",
+      "Gain experience in event management and community service",
+      "Receive recognition at annual volunteer appreciation events",
+      "Access to exclusive community programs and resources"
+    ]
+  },
+  "cta": {
+    "title": "Ready to Make a Difference?",
+    "description": "Fill out our volunteer interest form and a member of our team will reach out to discuss how you can get involved.",
+    "button_text": "Contact Us to Volunteer",
+    "button_link": "contact"
+  }
+}

@@ -1,0 +1,92 @@
+---
+import { formatDate, loadUi, getCategoryLabel } from '../utils/i18n';
+
+interface Props {
+  data: Record<string, unknown>;
+  lang: string;
+}
+
+const { data, lang } = Astro.props;
+const { t, ui } = await loadUi(lang);
+---
+
+<article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <!-- Category badge -->
+  {data.category && (
+    <div class="mb-6">
+      <span class="inline-block bg-thamizhi-red-600 text-thamizhi-gold-200 px-4 py-1.5 text-sm font-semibold">
+        {getCategoryLabel(ui, data.category as string)}
+      </span>
+    </div>
+  )}
+
+  <!-- Title -->
+  <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+    {data.title as string}
+  </h1>
+
+  <!-- Author / date -->
+  <div class="flex items-center gap-4 mb-8 pb-8 border-b-2 border-thamizhi-gold-600">
+    {(data.author_image as string) && (
+      <img src={data.author_image as string} alt={data.author as string} class="w-12 h-12 object-cover" />
+    )}
+    <div>
+      <div class="font-semibold text-gray-900">{data.author as string}</div>
+      {(data.author_role as string) && (
+        <div class="text-sm text-gray-600">{data.author_role as string}</div>
+      )}
+      {data.published_date && (
+        <div class="text-sm text-gray-500 mt-1">
+          {formatDate(data.published_date as string | Date, lang)}
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Featured image -->
+  {(data.featured_image as string) && (
+    <div class="mb-10">
+      <img src={data.featured_image as string} alt={data.title as string} class="w-full shadow-lg" />
+    </div>
+  )}
+
+  <!-- Excerpt -->
+  {(data.excerpt as string) && (
+    <p class="text-xl text-gray-700 mb-8 leading-relaxed font-medium">{data.excerpt as string}</p>
+  )}
+
+  <!-- Markdown body (slot from [slug].astro) or legacy HTML content -->
+  <div class="prose prose-lg max-w-none blog-content text-gray-800 leading-relaxed">
+    <slot>
+      {(data.content as string) && (
+        <div set:html={data.content as string} />
+      )}
+    </slot>
+  </div>
+
+  <!-- Tags -->
+  {Array.isArray(data.tags) && data.tags.length > 0 && (
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <div class="flex flex-wrap gap-2">
+        {(data.tags as string[]).map((tag) => (
+          <span class="inline-block bg-thamizhi-gold-100 text-thamizhi-red-600 px-3 py-1 text-sm font-semibold">
+            #{tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  )}
+
+  <!-- Back to blog -->
+  <div class="mt-12 pt-8 border-t border-gray-200">
+    <a
+      href={`/${lang}/blog`}
+      class="inline-flex items-center text-thamizhi-red-600 hover:text-thamizhi-red-700 font-semibold"
+    >
+      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      {t('blog.back_to_blog')}
+    </a>
+  </div>
+</article>

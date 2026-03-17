@@ -1,45 +1,73 @@
 {
   "organization": {
     "name": "Thamizhi",
-    "name_local": "Thamizhi",
-    "tagline": "Preserving Tamil Heritage, Empowering Communities",
-    "description": "A non-profit organization dedicated to promoting Tamil culture, language, and heritage while fostering community engagement and cultural preservation.",
-    "mission": "To preserve, promote, and celebrate Tamil culture and language through education, community programs, and cultural events.",
-    "vision": "To be a leading organization in Tamil cultural preservation and community empowerment worldwide.",
-    "founded": "2010",
-    "registration_number": "NPO-2010-TN-001"
+    "name_local": "தமிழி",
+    "tagline": "The grand dream of the descendants of a nation",
+    "description": "A Sri Lankan Tamil community organization dedicated to preserving and promoting Tamil language, literature, and cultural heritage.",
+    "mission": "Preserving and promoting Tamil language, literature, and cultural heritage through education, cultural events, and community programs.",
+    "vision": "To be a voice for the Tamil community, celebrating our rich heritage and empowering future generations.",
+    "category": "Community Organization",
+    "logo": "/thamizhi.svg",
+    "founded": "2019",
+    "followers": "4400"
   },
   "contact": {
-    "email": "info@thamizhi.org",
-    "phone": "+1 (555) 123-4567",
+    "email": "thamizhi.org@gmail.com",
+    "phone": "",
     "address": {
-      "street": "123 Tamil Heritage Center",
-      "city": "Chennai",
-      "state": "Tamil Nadu",
-      "postal_code": "600001",
-      "country": "India"
+      "street": "",
+      "city": "",
+      "state": "",
+      "postal_code": "",
+      "country": "Sri Lanka"
     },
     "social_media": {
-      "facebook": "https://facebook.com/thamizhi",
-      "twitter": "https://twitter.com/thamizhi",
-      "instagram": "https://instagram.com/thamizhi",
-      "youtube": "https://youtube.com/thamizhi"
+      "facebook": "https://www.facebook.com/thamizhi.organization",
+      "twitter": "",
+      "instagram": "",
+      "youtube": ""
     }
   },
   "navigation": {
     "primary": [
-      { "name": "Home", "href": "" },
-      { "name": "About", "href": "about" },
-      { "name": "Blog", "href": "blog" },
-      { "name": "Publications", "href": "publications" },
-      { "name": "Gallery", "href": "gallery" },
-      { "name": "Events", "href": "events" },
-      { "name": "Contact", "href": "contact" }
+      {
+        "name": "Home",
+        "href": ""
+      },
+      {
+        "name": "About",
+        "href": "about"
+      },
+      {
+        "name": "Events",
+        "href": "events"
+      },
+      {
+        "name": "Gallery",
+        "href": "gallery"
+      },
+      {
+        "name": "News & Updates",
+        "href": "blog"
+      }
     ],
     "footer": [
-      { "name": "Privacy Policy", "href": "privacy" },
-      { "name": "Terms of Service", "href": "terms" },
-      { "name": "Contact Us", "href": "contact" }
+      {
+        "name": "Privacy Policy",
+        "href": "privacy"
+      },
+      {
+        "name": "Volunteer",
+        "href": "volunteer"
+      },
+      {
+        "name": "Terms of Service",
+        "href": "terms"
+      },
+      {
+        "name": "Contact Us",
+        "href": "about#contact"
+      }
     ]
   },
   "theme": {
@@ -51,12 +79,12 @@
   },
   "meta": {
     "title_suffix": "Thamizhi - Tamil Cultural Organization",
-    "description": "Preserving Tamil heritage through education, cultural programs, and community engagement.",
-    "keywords": "Tamil culture, Tamil language, Tamil heritage, cultural preservation, community organization",
-    "author": "Thamizhi Organization"
+    "description": "A Sri Lankan Tamil community organization preserving and promoting Tamil language, literature, and cultural heritage.",
+    "keywords": "Tamil culture, Tamil language, Tamil literature, Sri Lankan Tamil, community organization, Thamizhi",
+    "author": "Thamizhi"
   },
   "footer": {
-    "copyright": "© 2024 Thamizhi. All rights reserved.",
-    "description": "Preserving Tamil heritage and empowering communities worldwide through cultural education and community programs."
+    "copyright": "© 2025 Thamizhi. All rights reserved.",
+    "description": "The grand dream of the descendants of a nation"
   }
 }

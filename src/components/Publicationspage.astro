@@ -1,0 +1,223 @@
+---
+import { loadUi } from '../utils/i18n';
+
+interface Props {
+  data: any;
+  lang: string;
+}
+
+const { data, lang } = Astro.props;
+const { t } = await loadUi(lang);
+
+const format_file_size = (size_mb: number): string => {
+  if (!size_mb) return '';
+  return size_mb < 1 ? `${(size_mb * 1024).toFixed(0)} KB` : `${size_mb.toFixed(1)} MB`;
+};
+
+const get_file_icon = (file_type: string): string => {
+  const icons: Record<string, string> = {
+    PDF: 'M7 18h10v-1H7v1zM7 14h10v-1H7v1zM7 10h10V9H7v1z',
+    DOC: 'M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z',
+    DOCX: 'M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z',
+    PPT: 'M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6z',
+    Audio: 'M12 3v9.28c-.47-.17-.97-.28-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z',
+    Video: 'M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3h-2zM8 17H6v-2h2v2zm0-4H6v-2h2v2zm0-4H6V7h2v2zm10 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z',
+    default: 'M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6z',
+  };
+  return icons[file_type] || icons.default;
+};
+
+const categories_label = t('publications.categories');
+const categories_desc = t('publications.categories_desc');
+const resources_label = t('publications.resources');
+const featured_label = t('publications.featured');
+const featured_desc = t('publications.featured_desc');
+const by_label = t('publications.by');
+const download_label = t('publications.download');
+const preview_label = t('publications.preview');
+const guidelines_label = t('publications.submission_guidelines');
+const submit_label = t('publications.submit_resource');
+---
+
+<!-- Page Header -->
+<section class="bg-thamizhi-red-600 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div
+      class="absolute top-0 left-0 w-full h-full"
+      style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;"
+    />
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">{data.hero?.title || 'Resource Library'}</h1>
+      <h2 class="text-2xl lg:text-3xl font-medium text-thamizhi-gold-200 mb-6">{data.hero?.title_tamil || 'வெளியீடுகள்'}</h2>
+      <p class="text-xl text-thamizhi-gold-100">{data.hero?.description || 'Access our collection of Tamil resources, educational materials, and cultural documents.'}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Categories Overview -->
+{data.categories && data.categories.length > 0 && (
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{categories_label}</h2>
+        <p class="text-lg text-gray-600">{categories_desc}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {data.categories.map((category: any) => (
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 bg-thamizhi-gold-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-thamizhi-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{category.name}</h3>
+            <h4 class="text-lg font-medium text-thamizhi-red-600 mb-3">{category.name_tamil}</h4>
+            <p class="text-gray-600 mb-4">{category.description}</p>
+            <div class="text-2xl font-bold text-thamizhi-red-600">{category.count}</div>
+            <p class="text-sm text-gray-500">{resources_label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Featured Resources -->
+{data.featured_resources && data.featured_resources.length > 0 && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{featured_label}</h2>
+        <p class="text-lg text-gray-600">{featured_desc}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {data.featured_resources.map((resource: any) => (
+          <div class="bg-slate-50 rounded-lg p-6 flex gap-6">
+            <div class="w-32 h-40 bg-thamizhi-red-600 rounded-lg flex-shrink-0 flex flex-col items-center justify-center p-3">
+              {resource.cover_image ? (
+                <img src={resource.cover_image} alt={resource.title} class="w-full h-full object-cover rounded" />
+              ) : (
+                <>
+                  <svg class="w-12 h-12 text-white mb-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d={get_file_icon(resource.file_type)} />
+                  </svg>
+                  <div class="text-white text-center">
+                    <div class="text-xs font-semibold mb-1">{resource.file_type}</div>
+                    <div class="text-xs">{resource.year}</div>
+                  </div>
+                </>
+              )}
+            </div>
+            <div class="flex-1">
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900 mb-1">{resource.title}</h3>
+                  <h4 class="text-lg text-thamizhi-red-600 mb-3">{resource.title_tamil}</h4>
+                </div>
+                <span class="inline-block bg-thamizhi-gold-100 text-thamizhi-red-600 px-3 py-1 text-xs font-semibold rounded">{resource.category}</span>
+              </div>
+              <p class="text-gray-600 mb-2">
+                {by_label}: <span>{resource.author}</span>
+                {resource.author_tamil && (
+                  <span class="block text-sm text-gray-500">{resource.author_tamil}</span>
+                )}
+              </p>
+              <p class="text-sm text-gray-500 mb-3">
+                {resource.pages && <span>{resource.pages} pages &bull; </span>}
+                <span>{resource.year}</span>
+                {resource.file_size_mb && <span> &bull; {format_file_size(resource.file_size_mb)}</span>}
+                {resource.language && <span> &bull; {resource.language}</span>}
+              </p>
+              <p class="text-gray-700 mb-4">{resource.description}</p>
+              {resource.tags && resource.tags.length > 0 && (
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {resource.tags.map((tag: string) => (
+                    <span class="inline-block bg-gray-200 text-gray-700 px-2 py-1 text-xs rounded">#{tag}</span>
+                  ))}
+                </div>
+              )}
+              <div class="flex items-center gap-3">
+                <a
+                  href={resource.file_url}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-thamizhi-red-600 text-white px-4 py-2 rounded-lg hover:bg-thamizhi-red-700 transition-colors inline-flex items-center gap-2"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  {download_label}
+                </a>
+                {resource.file_url && resource.file_type === 'PDF' && (
+                  <a
+                    href={resource.file_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-slate-50 transition-colors"
+                  >
+                    {preview_label}
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- About Section -->
+{data.about_section && (
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">{data.about_section.title}</h2>
+      {data.about_section.title_tamil && (
+        <h3 class="text-2xl font-medium text-thamizhi-red-600 mb-6">{data.about_section.title_tamil}</h3>
+      )}
+      <p class="text-lg text-gray-600 mb-4">{data.about_section.description}</p>
+      {data.about_section.description_tamil && (
+        <p class="text-md text-gray-600">{data.about_section.description_tamil}</p>
+      )}
+    </div>
+  </section>
+)}
+
+<!-- Submission Section -->
+{data.submission_section && (
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        {data.submission_section.title || t('publications.share_resources')}
+      </h2>
+      {data.submission_section.title_tamil && (
+        <h3 class="text-2xl font-medium text-thamizhi-red-600 mb-6">{data.submission_section.title_tamil}</h3>
+      )}
+      <p class="text-lg text-gray-600 mb-8">{data.submission_section.description}</p>
+      {data.submission_section.guidelines && data.submission_section.guidelines.length > 0 && (
+        <div class="bg-slate-50 rounded-lg p-6 mb-8 text-left max-w-2xl mx-auto">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">{guidelines_label}</h4>
+          <ul class="space-y-2">
+            {data.submission_section.guidelines.map((guideline: string) => (
+              <li class="text-gray-700 flex items-start">
+                <svg class="w-5 h-5 text-thamizhi-red-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                {guideline}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <a
+        href={`mailto:${data.submission_section.contact_email}`}
+        class="inline-block bg-thamizhi-red-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-thamizhi-red-700 transition-colors"
+      >
+        {submit_label}
+      </a>
+    </div>
+  </section>
+)}

@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "මුල් පිටුව",
+    "about": "අප ගැන",
+    "initiatives": "මුලපිරීම්",
+    "blog": "පුවත්",
+    "publications": "ප්‍රකාශන",
+    "gallery": "ගැලරිය",
+    "events": "සිදුවීම්",
+    "membership": "සාමාජිකත්වය",
+    "contact": "සම්බන්ධ වන්න"
+  },
+  "footer": {
+    "registered_npo": "ලියාපදිංචි NPO:",
+    "founded": "ආරම්භ කළේ:",
+    "quick_links": "ඉක්මන් සබැඳි",
+    "contact_us": "අප සම්බන්ධ කරන්න",
+    "all_rights_reserved": "සියලු හිමිකම් ඇවිරිණි"
+  },
+  "aria": {
+    "facebook": "Facebook",
+    "email": "ඊමේල්"
+  },
+  "home": {
+    "learn_more": "තව දැනගන්න",
+    "view_all": "සියල්ල බලන්න",
+    "get_involved": "සම්බන්ධ වන්න",
+    "our_programs": "අපගේ වැඩසටහන්",
+    "programs_desc": "තමිළ සංස්කෘතිය, භාෂාව සහ උරුමය සුරැකීමට සහ ප්‍රවර්ධනය කිරීමට නිර්මාණය කර ඇති අපගේ විවිධ වැඩසටහන් ගවේෂණය කරන්න.",
+    "latest_news": "නවතම පුවත් සහ සිදුවීම්",
+    "read_more": "තව කියවන්න",
+    "explore_articles": "අපගේ සියලුම ලිපි සහ යාවත්කාලීන ගවේෂණය කරන්න"
+  },
+  "about": {
+    "about_us": "අප ගැන",
+    "our_mission": "අපගේ මෙහෙවර",
+    "our_vision": "අපගේ දැක්ම",
+    "core_values": "අපගේ මූලික වටිනාකම්",
+    "core_values_desc": "අපගේ වැඩ කටයුතු මඟ පෙන්වන සහ තමිළ ප්‍රජාවට අපගේ කැපවීම නිර්වචනය කරන මූලධර්ම.",
+    "our_history": "අපගේ ඉතිහාසය",
+    "leadership_team": "නායකත්ව කණ්ඩායම",
+    "our_programs": "අපගේ වැඩසටහන්",
+    "our_achievements": "අපගේ ජයග්‍රහණ",
+    "recent_awards": "මෑත සම්මාන සහ පිළිගැනීම්",
+    "get_in_touch": "සම්බන්ධ වන්න"
+  },
+  "events": {
+    "event_categories": "සිදුවීම් කාණ්ඩ",
+    "discover_events": "ඔබට උනන්දු සිදුවීම් සොයා ගන්න",
+    "annual_events": "වාර්ෂික සිදුවීම්",
+    "upcoming": "ඉදිරි සිදුවීම්",
+    "upcoming_desc": "මෙම උත්තේජනකර ඉදිරි සිදුවීම් මග හැරිය නොයුතුය",
+    "registration_required": "ලියාපදිංචිය අවශ්‍යයි",
+    "registration_progress": "ලියාපදිංචි ප්‍රගතිය",
+    "registered": "ලියාපදිංචි",
+    "register_now": "දැන් ලියාපදිංචි වන්න",
+    "more_details": "වැඩි විස්තර",
+    "join_program": "වැඩසටහනට සම්බන්ධ වන්න",
+    "recent_past": "මෑත අතීත සිදුවීම්",
+    "past_desc": "අපගේ සාර්ථක අතීත සිදුවීම් දෙස බලන්න",
+    "attendees": "සහභාගිවන්නන්",
+    "view_gallery": "සිදුවීම් ගැලරිය බලන්න",
+    "submit_proposal": "සිදුවීම් යෝජනාව ඉදිරිපත් කරන්න",
+    "event_guidelines": "සිදුවීම් මාර්ගෝපදේශ"
+  },
+  "contact": {
+    "contact_us": "අප හා සම්බන්ධ වන්න",
+    "how_to_reach": "අප හා සම්බන්ධ වන ආකාරය",
+    "send_message": "අපට පණිවිඩයක් එවන්න",
+    "first_name": "මුල් නම *",
+    "last_name": "අවසන් නම *",
+    "email": "විද්‍යුත් තැපැල් ලිපිනය *",
+    "phone": "දුරකථන අංකය",
+    "subject": "විෂයය *",
+    "select_topic": "මාතෘකාවක් තෝරන්න",
+    "general_inquiry": "සාමාන්‍ය විමසීම",
+    "service_request": "සේවා ඉල්ලීම",
+    "complaint": "පැමිණිල්ල",
+    "suggestion": "යෝජනාව",
+    "technical_support": "තාක්ෂණික සහාය",
+    "media_inquiry": "මාධ්‍ය විමසීම",
+    "other": "වෙනත්",
+    "message": "පණිවිඩය *",
+    "message_placeholder": "ඔබට ඵලදායී ලෙස සහාය වීමට අපට හැකි වන පරිදි හැකිතාක් විස්තර සපයන්න.",
+    "privacy_consent": "මම කියවා එකඟ වන බව පිළිගනිමි",
+    "privacy_policy": "රහස්‍යතා ප්‍රතිපත්තිය",
+    "privacy_suffix": "සහ මගේ තොරතුරු භාවිතා කරන ආකාරය තේරුම් ගනිමි. *",
+    "send": "පණිවිඩය යවන්න",
+    "emergency": "හදිසි සම්බන්ධතා",
+    "office_hours": "කාර්යාල වේලාවන්",
+    "visit_office": "අපගේ කාර්යාලයට පිවිසෙන්න",
+    "faq": "නිතර අසන ප්‍රශ්න",
+    "form_unavailable": "අපගේ අන්තර්ජාල පෝරමය දැනට ලබාගත නොහැක. කරුණාකර කෙලින්ම ඊමේල් හරහා සම්බන්ධ වන්න:"
+  },
+  "gallery": {
+    "photo_categories": "ඡායාරූප කාණ්ඩ",
+    "browse_by_category": "කාණ්ඩය අනුව ඡායාරූප බ්‍රවුස් කරන්න",
+    "photos": "ඡායාරූප",
+    "submit_photos": "ඡායාරූප ඉදිරිපත් කරන්න",
+    "photo_guidelines": "ඡායාරූප මාර්ගෝපදේශ",
+    "share_photos": "ඔබේ ඡායාරූප බෙදා ගන්න",
+    "share_photos_desc": "ඔබගේ සිදුවීම් ඡායාරූප බෙදා ගැනීමෙන් අපගේ ප්‍රජාවේ ගමන ලේඛනගත කිරීමට උදව් කරන්න."
+  },
+  "membership": {
+    "plans": "සාමාජික සැලසුම්",
+    "plans_desc": "ඔබේ අවශ්‍යතාවන්ට වඩාත් සුදුසු සාමාජිකත්වය තෝරන්න",
+    "apply_now": "දැන් අයදුම් කරන්න",
+    "start_application": "අයදුම්පත ආරම්භ කරන්න",
+    "email_us": "අපට විද්‍යුත් තැපෑල",
+    "call_us": "අපට ඇමතන්න",
+    "office_hours": "කාර්යාල වේලාවන්",
+    "ready_to_join": "අපගේ ප්‍රජාවට එකතු වීමට සූදානම්ද?",
+    "ready_to_join_desc": "අද සාමාජිකයෙකු වී ඔබ වටා ඇති විචිත්‍රවත් තමිළ ප්‍රජාව සමඟ සම්බන්ධ වන්න.",
+    "learn_more_about_us": "අප ගැන වැඩිදුර දැනගන්න"
+  },
+  "publications": {
+    "categories": "සම්පත් කාණ්ඩ",
+    "categories_desc": "අපගේ විවිධ තමිළ සම්පත් එකතුව ගවේෂණය කරන්න",
+    "resources": "සම්පත්",
+    "featured": "විශේෂාංග සම්පත්",
+    "featured_desc": "මෑතකදී එකතු කළ හා ජනප්‍රිය සම්පත්",
+    "by": "විසින්",
+    "download": "බාගන්න",
+    "preview": "පෙරදසුන",
+    "submission_guidelines": "ඉදිරිපත් කිරීමේ මාර්ගෝපදේශ",
+    "submit_resource": "සම්පත ඉදිරිපත් කරන්න",
+    "share_resources": "ඔබේ සම්පත් බෙදා ගන්න"
+  },
+  "blog": {
+    "title": "පුවත් සහ යාවත්කාලීන",
+    "all_posts": "සියලුම පළ කිරීම්",
+    "read_more": "තව කියවන්න",
+    "no_posts": "තවම බ්ලොග් පළ කිරීම් නැත",
+    "coming_soon": "ඉක්මනින් තවත් අන්තර්ගතය!",
+    "back_to_blog": "පුවත් වෙත ආපසු"
+  },
+  "privacy": {
+    "last_updated": "අවසන් යාවත්කාලීනය"
+  },
+  "volunteer": {
+    "opportunities": "ස්වේච්ඡා අවස්ථා"
+  },
+  "newsletter": {
+    "coming_soon": "පුවත්පත් දායකත්වය ළඟදීම.",
+    "contact_instead": "අප හා සම්බන්ධ වන්න"
+  },
+  "categories": {
+    "events": "සිදුවීම්",
+    "culture": "සංස්කෘතිය",
+    "student-life": "ශිෂ්‍ය ජීවිතය",
+    "language": "භාෂාව",
+    "community": "ප්‍රජාව",
+    "announcements": "නිවේදන"
+  }
+}

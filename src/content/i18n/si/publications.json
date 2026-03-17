@@ -47,7 +47,11 @@
       "cover_color": "from-blue-500 to-blue-700",
       "available": true,
       "price": "$29.99",
-      "format": ["දෘඪකවර", "මෘදුකවර", "විද්‍යුත් පොත"]
+      "format": [
+        "දෘඪකවර",
+        "මෘදුකවර",
+        "විද්‍යුත් පොත"
+      ]
     },
     {
       "id": "modern_poetry",
@@ -61,7 +65,10 @@
       "cover_color": "from-green-500 to-green-700",
       "available": true,
       "price": "$24.99",
-      "format": ["මෘදුකවර", "විද්‍යුත් පොත"]
+      "format": [
+        "මෘදුකවර",
+        "විද්‍යුත් පොත"
+      ]
     },
     {
       "id": "grammar_simplified",
@@ -75,7 +82,11 @@
       "cover_color": "from-orange-500 to-orange-700",
       "available": true,
       "price": "$19.99",
-      "format": ["මෘදුකවර", "විද්‍යුත් පොත", "ශ්‍රව්‍ය"]
+      "format": [
+        "මෘදුකවර",
+        "විද්‍යුත් පොත",
+        "ශ්‍රව්‍ය"
+      ]
     },
     {
       "id": "cultural_festivals",
@@ -89,7 +100,10 @@
       "cover_color": "from-purple-500 to-purple-700",
       "available": false,
       "price": "$32.99",
-      "format": ["දෘඪකවර", "විද්‍යුත් පොත"],
+      "format": [
+        "දෘඪකවර",
+        "විද්‍යුත් පොත"
+      ],
       "release_date": "2024-06-15"
     }
   ],

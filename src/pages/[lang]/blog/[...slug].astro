@@ -1,36 +1,42 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import BlogPost from "../../../components/BlogPost.jsx";
-import client from "../../../../tina/__generated__/client";
-import fs from "fs";
-import path from "path";
+import Layout from '../../../layouts/Layout.astro';
+import BlogPost from '../../../components/BlogPost.astro';
+import { getCollection } from 'astro:content';
+import { supportedLangs, defaultLang } from '../../../utils/i18n';
 
 export async function getStaticPaths() {
-  const supportedLangs = ["en", "ta", "si"];
-  const paths = [];
+  const allPosts = await getCollection('blog');
+
+  // Build a map: slug → entry per language
+  const bySlug = new Map<string, Map<string, (typeof allPosts)[0]>>();
+
+  for (const post of allPosts) {
+    // id format: "en/welcome.md" or "ta/post.md"
+    const parts = post.id.split('/');
+    const postLang = parts.length > 1 ? parts[0] : 'en';
+    const normalizedSlug =
+      (post.data.route_slug as string) || parts[parts.length - 1].replace(/\.md$/, '');
+
+    if (!bySlug.has(normalizedSlug)) bySlug.set(normalizedSlug, new Map());
+    bySlug.get(normalizedSlug)!.set(postLang, post);
+  }
+
+  const paths: Array<{
+    params: { lang: string; slug: string };
+    props: { entry: (typeof allPosts)[0]; lang: string };
+  }> = [];
 
   for (const lang of supportedLangs) {
-    const contentDir = path.join(process.cwd(), `src/content/blog/${lang}`);
+    for (const [slug, langMap] of bySlug) {
+      // Use native language post if available, else fall back to default, then EN
+      const entry =
+        langMap.get(lang) ??
+        langMap.get(defaultLang) ??
+        langMap.get('en') ??
+        [...langMap.values()][0];
 
-    // Check if directory exists
-    if (!fs.existsSync(contentDir)) {
-      console.warn(`Blog directory not found for language: ${lang}`);
-      continue;
-    }
-
-    const files = fs.readdirSync(contentDir);
-
-    for (const file of files) {
-      if (file.endsWith(".json")) {
-        const filePath = path.join(contentDir, file);
-        const fileContent = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-
-        if (fileContent.slug) {
-          paths.push({
-            params: { lang, slug: fileContent.slug },
-            props: { lang, filename: file.replace(".json", "") },
-          });
-        }
+      if (entry) {
+        paths.push({ params: { lang, slug }, props: { entry, lang } });
       }
     }
   }
@@ -38,38 +44,16 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { lang, slug } = Astro.params;
-const { filename } = Astro.props;
+const { lang } = Astro.params;
+const { entry } = Astro.props;
 
-const relativePath = `${filename}.json`;
-
-// Use the correct query based on language
-const queryName = `blog_${lang}`;
-let tinaData;
-
-try {
-  // Dynamically call the correct language query
-  // @ts-ignore - TypeScript doesn't recognize dynamic query names, but they exist at runtime
-  if (client.queries[queryName]) {
-    // @ts-ignore - Dynamic query access is safe here
-    tinaData = await client.queries[queryName]({
-      relativePath,
-    });
-  } else {
-    console.warn(`Query ${queryName} not found, falling back to blog_en`);
-    tinaData = await client.queries.blog_en({
-      relativePath,
-    });
-  }
-} catch (error) {
-  console.error(`Error loading blog post:`, error);
-  tinaData = { data: {} };
-}
-
-const blogPost = tinaData.data?.[`blog_${lang}`] || {};
-const pageTitle = blogPost.title || "Blog Post";
+const page_title = entry.data.title || 'Blog Post';
+const postData = {
+  ...entry.data,
+  content: entry.rendered?.html ?? entry.body ?? '',
+};
 ---
 
-<Layout title={pageTitle} lang={lang}>
-  <BlogPost props={tinaData} lang={lang} client:load />
+<Layout title={page_title} lang={lang}>
+  <BlogPost data={postData} lang={lang} />
 </Layout>

@@ -1,54 +1,38 @@
 ---
-// src/pages/events.astro
-import Layout from "../../layouts/Layout.astro";
-import EventsPage from "../../components/Eventspage.jsx";
-import { getLangFromUrl, loadTina, loadContent, defaultLang, supportedLangs } from "../../utils/i18n.js";
+import Layout from '../../layouts/Layout.astro';
+import EventsPage from '../../components/Eventspage.astro';
+import InitiativesPage from '../../components/Initiativespage.astro';
+import PublicationsPage from '../../components/Publicationspage.astro';
+import { loadContent, defaultLang, supportedLangs } from '../../utils/i18n';
 
-// Static Path Generation for supported languages
-export async function getStaticPaths() {
-//   const supportedLanguages = ['en', 'ta', 'si'];
-  return supportedLangs.map((lang) => ({
-    params: { lang },
-    props: { lang },
-  }));
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({ params: { lang }, props: { lang } }));
 }
 
-// Get language from props
 const { lang } = Astro.props;
-const currentLang = lang || defaultLang;
+const current_lang = lang || defaultLang;
 
-// Determine the language from the URL, default to 'en'
-// const lang = getLangFromUrl(Astro.url) || "en";
+const [eventsData, initiativesData, publicationsData, site_config] = await Promise.all([
+  loadContent(current_lang, 'events'),
+  loadContent(current_lang, 'initiatives'),
+  loadContent(current_lang, 'publications'),
+  loadContent(current_lang, 'site_config'),
+]);
 
-// Fetch the content for the events page from TinaCMS
-const pageResponse = await loadTina(currentLang, "events");
-
-// Fetch the global site configuration
-const siteConfig = await loadContent(currentLang, "site_config");
-
-// Prepare props to be passed to the interactive React component
-const tinaProps = {
-  data: pageResponse.data,
-  query: pageResponse.query,
-  variables: pageResponse.variables,
-};
-
-// Extract the language-specific data for use in the Astro layout
-const eventsData = (pageResponse.data as any)[`events_${currentLang}`] || {};
+const org = site_config.organization as Record<string, string> | undefined;
+const hero = eventsData.hero as Record<string, string> | undefined;
 ---
 
 <Layout
-  title={`Events - ${siteConfig.organization?.name}`}
-  description={eventsData.hero?.description || "Upcoming events and activities from our organization"}
-  lang={currentLang}
+  title={`${hero?.title || 'Events'} - ${org?.name}`}
+  description={hero?.description}
+  lang={current_lang}
 >
-  {/* 
-    Render the interactive EventsPage component on the client.
-    'client:load' ensures the component's JavaScript is loaded and hydrated as soon as the page loads.
-  */}
-  <EventsPage
-    props={tinaProps}
-    lang={currentLang}
-    client:load
-  />
+  <EventsPage data={eventsData} lang={current_lang} />
+  <section id="initiatives">
+    <InitiativesPage data={initiativesData} lang={current_lang} />
+  </section>
+  <section id="publications">
+    <PublicationsPage data={publicationsData} lang={current_lang} />
+  </section>
 </Layout>

@@ -1,0 +1,431 @@
+---
+import { getUrlWithBase, formatDate, loadUi, getCategoryLabel } from '../utils/i18n';
+import AnnouncementBanner from './AnnouncementBanner.astro';
+import LucideIcon from './common/LucideIcon.astro';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  data: any;
+  lang: string;
+}
+
+const { data, lang } = Astro.props;
+const { t, ui } = await loadUi(lang);
+
+const learn_more = t('home.learn_more');
+const view_all = t('home.view_all');
+const get_involved = t('home.get_involved');
+const our_programs = t('home.our_programs');
+const programs_desc = t('home.programs_desc');
+const latest_news = t('home.latest_news');
+
+const mapDeptIcon = (icon?: string): string => {
+  switch (icon) {
+    case 'education':
+      return 'book-open';
+    case 'community':
+      return 'users';
+    case 'youth':
+      return 'sparkle';
+    case 'cultural':
+      return 'badge-check';
+    default:
+      return 'badge-check';
+  }
+};
+
+const mapQuickActionIcon = (icon?: string): string => {
+  switch (icon) {
+    case 'volunteer':
+      return 'user-plus';
+    case 'newsletter':
+      return 'mail';
+    case 'events':
+      return 'calendar';
+    case 'contact':
+      return 'mail';
+    default:
+      return 'hand';
+  }
+};
+
+// extract youtube video id
+const get_youtube_id = (url: string): string => {
+  return url?.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/)?.[1] || '';
+};
+
+// Load blog posts for this language (fall back to English)
+const allPosts = await getCollection('blog');
+const langPosts = allPosts.filter((p) => {
+  const postLang = (p.data.lang as string) || p.id.split('/')[0];
+  return postLang === lang;
+});
+const blog_posts = (langPosts.length > 0
+  ? langPosts
+  : allPosts.filter((p) => {
+      const postLang = (p.data.lang as string) || p.id.split('/')[0];
+      return postLang === 'en';
+    })
+)
+  .sort(
+    (a, b) =>
+      new Date(b.data.published_date ?? 0).getTime() -
+      new Date(a.data.published_date ?? 0).getTime(),
+  )
+  .slice(0, data.recent_articles?.posts_to_show ?? 3)
+  .map((p) => ({
+    ...p.data,
+    _slug: (p.data.route_slug as string) || p.id.replace(/^[^/]+\//, '').replace(/\.md$/, ''),
+  }));
+---
+
+<!-- Announcements Bar (React island — handles dismiss button) -->
+{data.announcements && data.announcements.length > 0 && (
+  <AnnouncementBanner announcements={data.announcements} />
+)}
+
+<!-- Hero Section -->
+<section class="relative bg-gray-900 text-white">
+  {data.hero?.background_image && (
+    <div class="absolute inset-0">
+      <img src={data.hero.background_image} alt="Hero background" class="w-full h-full object-cover" />
+    </div>
+  )}
+  <div class="absolute inset-0 bg-thamizhi-red-600 opacity-90"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+    <div class={`grid gap-8 ${data.hero?.hero_video_url ? 'lg:grid-cols-2 items-center' : ''}`}>
+      <div class={data.hero?.hero_video_url ? '' : 'max-w-3xl'}>
+        <h1 class="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          {data.hero?.title || 'Preserving Tamil Heritage, Empowering Communities'}
+        </h1>
+        <p class="text-xl text-white/90 mb-8 leading-relaxed">
+          {data.hero?.description || 'Join us in celebrating the rich culture, language, and traditions of Tamil heritage through education, community programs, and cultural events.'}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={getUrlWithBase(data.hero?.cta_primary?.href || '/membership', lang)} class="inline-block bg-white text-thamizhi-charcoal-800 px-6 py-3 font-semibold hover:bg-gray-100 transition-colors">
+            {data.hero?.cta_primary?.text || 'Learn More'}
+          </a>
+          <a href={getUrlWithBase(data.hero?.cta_secondary?.href || '/about', lang)} class="inline-block border-2 border-white text-white px-6 py-3 font-semibold hover:bg-white hover:text-thamizhi-charcoal-800 transition-colors">
+            {data.hero?.cta_secondary?.text || 'Get Involved'}
+          </a>
+        </div>
+      </div>
+      {data.hero?.hero_video_url && (
+        <div class="lg:pl-8">
+          <div class="bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-lg overflow-hidden shadow-2xl">
+            <div class="relative" style="padding-bottom: 56.25%;">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${get_youtube_id(data.hero.hero_video_url)}`}
+                title={data.hero.hero_video_title || 'Hero Video'}
+
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            {data.hero.hero_video_title && (
+              <div class="p-4 bg-white/5 border-t border-white/10">
+                <h3 class="text-lg font-semibold text-white">{data.hero.hero_video_title}</h3>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<!-- Mission Statement -->
+{data.mission_statement && (
+  <section class="py-12 bg-amber-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">{data.mission_statement.title}</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">{data.mission_statement.content}</p>
+    </div>
+  </section>
+)}
+
+<!-- Featured Cards Section -->
+{data.featured_departments && data.featured_departments.length > 0 && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {data.featured_departments.slice(0, 3).map((dept: any) => (
+          <article class="group">
+            <div class="aspect-video bg-gray-200 mb-4 overflow-hidden">
+              {dept.image ? (
+                <img src={dept.image} alt={dept.name} class="w-full h-full object-cover" />
+              ) : (
+                <div class="w-full h-full bg-thamizhi-red-600 flex items-center justify-center">
+                  <LucideIcon name={mapDeptIcon(dept.icon)} class="w-16 h-16 text-white/70" />
+                </div>
+              )}
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-thamizhi-red-600 transition-colors">{dept.name}</h3>
+            <p class="text-gray-600 mb-4">{dept.description}</p>
+            <a href={getUrlWithBase(dept.href, lang)} class="text-thamizhi-red-600 font-semibold hover:text-thamizhi-red-700 transition-colors inline-flex items-center">
+              {learn_more}
+              <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Latest News/Events Section -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-900">{latest_news}</h2>
+      <a href={getUrlWithBase('/events', lang)} class="text-thamizhi-red-600 font-semibold hover:text-thamizhi-red-700 transition-colors inline-flex items-center">
+        {view_all}
+        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {data.recent_events?.map((event: any) => (
+        <a href={getUrlWithBase('events', lang)} class="bg-white group hover:shadow-md transition-shadow block">
+          <div class="aspect-video bg-gray-200 overflow-hidden">
+            <div class="w-full h-full bg-thamizhi-red-600 flex items-center justify-center">
+              <LucideIcon name="calendar" class="w-12 h-12 text-white/70" />
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="text-sm text-gray-500 mb-2">
+              {new Date(event.date).toLocaleDateString(lang === 'ta' ? 'ta-IN' : lang === 'si' ? 'si-LK' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-thamizhi-red-600 transition-colors">{event.title}</h3>
+            <p class="text-gray-600 text-sm line-clamp-2">{event.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Statistics Bar -->
+<section class="py-12 bg-white border-t border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      {data.statistics?.map((stat: any) => (
+        <div>
+          <div class="text-4xl font-bold text-thamizhi-red-600 mb-1">{stat.number}</div>
+          <div class="text-sm text-gray-600 uppercase tracking-wide">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Departments Overview -->
+{data.featured_departments && data.featured_departments.length > 0 && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{our_programs}</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">{programs_desc}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {data.featured_departments.map((dept: any) => (
+          <div class="border border-gray-200 p-6 hover:border-thamizhi-red-600 hover:shadow-md transition-all">
+            <div class="flex items-start mb-4">
+              <div class="w-12 h-12 bg-thamizhi-red-600 rounded flex-shrink-0 flex items-center justify-center">
+                <LucideIcon name={mapDeptIcon(dept.icon)} class="w-6 h-6 text-white" />
+              </div>
+              <div class="ml-4 flex-1">
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">{dept.name}</h3>
+                <p class="text-gray-600 mb-4">{dept.description}</p>
+                <a href={getUrlWithBase(dept.href, lang)} class="text-thamizhi-red-600 font-semibold hover:text-thamizhi-red-700 transition-colors inline-flex items-center">
+                  {learn_more}
+                  <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Featured Video Section -->
+{data.featured_video && data.featured_video.youtube_url && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {data.featured_video.title && (
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-gray-900">{data.featured_video.title}</h2>
+        </div>
+      )}
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white border-2 border-gray-200 rounded-lg overflow-hidden shadow-lg">
+          <div class="relative" style="padding-bottom: 56.25%;">
+            <iframe
+              class="absolute top-0 left-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${get_youtube_id(data.featured_video.youtube_url)}`}
+              title={data.featured_video.video_title || 'Video'}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          {(data.featured_video.video_title || data.featured_video.video_description) && (
+            <div class="p-6 bg-gray-50 border-t border-gray-200">
+              {data.featured_video.video_title && (
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">{data.featured_video.video_title}</h3>
+              )}
+              {data.featured_video.video_description && (
+                <p class="text-gray-600">{data.featured_video.video_description}</p>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Quick Actions -->
+{data.quick_actions && data.quick_actions.length > 0 && (
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{get_involved}</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {data.quick_actions.map((action: any) => (
+          <a href={getUrlWithBase(action.href, lang)} class="bg-white border border-gray-200 p-6 text-center hover:border-thamizhi-red-600 hover:shadow-md transition-all group">
+            <div class="w-16 h-16 bg-thamizhi-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <LucideIcon name={mapQuickActionIcon(action.icon)} class="w-8 h-8 text-white" />
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2 group-hover:text-thamizhi-red-600">{action.title}</h3>
+            <p class="text-sm text-gray-600">{action.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Recent Articles/Blog Posts Section -->
+{data.recent_articles && data.recent_articles.posts_to_show > 0 && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{data.recent_articles.section_title}</h2>
+        {data.recent_articles.section_description && (
+          <p class="text-lg text-gray-600">{data.recent_articles.section_description}</p>
+        )}
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {blog_posts.slice(0, 2).map((post: any) => (
+          <a href={getUrlWithBase(`blog/${post._slug}`, lang)} class="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-thamizhi-red-600 hover:shadow-lg transition-all group block">
+            <div class="aspect-video bg-gray-200">
+              {post.featured_image && (
+                <img src={post.featured_image} alt={post.title} class="w-full h-full object-cover" />
+              )}
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-xs font-semibold text-thamizhi-red-600 uppercase">{getCategoryLabel(ui, post.category)}</span>
+                <span class="text-xs text-gray-500">{formatDate(post.published_date, lang)}</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-thamizhi-red-600">{post.title}</h3>
+              <p class="text-gray-600 mb-4">{post.excerpt}</p>
+              <div class="flex items-center text-thamizhi-red-600 font-semibold group-hover:gap-2 transition-all">
+                {t('home.read_more')}
+                <svg class="w-4 h-4 ml-1 group-hover:ml-2 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+        <a href={getUrlWithBase(data.recent_articles.view_all_href || 'blog', 'en')} class="bg-gradient-to-br from-thamizhi-red-600 to-thamizhi-charcoal-700 rounded-lg overflow-hidden hover:from-thamizhi-red-700 hover:to-thamizhi-charcoal-900 transition-all flex items-center justify-center p-8 text-center cursor-pointer">
+          <div>
+            <div class="w-16 h-16 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">{data.recent_articles.view_all_text}</h3>
+            <p class="text-thamizhi-amber-100">{t('home.explore_articles')}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Photo Highlights Section -->
+{data.photo_highlights && data.photo_highlights.photos && data.photo_highlights.photos.length > 0 && (
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{data.photo_highlights.section_title}</h2>
+        {data.photo_highlights.section_description && (
+          <p class="text-lg text-gray-600">{data.photo_highlights.section_description}</p>
+        )}
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {data.photo_highlights.photos.map((photo: any) => (
+          <a href={getUrlWithBase(photo.link || '/gallery', lang)} class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all">
+            <div class="aspect-square bg-gray-200">
+              <img src={photo.image} alt={photo.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="absolute bottom-0 left-0 right-0 p-4 text-white">
+                <h3 class="font-bold text-lg mb-1">{photo.title}</h3>
+                {photo.description && (
+                  <p class="text-sm text-white/90">{photo.description}</p>
+                )}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      {data.photo_highlights.view_gallery_text && data.photo_highlights.view_gallery_href && (
+        <div class="text-center">
+          <a href={getUrlWithBase(data.photo_highlights.view_gallery_href, lang)} class="inline-block bg-thamizhi-red-600 text-white px-8 py-3 font-semibold hover:bg-thamizhi-red-700 transition-colors">
+            {data.photo_highlights.view_gallery_text}
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<!-- Newsletter/CTA -->
+{data.newsletter && (
+  <section class="py-16 bg-thamizhi-red-600 text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">{data.newsletter.title}</h2>
+      <p class="text-xl text-white/90 mb-8">{data.newsletter.description}</p>
+      {import.meta.env.PUBLIC_FORMSPREE_NEWSLETTER_ID ? (
+        <form action={`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_NEWSLETTER_ID}`} method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="email" placeholder={data.newsletter.placeholder} class="flex-1 px-4 py-3 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50" required />
+          <button type="submit" class="bg-white text-thamizhi-charcoal-800 px-8 py-3 font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
+            {data.newsletter.button}
+          </button>
+        </form>
+      ) : (
+        <div class="max-w-md mx-auto">
+          <p class="text-white/80 mb-4">{t('newsletter.coming_soon')}</p>
+          <a href={getUrlWithBase('/contact', lang)} class="inline-block bg-white text-thamizhi-charcoal-800 px-8 py-3 font-semibold hover:bg-gray-100 transition-colors">
+            {t('newsletter.contact_instead')}
+          </a>
+        </div>
+      )}
+      {data.newsletter.privacy && (
+        <p class="text-sm text-white/80 mt-4">{data.newsletter.privacy}</p>
+      )}
+    </div>
+  </section>
+)}

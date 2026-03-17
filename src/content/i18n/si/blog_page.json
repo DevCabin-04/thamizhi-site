@@ -1,21 +1,21 @@
 {
   "hero": {
-    "title": "Blog",
-    "title_tamil": "බ්ලොග්",
-    "subtitle": "Read our latest articles, events, and community news",
+    "title": "පුවත් සහ යාවත්කාලීන",
+    "title_tamil": "පුවත් සහ යාවත්කාලීන",
+    "subtitle": "අපගේ නවතම ලිපි, සිදුවීම් සහ ප්‍රජා ප්‍රවෘත්ති කියවන්න",
     "subtitle_tamil": "අපගේ නවතම ලිපි, සිදුවීම් සහ ප්‍රජා ප්‍රවෘත්ති කියවන්න",
     "description": "තමිල් සමාජයේ නවතම සිදුවීම්, සංස්කෘතික අවබෝධයන් සහ කතා සමඟ යාවත්කාලීනව සිටින්න."
   },
   "categories_section": {
-    "title": "Browse by Category",
+    "title": "කාණ්ඩ අනුව බ්‍රවුස් කරන්න",
     "title_tamil": "කාණ්ඩ අනුව බ්‍රවුස් කරන්න"
   },
   "featured_section": {
-    "title": "Featured Posts",
+    "title": "විශේෂාංග පළ කිරීම්",
     "title_tamil": "විශේෂාංග පළ කිරීම්"
   },
   "all_posts_section": {
-    "title": "All Posts",
+    "title": "සියලුම පළ කිරීම්",
     "title_tamil": "සියලුම පළ කිරීම්",
     "posts_per_page": 12
   }

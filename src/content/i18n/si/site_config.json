@@ -2,44 +2,72 @@
   "organization": {
     "name": "තමිළි",
     "name_local": "තමිළි",
-    "tagline": "තමිළ උරුමය සුරැකීම, ප්‍රජාවන් සවිබල ගැන්වීම",
-    "description": "තමිළ සංස්කෘතිය, භාෂාව සහ උරුමය ප්‍රවර්ධනය කිරීමට සහ ප්‍රජා සහභාගිත්වය සහ සංස්කෘතික සංරක්ෂණය පෝෂණය කිරීමට කැප වූ ලාභ නොලබන සංවිධානයකි.",
-    "mission": "අධ්‍යාපනය, ප්‍රජා වැඩසටහන් සහ සංස්කෘතික සිදුවීම් හරහා තමිළ සංස්කෘතිය සහ භාෂාව සුරක්ෂිත කිරීම, ප්‍රවර්ධනය කිරීම සහ සැමරීම අපගේ මෙහෙවරයි.",
-    "vision": "ලොව පුරා තමිළ සංස්කෘතික සංරක්ෂණය සහ ප්‍රජා සවිබල ගැන්වීමේ ප්‍රමුඛ සංවිධානයක් වීම.",
-    "founded": "2010",
-    "registration_number": "NPO-2010-TN-001"
+    "tagline": "ජාතික ජනතාවගේ පරම්පරාවේ මහා සිහිනය",
+    "description": "ශ්‍රී ලාංකික දෙමළ භාෂාව, සාහිත්‍යය සහ සාංස්කෘතික උරුමය ආරක්ෂා කිරීමට සහ ප්‍රවර්ධනය කිරීමට කැපවූ ප්‍රජා සංවිධානයකි.",
+    "mission": "අධ්‍යාපනය, සාංස්කෘතික සිදුවීම් සහ ප්‍රජා වැඩසටහන් හරහා දෙමළ භාෂාව, සාහිත්‍යය සහ සාංස්කෘතික උරුමය ආරක්ෂා කිරීම සහ ප්‍රවර්ධනය කිරීම.",
+    "vision": "දෙමළ ප්‍රජාවේ කටහඬ ලෙස, අපගේ පොහොසත් උරුමය සැමරීමෙන් සහ미래 පරම්පරාවන් සවිබල ගැන්වීමෙන්.",
+    "category": "ප්‍රජා සංවිධානය",
+    "logo": "/thamizhi.svg",
+    "founded": "2019",
+    "followers": "4400"
   },
   "contact": {
-    "email": "info@thamizhi.org",
-    "phone": "+1 (555) 123-4567",
+    "email": "thamizhi.org@gmail.com",
+    "phone": "",
     "address": {
-      "street": "123 තමිළ උරුම මධ්‍යස්ථානය",
-      "city": "චෙන්නායි",
-      "state": "තමිළ නාඩු",
-      "postal_code": "600001",
-      "country": "ඉන්දියාව"
+      "street": "",
+      "city": "",
+      "state": "",
+      "postal_code": "",
+      "country": "ශ්‍රී ලංකාව"
     },
     "social_media": {
-      "facebook": "https://facebook.com/thamizhi",
-      "twitter": "https://twitter.com/thamizhi",
-      "instagram": "https://instagram.com/thamizhi",
-      "youtube": "https://youtube.com/thamizhi"
+      "facebook": "https://www.facebook.com/thamizhi.organization",
+      "twitter": "",
+      "instagram": "",
+      "youtube": ""
     }
   },
   "navigation": {
     "primary": [
-      { "name": "මුල් පිටුව", "href": "" },
-      { "name": "අප ගැන", "href": "about" },
-      { "name": "බ්ලොග්", "href": "blog" },
-      { "name": "ප්‍රකාශන", "href": "publications" },
-      { "name": "ගැලරිය", "href": "gallery" },
-      { "name": "සිදුවීම්", "href": "events" },
-      { "name": "සම්බන්ධ කරගන්න", "href": "contact" }
+      {
+        "name": "මුල් පිටුව",
+        "href": ""
+      },
+      {
+        "name": "අප ගැන",
+        "href": "about"
+      },
+      {
+        "name": "සිදුවීම්",
+        "href": "events"
+      },
+      {
+        "name": "ගැලරිය",
+        "href": "gallery"
+      },
+      {
+        "name": "පුවත් සහ යාවත්කාලීන",
+        "href": "blog"
+      }
     ],
     "footer": [
-      { "name": "රහස්‍යතා ප්‍රතිපත්තිය", "href": "privacy" },
-      { "name": "සේවා නියමයන්", "href": "terms" },
-      { "name": "සම්බන්ධ කරගන්න", "href": "contact" }
+      {
+        "name": "රහස්‍යතා ප්‍රතිපත්තිය",
+        "href": "privacy"
+      },
+      {
+        "name": "ස්වේච්ඡා සේවය",
+        "href": "volunteer"
+      },
+      {
+        "name": "සේවා නියමයන්",
+        "href": "terms"
+      },
+      {
+        "name": "සම්බන්ධ කරගන්න",
+        "href": "about#contact"
+      }
     ]
   },
   "theme": {
@@ -56,7 +84,7 @@
     "author": "තමිළි සංවිධානය"
   },
   "footer": {
-    "copyright": "© 2024 තමිළි. සියලු හිමිකම් ඇවිරිණි.",
+    "copyright": "© 2025 තමිළි. සියලු හිමිකම් ඇවිරිණි.",
     "description": "සංස්කෘතික අධ්‍යාපනය සහ ප්‍රජා වැඩසටහන් හරහා ලොව පුරා තමිළ උරුමය සුරක්ෂිත කිරීම සහ ප්‍රජාවන් සවිබල ගැන්වීම."
   }
 }

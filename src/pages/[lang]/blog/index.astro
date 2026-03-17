@@ -1,71 +1,54 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import BlogPageIndex from "../../../components/BlogPageIndex.jsx";
-import client from "../../../../tina/__generated__/client";
-import fs from "fs";
-import path from "path";
+import Layout from '../../../layouts/Layout.astro';
+import BlogPageIndex from '../../../components/BlogPageIndex.astro';
+import { getCollection } from 'astro:content';
+import { loadContent, supportedLangs } from '../../../utils/i18n';
 
 export function getStaticPaths() {
-  const supportedLangs = ["en", "ta", "si"];
-  return supportedLangs.map(lang => ({
-    params: { lang }
-  }));
+  return supportedLangs.map((lang) => ({ params: { lang }, props: { lang } }));
 }
 
-const { lang } = Astro.params;
-const supportedLangs = ["en", "ta", "si"];
+const { lang } = Astro.props;
 
-if (!supportedLangs.includes(lang)) {
-  return Astro.redirect("/en/blog");
-}
+// Fetch blog posts for this language, falling back to English posts
+const allPosts = await getCollection('blog');
 
-// Get all blog posts for this language
-const contentDir = path.join(process.cwd(), `src/content/blog/${lang}`);
-let blogPosts = [];
+// Posts in this language
+const langPosts = allPosts.filter((p) => {
+  const postLang = (p.data.lang as string) || p.id.split('/')[0];
+  return postLang === lang;
+});
 
-if (fs.existsSync(contentDir)) {
-  const files = fs.readdirSync(contentDir);
-
-  for (const file of files) {
-    if (file.endsWith(".json")) {
-      const filePath = path.join(contentDir, file);
-      const fileContent = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-      blogPosts.push(fileContent);
-    }
-  }
-}
-
-// Sort by published date (newest first)
-blogPosts.sort((a, b) => new Date(b.published_date) - new Date(a.published_date));
-
-// Load TinaCMS data for blog page content
-const queryName = `blog_page_${lang}`;
-let tinaData;
-
-try {
-  // @ts-ignore - Dynamic query access
-  if (client.queries[queryName]) {
-    // @ts-ignore
-    tinaData = await client.queries[queryName]({
-      relativePath: "blog_page.json",
+// If no posts in this language, show English posts as fallback
+const posts = langPosts.length > 0
+  ? langPosts
+  : allPosts.filter((p) => {
+      const postLang = (p.data.lang as string) || p.id.split('/')[0];
+      return postLang === 'en';
     });
-  } else {
-    console.warn(`Query ${queryName} not found, falling back to blog_page_en`);
-    tinaData = await client.queries.blog_page_en({
-      relativePath: "blog_page.json",
-    });
-  }
-} catch (error) {
-  console.error(`Error loading blog page content:`, error);
-  tinaData = { data: {} };
-}
 
-// Get page title from TinaCMS data or fallback
-const blogPageContent = tinaData.data?.[`blog_page_${lang}`] || {};
-const pageTitle = blogPageContent.hero?.title || (lang === 'ta' ? 'வலைப்பதிவு' : lang === 'si' ? 'බ්ලොග්' : 'Blog');
+// Sort by date descending
+posts.sort(
+  (a, b) =>
+    new Date(b.data.published_date ?? 0).getTime() -
+    new Date(a.data.published_date ?? 0).getTime(),
+);
 
+// Normalise post shape for the component
+const blogPosts = posts.map((p) => ({
+  ...p.data,
+  slug: (p.data.route_slug as string) || p.id.replace(/^[^/]+\//, '').replace(/\.md$/, ''),
+}));
+
+const [data, site_config] = await Promise.all([
+  loadContent(lang, 'blog_page'),
+  loadContent(lang, 'site_config'),
+]);
+const org = site_config.organization as Record<string, string> | undefined;
+const hero = data.hero as Record<string, string> | undefined;
+const page_title = hero?.title || 'Blog';
 ---
 
-<Layout title={pageTitle} lang={lang}>
-  <BlogPageIndex props={tinaData} lang={lang} blogPosts={blogPosts} client:load />
+<Layout title={`${page_title} - ${org?.name}`} lang={lang}>
+  <BlogPageIndex data={data} lang={lang} blogPosts={blogPosts} />
 </Layout>

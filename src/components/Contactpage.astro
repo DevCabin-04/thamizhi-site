@@ -1,0 +1,326 @@
+---
+import { loadUi } from '../utils/i18n';
+
+const { data, lang } = Astro.props;
+const { t } = await loadUi(lang);
+---
+
+<!-- Page Header -->
+<section class="bg-thamizhi-red-600 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div
+      class="absolute top-0 left-0 w-full h-full"
+      style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px"
+    />
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        {data.hero?.title || t('contact.contact_us')}
+      </h1>
+      <p class="text-xl text-white/90">
+        {data.hero?.description || "We're here to help. Reach out to us for assistance, information, or to share your feedback on our services."}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Methods -->
+{data.contact_methods && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          {data.contact_methods?.title || t('contact.how_to_reach')}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          {data.contact_methods?.description || "Choose the contact method that works best for you. We're committed to responding promptly to all inquiries."}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {data.contact_methods?.methods?.map((method: any) => (
+          <div class="bg-gray-50 rounded-lg p-6 text-center hover:shadow-md transition-shadow">
+            <div class={`w-16 h-16 ${method.color || 'bg-thamizhi-red-600'} rounded-full flex items-center justify-center mx-auto mb-4`}>
+              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{method.title}</h3>
+            <p class="text-gray-600 mb-4">{method.description}</p>
+            <div class="text-sm text-gray-800 font-medium">
+              <p>{method.contact_info}</p>
+              {method.hours && (
+                <p class="text-xs text-gray-500 mt-1">{method.hours}</p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Contact Form -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-lg shadow-sm p-8">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">
+          {data.contact_form?.title || t('contact.send_message')}
+        </h2>
+        <p class="text-gray-600">
+          {data.contact_form?.description || "Fill out the form below and we'll get back to you as soon as possible."}
+        </p>
+      </div>
+
+      {import.meta.env.PUBLIC_FORMSPREE_CONTACT_ID ? (
+        <form action={`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_CONTACT_ID}`} method="POST" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">{t('contact.first_name')}</label>
+              <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-thamizhi-red-600/45 focus:border-transparent"
+              />
+            </div>
+            <div>
+              <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">{t('contact.last_name')}</label>
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-thamizhi-red-600/45 focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">{t('contact.email')}</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-thamizhi-red-600/45 focus:border-transparent"
+              />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">{t('contact.phone')}</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-thamizhi-red-600/45 focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">{t('contact.subject')}</label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-thamizhi-red-600/45 focus:border-transparent"
+            >
+              <option value="">{t('contact.select_topic')}</option>
+              <option value="general_inquiry">{t('contact.general_inquiry')}</option>
+              <option value="service_request">{t('contact.service_request')}</option>
+              <option value="complaint">{t('contact.complaint')}</option>
+              <option value="suggestion">{t('contact.suggestion')}</option>
+              <option value="technical_support">{t('contact.technical_support')}</option>
+              <option value="media_inquiry">{t('contact.media_inquiry')}</option>
+              <option value="other">{t('contact.other')}</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">{t('contact.message')}</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-thamizhi-red-600/45 focus:border-transparent"
+              placeholder={t('contact.message_placeholder')}
+            ></textarea>
+          </div>
+
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input
+                id="privacy_consent"
+                name="privacy_consent"
+                type="checkbox"
+                required
+                class="w-4 h-4 text-thamizhi-red-600 border-gray-300 rounded focus:ring-thamizhi-red-600/45"
+              />
+            </div>
+            <div class="ml-3 text-sm">
+              <label for="privacy_consent" class="text-gray-600">
+                {t('contact.privacy_consent')}
+                <a href="/privacy" class="text-thamizhi-red-600 hover:text-thamizhi-red-700 underline"> {t('contact.privacy_policy')}</a>
+                {" "}{t('contact.privacy_suffix')}
+              </label>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-thamizhi-red-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-thamizhi-red-700 transition-colors"
+            >
+              {t('contact.send')}
+            </button>
+          </div>
+        </form>
+      ) : (
+        <div class="text-center py-8">
+          <p class="text-gray-600 mb-6">{t('contact.form_unavailable')}</p>
+          <a href="mailto:thamizhi.org@gmail.com" class="inline-block bg-thamizhi-red-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-thamizhi-red-700 transition-colors">
+            thamizhi.org@gmail.com
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<!-- Emergency Contact -->
+{data.emergency_contact && (
+  <section class="py-16 bg-red-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex items-center justify-center mb-4">
+        <svg class="w-8 h-8 text-red-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+        </svg>
+        <h2 class="text-2xl font-bold text-gray-900">
+          {data.emergency_contact?.title || t('contact.emergency')}
+        </h2>
+      </div>
+      <p class="text-gray-600 mb-6">
+        {data.emergency_contact?.description || "For urgent matters requiring immediate attention, please use our emergency contact line."}
+      </p>
+      <div class="bg-white rounded-lg p-6 inline-block">
+        <div class="text-2xl font-bold text-red-600 mb-2">
+          {data.emergency_contact?.label || "Emergency Hotline"}
+        </div>
+        <div class="text-xl font-semibold text-gray-900">
+          {data.emergency_contact?.phone || "(555) 911-HELP"}
+        </div>
+        <div class="text-sm text-gray-500 mt-2">
+          {data.emergency_contact?.availability || "Available 24/7"}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Office Hours & Location -->
+{data.office_info && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Office Hours -->
+        {data.office_info.hours && (
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+              {data.office_info.hours.title || t('contact.office_hours')}
+            </h3>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <div class="space-y-4">
+                {data.office_info.hours.schedule?.map((item: any) => (
+                  <div class="flex justify-between">
+                    <span class="font-medium text-gray-700">{item.day}</span>
+                    <span class="text-gray-600">{item.time}</span>
+                  </div>
+                ))}
+              </div>
+              {data.office_info.hours.note && (
+                <div class="mt-6 p-4 bg-amber-50 rounded-lg">
+                  <p class="text-sm text-gray-700" set:html={data.office_info.hours.note} />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        <!-- Location -->
+        {data.office_info.location && (
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">
+              {data.office_info.location.title || t('contact.visit_office')}
+            </h3>
+            <div class="bg-gray-50 rounded-lg p-6">
+              <div class="mb-6">
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  {data.office_info.location.address?.label || "Main Office"}
+                </h4>
+                <address class="text-gray-600 not-italic">
+                  {data.office_info.location.address?.lines?.map((line: string) => (
+                    <span>{line}<br /></span>
+                  ))}
+                </address>
+              </div>
+
+              {data.office_info.location.parking && (
+                <div class="mb-6">
+                  <h4 class="font-semibold text-gray-900 mb-2">
+                    {data.office_info.location.parking.title}
+                  </h4>
+                  <p class="text-gray-600 text-sm">
+                    {data.office_info.location.parking.description}
+                  </p>
+                </div>
+              )}
+
+              {data.office_info.location.transport && (
+                <div class="mb-6">
+                  <h4 class="font-semibold text-gray-900 mb-2">
+                    {data.office_info.location.transport.title}
+                  </h4>
+                  <p class="text-gray-600 text-sm" set:html={data.office_info.location.transport.description} />
+                </div>
+              )}
+
+              {data.office_info.location.security_notice && (
+                <div class="bg-yellow-50 rounded-lg p-4">
+                  <p class="text-sm text-yellow-800" set:html={data.office_info.location.security_notice} />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- FAQ Link -->
+{data.faq_link && (
+  <section class="py-16 bg-amber-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">
+        {data.faq_link?.title || t('contact.faq')}
+      </h2>
+      <p class="text-gray-600 mb-8">
+        {data.faq_link?.description || "Before contacting us, you might find the answer to your question in our comprehensive FAQ section."}
+      </p>
+      <a
+        href={data.faq_link?.link || "/help/faq"}
+        class="inline-flex items-center bg-thamizhi-red-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-thamizhi-red-700 transition-colors"
+      >
+        <span>{data.faq_link?.button_text || "Browse FAQ"}</span>
+        <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+)}

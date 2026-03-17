@@ -1,0 +1,155 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "initiatives": "Initiatives",
+    "blog": "News",
+    "publications": "Publications",
+    "gallery": "Gallery",
+    "events": "Events",
+    "membership": "Membership",
+    "contact": "Contact"
+  },
+  "footer": {
+    "registered_npo": "Registered NPO:",
+    "founded": "Founded:",
+    "quick_links": "Quick Links",
+    "contact_us": "Contact Us",
+    "all_rights_reserved": "All rights reserved"
+  },
+  "aria": {
+    "facebook": "Facebook",
+    "email": "Email"
+  },
+  "home": {
+    "learn_more": "Learn more",
+    "view_all": "View all",
+    "get_involved": "Get Involved",
+    "our_programs": "Our Programs",
+    "programs_desc": "Explore our diverse programs designed to preserve and promote Tamil culture, language, and heritage.",
+    "latest_news": "Latest News & Events",
+    "read_more": "Read More",
+    "explore_articles": "Explore all our articles and updates"
+  },
+  "about": {
+    "about_us": "About Us",
+    "our_mission": "Our Mission",
+    "our_vision": "Our Vision",
+    "core_values": "Our Core Values",
+    "core_values_desc": "The principles that guide our work and define our commitment to the Tamil community.",
+    "our_history": "Our History",
+    "leadership_team": "Leadership Team",
+    "our_programs": "Our Programs",
+    "our_achievements": "Our Achievements",
+    "recent_awards": "Recent Awards & Recognition",
+    "get_in_touch": "Get in Touch"
+  },
+  "events": {
+    "event_categories": "Event Categories",
+    "discover_events": "Discover events that interest you",
+    "annual_events": "Annual Events",
+    "upcoming": "Upcoming Events",
+    "upcoming_desc": "Don't miss these exciting upcoming events",
+    "registration_required": "Registration Required",
+    "registration_progress": "Registration Progress",
+    "registered": "registered",
+    "register_now": "Register Now",
+    "more_details": "More Details",
+    "join_program": "Join Program",
+    "recent_past": "Recent Past Events",
+    "past_desc": "Take a look at our successful past events",
+    "attendees": "attendees",
+    "view_gallery": "View Event Gallery",
+    "submit_proposal": "Submit Event Proposal",
+    "event_guidelines": "Event Guidelines"
+  },
+  "contact": {
+    "contact_us": "Contact Us",
+    "how_to_reach": "How to Reach Us",
+    "send_message": "Send Us a Message",
+    "first_name": "First Name *",
+    "last_name": "Last Name *",
+    "email": "Email Address *",
+    "phone": "Phone Number",
+    "subject": "Subject *",
+    "select_topic": "Select a topic",
+    "general_inquiry": "General Inquiry",
+    "service_request": "Service Request",
+    "complaint": "Complaint",
+    "suggestion": "Suggestion",
+    "technical_support": "Technical Support",
+    "media_inquiry": "Media Inquiry",
+    "other": "Other",
+    "message": "Message *",
+    "message_placeholder": "Please provide as much detail as possible to help us assist you effectively.",
+    "privacy_consent": "I acknowledge that I have read and agree to the",
+    "privacy_policy": "Privacy Policy",
+    "privacy_suffix": "and understand how my information will be used. *",
+    "send": "Send Message",
+    "emergency": "Emergency Contact",
+    "office_hours": "Office Hours",
+    "visit_office": "Visit Our Office",
+    "faq": "Frequently Asked Questions",
+    "form_unavailable": "Our online form is currently unavailable. Please reach us directly by email:"
+  },
+  "gallery": {
+    "photo_categories": "Photo Categories",
+    "browse_by_category": "Browse photos by category",
+    "photos": "Photos",
+    "submit_photos": "Submit Photos",
+    "photo_guidelines": "Photo Guidelines",
+    "share_photos": "Share Your Photos",
+    "share_photos_desc": "Help us document our community's journey by sharing your event photos with us."
+  },
+  "membership": {
+    "plans": "Membership Plans",
+    "plans_desc": "Choose the membership that best fits your needs",
+    "apply_now": "Apply Now",
+    "start_application": "Start Application",
+    "email_us": "Email Us",
+    "call_us": "Call Us",
+    "office_hours": "Office Hours",
+    "ready_to_join": "Ready to Join Our Community?",
+    "ready_to_join_desc": "Become a member today and connect with the vibrant Tamil community around you.",
+    "learn_more_about_us": "Learn More About Us"
+  },
+  "publications": {
+    "categories": "Resource Categories",
+    "categories_desc": "Explore our diverse collection of Tamil resources",
+    "resources": "Resources",
+    "featured": "Featured Resources",
+    "featured_desc": "Recently added and popular resources",
+    "by": "By",
+    "download": "Download",
+    "preview": "Preview",
+    "submission_guidelines": "Submission Guidelines",
+    "submit_resource": "Submit Resource",
+    "share_resources": "Share Your Resources"
+  },
+  "blog": {
+    "title": "News & Updates",
+    "all_posts": "All Posts",
+    "read_more": "Read More",
+    "no_posts": "No blog posts yet",
+    "coming_soon": "More content coming soon!",
+    "back_to_blog": "Back to News & Updates"
+  },
+  "privacy": {
+    "last_updated": "Last updated"
+  },
+  "volunteer": {
+    "opportunities": "Volunteer Opportunities"
+  },
+  "newsletter": {
+    "coming_soon": "Newsletter signup coming soon.",
+    "contact_instead": "Contact Us"
+  },
+  "categories": {
+    "events": "Events",
+    "culture": "Culture",
+    "student-life": "Student Life",
+    "language": "Language",
+    "community": "Community",
+    "announcements": "Announcements"
+  }
+}

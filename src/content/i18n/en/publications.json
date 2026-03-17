@@ -63,7 +63,12 @@
       "file_type": "PDF",
       "file_size_mb": 12.5,
       "language": "Tamil",
-      "tags": ["history", "culture", "heritage", "traditions"]
+      "tags": [
+        "history",
+        "culture",
+        "heritage",
+        "traditions"
+      ]
     },
     {
       "id": "modern_poetry",
@@ -82,7 +87,12 @@
       "file_type": "PDF",
       "file_size_mb": 8.3,
       "language": "Tamil",
-      "tags": ["poetry", "literature", "contemporary", "modern"]
+      "tags": [
+        "poetry",
+        "literature",
+        "contemporary",
+        "modern"
+      ]
     },
     {
       "id": "grammar_simplified",
@@ -101,7 +111,12 @@
       "file_type": "PDF",
       "file_size_mb": 6.2,
       "language": "Mixed",
-      "tags": ["grammar", "education", "learning", "tutorial"]
+      "tags": [
+        "grammar",
+        "education",
+        "learning",
+        "tutorial"
+      ]
     },
     {
       "id": "cultural_festivals",
@@ -120,7 +135,12 @@
       "file_type": "PDF",
       "file_size_mb": 15.8,
       "language": "Tamil",
-      "tags": ["festivals", "culture", "traditions", "celebrations"]
+      "tags": [
+        "festivals",
+        "culture",
+        "traditions",
+        "celebrations"
+      ]
     }
   ],
   "about_section": {

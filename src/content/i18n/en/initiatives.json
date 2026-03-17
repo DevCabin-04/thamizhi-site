@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "title": "Our Initiatives",
+    "description": "Explore our community services, educational programs, cultural projects, and the departments that bring them to life."
+  },
+  "sections": [
+    {
+      "id": "cultural",
+      "title": "Cultural Programs",
+      "description": "Preserving and promoting Tamil cultural traditions through various artistic and cultural activities.",
+      "icon": "cultural",
+      "color": "bg-[#500b09]",
+      "items": [
+        "Traditional Dance Classes",
+        "Classical Music Training",
+        "Festival Celebrations",
+        "Cultural Workshops"
+      ]
+    },
+    {
+      "id": "education",
+      "title": "Language Education",
+      "description": "Comprehensive Tamil language education for all age groups and proficiency levels.",
+      "icon": "education",
+      "color": "bg-amber-600",
+      "items": [
+        "Beginner Tamil Classes",
+        "Advanced Literature Studies",
+        "Children's Tamil School",
+        "Adult Literacy Program"
+      ]
+    },
+    {
+      "id": "community",
+      "title": "Community Services",
+      "description": "Supporting Tamil families and individuals through various community outreach and assistance programs.",
+      "icon": "community",
+      "color": "bg-green-600",
+      "items": [
+        "Family Support Services",
+        "Senior Citizens Care",
+        "New Immigrant Assistance",
+        "Health and Wellness"
+      ]
+    },
+    {
+      "id": "youth",
+      "title": "Youth Programs",
+      "description": "Empowering Tamil youth through leadership development, cultural engagement, and educational opportunities.",
+      "icon": "youth",
+      "color": "bg-purple-600",
+      "items": [
+        "Youth Leadership Council",
+        "Cultural Ambassador Program",
+        "Academic Excellence Support",
+        "Sports and Recreation"
+      ]
+    },
+    {
+      "id": "media",
+      "title": "Media & Communications",
+      "description": "Managing publications, digital media, and community communications to promote Tamil culture and heritage.",
+      "icon": "media",
+      "color": "bg-indigo-600",
+      "items": [
+        "Tamil Publications",
+        "Digital Media Platform",
+        "Community Newsletter",
+        "Documentary Projects"
+      ]
+    },
+    {
+      "id": "outreach",
+      "title": "Outreach & Partnerships",
+      "description": "Building relationships with other organizations, government agencies, and educational institutions.",
+      "icon": "outreach",
+      "color": "bg-blue-600",
+      "items": [
+        "Inter-cultural Dialogue",
+        "Educational Partnerships",
+        "Government Relations",
+        "Corporate Sponsorship"
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Get Involved",
+    "description": "Interested in joining the Thamizhi community or learning more about our initiatives? Reach out to us.",
+    "contact_us": "Contact Us",
+    "view_events": "View Events"
+  }
+}

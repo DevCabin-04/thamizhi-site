@@ -1,0 +1,113 @@
+---
+import GalleryLightbox from './GalleryLightbox.astro';
+import { loadUi } from '../utils/i18n';
+
+interface Props {
+  data: any;
+  lang: string;
+}
+
+const { data, lang } = Astro.props;
+const { t } = await loadUi(lang);
+
+const categories_label = t('gallery.photo_categories');
+const categories_desc = t('gallery.browse_by_category');
+const photos_label = t('gallery.photos');
+const submit_label = t('gallery.submit_photos');
+const guidelines_label = t('gallery.photo_guidelines');
+---
+
+<!-- Page Header -->
+{data.hero && (
+  <section class="bg-thamizhi-red-600 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px;" />
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl lg:text-5xl font-bold mb-4">{data.hero.title || 'Photo Gallery'}</h1>
+        {data.hero.title_tamil && (
+          <h2 class="text-2xl lg:text-3xl font-medium text-gold-200 mb-6">{data.hero.title_tamil}</h2>
+        )}
+        {data.hero.subtitle && (
+          <p class="text-xl text-gold-100 mb-4">{data.hero.subtitle}</p>
+        )}
+        {data.hero.description && (
+          <p class="text-lg text-gold-100">{data.hero.description}</p>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Gallery Categories (static) -->
+{data.categories && data.categories.length > 0 && (
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{categories_label}</h2>
+        <p class="text-lg text-gray-600">{categories_desc}</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {data.categories.map((category: any) => (
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 bg-thamizhi-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-thamizhi-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{category.name}</h3>
+            {category.name_tamil && (
+              <h4 class="text-lg font-medium text-thamizhi-red-600 mb-3">{category.name_tamil}</h4>
+            )}
+            <p class="text-gray-600 mb-4">{category.description}</p>
+            <div class="text-2xl font-bold text-thamizhi-red-600">{category.count}</div>
+            <p class="text-sm text-gray-500">{photos_label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Interactive: Featured Albums + Recent Highlights + Lightbox (React island) -->
+<GalleryLightbox
+  featured_albums={data.featured_albums}
+  recent_highlights={data.recent_highlights}
+  lang={lang}
+/>
+
+<!-- Photo Submission Section (static) -->
+{data.submission_section && (
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        {data.submission_section.title || t('gallery.share_photos')}
+      </h2>
+      <p class="text-lg text-gray-600 mb-8">
+        {data.submission_section.description || t('gallery.share_photos_desc')}
+      </p>
+      {data.submission_section.guidelines && data.submission_section.guidelines.length > 0 && (
+        <div class="bg-slate-50 rounded-lg p-6 mb-8 text-left max-w-2xl mx-auto">
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">{guidelines_label}</h4>
+          <ul class="space-y-2">
+            {data.submission_section.guidelines.map((guideline: string) => (
+              <li class="text-gray-700 flex items-start">
+                <svg class="w-5 h-5 text-thamizhi-red-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                {guideline}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <a
+        href={`mailto:${data.submission_section.contact_email}`}
+        class="inline-block bg-thamizhi-red-600 text-white px-8 py-3 rounded-lg text-lg hover:bg-thamizhi-red-700 transition-colors"
+      >
+        {submit_label}
+      </a>
+    </div>
+  </section>
+)}

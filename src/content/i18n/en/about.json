@@ -2,7 +2,7 @@
   "hero": {
     "title": "About Thamizhi",
     "title_tamil": "தமிழி பற்றி",
-    "description": "Discover our mission to preserve Tamil heritage, promote cultural understanding, and build a stronger Tamil community through education, arts, and community engagement."
+    "description": "Thamizhi is a community organization dedicated to preserving and promoting the Tamil language, literature, and cultural heritage of Sri Lankan Tamils."
   },
   "mission": {
     "title": "Our Mission",
@@ -16,7 +16,7 @@
     "content": "A thriving global Tamil community where cultural heritage is preserved, language is celebrated, and future generations carry forward the rich traditions of Tamil civilization.",
     "content_tamil": "பண்பாட்டு பாரம்பரியம் பாதுகாக்கப்பட்டு, மொழி கொண்டாடப்பட்டு, எதிர்கால சந்ததியினர் தமிழ் நாகரிகத்தின் வளமான பாரம்பரியங்களை முன்னெடுத்துச் செல்லும் வளர்ச்சியடைந்த உலகளாவிய தமிழ் சமுதாயம்."
   },
-  "valuess": [
+  "values": [
     {
       "title": "Cultural Preservation",
       "title_tamil": "பண்பாட்டு பாதுகாப்பு",
@@ -41,73 +41,34 @@
   "history": {
     "title": "Our History",
     "title_tamil": "எங்கள் வரலாறு",
-    "content": "Founded in 2009, Thamizhi began as a small group of Tamil families who wanted to create a space where their children could learn about their cultural heritage. Over the years, we have grown into a vibrant community organization serving hundreds of families across the region.",
+    "content": "Founded in 2019, Thamizhi began as a group of Sri Lankan Tamil community members committed to preserving Tamil language, literature, and cultural heritage. With 4,400+ Facebook followers, we have grown into an active community organization.",
     "milestones": [
       {
-        "year": "2009",
+        "year": "2019",
         "title": "Foundation",
-        "description": "Thamizhi was established by 15 founding families"
-      },
-      {
-        "year": "2012",
-        "title": "First Cultural Center",
-        "description": "Opened our first dedicated space for cultural activities"
-      },
-      {
-        "year": "2015",
-        "title": "Language School Launch",
-        "description": "Started formal Tamil language education programs"
-      },
-      {
-        "year": "2018",
-        "title": "Youth Leadership Program",
-        "description": "Launched comprehensive youth development initiatives"
+        "description": "Thamizhi was established as a community organization"
       },
       {
         "year": "2020",
-        "title": "Digital Transformation",
-        "description": "Expanded online programs and virtual cultural events"
+        "title": "Community Growth",
+        "description": "Expanded cultural programs and community engagement"
+      },
+      {
+        "year": "2022",
+        "title": "Digital Presence",
+        "description": "Grew online community to thousands of followers"
       },
       {
         "year": "2024",
-        "title": "15th Anniversary",
-        "description": "Celebrating 15 years of community service and cultural preservation"
+        "title": "4,400+ Followers",
+        "description": "Reached milestone of 4,400+ Facebook community followers"
       }
     ]
   },
   "leadership": {
     "title": "Leadership Team",
     "title_tamil": "தலைமைக் குழு",
-    "board_members": [
-      {
-        "name": "Dr. Priya Kumaran",
-        "name_tamil": "டாக்டர் பிரியா குமரன்",
-        "position": "President",
-        "position_tamil": "தலைவர்",
-        "bio": "Community leader with 20+ years of experience in cultural organizations"
-      },
-      {
-        "name": "Mr. Ravi Selvam",
-        "name_tamil": "திரு. ரவி செல்வம்",
-        "position": "Vice President",
-        "position_tamil": "துணைத் தலைவர்",
-        "bio": "Educator and advocate for Tamil language preservation"
-      },
-      {
-        "name": "Ms. Meera Krishnan",
-        "name_tamil": "திருமதி மீரா கிருஷ்ணன்",
-        "position": "Secretary",
-        "position_tamil": "செயலாளர்",
-        "bio": "Professional organizer specializing in community events"
-      },
-      {
-        "name": "Mr. Suresh Ramanan",
-        "name_tamil": "திரு. சுரேஷ் ராமனன்",
-        "position": "Treasurer",
-        "position_tamil": "பொருளாளர்",
-        "bio": "Financial expert ensuring transparent resource management"
-      }
-    ]
+    "board_members": []
   },
   "programs": {
     "title": "Our Programs",
@@ -150,62 +111,43 @@
     "title_tamil": "எங்கள் சாதனைகள்",
     "stats": [
       {
-        "number": "2,500+",
-        "label": "Active Members",
-        "label_tamil": "செயலில் உள்ள உறுப்பினர்கள்"
+        "number": "4,400+",
+        "label": "Facebook Followers",
+        "label_tamil": "பேஸ்புக் பின்தொடர்பவர்கள்"
       },
       {
-        "number": "15",
-        "label": "Years of Service",
-        "label_tamil": "சேவை ஆண்டுகள்"
+        "number": "2019",
+        "label": "Year Founded",
+        "label_tamil": "நிறுவப்பட்ட ஆண்டு"
       },
       {
-        "number": "500+",
-        "label": "Students Taught",
-        "label_tamil": "கற்பித்த மாணவர்கள்"
+        "number": "3",
+        "label": "Languages",
+        "label_tamil": "மொழிகள்"
       },
       {
-        "number": "200+",
+        "number": "100+",
         "label": "Cultural Events",
         "label_tamil": "பண்பாட்டு நிகழ்வுகள்"
       }
     ],
-    "awards": [
-      {
-        "title": "Outstanding Community Service Award",
-        "year": "2023",
-        "organization": "City Cultural Council"
-      },
-      {
-        "title": "Best Cultural Education Program",
-        "year": "2022",
-        "organization": "Regional Heritage Foundation"
-      },
-      {
-        "title": "Community Impact Recognition",
-        "year": "2021",
-        "organization": "Multicultural Alliance"
-      }
-    ]
+    "awards": []
   },
   "contact": {
     "title": "Get in Touch",
     "title_tamil": "தொடர்பு கொள்ளுங்கள்",
-    "description": "We welcome visitors and new members. Contact us to learn more about our programs and how you can get involved.",
+    "description": "We welcome everyone interested in Tamil language, literature, and culture. Contact us to learn more about our programs and how you can get involved.",
     "address": {
-      "title": "Visit Us",
+      "title": "Contact",
       "lines": [
-        "123 Tamil Heritage Street",
-        "Cultural District, City 12345",
-        "United States"
+        "thamizhi.org@gmail.com",
+        "Sri Lanka"
       ]
     },
     "hours": {
-      "title": "Office Hours",
+      "title": "Follow Us",
       "schedule": [
-        "Monday - Friday: 9:00 AM - 6:00 PM",
-        "Saturday: 10:00 AM - 4:00 PM",
-        "Sunday: Closed (Events only)"
+        "Facebook: facebook.com/thamizhi.organization"
       ]
     }
   }

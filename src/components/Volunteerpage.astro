@@ -1,0 +1,86 @@
+---
+import { loadUi, getUrlWithBase } from '../utils/i18n';
+
+interface Props {
+  data: any;
+  lang: string;
+}
+
+const { data, lang } = Astro.props;
+const { t } = await loadUi(lang);
+const opportunities = data.opportunities || [];
+const benefits = data.benefits?.items || [];
+---
+
+<div>
+  <!-- Hero -->
+  <section class="bg-thamizhi-red-600 text-white py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">{data.hero?.title}</h1>
+      <p class="text-xl text-red-100 max-w-2xl mx-auto">{data.hero?.description}</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  {data.intro && (
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">{data.intro.title}</h2>
+        <p class="text-lg text-gray-700 leading-relaxed">{data.intro.content}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- Opportunities -->
+  {opportunities.length > 0 && (
+    <section class="py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">{t('volunteer.opportunities')}</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {opportunities.map((opp: any) => (
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">{opp.title}</h3>
+              <p class="text-gray-600 mb-4">{opp.description}</p>
+              {opp.commitment && (
+                <p class="text-sm text-thamizhi-red-600 font-medium">{opp.commitment}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Benefits -->
+  {benefits.length > 0 && (
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">{data.benefits.title}</h2>
+        <ul class="space-y-4">
+          {benefits.map((item: string) => (
+            <li class="flex items-start">
+              <span class="text-thamizhi-red-600 font-bold mr-3 mt-1">*</span>
+              <span class="text-gray-700 text-lg">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  {data.cta && (
+    <section class="py-16 bg-thamizhi-red-600 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">{data.cta.title}</h2>
+        <p class="text-xl text-red-100 mb-8 max-w-2xl mx-auto">{data.cta.description}</p>
+        <a
+          href={getUrlWithBase(data.cta.button_link, lang)}
+          class="inline-block bg-white text-thamizhi-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+        >
+          {data.cta.button_text}
+        </a>
+      </div>
+    </section>
+  )}
+</div>

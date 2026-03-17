@@ -1,23 +1,16 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
-import tailwindcss from "@tailwindcss/vite";
-
-const isDev = process.env.NODE_ENV !== 'production';
+import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: isDev ? 'http://localhost:4321' : 'https://thamizhi-site.vercel.app',
-  // Remove base path for Vercel deployment
-  // base: isDev ? undefined : '/thamizhi-site', // Only needed for GitHub Pages
-  output: 'static',
+  site: 'https://thamizhi-site.vercel.app',
   i18n: {
-    defaultLocale: "en",
-    locales: ["en", "ta", "si"],
+    defaultLocale: 'ta',
+    locales: ['ta', 'en', 'si'],
     routing: {
       prefixDefaultLocale: true,
     },
   },
-  integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
   },

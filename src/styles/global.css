@@ -1,1 +1,115 @@
 @import "tailwindcss";
+
+@theme {
+  /* Flag Red -- top stripe */
+  --color-thamizhi-red-100: #fce8e8;
+  --color-thamizhi-red-200: #f8c0c0;
+  --color-thamizhi-red-300: #f08888;
+  --color-thamizhi-red-500: #e03030;
+  --color-thamizhi-red-600: #500b09;
+  --color-thamizhi-red-700: #3d0807;
+  --color-thamizhi-red-900: #5c0707;
+
+  /* Flag Amber -- middle stripe */
+  --color-thamizhi-amber-100: #fdf3d9;
+  --color-thamizhi-amber-200: #fbe4a0;
+  --color-thamizhi-amber-300: #f8cd60;
+  --color-thamizhi-amber-500: #f5b800;
+  --color-thamizhi-amber-600: #f2a900;
+  --color-thamizhi-amber-700: #c88b00;
+  --color-thamizhi-amber-900: #7a5500;
+
+  /* Flag Charcoal -- bottom stripe */
+  --color-thamizhi-charcoal-100: #d4d4d4;
+  --color-thamizhi-charcoal-300: #8a8a8a;
+  --color-thamizhi-charcoal-500: #444444;
+  --color-thamizhi-charcoal-700: #222222;
+  --color-thamizhi-charcoal-800: #111111;
+  --color-thamizhi-charcoal-900: #080808;
+
+  /* Emblem Gold */
+  --color-thamizhi-gold-300: #e8d08a;
+  --color-thamizhi-gold-500: #d4a828;
+  --color-thamizhi-gold-600: #c9971c;
+  --color-thamizhi-gold-700: #a87c16;
+  --color-thamizhi-gold-900: #6b4e0d;
+}
+
+/* Language-aware typography (keeps layout scale stable across locales) */
+:root {
+  --app-font-body: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --app-font-heading: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+html[lang='ta'] {
+  --app-font-body: 'Noto Sans Tamil', 'Noto Sans', system-ui, sans-serif;
+  --app-font-heading: 'Noto Sans Tamil', 'Noto Sans', system-ui, sans-serif;
+}
+
+html[lang='si'] {
+  --app-font-body: 'Noto Sans Sinhala', 'Noto Sans', system-ui, sans-serif;
+  --app-font-heading: 'Noto Sans Sinhala', 'Noto Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--app-font-body);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--app-font-heading);
+  line-height: 1.25;
+}
+
+/* Sharp borders -- government style */
+* {
+  border-radius: 0 !important;
+}
+
+/* Component classes */
+.gov-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gov-card {
+  background: white;
+  border: 2px solid #e5e7eb;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.gov-card:hover {
+  border-color: var(--color-thamizhi-red-600);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.gov-btn-primary {
+  background-color: var(--color-thamizhi-red-600);
+  color: white;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border: 2px solid var(--color-thamizhi-red-600);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.gov-btn-primary:hover {
+  background-color: var(--color-thamizhi-red-700);
+}
+
+.gov-btn-secondary {
+  background-color: var(--color-thamizhi-amber-600);
+  color: var(--color-thamizhi-charcoal-800);
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  border: 2px solid var(--color-thamizhi-amber-600);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.gov-btn-secondary:hover {
+  background-color: var(--color-thamizhi-amber-500);
+}

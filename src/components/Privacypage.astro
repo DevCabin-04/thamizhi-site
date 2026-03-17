@@ -1,0 +1,31 @@
+---
+import { loadUi } from '../utils/i18n';
+
+interface Props {
+  data: any;
+  lang: string;
+}
+
+const { data, lang } = Astro.props;
+const { t } = await loadUi(lang);
+const sections = data.sections || [];
+---
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+  <div class="text-center mb-12">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">{data.hero?.title}</h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">{data.hero?.description}</p>
+    {data.last_updated && (
+      <p class="text-sm text-gray-400 mt-4">{t('privacy.last_updated')}: {data.last_updated}</p>
+    )}
+  </div>
+
+  <div class="space-y-8">
+    {sections.map((section: any) => (
+      <div class="border-b border-gray-200 pb-8 last:border-b-0">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">{section.title}</h2>
+        <p class="text-gray-700 leading-relaxed">{section.content}</p>
+      </div>
+    ))}
+  </div>
+</div>

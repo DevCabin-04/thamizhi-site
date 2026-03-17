@@ -1,14 +1,14 @@
 {
   "hero": {
     "title": "Welcome to Thamizhi",
-    "subtitle": "Preserving Tamil Heritage, Empowering Communities",
-    "description": "Join us in celebrating the rich culture, language, and traditions of Tamil heritage. We are dedicated to preserving our ancient wisdom while building bridges to the future.",
-    "background_image": "",
-    "hero_video_url": "https://www.youtube.com/watch?v=V9LChBJ1-B0",
-    "hero_video_title": "Celebrating Tamil Heritage",
+    "subtitle": "The grand dream of the descendants of a nation",
+    "description": "Thamizhi is a community organization dedicated to preserving and promoting the Tamil language, literature, and cultural heritage of Sri Lankan Tamils.",
+    "background_image": "/uploads/thamizhi-event-1.jpg",
+    "hero_video_url": "",
+    "hero_video_title": "",
     "cta_primary": {
       "text": "Contact Us",
-      "href": "/contact"
+      "href": "about#contact"
     },
     "cta_secondary": {
       "text": "Learn More",
@@ -19,61 +19,86 @@
     "title": "Our Mission",
     "content": "To preserve, promote, and celebrate Tamil culture and language through education, community programs, and cultural events that connect generations and strengthen our global Tamil community."
   },
-  "featured_departments": [],
+  "featured_departments": [
+    {
+      "name": "Cultural Programs",
+      "description": "Traditional dance, music, and arts programs for all ages.",
+      "icon": "cultural",
+      "href": "events#initiatives"
+    },
+    {
+      "name": "Language Education",
+      "description": "Tamil language classes and literary programs.",
+      "icon": "education",
+      "href": "events#initiatives"
+    },
+    {
+      "name": "Community Services",
+      "description": "Support services for Tamil families and individuals.",
+      "icon": "community",
+      "href": "events#initiatives"
+    },
+    {
+      "name": "Youth Programs",
+      "description": "Leadership development and cultural engagement for youth.",
+      "icon": "youth",
+      "href": "events#initiatives"
+    }
+  ],
   "recent_events": [
     {
       "title": "Tamil New Year Celebration 2024",
       "date": "2024-04-14T00:00:00.000Z",
-      "time": "6:00 PM",
-      "location": "Tamil Heritage Center",
-      "description": "Join us for a grand celebration of Tamil New Year with traditional performances, cultural programs, and festive meals.",
-      "image": "/uploadstamil-new-year-2024.jpg",
+      "time": "",
+      "location": "",
+      "description": "Celebrating Puthandu with traditional cultural performances and community gatherings.",
+      "image": "/uploads/thamizhi-event-1.jpg",
       "category": "festival"
     },
     {
-      "title": "Tamil Literature Workshop",
-      "date": "2024-03-23T00:00:00.000Z",
-      "time": "2:00 PM",
-      "location": "Library Hall",
-      "description": "An interactive workshop exploring classical Tamil literature and contemporary writings.",
-      "image": "/uploadsliterature-workshop.jpg",
-      "category": "education"
+      "title": "Thamizhi Cultural Event",
+      "date": "2024-03-01T00:00:00.000Z",
+      "time": "",
+      "location": "",
+      "description": "A gathering of the Tamil community to celebrate our rich cultural heritage.",
+      "image": "/uploads/thamizhi-event-2.jpg",
+      "category": "cultural"
     },
     {
-      "title": "Community Health Fair",
-      "date": "2024-03-10T00:00:00.000Z",
-      "time": "10:00 AM",
-      "location": "Community Center",
-      "description": "Free health screenings and wellness information for community members.",
-      "image": "/uploadshealth-fair.jpg",
+      "title": "Community Gathering",
+      "date": "2024-02-01T00:00:00.000Z",
+      "time": "",
+      "location": "",
+      "description": "Thamizhi community members coming together for culture, language, and heritage.",
+      "image": "/uploads/thamizhi-event-3.jpg",
       "category": "community"
     }
   ],
   "announcements": [
     {
-      "title": "New Tamil Language Classes Starting Soon",
+      "title": "Follow us on Facebook",
       "date": "2024-01-15T00:00:00.000Z",
-      "content": "Registration is now open for beginner and intermediate Tamil language classes. Classes start February 1st.",
+      "content": "Stay updated with Thamizhi events and announcements by following our Facebook page with 4,400+ followers.",
       "priority": "high",
-      "category": "education"
+      "category": "social"
     }
   ],
   "statistics": [
     {
-      "number": "2,500+",
-      "label": "Active Members"
+      "number": "4,400+",
+      "label": "Facebook Followers"
     },
     {
-      "number": "50+",
-      "label": "Cultural Events Annually"
+      "number": "2019",
+      "label": "Founded"
     },
     {
-      "number": "15",
-      "label": "Years of Service"
+      "number": "3",
+      "label": "Languages"
     },
     {
-      "number": "200+",
-      "label": "Students Taught"
+      "number": "100+",
+      "label": "Cultural Events"
     }
   ],
   "quick_actions": [
@@ -81,7 +106,7 @@
       "title": "Contact Us",
       "description": "Get in touch with our team",
       "icon": "volunteer",
-      "href": "/contact",
+      "href": "about#contact",
       "color": "blue"
     },
     {
@@ -94,9 +119,9 @@
   ],
   "featured_video": {
     "title": "Featured Video",
-    "video_title": "Celebrating Tamil Heritage",
-    "video_description": "Watch our latest video showcasing Tamil cultural traditions and community programs.",
-    "youtube_url": "https://www.youtube.com/watch?v=V9LChBJ1-B0"
+    "video_title": "Thamizhi - Tamil Cultural Organization",
+    "video_description": "Learn about Thamizhi, the community organization dedicated to preserving Tamil language, literature, and cultural heritage.",
+    "youtube_url": ""
   },
   "newsletter": {
     "title": "Stay Connected",
@@ -117,27 +142,27 @@
     "section_description": "Moments from our recent events and activities.",
     "photos": [
       {
-        "image": "/uploads/logo.jpeg",
+        "image": "/uploads/thamizhi-event-1.jpg",
         "title": "Tamil New Year 2024",
-        "description": "Celebrating Puthandu with traditional performances",
+        "description": "Celebrating Puthandu with cultural performances",
         "link": "/gallery"
       },
       {
-        "image": "/uploads/literature-workshop.jpg",
-        "title": "Literature Workshop",
-        "description": "Students exploring classical Tamil poetry",
+        "image": "/uploads/thamizhi-event-2.jpg",
+        "title": "Thamizhi Event",
+        "description": "Community gathering celebrating Tamil heritage",
         "link": "/gallery"
       },
       {
-        "image": "/uploads/health-fair.jpg",
-        "title": "Community Health Fair",
-        "description": "Serving our community with health resources",
+        "image": "/uploads/thamizhi-event-3.jpg",
+        "title": "Cultural Program",
+        "description": "Thamizhi cultural event highlights",
         "link": "/gallery"
       },
       {
-        "image": "/uploads/dance-performance.jpg",
-        "title": "Bharatanatyam Performance",
-        "description": "Traditional dance showcase by club members",
+        "image": "/uploads/thamizhi-event-4.jpg",
+        "title": "Community Event",
+        "description": "Bringing the Tamil community together",
         "link": "/gallery"
       }
     ],

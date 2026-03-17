@@ -1,17 +1,18 @@
 {
   "hero": {
     "title": "தமிழிக்கு வரவேற்கிறோம்",
-    "subtitle": "தமிழ் பாரம்பரியத்தை பாதுகாத்தல், சமூகங்களை வலுப்படுத்துதல்",
-    "description": "தமிழ் பாரம்பரியத்தின் வளமான கலாச்சாரம், மொழி மற்றும் பாரம்பரியங்களைக் கொண்டாடுவதில் எங்களுடன் சேருங்கள். எதிர்காலத்திற்கான பாலங்களைக் கட்டும் அதே வேளையில் எங்கள் பண்டைய ஞானத்தைப் பாதுகாப்பதில் நாங்கள் அர்ப்பணிப்புடன் உள்ளோம்.",
+    "subtitle": "ஒரு தேசிய இனத்தின் சந்ததிப் பெருங்கனவு",
+    "description": "தமிழி என்பது இலங்கை தமிழர்களின் மொழி, இலக்கியம் மற்றும் பண்பாட்டு பாரம்பரியத்தை பாதுகாத்து மேம்படுத்துவதற்கு அர்ப்பணிக்கப்பட்ட சமூக அமைப்பு.",
+    "background_image": "/uploads/thamizhi-event-1.jpg",
     "hero_video_url": "",
     "hero_video_title": "",
     "cta_primary": {
-      "text": "உறுப்பினராகுங்கள்",
-      "href": "/ta/membership"
+      "text": "தொடர்பு கொள்ள",
+      "href": "about#contact"
     },
     "cta_secondary": {
       "text": "மேலும் அறிக",
-      "href": "/ta/about"
+      "href": "/about"
     }
   },
   "mission_statement": {
@@ -23,117 +24,96 @@
       "name": "கலாச்சார திட்டங்கள்",
       "description": "அனைத்து வயதினருக்கும் பாரம்பரிய நடனம், இசை மற்றும் கலை திட்டங்கள்",
       "icon": "cultural",
-      "href": "/ta/departments/cultural"
+      "href": "events#initiatives"
     },
     {
       "name": "மொழிக் கல்வி",
       "description": "தமிழ் மொழி வகுப்புகள் மற்றும் இலக்கிய திட்டங்கள்",
       "icon": "education",
-      "href": "/ta/departments/education"
+      "href": "events#initiatives"
     },
     {
       "name": "சமூக சேவைகள்",
       "description": "தமிழ் குடும்பங்கள் மற்றும் தனிநபர்களுக்கான ஆதரவு சேவைகள்",
       "icon": "community",
-      "href": "/ta/departments/community"
+      "href": "events#initiatives"
     },
     {
       "name": "இளைஞர் திட்டங்கள்",
       "description": "இளைஞர்களுக்கான தலைமைத்துவ மேம்பாடு மற்றும் கலாச்சார ஈடுபாடு",
       "icon": "youth",
-      "href": "/ta/departments/youth"
+      "href": "events#initiatives"
     }
   ],
   "recent_events": [
     {
       "title": "தமிழ் புத்தாண்டு கொண்டாட்டம் 2024",
       "date": "2024-04-14",
-      "time": "மாலை 6:00 மணி",
-      "location": "தமிழ் பாரம்பரிய மையம்",
-      "description": "பாரம்பரிய நிகழ்ச்சிகள், கலாச்சார திட்டங்கள் மற்றும் விழா உணவுகளுடன் தமிழ் புத்தாண்டின் பிரமாண்ட கொண்டாட்டத்தில் எங்களுடன் சேருங்கள்.",
-      "image": "tamil-new-year-2024.jpg",
+      "time": "",
+      "location": "",
+      "description": "பாரம்பரிய கலாச்சார நிகழ்ச்சிகள் மற்றும் சமூக கூட்டங்களுடன் புத்தாண்டு கொண்டாட்டம்.",
+      "image": "/uploads/thamizhi-event-1.jpg",
       "category": "festival"
     },
     {
-      "title": "தமிழ் இலக்கிய பட்டறை",
-      "date": "2024-03-23",
-      "time": "பிற்பகல் 2:00 மணி",
-      "location": "நூலக மண்டபம்",
-      "description": "கிளாசிக்கல் தமிழ் இலக்கியம் மற்றும் சமகால எழுத்துக்களை ஆராயும் ஒரு ஊடாடும் பட்டறை.",
-      "image": "literature-workshop.jpg",
-      "category": "education"
+      "title": "தமிழி கலாச்சார நிகழ்வு",
+      "date": "2024-03-01",
+      "time": "",
+      "location": "",
+      "description": "வளமான தமிழ் கலாச்சார பாரம்பரியத்தைக் கொண்டாட தமிழ் சமூக கூட்டம்.",
+      "image": "/uploads/thamizhi-event-2.jpg",
+      "category": "cultural"
     },
     {
-      "title": "சமூக நலவாழ்வு கண்காட்சி",
-      "date": "2024-03-10",
-      "time": "காலை 10:00 மணி",
-      "location": "சமூக மையம்",
-      "description": "சமூக உறுப்பினர்களுக்கு இலவச உடல்நலப் பரிசோதனைகள் மற்றும் நல்வாழ்வு தகவல்கள்.",
-      "image": "health-fair.jpg",
+      "title": "சமூக கூட்டம்",
+      "date": "2024-02-01",
+      "time": "",
+      "location": "",
+      "description": "மொழி, இலக்கியம் மற்றும் பாரம்பரியத்திற்காக தமிழி சமூக உறுப்பினர்கள் ஒன்று சேர்தல்.",
+      "image": "/uploads/thamizhi-event-3.jpg",
       "category": "community"
     }
   ],
   "announcements": [
     {
-      "title": "புதிய தமிழ் மொழி வகுப்புகள் விரைவில் தொடங்குகின்றன",
+      "title": "பேஸ்புக்கில் எங்களை பின்தொடருங்கள்",
       "date": "2024-01-15",
-      "content": "ஆரம்ப மற்றும் இடைநிலை தமிழ் மொழி வகுப்புகளுக்கான பதிவு இப்போது திறந்துள்ளது. வகுப்புகள் பிப்ரவரி 1 அன்று தொடங்கும்.",
+      "content": "4,400+ பின்தொடர்பவர்களை கொண்ட எங்கள் பேஸ்புக் பக்கத்தை பின்தொடர்வதன் மூலம் தமிழி நிகழ்வுகள் மற்றும் அறிவிப்புகளை புதுப்பித்த நிலையில் பெறுங்கள்.",
       "priority": "high",
-      "category": "education"
-    },
-    {
-      "title": "வருடாந்திர உறுப்பினர் பதிவு",
-      "date": "2024-01-10",
-      "content": "எங்கள் வளர்ந்து வரும் சமூகத்தில் சேருங்கள்! புதிய உறுப்பினர்களுக்கு மார்ச் 31 வரை சிறப்பு உறுப்பினர் கட்டணம் உள்ளது.",
-      "priority": "medium",
-      "category": "membership"
+      "category": "social"
     }
   ],
   "statistics": [
     {
-      "number": "2,500+",
-      "label": "செயலில் உள்ள உறுப்பினர்கள்"
+      "number": "4,400+",
+      "label": "பேஸ்புக் பின்தொடர்பவர்கள்"
     },
     {
-      "number": "50+",
-      "label": "வருடாந்திர கலாச்சார நிகழ்வுகள்"
+      "number": "2019",
+      "label": "நிறுவப்பட்டது"
     },
     {
-      "number": "15",
-      "label": "சேவை ஆண்டுகள்"
+      "number": "3",
+      "label": "மொழிகள்"
     },
     {
-      "number": "200+",
-      "label": "கற்பித்த மாணவர்கள்"
+      "number": "100+",
+      "label": "பண்பாட்டு நிகழ்வுகள்"
     }
   ],
   "quick_actions": [
     {
-      "title": "உறுப்பினராக சேரவும்",
-      "description": "எங்கள் சமூகத்தின் ஒரு பகுதியாக மாறுங்கள்",
-      "icon": "member",
-      "href": "/ta/membership",
-      "color": "orange"
-    },
-    {
-      "title": "நன்கொடை",
-      "description": "எங்கள் நோக்கத்தை ஆதரிக்கவும்",
-      "icon": "donate",
-      "href": "/ta/donate",
-      "color": "green"
-    },
-    {
-      "title": "தன்னார்வலர்",
-      "description": "எங்கள் திட்டங்களில் ஈடுபடுங்கள்",
+      "title": "தொடர்பு கொள்ள",
+      "description": "எங்கள் குழுவை தொடர்பு கொள்ளுங்கள்",
       "icon": "volunteer",
-      "href": "/ta/volunteer",
+      "href": "about#contact",
       "color": "blue"
     },
     {
-      "title": "செய்திமடல் சந்தா",
-      "description": "செய்திகளுடன் புதுப்பித்த நிலையில் இருங்கள்",
+      "title": "நிகழ்வுகளை பார்க்க",
+      "description": "எங்கள் வரவிருக்கும் திட்டங்களைப் பாருங்கள்",
       "icon": "newsletter",
-      "href": "/ta/newsletter",
+      "href": "/events",
       "color": "purple"
     }
   ],
@@ -143,5 +123,44 @@
     "placeholder": "உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்",
     "button": "குழுசேர்",
     "privacy": "நாங்கள் உங்கள் தனியுரிமையை மதிக்கிறோம். எந்த நேரத்திலும் குழுவிலகம் செய்யலாம்."
+  },
+  "recent_articles": {
+    "section_title": "சமீபத்திய கட்டுரைகள்",
+    "section_description": "எங்கள் சமுதாயம் மற்றும் கலாச்சாரம் பற்றிய சமீபத்திய கட்டுரைகளைப் படியுங்கள்.",
+    "posts_to_show": 3,
+    "view_all_href": "/blog",
+    "view_all_text": "அனைத்தையும் பார்க்க"
+  },
+  "photo_highlights": {
+    "section_title": "புகைப்பட சிறப்பம்சங்கள்",
+    "section_description": "எங்கள் நிகழ்வுகள் மற்றும் சமூக கூட்டங்களிலிருந்து தருணங்கள்.",
+    "photos": [
+      {
+        "image": "/uploads/thamizhi-event-1.jpg",
+        "title": "தமிழி நிகழ்வு",
+        "description": "",
+        "link": "/gallery"
+      },
+      {
+        "image": "/uploads/thamizhi-event-2.jpg",
+        "title": "கலாச்சார நிகழ்வு",
+        "description": "",
+        "link": "/gallery"
+      },
+      {
+        "image": "/uploads/thamizhi-event-3.jpg",
+        "title": "சமூக கூட்டம்",
+        "description": "",
+        "link": "/gallery"
+      },
+      {
+        "image": "/uploads/thamizhi-event-4.jpg",
+        "title": "பண்டிகை கொண்டாட்டம்",
+        "description": "",
+        "link": "/gallery"
+      }
+    ],
+    "view_gallery_text": "கேலரி காண்க",
+    "view_gallery_href": "/gallery"
   }
 }

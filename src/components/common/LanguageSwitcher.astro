@@ -1,145 +1,50 @@
 ---
-import {
-    getLangFromUrl,
-    languages,
-    getBasePath,
-    getUrlWithBase,
-    // type SupportedLangs,
-} from "../../utils/i18n";
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { languages, getUrlWithBase, supportedLangs } from '../../utils/i18n';
 
 export interface Props {
-    currentLang: string;
+  currentLang: string;
 }
 
 const { currentLang }: Props = Astro.props;
 
-// Helper function to get clean page path without language or base path
-const getPagePath = (url: URL) => {
-    let pathname = url.pathname;
-    const basePath = getBasePath();
-    
-    // Remove base path if it exists (for production)
-    if (basePath && pathname.startsWith(basePath)) {
-        pathname = pathname.substring(basePath.length);
-    }
-    
-    // Ensure pathname starts with /
-    if (!pathname.startsWith('/')) {
-        pathname = '/' + pathname;
-    }
-    
-    // Remove trailing slash if present
-    if (pathname.endsWith('/') && pathname !== '/') {
-        pathname = pathname.slice(0, -1);
-    }
-    
-    // Split path and filter empty parts
-    const pathParts = pathname.split('/').filter(part => part);
-    
-    // Check if first part is a language code and remove it
-    if (pathParts.length > 0 && Object.keys(languages).includes(pathParts[0])) {
-        pathParts.shift(); // Remove language code
-    }
-    
-    // Return the clean path (empty string for home page, /path for other pages)
-    return pathParts.length > 0 ? `/${pathParts.join('/')}` : '';
+// Extract the current path without the lang prefix
+const getPagePath = (url: URL): string => {
+  let pathname = url.pathname;
+  if (pathname.endsWith('/') && pathname !== '/') {
+    pathname = pathname.slice(0, -1);
+  }
+  const parts = pathname.split('/').filter(Boolean);
+  if (parts.length > 0 && supportedLangs.includes(parts[0] as (typeof supportedLangs)[0])) {
+    parts.shift();
+  }
+  return parts.length > 0 ? `/${parts.join('/')}` : '';
 };
+
+const labels: Record<string, string> = {
+  en: 'EN',
+  ta: 'தமிழ்',
+  si: 'සිං',
+};
+
+const pagePath = getPagePath(Astro.url);
+const langEntries = Object.keys(languages);
 ---
 
-<div class="relative inline-block text-left">
-    <div>
-        <button
-            type="button"
-            class="inline-flex items-center justify-center w-full px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white border border-gray-600 rounded hover:border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all"
-            id="language-menu-button"
-            aria-expanded="false"
-            aria-haspopup="true"
-        >
-            <span class="mr-1">{languages[currentLang as keyof typeof languages].flag}</span>
-            {languages[currentLang as keyof typeof languages].name}
-            <svg class="-mr-1 ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-        </button>
-    </div>
-
-    <div 
-        class="hidden origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-10" 
-        role="menu" 
-        aria-orientation="vertical" 
-        aria-labelledby="language-menu-button" 
-        tabindex="-1"
-        id="language-menu"
-    >
-        <div class="py-1" role="none">
-            {Object.entries(languages).map(([langCode, langInfo]) => {
-                const pagePath = getPagePath(Astro.url);
-                const newUrl = getUrlWithBase(pagePath, langCode);
-                
-                return (
-                    <a
-                        href={newUrl}
-                        class={`flex items-center px-4 py-2 text-sm ${currentLang === langCode ? 'bg-blue-50 text-blue-900 font-medium' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-800'}`}
-                        role="menuitem"
-                        tabindex="-1"
-                    >
-                        <span class="mr-2">{langInfo.flag}</span>
-                        {langInfo.name}
-                    </a>
-                );
-            })}
-        </div>
-    </div>
-</div>
-
-<script>
-    // Toggle dropdown menu - works with Astro View Transitions
-    function setupLanguageSwitcher() {
-        const button = document.getElementById('language-menu-button');
-        const menu = document.getElementById('language-menu');
-
-        if (button && menu) {
-            // Remove any existing listeners by cloning and replacing the button
-            const newButton = button.cloneNode(true);
-            button.parentNode?.replaceChild(newButton, button);
-
-            const finalButton = document.getElementById('language-menu-button');
-            const finalMenu = document.getElementById('language-menu');
-
-            if (finalButton && finalMenu) {
-                // Toggle menu when button is clicked
-                finalButton.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    finalMenu.classList.toggle('hidden');
-                    finalButton.setAttribute('aria-expanded', finalMenu.classList.contains('hidden') ? 'false' : 'true');
-                });
-
-                // Close menu when clicking outside
-                const closeOnClickOutside = (event: MouseEvent) => {
-                    if (!finalButton.contains(event.target as Node) && !finalMenu.contains(event.target as Node)) {
-                        finalMenu.classList.add('hidden');
-                        finalButton.setAttribute('aria-expanded', 'false');
-                    }
-                };
-
-                // Close menu when pressing escape key
-                const closeOnEscape = (event: KeyboardEvent) => {
-                    if (event.key === 'Escape') {
-                        finalMenu.classList.add('hidden');
-                        finalButton.setAttribute('aria-expanded', 'false');
-                    }
-                };
-
-                document.addEventListener('click', closeOnClickOutside);
-                document.addEventListener('keydown', closeOnEscape);
-            }
-        }
-    }
-
-    // Run on initial page load
-    document.addEventListener('DOMContentLoaded', setupLanguageSwitcher);
-
-    // Run after Astro View Transitions (when navigating between pages)
-    document.addEventListener('astro:page-load', setupLanguageSwitcher);
-</script>
+<nav aria-label="Language selector" class="flex rounded overflow-hidden border border-thamizhi-amber-600/40">
+  {langEntries.map((langCode, idx) => {
+    const href = getUrlWithBase(pagePath, langCode);
+    const isActive = currentLang === langCode;
+    const borderClass = idx > 0 ? ' border-l border-thamizhi-amber-600/40' : '';
+    return isActive ? (
+      <a href={href} aria-current="page"
+         class={`px-2.5 py-1 text-xs font-medium bg-thamizhi-amber-600 text-thamizhi-charcoal-800 no-underline${borderClass}`}>
+        {labels[langCode] || langCode}
+      </a>
+    ) : (
+      <a href={href}
+         class={`px-2.5 py-1 text-xs font-medium text-thamizhi-amber-600 hover:bg-thamizhi-amber-600/20 no-underline${borderClass}`}>
+        {labels[langCode] || langCode}
+      </a>
+    );
+  })}
+</nav>

@@ -1,429 +1,313 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-import "../styles/global.css";
-import "../styles/thamizhi-theme.css";
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
 import {
-    getLangFromUrl,
-    loadContent,
-    getLocalizedUrl,
-    languages,
-    getUrlWithBase as getUrlWithBaseUtil,
-} from "../utils/i18n.js";
-import LanguageSwitcher from "../components/common/LanguageSwitcher.astro";
-import logoImage from "../assets/logo.jpeg";
+  getLangFromUrl,
+  loadContent,
+  loadUi,
+  getLocalizedUrl,
+  getUrlWithBase,
+  languages,
+} from '../utils/i18n';
+import LanguageSwitcher from '../components/common/LanguageSwitcher.astro';
 
 export interface Props {
-    title?: string;
-    description?: string;
-    lang?: string;
+  title?: string;
+  description?: string;
+  lang?: string;
 }
 
 const { title, description, lang } = Astro.props;
-const currentLang = lang || getLangFromUrl(Astro.url) || "en";
+const currentLang = lang || getLangFromUrl(Astro.url);
 
-// Load site configuration for current language
-const siteConfig = await loadContent(currentLang, "site_config");
-
-// Helper function to construct URLs with base path in production
-const getUrlWithBase = (href: string) => {
-    return getUrlWithBaseUtil(href, currentLang);
-};
+// Load site configuration and UI strings
+const [siteConfig, { t }] = await Promise.all([
+  loadContent(currentLang, 'site_config'),
+  loadUi(currentLang),
+]);
 
 const pageTitle =
-    title || siteConfig.meta?.title_suffix || siteConfig.organization?.name;
+  title ||
+  (siteConfig.meta as Record<string, string>)?.title_suffix ||
+  (siteConfig.organization as Record<string, string>)?.name;
+
 const pageDescription =
-    description ||
-    siteConfig.meta?.description ||
-    siteConfig.organization?.description;
+  description ||
+  (siteConfig.meta as Record<string, string>)?.description ||
+  (siteConfig.organization as Record<string, string>)?.description;
+
+const org = siteConfig.organization as Record<string, string> | undefined;
+const contact = siteConfig.contact as Record<string, unknown> | undefined;
+const nav = siteConfig.navigation as {
+  primary?: Array<{ name: string; href: string }>;
+  footer?: Array<{ name: string; href: string }>;
+} | undefined;
+const footerData = siteConfig.footer as Record<string, string> | undefined;
+const social = (contact?.social_media as Record<string, string>) ?? {};
+const address = (contact?.address as {
+  street?: string;
+  city?: string;
+  state?: string;
+  postal_code?: string;
+} | undefined) ?? undefined;
 ---
 
 <!doctype html>
-<html lang={currentLang} dir={languages[currentLang]?.dir || "ltr"}>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content={pageDescription} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>{pageTitle}</title>
-        <meta name="robots" content="index, follow" />
-        <meta
-            name="author"
-            content={siteConfig.meta?.author || siteConfig.organization?.name}
+<html lang={currentLang} dir={languages[currentLang as keyof typeof languages]?.dir ?? 'ltr'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={pageDescription} />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/thamizhi.svg" />
+    <title>{pageTitle}</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content={(siteConfig.meta as Record<string,string>)?.author || org?.name} />
+    <meta name="keywords" content={(siteConfig.meta as Record<string,string>)?.keywords} />
+
+    <!-- Language alternate links -->
+    {
+      Object.keys(languages).map((langCode) => (
+        <link
+          rel="alternate"
+          hreflang={langCode}
+          href={getLocalizedUrl(Astro.url, langCode)}
         />
-        <meta name="keywords" content={siteConfig.meta?.keywords} />
+      ))
+    }
 
-        <!-- Language alternate links -->
-        {
-            Object.keys(languages).map((langCode: string) => (
-                <link
-                    rel="alternate"
-                    hreflang={langCode}
-                    href={getLocalizedUrl(Astro.url, langCode)}
-                />
-            ))
-        }
+    <!-- Tamil / Sinhala fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@300;400;500;600;700&family=Noto+Sans+Sinhala:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-        <!-- Enable View Transitions for TinaCMS integration -->
-        <ViewTransitions />
-        <!-- TinaCMS iframe communication helper -->
-        <script is:inline src="/tinacms-iframe.js"></script>
-    </head>
-    <body class="min-h-screen bg-white font-sans antialiased">
-        <header class="bg-white shadow-sm">
-            <!-- Utility Bar -->
-            <div class="bg-[#4a0a0a] text-white py-2">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between items-center">
-                        <div class="text-xs text-gray-300">
-                            {siteConfig.organization?.tagline}
-                        </div>
-                        <div class="flex items-center space-x-6">
-                            <LanguageSwitcher currentLang={currentLang} />
-                        </div>
-                    </div>
-                </div>
+    <!-- View Transitions -->
+    <ClientRouter />
+  </head>
+  <body class="min-h-screen bg-white font-sans antialiased">
+    <header class="bg-white shadow-sm">
+      <!-- Utility bar -->
+      <div class="bg-thamizhi-red-600 text-white py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-center">
+            <div class="text-xs text-gray-300">{org?.tagline}</div>
+            <div class="flex items-center space-x-6">
+              <LanguageSwitcher currentLang={currentLang} />
             </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- Main Header -->
-            <nav class="bg-white border-b border-gray-200 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center py-4">
-                    <!-- Logo and Organization Name -->
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center">
-                            <a
-                                href={getUrlWithBase('')}
-                                class="flex items-center"
-                            >
-                                <img
-                                    src={logoImage.src}
-                                    alt={siteConfig.organization?.name}
-                                    class="w-12 h-12 object-contain rounded-full shadow-lg"
-                                />
-                                <div class="ml-3">
-                                    <div
-                                        class="text-xl font-bold text-gray-900"
-                                    >
-                                        {siteConfig.organization?.name}
-                                    </div>
-                                    <div
-                                        class="text-sm text-[#7a1315] font-medium"
-                                    >
-                                        {siteConfig.organization?.name_local}
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+      <!-- Main nav -->
+      <nav class="bg-white border-b border-gray-200 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center space-x-4">
+            <a href={getUrlWithBase('', currentLang)} class="flex items-center">
+              <img src="/thamizhi.svg" alt="Thamizhi logo" class="w-12 h-12 object-contain" />
+              <div class="ml-3 text-xl font-bold text-gray-900">{org?.name}</div>
+            </a>
+          </div>
 
-                    <!-- Desktop Navigation -->
-                    <div class="hidden md:flex items-center space-x-8">
-                        {
-                            siteConfig.navigation?.primary?.map((item: any) => (
-                                <a
-                                    href={getUrlWithBase(item.href)}
-                                    class="text-gray-700 hover:text-[#7a1315] font-medium transition-colors duration-200 relative group"
-                                >
-                                    {item.name}
-                                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#7a1315] transition-all duration-200 group-hover:w-full" />
-                                </a>
-                            ))
-                        }
-                    </div>
-
-                    <!-- Mobile Menu Button -->
-                    <div class="md:hidden">
-                        <button
-                            type="button"
-                            class="text-gray-700 hover:text-[#7a1315] transition-colors"
-                            id="mobile-menu-button"
-                        >
-                            <svg
-                                class="w-6 h-6"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M4 6h16M4 12h16M4 18h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Mobile Navigation Menu -->
-                <div class="md:hidden hidden" id="mobile-menu">
-                    <div
-                        class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200"
-                    >
-                        {
-                            siteConfig.navigation?.primary?.map((item: any) => (
-                                <a
-                                    href={getUrlWithBase(item.href)}
-                                    class="block px-3 py-2 text-gray-700 hover:text-[#7a1315] hover:bg-[#fdf2f2] rounded-md font-medium transition-colors"
-                                >
-                                    {item.name}
-                                </a>
-                            ))
-                        }
-                    </div>
-                </div>
-            </nav>
-        </header>
-
-        <!-- Breadcrumb Slot -->
-        <slot name="breadcrumb" />
-
-        <main class="flex-1">
-            <slot />
-        </main>
-
-        <footer class="bg-[#4a0a0a] text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <!-- Organization Info -->
-                    <div class="md:col-span-2">
-                        <div class="flex items-center mb-4">
-                            <img
-                                src={logoImage.src}
-                                alt={siteConfig.organization?.name}
-                                class="w-10 h-10 object-contain rounded-full"
-                            />
-                            <div class="ml-3">
-                                <div class="text-lg font-bold">
-                                    {siteConfig.organization?.name}
-                                </div>
-                                <div class="text-sm text-gray-300">
-                                    {siteConfig.organization?.name_local}
-                                </div>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm max-w-md mb-4">
-                            {
-                                siteConfig.footer?.description ||
-                                    siteConfig.organization?.description
-                            }
-                        </p>
-                        <div class="text-xs text-gray-400">
-                            <p>
-                                {
-                                    currentLang === "en"
-                                        ? "Registered NPO:"
-                                        : currentLang === "ta"
-                                          ? "பதிவு செய்யப்பட்ட NPO:"
-                                          : "ලියාපදිංචි NPO:"
-                                }
-                                {siteConfig.organization?.registration_number}
-                            </p>
-                            <p>
-                                {
-                                    currentLang === "en"
-                                        ? "Founded:"
-                                        : currentLang === "ta"
-                                          ? "நிறுவப்பட்டது:"
-                                          : "ආරම්භ කළේ:"
-                                }
-                                {siteConfig.organization?.founded}
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Quick Links -->
-                    <div>
-                        <h3 class="text-white font-semibold mb-4">
-                            {
-                                currentLang === "en"
-                                    ? "Quick Links"
-                                    : currentLang === "ta"
-                                      ? "விரைவு இணைப்புகள்"
-                                      : "ඉක්මන් සබැඳි"
-                            }
-                        </h3>
-                        <ul class="space-y-2 text-sm">
-                            {
-                                siteConfig.navigation?.footer?.map((item: any) => (
-                                    <li>
-                                        <a
-                                            href={getUrlWithBase(item.href)}
-                                            class="text-gray-300 hover:text-white transition-colors"
-                                        >
-                                            {item.name}
-                                        </a>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-
-                    <!-- Contact Information -->
-                    <div>
-                        <h3 class="text-white font-semibold mb-4">
-                            {
-                                currentLang === "en"
-                                    ? "Contact Us"
-                                    : currentLang === "ta"
-                                      ? "எங்களைத் தொடர்பு கொள்ளுங்கள்"
-                                      : "අප සම්බන්ධ කරන්න"
-                            }
-                        </h3>
-                        <ul class="space-y-2 text-sm text-gray-300">
-                            <li>
-                                <a
-                                    href={`mailto:${siteConfig.contact?.email}`}
-                                    class="hover:text-white transition-colors"
-                                >
-                                    {siteConfig.contact?.email}
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href={`tel:${siteConfig.contact?.phone}`}
-                                    class="hover:text-white transition-colors"
-                                >
-                                    {siteConfig.contact?.phone}
-                                </a>
-                            </li>
-                            {
-                                siteConfig.contact?.address && (
-                                    <li class="text-xs">
-                                        {siteConfig.contact.address.street}
-                                        <br />
-                                        {siteConfig.contact.address.city},{" "}
-                                        {siteConfig.contact.address.state}
-                                        {siteConfig.contact.address.postal_code}
-                                    </li>
-                                )
-                            }
-                        </ul>
-
-                        <!-- Social Media Links -->
-                        {
-                            siteConfig.contact?.social_media && (
-                                <div class="mt-4 flex space-x-3">
-                                    <a
-                                        href={
-                                            siteConfig.contact.social_media
-                                                .facebook
-                                        }
-                                        class="text-gray-400 hover:text-white transition-colors"
-                                        aria-label="Facebook"
-                                    >
-                                        <svg
-                                            class="w-5 h-5"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                                        </svg>
-                                    </a>
-                                    <a
-                                        href={
-                                            siteConfig.contact.social_media
-                                                .twitter
-                                        }
-                                        class="text-gray-400 hover:text-white transition-colors"
-                                        aria-label="Twitter"
-                                    >
-                                        <svg
-                                            class="w-5 h-5"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                                        </svg>
-                                    </a>
-                                    <a
-                                        href={
-                                            siteConfig.contact.social_media
-                                                .instagram
-                                        }
-                                        class="text-gray-400 hover:text-white transition-colors"
-                                        aria-label="Instagram"
-                                    >
-                                        <svg
-                                            class="w-5 h-5"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.014 5.367 18.647.001 12.017.001zM8.449 16.988c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348zm7.138 0c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348z" />
-                                        </svg>
-                                    </a>
-                                    <a
-                                        href={
-                                            siteConfig.contact.social_media
-                                                .youtube
-                                        }
-                                        class="text-gray-400 hover:text-white transition-colors"
-                                        aria-label="YouTube"
-                                    >
-                                        <svg
-                                            class="w-5 h-5"
-                                            fill="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            )
-                        }
-                    </div>
-                </div>
-
-                <div
-                    class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-300"
+          <!-- Desktop nav links -->
+          <div class="hidden md:flex items-center space-x-8">
+            {
+              nav?.primary?.map((item) => (
+                <a
+                  href={getUrlWithBase(item.href, currentLang)}
+                  class="text-gray-700 hover:text-thamizhi-red-600 font-medium transition-colors duration-200 relative group"
                 >
-                    <p>{siteConfig.footer?.copyright}</p>
-                </div>
-            </div>
-        </footer>
-
-        <script>
-            // Mobile menu toggle - works with Astro View Transitions
-            function setupMobileMenu() {
-                const button = document.getElementById("mobile-menu-button");
-                const menu = document.getElementById("mobile-menu");
-
-                if (button && menu) {
-                    // Remove any existing listeners by cloning and replacing the button
-                    const newButton = button.cloneNode(true);
-                    button.parentNode?.replaceChild(newButton, button);
-
-                    const finalButton = document.getElementById("mobile-menu-button");
-                    const finalMenu = document.getElementById("mobile-menu");
-
-                    if (finalButton && finalMenu) {
-                        // Toggle menu when button is clicked
-                        finalButton.addEventListener("click", function (e) {
-                            e.stopPropagation();
-                            finalMenu.classList.toggle("hidden");
-                        });
-
-                        // Close menu when clicking outside
-                        document.addEventListener("click", function (event) {
-                            if (!finalButton.contains(event.target as Node) && !finalMenu.contains(event.target as Node)) {
-                                finalMenu.classList.add("hidden");
-                            }
-                        });
-
-                        // Close menu when clicking on a menu item
-                        const menuLinks = finalMenu.querySelectorAll("a");
-                        menuLinks.forEach(link => {
-                            link.addEventListener("click", function () {
-                                finalMenu.classList.add("hidden");
-                            });
-                        });
-                    }
-                }
+                  {item.name}
+                  <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-thamizhi-red-600 transition-all duration-200 group-hover:w-full" />
+                </a>
+              ))
             }
+          </div>
 
-            // Run on initial page load
-            document.addEventListener("DOMContentLoaded", setupMobileMenu);
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              type="button"
+              class="text-gray-700 hover:text-thamizhi-red-600 transition-colors"
+              id="mobile-menu-button"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
-            // Run after Astro View Transitions (when navigating between pages)
-            document.addEventListener("astro:page-load", setupMobileMenu);
-        </script>
-    </body>
+        <!-- Mobile nav menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+            {
+              nav?.primary?.map((item) => (
+                <a
+                  href={getUrlWithBase(item.href, currentLang)}
+                  class="block px-3 py-2 text-gray-700 hover:text-thamizhi-red-600 hover:bg-thamizhi-red-100 rounded-md font-medium transition-colors"
+                >
+                  {item.name}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Breadcrumb slot -->
+    <slot name="breadcrumb" />
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-thamizhi-red-600 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Org info -->
+          <div class="md:col-span-2">
+            <div class="flex items-center mb-4">
+              <img src="/thamizhi.svg" alt="Thamizhi logo" class="w-10 h-10 object-contain" />
+              <div class="ml-3 text-lg font-bold">{org?.name}</div>
+            </div>
+            <p class="text-gray-300 text-sm max-w-md mb-4">
+              {footerData?.description ?? org?.description}
+            </p>
+            <div class="text-xs text-gray-400">
+              <p>{t('footer.founded')} {org?.founded}</p>
+            </div>
+          </div>
+
+          <!-- Quick links -->
+          <div>
+            <h3 class="text-white font-semibold mb-4">{t('footer.quick_links')}</h3>
+            <ul class="space-y-2 text-sm">
+              {
+                nav?.footer?.map((item) => (
+                  <li>
+                    <a
+                      href={getUrlWithBase(item.href, currentLang)}
+                      class="text-gray-300 hover:text-white transition-colors"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+
+          <!-- Contact info -->
+          <div>
+            <h3 class="text-white font-semibold mb-4">{t('footer.contact_us')}</h3>
+            <ul class="space-y-2 text-sm text-gray-300">
+              {
+                (contact?.email as string) && (
+                  <li>
+                    <a
+                      href={`mailto:${contact?.email}`}
+                      class="hover:text-white transition-colors"
+                    >
+                      {contact?.email as string}
+                    </a>
+                  </li>
+                )
+              }
+              {
+                (contact?.phone as string) && (
+                  <li>
+                    <a
+                      href={`tel:${contact?.phone}`}
+                      class="hover:text-white transition-colors"
+                    >
+                      {contact?.phone as string}
+                    </a>
+                  </li>
+                )
+              }
+              {address?.city && (
+                <li class="text-xs">
+                  {address.street && (<>{address.street}<br /></>)}
+                  {address.city}{address.state ? `, ${address.state}` : ''}{address.postal_code ? ` ${address.postal_code}` : ''}
+                </li>
+              )}
+            </ul>
+
+            <!-- Social links -->
+            <div class="mt-4 flex space-x-3">
+              {
+                social.facebook && (
+                  <a
+                    href={social.facebook}
+                    class="text-gray-400 hover:text-white transition-colors"
+                    aria-label={t('aria.facebook')}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                  </a>
+                )
+              }
+              {
+                (contact?.email as string) && (
+                  <a
+                    href={`mailto:${contact?.email}`}
+                    class="text-gray-400 hover:text-white transition-colors"
+                    aria-label={t('aria.email')}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </a>
+                )
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-300">
+          <p>{footerData?.copyright}</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function setupMobileMenu() {
+        const button = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        if (!button || !menu) return;
+
+        // Clone button to remove stale listeners
+        const fresh = button.cloneNode(true) as HTMLElement;
+        button.parentNode?.replaceChild(fresh, button);
+
+        const btn = document.getElementById('mobile-menu-button')!;
+        const mnu = document.getElementById('mobile-menu')!;
+
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          mnu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!btn.contains(e.target as Node) && !mnu.contains(e.target as Node)) {
+            mnu.classList.add('hidden');
+          }
+        });
+
+        mnu.querySelectorAll('a').forEach((a) =>
+          a.addEventListener('click', () => mnu.classList.add('hidden')),
+        );
+      }
+
+      document.addEventListener('DOMContentLoaded', setupMobileMenu);
+      document.addEventListener('astro:page-load', setupMobileMenu);
+    </script>
+  </body>
 </html>

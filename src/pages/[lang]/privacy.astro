@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PrivacyPage from '../../components/Privacypage.astro';
+import { loadContent, defaultLang, supportedLangs } from '../../utils/i18n';
+
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({ params: { lang }, props: { lang } }));
+}
+
+const { lang } = Astro.props;
+const current_lang = lang || defaultLang;
+
+const [data, site_config] = await Promise.all([
+  loadContent(current_lang, 'privacy'),
+  loadContent(current_lang, 'site_config'),
+]);
+const org = site_config.organization as Record<string, string> | undefined;
+const hero = data.hero as Record<string, string> | undefined;
+---
+
+<Layout
+  title={`${hero?.title || 'Privacy Policy'} - ${org?.name}`}
+  description={hero?.description}
+  lang={current_lang}
+>
+  <PrivacyPage data={data} lang={current_lang} />
+</Layout>

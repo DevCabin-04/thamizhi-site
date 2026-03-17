@@ -1,0 +1,303 @@
+---
+import { loadUi } from '../utils/i18n';
+import LucideIcon from './common/LucideIcon.astro';
+
+const { data, lang } = Astro.props;
+const { t } = await loadUi(lang);
+
+const aboutIcons = ['badge-check', 'book-open', 'users', 'sparkle', 'trophy'];
+const pickAboutIcon = (index: number) => aboutIcons[index % aboutIcons.length];
+---
+
+<!-- Page Header -->
+<section class="bg-thamizhi-red-600 text-white relative overflow-hidden">
+  <div class="absolute inset-0 opacity-10">
+    <div
+      class="absolute top-0 left-0 w-full h-full"
+      style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 20px 20px"
+    />
+  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl lg:text-5xl font-bold mb-4">
+        {data.hero?.title || t('about.about_us')}
+      </h1>
+      <h2 class="text-2xl lg:text-3xl font-medium text-thamizhi-amber-100 mb-6">
+        {data.hero?.title_tamil || ""}
+      </h2>
+      <p class="text-xl text-thamizhi-amber-100">
+        {data.hero?.description || ""}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Mission -->
+      <div class="bg-slate-50 rounded-lg p-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          {data.mission?.title || t('about.our_mission')}
+        </h2>
+        <h3 class="text-2xl font-medium text-thamizhi-charcoal-800 mb-6">
+          {data.mission?.title_tamil || ""}
+        </h3>
+        <p class="text-lg text-gray-700 mb-4">
+          {data.mission?.content || ""}
+        </p>
+        <p class="text-gray-600">
+          {data.mission?.content_tamil || ""}
+        </p>
+      </div>
+
+      <!-- Vision -->
+      <div class="bg-gov-gray-100 rounded-lg p-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          {data.vision?.title || t('about.our_vision')}
+        </h2>
+        <h3 class="text-2xl font-medium text-thamizhi-charcoal-800 mb-6">
+          {data.vision?.title_tamil || ""}
+        </h3>
+        <p class="text-lg text-gray-700 mb-4">
+          {data.vision?.content || ""}
+        </p>
+        <p class="text-gray-600">
+          {data.vision?.content_tamil || ""}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Core Values -->
+<section class="py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        {data.values_section?.title || t('about.core_values')}
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {data.values_section?.description || t('about.core_values_desc')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {data.values?.map((value: any, index: number) => (
+        <div class="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-thamizhi-red-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <LucideIcon name={pickAboutIcon(index)} class="w-8 h-8 text-white" />
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+          <h4 class="text-lg font-medium text-thamizhi-charcoal-800 mb-3">{value.title_tamil}</h4>
+          <p class="text-gray-600">{value.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- History Timeline -->
+{data.history && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            {data.history?.title || t('about.our_history')}
+          </h2>
+          <h3 class="text-2xl font-medium text-thamizhi-charcoal-800 mb-6">
+            {data.history?.title_tamil || ""}
+          </h3>
+          <p class="text-lg text-gray-600">
+            {data.history?.content || ""}
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {data.history?.milestones?.map((item: any) => (
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <div class="w-8 h-8 rounded-full bg-thamizhi-red-600 flex items-center justify-center">
+                  <div class="w-2 h-2 bg-white rounded-full" />
+                </div>
+              </div>
+              <div class="ml-4">
+                <div class="text-sm text-gray-500 mb-1">{item.year}</div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-1">{item.title}</h3>
+                <p class="text-gray-600">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Leadership Team -->
+{data.leadership && (
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          {data.leadership?.title || t('about.leadership_team')}
+        </h2>
+        <h3 class="text-2xl font-medium text-thamizhi-charcoal-800 mb-6">
+          {data.leadership?.title_tamil || ""}
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {data.leadership?.board_members?.map((member: any) => (
+          <div class="bg-white rounded-lg shadow-lg border-2 border-gray-300 p-6 text-center hover:shadow-md transition-shadow">
+            <div class="w-24 h-24 bg-thamizhi-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <span class="text-white text-2xl font-bold">
+                {member.name?.split(" ").map((n: string) => n[0]).join("")}
+              </span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
+            <h4 class="text-lg font-medium text-thamizhi-charcoal-800 mb-1">{member.name_tamil}</h4>
+            <p class="text-thamizhi-charcoal-800 font-medium mb-2">{member.position}</p>
+            <p class="text-sm text-gray-500 mb-3">{member.position_tamil}</p>
+            <p class="text-gray-600 text-sm">{member.bio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Programs -->
+{data.programs && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          {data.programs?.title || t('about.our_programs')}
+        </h2>
+        <h3 class="text-2xl font-medium text-thamizhi-charcoal-800 mb-6">
+          {data.programs?.title_tamil || ""}
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {data.programs?.list?.map((program: any, index: number) => (
+          <div class="bg-slate-50 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div class="w-16 h-16 bg-thamizhi-red-600 rounded-lg flex items-center justify-center mb-4">
+              <LucideIcon name={pickAboutIcon(index + 1)} class="w-8 h-8 text-white" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{program.name}</h3>
+            <h4 class="text-lg font-medium text-thamizhi-charcoal-800 mb-3">{program.name_tamil}</h4>
+            <p class="text-gray-600">{program.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- Statistics & Achievements -->
+{data.achievements && (
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          {data.achievements?.title || t('about.our_achievements')}
+        </h2>
+        <h3 class="text-2xl font-medium text-thamizhi-charcoal-800 mb-6">
+          {data.achievements?.title_tamil || ""}
+        </h3>
+      </div>
+
+      {data.achievements?.stats && (
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {data.achievements.stats.map((stat: any) => (
+            <div class="text-center">
+              <div class="text-3xl lg:text-4xl font-bold text-thamizhi-charcoal-800 mb-2">{stat.number}</div>
+              <div class="text-gray-600 font-medium text-sm">{stat.label}</div>
+              <div class="text-xs text-gray-500">{stat.label_tamil}</div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {data.achievements?.awards && (
+        <div class="bg-white rounded-lg p-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+            {data.achievements?.awards_title || t('about.recent_awards')}
+          </h3>
+          <div class="space-y-6">
+            {data.achievements.awards.map((award: any) => (
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-thamizhi-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <LucideIcon name="trophy" class="w-6 h-6 text-white" />
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center mb-2">
+                     <span class="bg-thamizhi-amber-200 text-thamizhi-charcoal-800 px-2 py-1 rounded text-xs font-medium mr-3">
+                      {award.year}
+                    </span>
+                    <span class="text-sm text-gray-500">{award.organization}</span>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-900 mb-1">{award.title}</h4>
+                  {award.description && (
+                    <p class="text-gray-600 text-sm">{award.description}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<!-- Contact Section -->
+{data.contact && (
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          {data.contact?.title || t('about.get_in_touch')}
+        </h2>
+        <h3 class="text-2xl font-medium text-thamizhi-charcoal-800 mb-6">
+          {data.contact?.title_tamil || ""}
+        </h3>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          {data.contact?.description || ""}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {data.contact?.address && (
+          <div class="bg-slate-50 rounded-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+              {data.contact.address.title}
+            </h3>
+            <div class="space-y-1">
+              {data.contact.address.lines?.map((line: string) => (
+                <p class="text-gray-700">{line}</p>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {data.contact?.hours && (
+          <div class="bg-gov-gray-100 rounded-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">
+              {data.contact.hours.title}
+            </h3>
+            <div class="space-y-1">
+              {data.contact.hours.schedule?.map((time: string) => (
+                <p class="text-gray-700">{time}</p>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}
